@@ -1,6 +1,6 @@
 # Isolated S1/S2 R&D Map
 
-A world map of the R&D setups and running experiments that study where isolated S1 and isolated S2 signals come from, the two ingredients of the accidental-coincidence background in liquid xenon and liquid argon TPCs. It also has a detector view showing where in a dual-phase TPC each candidate source arises.
+A world map of the R&D setups and running experiments that study where isolated S1 and isolated S2 signals come from, the two ingredients of the accidental-coincidence background in liquid xenon and liquid argon TPCs. The site has five views: Home (a short introduction to the background), Map (the setups, as a map or a list), Sources (where in a dual-phase TPC each candidate source arises), Publications (every paper, thesis and talk cited) and About.
 
 Live site: https://acmap.rarephysics.com
 
@@ -16,6 +16,7 @@ Corrections and missing setups are welcome: open an issue or a pull request.
 |---|---|
 | `data/setups.json` | The setups and experiments shown on the map and in the list |
 | `data/sources.json` | The detector view: candidate sources of isolated S1/S2, the categories that group them, the regions of the drawing, the pairing text, references, and the credit for the overview talk |
+| `data/intro.json` | The introduction on the Home view: title, lede, three key facts, sections, glossary and its references |
 | `data/meta.json` | The mechanism key A–I, the list of other known setups not yet documented, the names of past detectors left out |
 | `src/template.html` | The whole page (markup, styles, script) with two placeholders for the data and the map geometry |
 | `vendor/countries-50m.json` | World geometry (world-atlas 2.0.2, from Natural Earth); see `vendor/README.md` |
@@ -90,6 +91,10 @@ Fields of one setup:
 A source in `data/sources.json` has `id`, `name`, `signal` (`S1`, `S2`, `both`), `medium` (`xenon`, `argon`, `both`), `region` and `extra_regions` (ids from the `regions` list), `evidence` (`established`, `supported`, `hypothesised`), optional `importance`, the text fields `mechanism`, `chain`, `timescale`, `correlated_with`, `mitigation`, `key_numbers` (`{text, ref}`), `setups` (ids from `data/setups.json`), `past_setups` (plain names) and `references`.
 
 The `categories` list in the same file groups the sources for the figure: each has `id`, `signal` (`S1` or `S2`), `name`, `summary` and `sources` (source ids). Every source lists its category ids in `categories`, and the two must agree; the build checks this.
+
+The introduction in `data/intro.json` has `title`, `lede`, `key_facts` (exactly three `{value, label, ref}`), `sections` (`{id, heading, paragraphs, formula, refs}` with the ids `what`, `rate`, `why`, `xenon`, `argon`, `handling`, `open`), `glossary` (`{term, definition}`) and `references`. A citation is written `[n]` in the text, where n counts from 1 in `references`; `ref` and `refs` are 0-based indices. The build checks that every citation resolves. If the file is missing, the Home view says the introduction is pending.
+
+The Publications view is not stored: the build merges the references of all setups, sources and the introduction and removes duplicates by link (or by title and year when there is no link).
 
 ## Credits
 

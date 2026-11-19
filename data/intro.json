@@ -1,0 +1,239 @@
+{
+ "title": "The accidental-coincidence background",
+ "lede": "Dual-phase TPCs record light signals and charge signals that have no partner. When one of each falls by chance inside the same drift window, the pair looks like a real low-energy event. This is the accidental-coincidence background.",
+ "key_facts": [
+  {
+   "value": "13–14 Hz",
+   "label": "isolated S1s in PandaX-4T under loose cuts",
+   "ref": 5
+  },
+  {
+   "value": "6.6 of 19",
+   "label": "expected accidentals among events observed in LZ's low-mass search",
+   "ref": 3
+  },
+  {
+   "value": "30–70%",
+   "label": "of DarkSide-50 events below four electrons are delayed electrons",
+   "ref": 8
+  }
+ ],
+ "sections": [
+  {
+   "id": "what",
+   "heading": "What an accidental coincidence is",
+   "paragraphs": [
+    "In a dual-phase TPC a real interaction gives a prompt light signal, S1, followed by a charge signal, S2. The S2 is delayed by the electron drift, at most by the maximum drift time. The detector also records isolated signals: S1s with no S2 and S2s with no S1. When an isolated S2 follows an unrelated isolated S1 within one drift window, the two are reconstructed as a single scatter at a fake depth."
+   ],
+   "formula": null,
+   "refs": []
+  },
+  {
+   "id": "rate",
+   "heading": "How often it happens",
+   "paragraphs": [
+    "To first order the rate is the product of the two isolated rates and the drift window. Larger detectors are hit harder: the window is longer and the isolated rates grow. XENONnT's isolated-S2 rate in its first WIMP search, 80 mHz, was an order of magnitude above XENON1T's [2].",
+    "In XENONnT's ⁸B search, before any mitigation cut, isolated S1s arrive at about 15 Hz and isolated S2s at about 0.15 Hz. With a 2.25 ms maximum drift time this gives about 400 accidental pairs per day (numbers from a conference talk) [1]."
+   ],
+   "formula": "R_AC = R_isoS1 × R_isoS2 × Δt_drift",
+   "refs": [
+    1,
+    0
+   ]
+  },
+  {
+   "id": "why",
+   "heading": "Why it matters",
+   "paragraphs": [
+    "Small pulses are the most frequent, so accidentals pile up at few-photon S1s and few-electron S2s. This is where ⁸B solar-neutrino CEvNS and light dark matter are searched for. An accidental is not one physical event, so shielding and fiducialisation alone do not remove it. Experiments model it from their own data and apply dedicated cuts, which cost signal: in PandaX-4T's ⁸B analysis the veto after large signals removed 23% and 34% of the paired-data exposure in its two runs [3]."
+   ],
+   "formula": null,
+   "refs": [
+    2
+   ]
+  },
+  {
+   "id": "xenon",
+   "heading": "In xenon detectors",
+   "paragraphs": [
+    "LZ expects 6.6 ± 0.3 accidentals in its 5.7 t·yr low-mass search, in which 19 events were observed [4]. In XENONnT's first ⁸B search accidentals were 7.5 ± 0.7 and 17.8 ± 1.0 of the 26.4 expected background events, even with isolated rates cut to 2.3 Hz (S1) and 18 mHz (S2) in the first run [5]. PandaX-4T reports 13.3 and 14.4 Hz of isolated S1s and 0.125 and 0.146 Hz of isolated S2s under loose cuts in two runs [6].",
+    "The isolated signals are fed by delayed photons and delayed electrons after large S2s, charge-insensitive regions and electrode emission [7][8]; see the sources view."
+   ],
+   "formula": null,
+   "refs": [
+    3,
+    4,
+    5,
+    6,
+    7
+   ]
+  },
+  {
+   "id": "argon",
+   "heading": "In argon detectors (DarkSide)",
+   "paragraphs": [
+    "Argon differs. S1 pulse shape is a strong handle: the dominant isolated S1s expected in DarkSide-20k, alpha scintillation in the ESR reflector and the TPB coating, are mitigated by S1 pulse-shape cuts [7]. The problem concentrates in the ionisation-only, low-mass channel. In DarkSide-50, 30–70% of events below four electrons are delayed electrons released from impurities [9].",
+    "The main isolated S2s expected in DarkSide-20k are unresolved S1+S2 events above the extraction grid, where the field is about 17 times the drift field. The DarkSide-20k statements are expectations from simulation, from the LIDINE 2026 overview talk [7]."
+   ],
+   "formula": null,
+   "refs": [
+    6,
+    8
+   ]
+  },
+  {
+   "id": "handling",
+   "heading": "How experiments deal with it today",
+   "paragraphs": [
+    "Vetoes in time and position after large S2s: XENONnT's shadow cuts remove more than 80% of isolated S1s and more than 50% of isolated S2s at about 96% signal acceptance [5]. Pulse-shape and pattern cuts or classifiers: XENONnT's S2 classifier rejects about 90% of accidentals at 80% signal acceptance [5], and LZ tags gate emission by its coincident photon [8]. Data-driven models: measured isolated S1s and S2s are paired artificially and checked on control samples, as in XENONnT [2] and LZ [4]."
+   ],
+   "formula": null,
+   "refs": [
+    4,
+    7,
+    1,
+    3
+   ]
+  },
+  {
+   "id": "open",
+   "heading": "What is still open",
+   "paragraphs": [
+    "No experiment has published how its isolated-S1 or isolated-S2 rate divides among sources [7]. The origin of delayed photons at long delays is unresolved: bench work finds quartz-window fluorescence dominant below 5 ms and leaves longer delays open [11], while XENONnT's delayed hits do not follow the S2 light pattern (conference talk) [10]. Several electrode- and wall-related sources are also unsettled. The R&D setups on the map address these questions."
+   ],
+   "formula": null,
+   "refs": [
+    6,
+    10,
+    9
+   ]
+  }
+ ],
+ "glossary": [
+  {
+   "term": "S1",
+   "definition": "The prompt scintillation light produced in the liquid by an energy deposit."
+  },
+  {
+   "term": "S2",
+   "definition": "The delayed light produced in the gas by the ionisation electrons after they drift up and are extracted from the liquid."
+  },
+  {
+   "term": "Isolated S1",
+   "definition": "An S1 with no S2 belonging to it, also called a lone S1."
+  },
+  {
+   "term": "Isolated S2",
+   "definition": "An S2 with no S1 belonging to it, also called a lone S2."
+  },
+  {
+   "term": "Drift time",
+   "definition": "The delay between S1 and S2, which gives the depth of the event and is bounded by the maximum drift time from cathode to gate."
+  },
+  {
+   "term": "Accidental coincidence",
+   "definition": "An unrelated isolated S1 and isolated S2 that fall within one maximum drift time and are reconstructed as a single event."
+  }
+ ],
+ "references": [
+  {
+   "title": "First measurement of solar 8B CEvNS with the XENONnT dark matter experiment",
+   "authors": "P. Cimental, for XENON",
+   "year": 2025,
+   "venue": "EPS-HEP 2025, Marseille, 8 July 2025 (slides)",
+   "url": "https://ikarus.physik.uzh.ch/dam/jcr:e786b826-4b67-40d8-8ea4-2e9883a484c5/XENON_CEvNS_EPS_2025_Cimental_vf.pdf",
+   "type": "talk",
+   "verified": null
+  },
+  {
+   "title": "XENONnT WIMP Search: Signal & Background Modeling and Statistical Inference",
+   "authors": "E. Aprile et al. (XENON)",
+   "year": 2025,
+   "venue": "Phys. Rev. D 111, 103040 (2025), doi:10.1103/PhysRevD.111.103040; arXiv:2406.13638",
+   "url": "https://arxiv.org/abs/2406.13638",
+   "type": "paper",
+   "verified": null
+  },
+  {
+   "title": "First Indication of Solar 8B Neutrino Flux through Coherent Elastic Neutrino-Nucleus Scattering in PandaX-4T",
+   "authors": "Z. Bo et al. (PandaX)",
+   "year": 2024,
+   "venue": "Phys. Rev. Lett. 133, 191001 (2024), doi:10.1103/PhysRevLett.133.191001; arXiv:2407.10892",
+   "url": "https://arxiv.org/abs/2407.10892",
+   "type": "paper",
+   "verified": null
+  },
+  {
+   "title": "Searches for Light Dark Matter and Evidence of Coherent Elastic Neutrino-Nucleus Scattering of Solar Neutrinos with the LUX-ZEPLIN (LZ) Experiment",
+   "authors": "D. S. Akerib et al. (LZ)",
+   "year": 2026,
+   "venue": "Phys. Rev. Lett. 137, 091806 (2026), doi:10.1103/jvqf-njpj; arXiv:2512.08065",
+   "url": "https://arxiv.org/abs/2512.08065",
+   "type": "arXiv",
+   "verified": null
+  },
+  {
+   "title": "First Indication of Solar 8B Neutrinos via Coherent Elastic Neutrino-Nucleus Scattering with XENONnT",
+   "authors": "E. Aprile et al. (XENON)",
+   "year": 2024,
+   "venue": "Phys. Rev. Lett. 133, 191002 (2024), doi:10.1103/PhysRevLett.133.191002; arXiv:2408.02877",
+   "url": "https://arxiv.org/abs/2408.02877",
+   "type": "paper",
+   "verified": null
+  },
+  {
+   "title": "Dark Matter Search Results from 1.54 Tonne-Year Exposure of PandaX-4T",
+   "authors": "Z. Bo et al. (PandaX)",
+   "year": 2025,
+   "venue": "Phys. Rev. Lett. 134, 011805 (2025), doi:10.1103/PhysRevLett.134.011805; arXiv:2408.00664",
+   "url": "https://arxiv.org/abs/2408.00664",
+   "type": "paper",
+   "verified": null
+  },
+  {
+   "title": "Accidental Coincidence Backgrounds in Double-Phase TPC Dark Matter Detectors",
+   "authors": "M. Wada",
+   "year": 2026,
+   "venue": "LIDINE 2026, Nikhef, Amsterdam, 6 Oct 2026 (slides)",
+   "url": "https://indico.nikhef.nl/event/7584/contributions/31837/attachments/11517/17946/LIDINE2026_MasayukiWada.pdf",
+   "type": "talk",
+   "verified": null
+  },
+  {
+   "title": "Study of few-electron backgrounds in the LUX-ZEPLIN detector",
+   "authors": "D. S. Akerib et al. (LZ)",
+   "year": 2026,
+   "venue": "Phys. Rev. D 113, 072018 (2026), arXiv:2510.06500",
+   "url": "https://arxiv.org/abs/2510.06500",
+   "type": "arXiv",
+   "verified": null
+  },
+  {
+   "title": "Characterization of spurious-electron signals in the double-phase argon TPC of the DarkSide-50 experiment",
+   "authors": "P. Agnes et al. (DarkSide-50)",
+   "year": 2025,
+   "venue": "Eur. Phys. J. C 86, 1099 (2026); arXiv:2507.23003",
+   "url": "https://arxiv.org/abs/2507.23003",
+   "type": "paper",
+   "verified": null
+  },
+  {
+   "title": "Delayed Photon backgrounds in XENONnT experiment",
+   "authors": "P. Kharbanda, for XENON",
+   "year": 2025,
+   "venue": "LIDINE 2025, Hong Kong, 21-24 Oct 2025 (slides)",
+   "url": "https://indico.ihep.ac.cn/event/24964/contributions/195055/attachments/95920/126461/Lidine_talk_pranati.pdf",
+   "type": "talk",
+   "verified": null
+  },
+  {
+   "title": "Quartz fluorescence backgrounds in xenon particle detectors",
+   "authors": "P. Sorensen and R. Gibbons",
+   "year": 2025,
+   "venue": "Phys. Rev. D 112, 052004 (2025), doi:10.1103/lsmf-pm5g; arXiv:2505.08067",
+   "url": "https://arxiv.org/abs/2505.08067",
+   "type": "paper",
+   "verified": null
+  }
+ ]
+}

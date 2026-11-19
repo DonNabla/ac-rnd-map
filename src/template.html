@@ -663,6 +663,85 @@ button.evchip { cursor: pointer; font-family: inherit; }
 .c-n { font-weight: 600; color: var(--text); overflow-wrap: anywhere; }
 .c-m { grid-column: 2 / 4; font-size: 12.5px; color: var(--text-muted); overflow-wrap: anywhere; }
 .c-e { display: inline-flex; }
+/* ---------- home, publications, map/list switch ---------- */
+.tabs { max-width: 100%; overflow-x: auto; scrollbar-width: none; }
+.tabs::-webkit-scrollbar { display: none; }
+.tab { flex: none; }
+.mode { flex: none; }
+.bar.plain .mode { display: none; }
+#view-home .view-inner { max-width: 880px; gap: 32px; padding-block: 36px 72px; }
+.home-top { display: grid; gap: 12px; }
+.home-title { font-size: 34px; line-height: 1.15; font-weight: 700; max-width: 26ch; text-wrap: balance; }
+.home-lede { font-size: 18px; line-height: 1.55; color: var(--text); max-width: 50ch; }
+.home-fig { margin: 0; display: grid; gap: 8px; }
+.explainer { display: block; width: 100%; max-width: 640px; height: auto; }
+.home-fig figcaption { font-size: 13px; color: var(--text-muted); }
+.x-h { font: 600 13px var(--font); fill: var(--text-muted); letter-spacing: 0.04em; }
+.x-t { font: 500 13px var(--font); fill: var(--text-body); }
+.x-mute { fill: var(--text-muted); }
+.x-c1, .x-s1 { fill: var(--s1); }
+.x-c2, .x-s2 { fill: var(--s2); }
+.x-axis { fill: none; stroke: var(--text-muted); stroke-width: 1.2; }
+.x-head { fill: var(--text-muted); }
+.x-win { fill: var(--hover); }
+.x-win.x-acc { fill: var(--det-hi); }
+.x-br { fill: none; stroke: var(--text-muted); stroke-width: 1.2; }
+.x-br.x-acc { stroke: var(--accent); }
+text.x-acc { fill: var(--accent-pale); font-weight: 600; }
+.facts3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px 32px; border-block: 1px solid var(--line); padding-block: 20px; }
+.fact3 b { display: block; font-size: 28px; line-height: 1.15; color: var(--accent-pale); font-variant-numeric: tabular-nums; }
+.fact3 span { font-size: 13px; color: var(--text-muted); }
+.cite { border: 0; background: none; padding: 0 3px; margin: 0 1px; font: 600 12px var(--font); color: var(--outline-hi); vertical-align: super; line-height: 1; border-radius: 4px; }
+.cite:hover { color: var(--text); text-decoration: underline; }
+.hblock { display: grid; gap: 10px; }
+.hblock .kick, .home-top .kick { font-size: 12px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--accent); }
+.ecards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr)); gap: 14px; }
+.ecard { display: grid; gap: 4px; text-align: left; align-content: start; border: 1px solid var(--accent-line); background: var(--panel-bg); border-radius: 14px; padding: 18px 20px; }
+.ecard:hover { background: var(--land); border-color: var(--accent); }
+.e-t { font-size: 18px; font-weight: 700; color: var(--accent-pale); }
+.e-d { color: var(--text-body); }
+.e-n { font-size: 12.5px; color: var(--text-muted); margin-top: 4px; font-variant-numeric: tabular-nums; }
+.ecards.compact .ecard { padding: 12px 16px; }
+.ecards.compact .e-t { font-size: 16px; }
+.ecards.compact .e-d { font-size: 13px; }
+.hsec { display: grid; gap: 12px; max-width: 58ch; }
+.hsec h3 { font-size: 20px; font-weight: 700; color: var(--text); }
+.hsec p { font-size: 15.5px; line-height: 1.7; }
+.xa-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 16px; align-items: start; }
+.hsec.framed { border: 1px solid var(--line-strong); border-radius: 14px; background: var(--panel-bg); padding: 18px 20px; max-width: none; }
+.hsec.framed h3 { font-size: 17px; color: var(--accent-pale); }
+.hsec.framed p { font-size: 14.5px; line-height: 1.65; }
+.gloss { margin: 0; display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 16px; }
+.gloss dt { color: var(--text); font-weight: 600; }
+.gloss dd { margin: 0; }
+#view-publications .view-inner { max-width: 980px; }
+.pub-tools { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; }
+.pub-tools input { flex: 1 1 220px; max-width: 320px; min-height: 32px; background: var(--ink); border: 1px solid var(--line-strong); border-radius: 999px; padding: 5px 13px; color: var(--text); }
+.pub-sel { display: inline-flex; align-items: center; gap: 8px; }
+.pub-sel select { font: inherit; min-height: 32px; max-width: 260px; background: var(--ink); color: var(--text); border: 1px solid var(--line-strong); border-radius: 999px; padding: 4px 10px; }
+.pub-tools .count { min-width: 0; margin-left: auto; }
+.pub-group { display: grid; gap: 2px; }
+.pub-year { position: sticky; top: 0; z-index: 1; display: flex; gap: 10px; align-items: baseline; background: var(--bar-bg); border-radius: 8px; padding: 6px 10px; font-size: 14px; font-weight: 700; color: var(--accent); }
+.pub-year span { font-size: 12px; font-weight: 500; color: var(--text-muted); }
+.pubs { list-style: none; margin: 0; padding: 0; display: grid; }
+.pub { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 3px 12px; align-items: start; padding: 10px; border-bottom: 1px solid var(--line); }
+.p-t { font-weight: 500; overflow-wrap: anywhere; }
+.p-m { grid-column: 1 / 3; font-size: 13px; color: var(--text-muted); overflow-wrap: anywhere; }
+.p-c { grid-column: 1 / 3; display: flex; flex-wrap: wrap; gap: 5px; align-items: center; margin-top: 3px; }
+.p-cl { font-size: 12px; color: var(--text-muted); margin-right: 2px; }
+.pchip { display: inline-flex; align-items: center; min-height: 28px; border: 1px solid var(--line-strong); background: var(--chip-bg); color: var(--text-body); border-radius: 999px; padding: 2px 10px; font-size: 12px; }
+button.pchip:hover { background: var(--hover); color: var(--text); }
+.pchip.psrc { border-color: var(--accent-line); }
+.p-more { display: contents; }
+.pchip.plain { border-style: dashed; background: none; color: var(--text-muted); }
+.linkbtn { border: 0; background: none; padding: 0; min-height: 28px; color: var(--accent-pale); text-decoration: underline; text-underline-offset: 2px; }
+.linkbtn:hover { color: var(--text); }
+.brand { margin-right: 0; }
+.bar-main .search { margin-left: auto; }
+.maprow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; min-width: 0; }
+.maprow .filters { flex: 1 1 auto; min-width: 0; }
+.maprow .count { margin-left: auto; min-width: 0; }
+.bar.plain .maprow { display: none; }
 /* ---------- narrow ---------- */
 @media (max-width: 860px) {
   .filters-toggle { display: inline-flex; align-items: center; gap: 6px; }
@@ -684,6 +763,19 @@ button.evchip { cursor: pointer; font-family: inherit; }
   .stage.panel-open .map-note { display: none; }
   .lede h2 { font-size: 20px; }
   .ftitle { display: none; }
+  .maprow .filters { flex-basis: 100%; order: 9; }
+  .bar-main .search { margin-left: 0; }
+  .tabs { padding: 2px; gap: 0; }
+  .tabs .tab { padding: 5px 6px; }
+  .tabs .tab .tab-t { font-size: 13.5px; }
+  .x-t, .x-h { font-size: 17px; }
+  .home-title { font-size: 26px; }
+  .home-lede { font-size: 16px; }
+  #view-home .view-inner { gap: 26px; padding-block: 22px 56px; }
+  .gloss { grid-template-columns: minmax(0, 1fr); }
+  .gloss dd { margin-bottom: 6px; }
+  .pub-tools .segs { flex-wrap: wrap; border-radius: 14px; }
+  .pub-tools .count { margin-left: 0; }
   .fpop .fgroup { align-items: center; }
   .det-head { align-items: flex-start; }
   .arow { grid-template-columns: minmax(0, 1fr) auto; }
@@ -714,29 +806,34 @@ button.evchip { cursor: pointer; font-family: inherit; }
 <body>
 <a class="skip" id="skip" href="#map">Skip to map</a>
 <div class="app" id="app">
-  <header class="bar on-map">
+  <header class="bar plain">
     <div class="bar-main">
       <div class="brand">
         <span class="brand-kicker">Accidental coincidence R&amp;D</span>
         <h1>Isolated S1/S2 R&amp;D map</h1>
       </div>
       <div class="tabs" role="tablist" aria-label="View">
-        <button class="tab" role="tab" id="tab-map" data-view="map" aria-selected="true" aria-controls="view-map" tabindex="0"><span class="tab-t">Map</span><span class="tab-s">Sites worldwide</span></button>
-        <button class="tab" role="tab" id="tab-list" data-view="list" aria-selected="false" aria-controls="view-list" tabindex="-1"><span class="tab-t">List</span><span class="tab-s">All setups</span></button>
-        <button class="tab" role="tab" id="tab-detector" data-view="detector" aria-selected="false" aria-controls="view-detector" tabindex="-1"><span class="tab-t">Detector</span><span class="tab-s">Signal sources</span></button>
+        <button class="tab" role="tab" id="tab-home" data-view="home" aria-selected="true" aria-controls="view-home" tabindex="0"><span class="tab-t">Home</span><span class="tab-s">The background in brief</span></button>
+        <button class="tab" role="tab" id="tab-map" data-view="map" aria-selected="false" aria-controls="view-map" tabindex="-1"><span class="tab-t">Map</span><span class="tab-s">Setups worldwide</span></button>
+        <button class="tab" role="tab" id="tab-detector" data-view="detector" aria-selected="false" aria-controls="view-detector" tabindex="-1"><span class="tab-t">Sources</span><span class="tab-s">Where signals arise</span></button>
+        <button class="tab" role="tab" id="tab-publications" data-view="publications" aria-selected="false" aria-controls="view-publications" tabindex="-1"><span class="tab-t">Publications</span><span class="tab-s">Papers and talks</span></button>
         <button class="tab" role="tab" id="tab-about" data-view="about" aria-selected="false" aria-controls="view-about" tabindex="-1"><span class="tab-t">About</span><span class="tab-s">Scope and method</span></button>
       </div>
       <div class="search">
         <input id="q" type="search" placeholder="Search setups, people, places, physics" aria-label="Search setups" autocomplete="off" spellcheck="false">
       </div>
+    </div>
+    <div class="maprow">
+      <span class="segs mode" id="map-mode" role="group" aria-label="Show the setups as"><button class="seg" id="mode-map" data-mode="map" aria-pressed="true">Map</button><button class="seg" id="mode-list" data-mode="list" aria-pressed="false">List</button></span>
       <button class="btn filters-toggle" id="filters-toggle" aria-expanded="false" aria-controls="filters">Filters <span id="filters-n"></span></button>
+      <div class="filters" id="filters"></div>
       <div class="count" id="count" aria-live="polite"></div>
     </div>
-    <div class="filters" id="filters"></div>
   </header>
 
   <main class="stage" id="stage">
-    <section class="view view-map" id="view-map" role="tabpanel" aria-labelledby="tab-map">
+    <section class="view view-scroll" id="view-home" role="tabpanel" aria-labelledby="tab-home"><div class="view-inner" id="home-inner"></div></section>
+    <section class="view view-map" id="view-map" role="tabpanel" aria-labelledby="tab-map" hidden>
       <canvas id="map-canvas" aria-hidden="true"></canvas>
       <svg id="map-svg" role="group" tabindex="-1" aria-label="World map of setups. Use the list view for a text version.">
         <g id="g-dots"></g><g id="g-labels"></g><g id="g-markers"></g>
@@ -750,18 +847,13 @@ button.evchip { cursor: pointer; font-family: inherit; }
       <p class="map-sub">R&amp;D setups and running experiments that study isolated S1 and S2 signals, the ingredients of the accidental-coincidence background in xenon and argon TPCs &middot; built <span class="build-date"></span></p>
       <span class="zoom-hint" id="zoom-hint">Scroll or pinch to zoom</span>
       <button class="map-note" id="map-note" hidden></button>
-      <div class="hint caption" id="hint" role="note" hidden>
-        <b>How to read this</b>
-        <p class="hint-sub">R&amp;D setups and running experiments that study isolated S1 and S2 signals in xenon and argon TPCs &middot; built <span class="build-date"></span></p>
-        <p>Each marker is a setup or an experiment: colour gives the target, shape the type, and a number means several at one site. Select one for its measurements and papers; the filters above narrow by target, type, status or mechanism.</p>
-        <div class="acts"><button class="btn" id="hint-det">Where the signals arise: Detector view</button><button class="btn" id="hint-ok">Got it</button></div>
-      </div>
       <div class="map-empty caption" id="map-empty" hidden><p>No setup matches these filters.</p><button class="btn" id="map-empty-clear">Clear filters</button></div>
       <div class="legend caption" id="legend"></div>
       <div class="tip caption" id="tip" hidden></div>
     </section>
-    <section class="view view-scroll" id="view-list" role="tabpanel" aria-labelledby="tab-list" hidden><div class="view-inner" id="list-inner"></div></section>
+    <section class="view view-scroll" id="view-list" role="tabpanel" aria-labelledby="tab-map" hidden><div class="view-inner" id="list-inner"></div></section>
     <section class="view view-scroll" id="view-detector" role="tabpanel" aria-labelledby="tab-detector" hidden><div class="view-inner" id="det-inner"></div></section>
+    <section class="view view-scroll" id="view-publications" role="tabpanel" aria-labelledby="tab-publications" hidden><div class="view-inner" id="pub-inner"></div></section>
     <section class="view view-scroll" id="view-about" role="tabpanel" aria-labelledby="tab-about" hidden><div class="view-inner" id="about-inner"></div></section>
     <aside class="panel" id="panel" aria-label="Details" tabindex="-1" hidden></aside>
   </main>
@@ -857,11 +949,12 @@ function matchField(s) {            /* the first field, in display priority, tha
 }
 
 /* ================= state ================= */
-var state = { view: 'map', q: '', targets: new Set(), kinds: new Set(), phases: new Set(), tags: new Set(), only: null, onlyLabel: '', saved: null,
+var state = { view: 'home', mapMode: 'map', pq: '', ptype: '', pcite: '', q: '', targets: new Set(), kinds: new Set(), phases: new Set(), tags: new Set(), only: null, onlyLabel: '', saved: null,
   selId: null, site: null, srcId: null, catId: null, dmed: null, group: 'country' };
 var matched = SETUPS.slice();
 var lastFocus = null;
 
+function onMap() { return state.view === 'map' && state.mapMode === 'map'; }
 function matches(s) {
   if (state.targets.size && !(state.targets.has(s.target) || (s.target === 'both' && (state.targets.has('xenon') || state.targets.has('argon'))))) return false;
   if (state.kinds.size && !state.kinds.has(s.kind)) return false;
@@ -1083,7 +1176,7 @@ function extent() { return [[0, -padY], [W * base + padX, H * base + padY]]; }
 function constrain(t) { return zoom.constrain()(t, [[0, 0], [sw, sh]], extent()); }
 function updateExtent() {       /* while a panel is open the map may slide left by the panel width, so no marker is stuck under it */
   if (!zoom || !sw) return;
-  var open = !$('panel').hidden && state.view === 'map' && !narrow();
+  var open = !$('panel').hidden && onMap() && !narrow();
   var nx = open ? $('panel').offsetWidth + 24 : 0;
   if (nx === padX) return;
   padX = nx;
@@ -1132,7 +1225,7 @@ function zoomBy(f) {
 }
 function panelBox() {
   var p = $('panel');
-  if (p.hidden || state.view !== 'map') return null;
+  if (p.hidden || !onMap()) return null;
   return narrow() ? { bottom: p.offsetHeight } : { right: p.offsetWidth + 12 };
 }
 function visibleCentre() {
@@ -1370,7 +1463,7 @@ function showTip(c) {
 function hideTip() {
   $('tip').hidden = true;
   var sel = byId.get(state.selId);
-  setFocusHost(sel && state.view === 'map' ? sel.host : -1);
+  setFocusHost(sel && onMap() ? sel.host : -1);
 }
 
 function activate(c, el) {
@@ -1380,7 +1473,7 @@ function activate(c, el) {
   else openSite(c);
 }
 function ensureVisible(s) {
-  if (!T || !s.placed || state.view !== 'map') return;
+  if (!T || !s.placed || !onMap()) return;
   var p = toScreen(s.wx, s.wy), b = panelBox() || {}, m = 50;
   var ok = p[0] > m && p[0] < sw - (b.right || 0) - m && p[1] > m + 40 && p[1] < sh - (b.bottom || 0) - m;
   if (!ok) setView(s.wx, s.wy, T.k, 450, visibleCentre());
@@ -1388,9 +1481,15 @@ function ensureVisible(s) {
 
 /* ================= routing and detail frame ================= */
 /* The hash carries the view or the selection: #map #list #detector #about #<setup-id> #cat-<category-id> #src-<source-id> */
-var VIEWS = ['map', 'list', 'detector', 'about'];
+var VIEWS = ['home', 'map', 'detector', 'publications', 'about'];   /* 'detector' is the Sources view; the list is a mode of the map view */
 var routing = false;
-function curHash() { return state.srcId ? 'src-' + state.srcId : state.catId ? 'cat-' + state.catId : state.selId ? state.selId : state.view; }
+function curHash() {
+  if (state.srcId) return 'src-' + state.srcId;
+  if (state.catId) return 'cat-' + state.catId;
+  if (state.selId) return state.selId;
+  if (state.view === 'map') return state.mapMode === 'list' ? 'list' : 'map';
+  return state.view === 'detector' ? 'sources' : state.view;
+}
 function pushHash() {
   if (routing) return;
   var h = curHash();
@@ -1407,13 +1506,18 @@ function readHash() {
   var h = '';
   try { h = decodeURIComponent(location.hash.replace(/^#/, '')); } catch (e) { h = ''; }
   if (!/^[A-Za-z0-9-]*$/.test(h)) h = '';
-  if (h === curHash() || (!h && curHash() === 'map')) return;
+  if (h === 'detector') h = 'sources';
+  if (h === curHash() || (!h && curHash() === 'home')) return;
   routing = true;
   try {
     if (h.indexOf('src-') === 0 && srcById.has(h.slice(4))) selectSource(h.slice(4), { fromHash: true });
     else if (h.indexOf('cat-') === 0 && catById.has(h.slice(4))) selectCategory(h.slice(4), { fromHash: true });
     else if (h && byId.has(h)) select(h, { fromHash: true });
-    else { hidePanel(); setView2(VIEWS.indexOf(h) >= 0 ? h : 'map'); }
+    else {
+      hidePanel();
+      if (h === 'map') state.mapMode = 'map';
+      setView2(h || 'home');
+    }
   } finally { routing = false; }
 }
 function linkFor(hash) {
@@ -1502,7 +1606,7 @@ function renderSetup(s) {
   var probes = SOURCES.filter(function (x) { return (x.setups || []).indexOf(s.id) >= 0; });
   var pb = '';
   if (probes.length) pb += '<div class="srcbtns">' + probes.map(function (x) {
-    return '<button class="srcbtn" data-src="' + esc(x.id) + '" title="Open on the Detector view">' + esc(x.name) + '</button>';
+    return '<button class="srcbtn" data-src="' + esc(x.id) + '" title="Open on the Sources view">' + esc(x.name) + '</button>';
   }).join('') + '</div>';
   if (s.tags.length) {
     pb += '<div class="tagrow">' + s.tags.map(function (t) {
@@ -1538,12 +1642,12 @@ function select(id, opt) {
   if (!s) return;
   if (!opt.fromHash && !lastFocus) lastFocus = document.activeElement;
   state.selId = id; state.site = null; state.srcId = null; state.catId = null;
-  if (state.view !== 'list' && state.view !== 'map') setView2('map');
+  if (state.view !== 'map') { state.mapMode = 'map'; setView2('map'); }
   showPanel(renderSetup(s));
   pushHash();
   markRows(); markScene();
   if (!opt.fromHash) { var t = $('panel-title'); if (t) t.focus({ preventScroll: true }); }
-  if (state.view === 'map') {
+  if (onMap()) {
     setFocusHost(s.host);
     requestAnimationFrame(function () { resizeMap(); ensureVisible(s); schedule(); });
   }
@@ -1690,7 +1794,8 @@ function renderAbout() {
   var stat = function (n, t) { return '<div class="stat"><b>' + n + '</b><span>' + t + '</span></div>'; };
   h += '<div class="sec lede"><span class="kick">About this map</span><h2>Who studies where isolated S1 and S2 signals come from</h2>' +
     '<p>The R&amp;D setups and running experiments that study the origin of isolated S1 and isolated S2 signals, the two ingredients of the accidental-coincidence background in liquid xenon and liquid argon TPCs. ' +
-    'For people in low-energy analyses and detector R&amp;D who want to see who measures what, where, and which papers to read.</p>' +
+    'For people in low-energy analyses and detector R&amp;D who want to see who measures what, where, and which papers to read. ' +
+    'For the physics, see <button class="linkbtn" data-go="home">the introduction on Home</button>.</p>' +
     '<div class="stats">' + stat(nLab, 'R&amp;D setups') + stat(nIn, 'entries in experiments') + stat(nCountries, 'countries') + stat(SOURCES.length, 'candidate sources') + '</div></div>';
 
   var past = DATA.past_detectors || [];
@@ -1698,7 +1803,7 @@ function renderAbout() {
   h += '<div class="card"><h3>Scope</h3><ul>' +
     '<li>One entry is one setup or one study programme with public work on isolated S1s, isolated S2s, delayed electrons or photons, or accidental coincidences.</li>' +
     '<li>A detector can have several entries when its studies are distinct: LZ has three.</li>' +
-    '<li>Experiments that no longer run are left out' + (past.length ? ' (' + esc(past.join(', ')) + ')' : '') + '; their papers still appear on the Detector view.</li>' +
+    '<li>Experiments that no longer run are left out' + (past.length ? ' (' + esc(past.join(', ')) + ')' : '') + '; their papers still appear on the Sources and Publications views.</li>' +
     '<li>An entry spread over several sites has one pin, at the detector or the main laboratory.</li></ul></div>';
   h += '<div class="card blue"><h3>Method and disclosure</h3>' +
     '<p>Compiled with AI research agents from public papers, preprints, theses and talks; built ' + esc(DATA.build_date) + '. Not reviewed by the collaborations or groups described. ' +
@@ -1715,7 +1820,7 @@ function renderAbout() {
   if (rt.found) {
     var u = safeUrl(rt.url) || safeUrl(rt.slides_url);
     var t1 = esc((rt.speaker ? rt.speaker + ', ' : '') + (rt.event || 'overview talk'));
-    links.push('Detector view: after the overview by ' + (u ? link(u, t1) : t1) + '.');
+    links.push('Sources view: after the overview by ' + (u ? link(u, t1) : t1) + '.');
     var rtb = (rt.other_talks_used || []).filter(function (t) { return /round/i.test(t.title || ''); })[0];
     if (rtb) links.push((safeUrl(rtb.url) ? link(rtb.url, esc(rt.event || '') + ' round table on accidental coincidences') : 'Round table on accidental coincidences') + '.');
   }
@@ -2225,6 +2330,152 @@ function showOnMap(id) {
   if (zoom && sw) resetView(false);
 }
 
+/* ================= home view: introduction ================= */
+var INTRO = DATA.intro || null;
+var PUBS = DATA.publications || [];
+function citeMarks(text) {
+  var refs = (INTRO && INTRO.references) || [];
+  return esc(text).replace(/\s*\[(\d+)\]/g, function (m, n) {
+    var i = +n - 1;
+    return refs[i] ? '<button class="cite" data-iref="' + i + '" title="' + esc(refs[i].title) + '" aria-label="Reference ' + n + '">' + n + '</button>' : m;
+  });
+}
+/* the mechanism in one picture: a real S1+S2 pair, and two unrelated lone pulses inside one drift window */
+function explainerSvg() {
+  var s1 = function (x, y) { return '<path class="x-s1" d="M' + (x - 8) + ',' + y + 'L' + x + ',' + (y - 48) + 'L' + (x + 8) + ',' + y + 'Z"/>'; };
+  var s2 = function (x, y) { return '<path class="x-s2" d="M' + (x - 30) + ',' + y + 'C' + (x - 14) + ',' + y + ' ' + (x - 12) + ',' + (y - 60) + ' ' + x + ',' + (y - 60) + 'C' + (x + 12) + ',' + (y - 60) + ' ' + (x + 14) + ',' + y + ' ' + (x + 30) + ',' + y + 'Z"/>'; };
+  var axis = function (y) { return '<path class="x-axis" d="M16,' + y + 'H540"/><path class="x-head" d="M548,' + y + 'l-9,-4v8Z"/><text class="x-t x-mute" x="548" y="' + (y + 18) + '" text-anchor="end">time</text>'; };
+  var win = function (x0, x1, y, cls, label) {
+    return '<rect class="x-win ' + cls + '" x="' + x0 + '" y="' + (y - 70) + '" width="' + (x1 - x0) + '" height="70"/>' +
+      '<path class="x-br ' + cls + '" d="M' + x0 + ',' + (y + 8) + 'v8H' + x1 + 'v-8"/><text class="x-t ' + cls + '" x="' + ((x0 + x1) / 2) + '" y="' + (y + 34) + '" text-anchor="middle">' + label + '</text>';
+  };
+  return '<svg class="explainer" viewBox="0 0 560 318" role="img" aria-label="Top: a real event, an S1 pulse followed by its S2 within the maximum drift time. Bottom: an isolated S1 and an isolated S2 from unrelated origins fall inside one drift window and look like a real event.">' +
+    '<text class="x-h" x="16" y="24">A real event</text>' + win(120, 420, 108, 'x-real', 'within the maximum drift time') + axis(108) + s1(120, 108) + s2(300, 108) +
+    '<text class="x-t x-c1" x="120" y="52" text-anchor="middle">S1</text><text class="x-t x-c2" x="300" y="40" text-anchor="middle">S2</text>' +
+    '<text class="x-h" x="16" y="186">Two unrelated pulses</text>' + win(180, 480, 270, 'x-acc', 'accidental coincidence: looks like a real event') + axis(270) + s1(180, 270) + s2(400, 270) +
+    '<text class="x-t x-c1" x="180" y="214" text-anchor="middle">isolated S1</text><text class="x-t x-c2" x="400" y="202" text-anchor="middle">isolated S2</text></svg>';
+}
+function entryCards(cls) {
+  var nC = uniq(SETUPS.map(function (s) { return s.country; })).length;
+  var card = function (go, title, text, count) {
+    return '<button class="ecard" data-go="' + go + '"><span class="e-t">' + title + '</span><span class="e-d">' + text + '</span><span class="e-n">' + count + '</span></button>';
+  };
+  return '<div class="ecards ' + (cls || '') + '">' +
+    card('map', 'Map', 'Who studies it, and where', SETUPS.length + ' setups in ' + nC + ' countries') +
+    card('sources', 'Signal sources', 'Where isolated S1s and S2s arise in the detector', SOURCES.length + ' sources in ' + CATS.length + ' groups') +
+    card('publications', 'Publications', 'Papers, theses and talks', PUBS.length + ' publications') + '</div>';
+}
+function renderHome() {
+  var I = INTRO || {}, h = '', refs = I.references || [];
+  var secs = {}; (I.sections || []).forEach(function (s) { secs[s.id] = s; });
+  var section = function (id, framed) {
+    var s = secs[id];
+    if (!s) return '';
+    return '<section class="hsec' + (framed ? ' framed' : '') + '" id="home-' + esc(id) + '"><h3>' + esc(s.heading) + '</h3>' +
+      (s.paragraphs || []).map(function (p) { return '<p>' + citeMarks(p) + '</p>'; }).join('') +
+      (s.formula ? '<p class="formula">' + esc(s.formula).replace(/_([A-Za-z0-9-]+)/g, '<sub>$1</sub>') + '</p>' : '') + '</section>';
+  };
+  h += '<header class="home-top"><span class="kick">Accidental-coincidence background</span><h2 class="home-title">' + esc(I.title || 'The accidental-coincidence background') + '</h2>' +
+    (I.lede ? '<p class="home-lede">' + citeMarks(I.lede) + '</p>' : '') + '</header>';
+  if (!INTRO) h += '<p class="provisional"><b>Introduction text pending.</b> The explanation of the background is not in this version yet. The map, the signal sources and the publications are available below.</p>';
+  else if (I.dummy) h += '<p class="provisional"><b>Dummy introduction text.</b> Placeholder wording used to test the layout; it is not the real introduction.</p>';
+  h += '<figure class="home-fig">' + explainerSvg() + '<figcaption>An isolated S1 and an isolated S2 that fall within one drift window are paired like a real event.</figcaption></figure>';
+  var kf = I.key_facts || [];
+  if (kf.length) h += '<div class="facts3">' + kf.map(function (k) {
+    var i = k.ref;
+    return '<div class="fact3"><b>' + esc(k.value) + '</b><span>' + esc(k.label) +
+      (typeof i === 'number' && refs[i] ? ' <button class="cite" data-iref="' + i + '" title="' + esc(refs[i].title) + '" aria-label="Reference ' + (i + 1) + '">' + (i + 1) + '</button>' : '') + '</span></div>';
+  }).join('') + '</div>';
+  h += '<div class="hblock"><span class="kick">Explore</span>' + entryCards('compact') + '</div>';
+  h += section('what') + section('rate') + section('why');
+  if (secs.xenon || secs.argon) h += '<div class="xa-grid">' + section('xenon', true) + section('argon', true) + '</div>';
+  h += section('handling') + section('open');
+  if (INTRO) h += '<div class="hblock"><span class="kick">Continue</span>' + entryCards('') + '</div>';
+  var gl = I.glossary || [];
+  if (gl.length) h += '<details class="psec"><summary><span>Glossary</span><span class="pn">' + gl.length + '</span></summary><div class="pbody"><dl class="gloss">' +
+    gl.map(function (g) { return '<dt>' + esc(g.term) + '</dt><dd>' + esc(g.definition) + '</dd>'; }).join('') + '</dl></div></details>';
+  if (refs.length) h += '<details class="psec" id="home-refs"><summary><span>References</span><span class="pn">' + refs.length + '</span></summary><div class="pbody"><ul class="refs">' + refs.map(refHtml).join('') + '</ul></div></details>';
+  $('home-inner').innerHTML = h;
+}
+$('home-inner').addEventListener('click', function (ev) {
+  var c = ev.target.closest('.cite');
+  if (!c) return;
+  var d = $('home-refs'), li = d && d.querySelector('[data-refidx="' + (+c.dataset.iref) + '"]');
+  if (!li) return;
+  d.open = true;
+  li.scrollIntoView({ block: 'center' });
+  li.classList.add('flash'); setTimeout(function () { li.classList.remove('flash'); }, 1600);
+});
+
+/* ================= publications view ================= */
+var PUB_TYPES = [['', 'All'], ['papers', 'Papers and preprints'], ['theses', 'Theses'], ['talks', 'Talks and posters']];
+var PUB_GROUP = { paper: 'papers', arXiv: 'papers', thesis: 'theses', talk: 'talks', poster: 'talks', web: 'other' };
+PUBS.forEach(function (p) { p.hay = fold([p.title, p.authors, p.venue].filter(Boolean).join(' \n ')); });
+function pubMatches(p) {
+  if (state.ptype && PUB_GROUP[p.type] !== state.ptype) return false;
+  if (state.pcite) {
+    var k = state.pcite.split(':'), id = k.slice(1).join(':');
+    if (k[0] === 'setup' && (p.setups || []).indexOf(id) < 0) return false;
+    if (k[0] === 'cat') { var c = catById.get(id); if (!c || !(p.sources || []).some(function (s) { return c.sources.indexOf(s) >= 0; })) return false; }
+  }
+  if (state.pq) {
+    var ws = fold(state.pq).split(/\s+/).filter(Boolean);
+    for (var i = 0; i < ws.length; i++) if (!wordIn(p.hay, ws[i])) return false;
+  }
+  return true;
+}
+function renderPubs() {
+  var opt = function (v, t) { return '<option value="' + esc(v) + '">' + esc(t) + '</option>'; };
+  var byShort = function (a, b) { return a.short.localeCompare(b.short); };
+  var h = '<div class="det-head"><div class="det-title"><h2>Publications</h2><p>Every paper, thesis and talk cited on this site, newest first.</p></div></div>' +
+    '<div class="pub-tools"><input id="pub-q" type="search" placeholder="Search title, authors, venue" aria-label="Search publications" autocomplete="off" spellcheck="false">' +
+    '<span class="segs" role="group" aria-label="Type">' + PUB_TYPES.map(function (t) { return '<button class="seg" id="pub-type-' + (t[0] || 'all') + '" data-ptype="' + t[0] + '" aria-pressed="' + (t[0] === '') + '">' + t[1] + '</button>'; }).join('') + '</span>' +
+    '<label class="pub-sel"><span class="flabel">Cited for</span><select id="pub-cite"><option value="">All</option>' +
+    '<optgroup label="Experiments">' + SETUPS.filter(function (s) { return s.kind === 'in-situ'; }).sort(byShort).map(function (s) { return opt('setup:' + s.id, s.short); }).join('') + '</optgroup>' +
+    '<optgroup label="R&amp;D setups">' + SETUPS.filter(function (s) { return s.kind === 'lab'; }).sort(byShort).map(function (s) { return opt('setup:' + s.id, s.short); }).join('') + '</optgroup>' +
+    '<optgroup label="Source groups">' + CATS.map(function (c) { return opt('cat:' + c.id, 'Isolated ' + c.signal + ': ' + c.name); }).join('') + '</optgroup></select></label>' +
+    '<span class="count" id="pub-count" aria-live="polite"></span></div><div id="pub-list"></div>';
+  $('pub-inner').innerHTML = h;
+  renderPubList();
+  var inner = $('pub-inner');
+  $('pub-q').addEventListener('input', function () { state.pq = this.value.trim(); renderPubList(); });
+  $('pub-cite').addEventListener('change', function () { state.pcite = this.value; renderPubList(); });
+  inner.addEventListener('click', function (ev) {
+    var b = ev.target.closest('button');
+    if (!b) return;
+    if (b.dataset.ptype != null) {
+      state.ptype = b.dataset.ptype;
+      inner.querySelectorAll('[data-ptype]').forEach(function (x) { x.setAttribute('aria-pressed', String(x.dataset.ptype === state.ptype)); });
+      renderPubList(); return;
+    }
+    if (b.dataset.act === 'morechips') { var more = b.nextElementSibling; if (more) more.hidden = false; b.hidden = true; return; }
+    if (b.dataset.act === 'pubclear') { state.pq = ''; state.ptype = ''; state.pcite = ''; $('pub-q').value = ''; $('pub-cite').value = ''; inner.querySelectorAll('[data-ptype]').forEach(function (x) { x.setAttribute('aria-pressed', String(x.dataset.ptype === '')); }); renderPubList(); return; }
+    if (b.dataset.id) { lastFocus = null; select(b.dataset.id); return; }
+    if (b.dataset.src) { lastFocus = null; selectSource(b.dataset.src); }
+  });
+}
+function renderPubList() {
+  var list = PUBS.filter(pubMatches), groups = new Map(), h = '';
+  list.sort(function (a, b) { return ((b.year || 0) - (a.year || 0)) || String(a.title).localeCompare(String(b.title)); });
+  list.forEach(function (p) { var k = p.year || 'Year not stated'; if (!groups.has(k)) groups.set(k, []); groups.get(k).push(p); });
+  groups.forEach(function (items, year) {
+    h += '<section class="pub-group"><h3 class="pub-year">' + esc(year) + ' <span>' + items.length + '</span></h3><ul class="pubs">' + items.map(function (p) {
+      var u = safeUrl(p.url), meta = [p.authors, p.venue].filter(Boolean).map(esc).join(' · ');
+      var cl = (p.setups || []).map(function (id) { var s = byId.get(id); return s ? '<button class="pchip" data-id="' + esc(id) + '" title="Open this setup">' + esc(s.short) + '</button>' : ''; })
+        .concat((p.sources || []).map(function (id) { var s = srcById.get(id); return s ? '<button class="pchip psrc" data-src="' + esc(id) + '" title="Open this signal source">' + esc(s.name) + '</button>' : ''; }))
+        .concat(p.intro ? ['<span class="pchip plain">Introduction</span>'] : [], p.rates ? ['<span class="pchip plain">Rate figures</span>'] : []).filter(Boolean);
+      var chips = cl.length > 7 ? cl.slice(0, 6).join('') + '<button class="pchip plain" data-act="morechips">+' + (cl.length - 6) + ' more</button><span class="p-more" hidden>' + cl.slice(6).join('') + '</span>' : cl.join('');
+      return '<li class="pub"><span class="p-t">' + (u ? link(u, esc(p.title)) : esc(p.title) + ' <span class="nolink">no link found</span>') + '</span>' +
+        '<span class="rtype ty-' + esc(p.type) + '">' + esc(p.type) + '</span>' +
+        (meta ? '<span class="p-m">' + meta + '</span>' : '') +
+        (chips ? '<span class="p-c"><span class="p-cl">Cited for</span>' + chips + '</span>' : '') + '</li>';
+    }).join('') + '</ul></section>';
+  });
+  if (!list.length) h = '<div class="empty"><p>No publication matches.</p><button class="btn" data-act="pubclear">Clear</button></div>';
+  $('pub-list').innerHTML = h;
+  $('pub-count').innerHTML = '<b>' + list.length + '</b> of ' + PUBS.length + ' publications';
+}
+
 /* ================= legend, views, keys ================= */
 function buildLegend() {
   var open = false;
@@ -2247,23 +2498,44 @@ function buildLegend() {
   });
 }
 function setView2(v) {
-  if (VIEWS.indexOf(v) < 0) v = 'map';
+  if (v === 'list') { state.mapMode = 'list'; v = 'map'; }
+  if (v === 'sources') v = 'detector';
+  if (VIEWS.indexOf(v) < 0) v = 'home';
   state.view = v;
+  var list = state.mapMode === 'list', mapShown = v === 'map' && !list;
   VIEWS.forEach(function (n) {
-    $('view-' + n).hidden = n !== v;
+    if (n !== 'map') $('view-' + n).hidden = n !== v;
     $('tab-' + n).setAttribute('aria-selected', String(n === v));
     $('tab-' + n).setAttribute('tabindex', n === v ? '0' : '-1');
   });
+  $('view-map').hidden = !mapShown;
+  $('view-list').hidden = !(v === 'map' && list);
+  $('mode-map').setAttribute('aria-pressed', String(!list));
+  $('mode-list').setAttribute('aria-pressed', String(list));
   var bar = document.querySelector('.bar');
-  bar.classList.toggle('plain', v === 'detector' || v === 'about');
-  bar.classList.toggle('on-map', v === 'map');
-  if (v === 'detector' || v === 'about') { $('filters').classList.remove('open'); $('filters-toggle').setAttribute('aria-expanded', 'false'); }
-  if ((state.site && v !== 'map') || ((state.srcId || state.catId) && v !== 'detector') || (state.selId && v !== 'map' && v !== 'list')) hidePanel();
+  bar.classList.toggle('plain', v !== 'map');
+  bar.classList.toggle('on-map', mapShown);
+  if (v !== 'map') { $('filters').classList.remove('open'); $('filters-toggle').setAttribute('aria-expanded', 'false'); }
+  if ((state.site && !mapShown) || ((state.srcId || state.catId) && v !== 'detector') || (state.selId && v !== 'map')) hidePanel();
   updateExtent();
   if (v === 'detector') setDetMode();
-  if (v === 'map') { requestAnimationFrame(function () { resizeMap(); schedule(); var s = byId.get(state.selId); if (s) ensureVisible(s); }); }
+  if (mapShown) { requestAnimationFrame(function () { resizeMap(); schedule(); var s = byId.get(state.selId); if (s) ensureVisible(s); }); }
   pushHash();
 }
+$('map-mode').addEventListener('click', function (ev) {
+  var b = ev.target.closest('[data-mode]');
+  if (!b) return;
+  state.mapMode = b.dataset.mode;
+  setView2('map');
+});
+document.addEventListener('click', function (ev) {          /* entry cards and in-text links that switch view */
+  var g = ev.target.closest('[data-go]');
+  if (!g) return;
+  hidePanel();
+  if (g.dataset.go === 'map') state.mapMode = 'map';
+  setView2(g.dataset.go);
+  var sc = $('view-' + state.view); if (sc && sc.scrollTo) sc.scrollTo(0, 0);
+});
 document.querySelectorAll('.tab').forEach(function (b) { b.addEventListener('click', function () { hidePanel(); setView2(b.dataset.view); }); });
 document.querySelector('.tabs').addEventListener('keydown', function (ev) {
   var i = VIEWS.indexOf(state.view), n = null;
@@ -2291,21 +2563,11 @@ $('map-svg').addEventListener('click', hideTip);
 $('skip').addEventListener('click', function (ev) {
   ev.preventDefault();
   hidePanel();
+  state.mapMode = 'map';
   setView2('map');
   try { $('map-svg').focus(); } catch (e) { /* ignore */ }
 });
 $('map-empty-clear').addEventListener('click', function () { clearFilters(); applyFilters(); });
-
-/* first-visit hint, remembered per browser */
-(function () {
-  var seen = false;
-  try { seen = localStorage.getItem('acmap-hint') === '1'; } catch (e) { seen = false; }
-  var hint = $('hint');
-  if (!seen) hint.hidden = false;
-  var done = function () { hint.hidden = true; try { localStorage.setItem('acmap-hint', '1'); } catch (e) { /* storage unavailable */ } };
-  $('hint-ok').addEventListener('click', done);
-  $('hint-det').addEventListener('click', function () { done(); setView2('detector'); });
-})();
 
 /* ================= start ================= */
 document.querySelectorAll('.build-date').forEach(function (el) { el.textContent = DATA.build_date || ''; });
@@ -2315,13 +2577,15 @@ var nUnplaced = SETUPS.filter(function (s) { return !s.placed; }).length;
 if (nUnplaced) {
   $('map-note').hidden = false;
   $('map-note').textContent = nUnplaced + ' of ' + SETUPS.length + ' setups have no location yet. See the list.';
-  $('map-note').addEventListener('click', function () { setView2('list'); });
+  $('map-note').addEventListener('click', function () { state.mapMode = 'list'; setView2('map'); });
 }
 initMap();
 applyFilters();
 renderAbout();
 renderDetector();
-document.querySelector('.bar').classList.add('on-map');
+renderHome();
+renderPubs();
+routing = true; setView2('home'); routing = false;
 window.addEventListener('hashchange', readHash);
 readHash();
 })();

@@ -333,6 +333,116 @@ def simplify_topology(topo, eps_deg=0.02, min_island_deg=0.2):
             "objects": {"countries": {"type": "GeometryCollection", "geometries": geoms}}}
 
 
+def pub_key(r):
+    """One key per publication: the link when there is one (arXiv and DOI forms folded), else title and year."""
+    u = (r.get("url") or "").strip().lower()
+    if u:
+        u = re.sub(r"^https?://(www\.)?", "", u).split("#")[0].rstrip("/")
+        m = re.match(r"arxiv\.org/(?:abs|pdf)/([^?]+?)(?:v\d+)?(?:\.pdf)?$", u)
+        if m:
+            return "arxiv:" + m.group(1)
+        m = re.match(r"(?:dx\.)?doi\.org/(.+)$", u)
+        if m:
+            return "doi:" + m.group(1)
+        return "url:" + u
+    t = re.sub(r"[^a-z0-9]+", " ", (r.get("title") or "").lower()).strip()
+    return "title:%s|%s" % (t, r.get("year") or "")
+
+
+def build_publications(setups, tpc, intro):
+    """Every publication the site cites, de-duplicated, with what cites it."""
+    pubs = collections.OrderedDict()
+
+    def add(r, field, ident):
+        if not isinstance(r, dict) or not r.get("title"):
+            return
+        k = pub_key(r)
+        p = pubs.get(k)
+        if p is None:
+            p = pubs[k] = {"title": r.get("title"), "authors": r.get("authors"), "year": r.get("year"),
+                           "venue": r.get("venue"), "url": r.get("url"), "type": r.get("type") or "web",
+                           "setups": [], "sources": [], "intro": False, "rates": False}
+        else:
+            for f in ("authors", "year", "venue"):
+                if not p.get(f) and r.get(f):
+                    p[f] = r.get(f)
+            if p["type"] == "web" and r.get("type"):
+                p["type"] = r.get("type")
+        if field in ("setups", "sources"):
+            if ident not in p[field]:
+                p[field].append(ident)
+        else:
+            p[field] = True
+
+    for s in setups:
+        for r in s.get("references") or []:
+            add(r, "setups", s["id"])
+    for x in (tpc or {}).get("sources") or []:
+        for r in x.get("references") or []:
+            add(r, "sources", x["id"])
+    for r in (tpc or {}).get("pairing_references") or []:
+        add(r, "rates", None)
+    for r in (intro or {}).get("references") or []:
+        add(r, "intro", None)
+    return list(pubs.values())
+
+
+def publications_summary(pubs):
+    by_type = collections.Counter(p["type"] for p in pubs)
+    return "publications: %d after de-duplication (%s); without link: %d" % (
+        len(pubs), ", ".join("%s %d" % kv for kv in sorted(by_type.items(), key=lambda kv: (-kv[1], kv[0]))),
+        sum(1 for p in pubs if not p.get("url")))
+
+
+INTRO_SECTIONS = ["what", "rate", "why", "xenon", "argon", "handling", "open"]
+
+
+def check_intro(intro):
+    """Problems in the introduction data, as a list of strings (empty when it is sound)."""
+    errs = []
+    if not isinstance(intro, dict):
+        return ["intro.json: not an object"]
+    refs = intro.get("references") or []
+    n = len(refs)
+    for key in ("title", "lede"):
+        if not intro.get(key):
+            errs.append("intro.json: missing %s" % key)
+    kf = intro.get("key_facts") or []
+    if len(kf) != 3:
+        errs.append("intro.json: key_facts must have exactly three entries (has %d)" % len(kf))
+    for i, k in enumerate(kf):
+        if not isinstance(k, dict) or not k.get("value") or not k.get("label"):
+            errs.append("intro.json: key fact %d needs value and label" % i)
+        elif k.get("ref") is not None and not (isinstance(k.get("ref"), int) and 0 <= k["ref"] < n):
+            errs.append("intro.json: key fact %d ref %r is not an index into references" % (i, k.get("ref")))
+    ids = [s.get("id") for s in intro.get("sections") or [] if isinstance(s, dict)]
+    for sid in INTRO_SECTIONS:
+        if sid not in ids:
+            errs.append("intro.json: section %r is missing" % sid)
+    texts = [("lede", intro.get("lede") or "")]
+    for s in intro.get("sections") or []:
+        if not isinstance(s, dict):
+            continue
+        if not s.get("heading") or not s.get("paragraphs"):
+            errs.append("intro.json: section %r needs a heading and paragraphs" % s.get("id"))
+        for i, p in enumerate(s.get("paragraphs") or []):
+            texts.append(("section %s paragraph %d" % (s.get("id"), i + 1), p if isinstance(p, str) else ""))
+        for r in s.get("refs") or []:
+            if not (isinstance(r, int) and 0 <= r < n):
+                errs.append("intro.json: section %r refs entry %r is not an index into references" % (s.get("id"), r))
+    for where, text in texts:
+        for m in re.finditer(r"\[(\d+)\]", text):
+            if not (1 <= int(m.group(1)) <= n):
+                errs.append("intro.json: %s cites [%s], but there are %d references" % (where, m.group(1), n))
+    for i, r in enumerate(refs):
+        if not isinstance(r, dict) or not r.get("title"):
+            errs.append("intro.json: reference %d has no title" % (i + 1))
+    for g in intro.get("glossary") or []:
+        if not isinstance(g, dict) or not g.get("term") or not g.get("definition"):
+            errs.append("intro.json: a glossary entry needs term and definition")
+    return errs
+
+
 def check_svg_sizing(template):
     """Guard: a rule such as `.figure svg { width: 100% }` also stretches every small icon inside
     that container. Returns the offending selectors (bare `svg` reached by a descendant combinator)."""
@@ -377,7 +487,19 @@ def main():
         if template.count(mark) != 1:
             sys.exit("build.py: src/template.html must contain %s exactly once" % mark)
 
+    intro, warnings = None, []
+    intro_path = os.path.join(DATA, "intro.json")
+    if os.path.exists(intro_path):
+        try:
+            intro = load(intro_path)
+        except (OSError, ValueError) as exc:
+            sys.exit("build.py: cannot read data/intro.json: %s" % exc)
+    else:
+        warnings.append("no data/intro.json: the Home view shows 'introduction text pending'")
     errors = validate(setups, sources_doc, meta)
+    if intro is not None:
+        errors += check_intro(intro)
+        check_refs(intro.get("references") or [], "intro.json", errors)
     errors += ["src/template.html sizes a bare svg to 100% under a container: " + sel for sel in check_svg_sizing(template)]
     wording = []
     for x in setups:
@@ -386,6 +508,9 @@ def main():
         find_wording(x, "source", None, wording)
     find_wording({k: v for k, v in sources_doc.items() if k != "sources"}, "sources.json", None, wording)
     find_wording(meta, "meta.json", None, wording)
+    if intro is not None:
+        find_wording(intro, "intro.json", None, wording)
+    publications = build_publications(setups, sources_doc, intro)
 
     sources = sources_doc.get("sources") or []
     count = lambda items, key: ", ".join("%s %d" % kv for kv in sorted(collections.Counter(x.get(key) for x in items).items(), key=lambda kv: (-kv[1], str(kv[0]))))
@@ -397,6 +522,10 @@ def main():
     n_refs = sum(len(x.get("references") or []) for x in setups + sources)
     n_nourl = sum(1 for x in setups + sources for r in (x.get("references") or []) if not r.get("url"))
     print("references: %d, of which %d without link; leads: %d" % (n_refs, n_nourl, len(meta.get("leads") or [])))
+    print("introduction: %s" % ("%d sections, %d references" % (len(intro.get("sections") or []), len(intro.get("references") or [])) if intro else "absent"))
+    print(publications_summary(publications))
+    for w in warnings:
+        print("WARNING: " + w)
     for e in errors:
         print("ERROR: " + e)
     for where, field, text in wording:
@@ -417,6 +546,8 @@ def main():
         "past_detectors": meta.get("past_detectors") or [],
         "tags": meta.get("tags") or [],
         "tpc": tpc,
+        "intro": intro,
+        "publications": publications,
     }
     page = template.replace(DATA_MARK, inline_json(data)).replace(TOPO_MARK, inline_json(topo))
     os.makedirs(os.path.dirname(OUT), exist_ok=True)

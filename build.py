@@ -12,6 +12,7 @@ import argparse
 import collections
 import datetime
 import json
+import math
 import os
 import re
 import sys
@@ -349,8 +350,32 @@ def pub_key(r):
     return "title:%s|%s" % (t, r.get("year") or "")
 
 
-def build_publications(setups, tpc, intro):
-    """Every publication the site cites, de-duplicated, with what cites it."""
+def _norm_title(t):
+    return re.sub(r"[^a-z0-9]+", " ", (t or "").lower()).strip()
+
+
+def _first_author(a):
+    a = re.sub(r"\([^)]*\)", " ", a or "")
+    a = re.split(r",|;|&| and | et al", a)[0].strip().lower()
+    toks = re.findall(r"[^\W\d_]+(?:[-'][^\W\d_]+)*", a)
+    return toks[-1] if toks else ""
+
+
+def _link_label(kind, url):
+    u = (url or "").lower()
+    if kind in ("talk", "poster"):
+        return "slides" if (u.endswith((".pdf", ".pptx", ".ppt", ".key")) or "/attachments/" in u) else "abstract"
+    if "arxiv.org" in u:
+        return "arXiv"
+    if "doi.org" in u:
+        return "journal"
+    return "link"
+
+
+def build_publications(setups, tpc, intro, figure=None):
+    """Every publication the site cites, de-duplicated, with what cites it.
+    Pass 1 merges by link (or title and year). Pass 2 merges one contribution reachable by two links
+    (slides and abstract page of a talk, journal and arXiv page of a paper): same title, first author and year."""
     pubs = collections.OrderedDict()
 
     def add(r, field, ident):
@@ -361,7 +386,7 @@ def build_publications(setups, tpc, intro):
         if p is None:
             p = pubs[k] = {"title": r.get("title"), "authors": r.get("authors"), "year": r.get("year"),
                            "venue": r.get("venue"), "url": r.get("url"), "type": r.get("type") or "web",
-                           "setups": [], "sources": [], "intro": False, "rates": False}
+                           "setups": [], "sources": [], "intro": False, "rates": False, "figure": False}
         else:
             for f in ("authors", "year", "venue"):
                 if not p.get(f) and r.get(f):
@@ -384,7 +409,101 @@ def build_publications(setups, tpc, intro):
         add(r, "rates", None)
     for r in (intro or {}).get("references") or []:
         add(r, "intro", None)
-    return list(pubs.values())
+    for r in ((figure or {}).get("model") or {}).get("references") or []:
+        add(r, "figure", None)
+
+    merged = collections.OrderedDict()
+    for n, p in enumerate(pubs.values()):
+        t, fa = _norm_title(p["title"]), _first_author(p.get("authors"))
+        k2 = (t, fa, p.get("year")) if (t and fa and p.get("year")) else ("single", n)
+        q = merged.get(k2)
+        if q is None:
+            p["links"] = [{"label": _link_label(p["type"], p["url"]), "url": p["url"]}] if p.get("url") else []
+            merged[k2] = p
+            continue
+        for f in ("setups", "sources"):
+            for ident in p[f]:
+                if ident not in q[f]:
+                    q[f].append(ident)
+        for f in ("intro", "rates", "figure"):
+            q[f] = q[f] or p[f]
+        for f in ("authors", "venue"):
+            if not q.get(f) and p.get(f):
+                q[f] = p.get(f)
+        if p.get("url") and all(l["url"] != p["url"] for l in q["links"]):
+            q["links"].append({"label": _link_label(p["type"], p["url"]), "url": p["url"]})
+            if not q.get("url"):
+                q["url"] = p["url"]
+    out = list(merged.values())
+    for p in out:
+        if len(p["links"]) > 1:
+            p["venue"] = re.sub(r"\s*\((slides|abstract|abstract page|contribution page)\)\s*$", "", p.get("venue") or "") or None
+            seen = collections.Counter()
+            for l in p["links"]:
+                seen[l["label"]] += 1
+                if seen[l["label"]] > 1:
+                    l["label"] = "%s %d" % (l["label"], seen[l["label"]])
+    return out
+
+
+FIG_POPULATIONS = ["ac", "wimp_light", "wimp_heavy"]      # required
+FIG_OPTIONAL = ["b8"]                                     # may be present as well
+
+
+def check_figure(fig):
+    """Problems in the Home figure data, as a list of strings (empty when it is sound)."""
+    errs = []
+    num = lambda v: isinstance(v, (int, float)) and not isinstance(v, bool)
+    if not isinstance(fig, dict):
+        return ["intro_figure.json: not an object"]
+    ok_axes = True
+    for ax in ("x", "y"):
+        a = fig.get(ax)
+        if not isinstance(a, dict) or not a.get("label") or not num(a.get("min")) or not num(a.get("max")) or not a["min"] < a["max"]:
+            errs.append("intro_figure.json: axis %s needs a label and numeric min < max" % ax)
+            ok_axes = False
+        elif not isinstance(a.get("ticks"), list) or not all(num(t) for t in a["ticks"]):
+            errs.append("intro_figure.json: axis %s ticks must be a list of numbers" % ax)
+    if ok_axes and fig["y"]["min"] <= 0:
+        errs.append("intro_figure.json: y min must be above 0 (log axis)")
+        ok_axes = False
+    pops = fig.get("populations") or []
+    ids = [p.get("id") for p in pops if isinstance(p, dict)]
+    if len(set(ids)) != len(ids) or any(i not in ids for i in FIG_POPULATIONS) or any(i not in FIG_POPULATIONS + FIG_OPTIONAL for i in ids):
+        errs.append("intro_figure.json: populations must be %s, each once, optionally with %s (found %s)"
+                    % (", ".join(FIG_POPULATIONS), ", ".join(FIG_OPTIONAL), ", ".join(str(i) for i in ids)))
+    if ok_axes:
+        x0, x1 = fig["x"]["min"], fig["x"]["max"]
+        l0, l1 = math.log10(fig["y"]["min"]), math.log10(fig["y"]["max"])
+        tx, tl = 0.02 * (x1 - x0), 0.02 * (l1 - l0)
+        for p in pops:
+            if not isinstance(p, dict):
+                continue
+            if not p.get("label"):
+                errs.append("intro_figure.json: population %r has no label" % p.get("id"))
+            if not p.get("contours"):
+                errs.append("intro_figure.json: population %r has no contours" % p.get("id"))
+            for c in p.get("contours") or []:
+                w = "population %s, level %s" % (p.get("id"), c.get("level") if isinstance(c, dict) else "?")
+                if not isinstance(c, dict) or not num(c.get("level")) or not c.get("polygons"):
+                    errs.append("intro_figure.json: %s needs a numeric level and polygons" % w)
+                    continue
+                for k, poly in enumerate(c["polygons"]):
+                    if not isinstance(poly, list) or len(poly) < 4 or not all(isinstance(q, list) and len(q) == 2 and num(q[0]) and num(q[1]) for q in poly):
+                        errs.append("intro_figure.json: %s polygon %d needs at least four [x, y] points" % (w, k))
+                        continue
+                    if abs(poly[0][0] - poly[-1][0]) > 1e-6 * (x1 - x0) or abs(poly[0][1] - poly[-1][1]) > 1e-6 * max(abs(poly[0][1]), 1e-12):
+                        errs.append("intro_figure.json: %s polygon %d is not closed" % (w, k))
+                    bad = [q for q in poly if q[1] <= 0 or not (x0 - tx <= q[0] <= x1 + tx) or not (l0 - tl <= math.log10(q[1]) <= l1 + tl)]
+                    if bad:
+                        errs.append("intro_figure.json: %s polygon %d has %d point(s) outside the axes, e.g. %r" % (w, k, len(bad), bad[0]))
+    for t in fig.get("thresholds") or []:
+        if not isinstance(t, dict) or t.get("axis") not in ("x", "y") or not num(t.get("value")):
+            errs.append("intro_figure.json: a threshold needs axis x or y and a numeric value")
+    for k, v in (fig.get("overlap") or {}).items():
+        if not num(v):
+            errs.append("intro_figure.json: overlap %s is not a number" % k)
+    return errs
 
 
 def publications_summary(pubs):
@@ -496,7 +615,19 @@ def main():
             sys.exit("build.py: cannot read data/intro.json: %s" % exc)
     else:
         warnings.append("no data/intro.json: the Home view shows 'introduction text pending'")
+    figure, fig_path = None, os.path.join(DATA, "intro_figure.json")
+    if os.path.exists(fig_path):
+        try:
+            figure = load(fig_path)
+        except (OSError, ValueError) as exc:
+            sys.exit("build.py: cannot read data/intro_figure.json: %s" % exc)
+    else:
+        warnings.append("no data/intro_figure.json: the Home view has no template figure")
     errors = validate(setups, sources_doc, meta)
+    if figure is not None:
+        errors += check_figure(figure)
+        if isinstance(figure, dict) and isinstance(figure.get("model"), dict):
+            check_refs(figure["model"].get("references") or [], "intro_figure.json", errors)
     if intro is not None:
         errors += check_intro(intro)
         check_refs(intro.get("references") or [], "intro.json", errors)
@@ -510,7 +641,9 @@ def main():
     find_wording(meta, "meta.json", None, wording)
     if intro is not None:
         find_wording(intro, "intro.json", None, wording)
-    publications = build_publications(setups, sources_doc, intro)
+    if figure is not None:
+        find_wording(figure, "intro_figure.json", None, wording)
+    publications = build_publications(setups, sources_doc, intro, figure)
 
     sources = sources_doc.get("sources") or []
     count = lambda items, key: ", ".join("%s %d" % kv for kv in sorted(collections.Counter(x.get(key) for x in items).items(), key=lambda kv: (-kv[1], str(kv[0]))))
@@ -523,6 +656,7 @@ def main():
     n_nourl = sum(1 for x in setups + sources for r in (x.get("references") or []) if not r.get("url"))
     print("references: %d, of which %d without link; leads: %d" % (n_refs, n_nourl, len(meta.get("leads") or [])))
     print("introduction: %s" % ("%d sections, %d references" % (len(intro.get("sections") or []), len(intro.get("references") or [])) if intro else "absent"))
+    print("home figure: %s" % ("%d populations" % len(figure.get("populations") or []) if isinstance(figure, dict) else "absent"))
     print(publications_summary(publications))
     for w in warnings:
         print("WARNING: " + w)
@@ -547,6 +681,7 @@ def main():
         "tags": meta.get("tags") or [],
         "tpc": tpc,
         "intro": intro,
+        "figure": figure,
         "publications": publications,
     }
     page = template.replace(DATA_MARK, inline_json(data)).replace(TOPO_MARK, inline_json(topo))

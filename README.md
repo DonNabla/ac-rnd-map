@@ -17,6 +17,8 @@ Corrections and missing setups are welcome: open an issue or a pull request.
 | `data/setups.json` | The setups and experiments shown on the map and in the list |
 | `data/sources.json` | The detector view: candidate sources of isolated S1/S2, the categories that group them, the regions of the drawing, the pairing text, references, and the credit for the overview talk |
 | `data/intro.json` | The introduction on the Home view: title, lede, three key facts, sections, glossary and its references |
+| `data/intro_figure.json` | The figure on the Home view: contours of the accidental-coincidence and WIMP templates in cS1/cS2, with axes, thresholds, bands, the model summary and its references |
+| `tools/` | `make_template_figure.py` generated `data/intro_figure.json` with wimprates and nestpy (see `tools/README.md` and `tools/requirements.txt`); it is not needed to build or run the site, and `build.py` does not read it |
 | `data/meta.json` | The mechanism key A–I, the list of other known setups not yet documented, the names of past detectors left out |
 | `src/template.html` | The whole page (markup, styles, script) with two placeholders for the data and the map geometry |
 | `vendor/countries-50m.json` | World geometry (world-atlas 2.0.2, from Natural Earth); see `vendor/README.md` |
@@ -93,6 +95,8 @@ A source in `data/sources.json` has `id`, `name`, `signal` (`S1`, `S2`, `both`),
 The `categories` list in the same file groups the sources for the figure: each has `id`, `signal` (`S1` or `S2`), `name`, `summary` and `sources` (source ids). Every source lists its category ids in `categories`, and the two must agree; the build checks this.
 
 The introduction in `data/intro.json` has `title`, `lede`, `key_facts` (exactly three `{value, label, ref}`), `sections` (`{id, heading, paragraphs, formula, refs}` with the ids `what`, `rate`, `why`, `xenon`, `argon`, `handling`, `open`), `glossary` (`{term, definition}`) and `references`. A citation is written `[n]` in the text, where n counts from 1 in `references`; `ref` and `refs` are 0-based indices. The build checks that every citation resolves. If the file is missing, the Home view says the introduction is pending.
+
+The figure in `data/intro_figure.json` has `x` and `y` axes (`label`, `min`, `max`, `ticks`; y is logarithmic, so `min` must be above 0), `thresholds`, the `populations` `ac`, `wimp_light` and `wimp_heavy`, optionally `b8` (each with `label`, `note` and `contours` of closed polygons in data coordinates), `s1_requirement`, optional `bands`, `overlap` and `model` (summary, software, parameters, references). The build checks that the polygons are closed and inside the axes. If the file is missing, the Home view simply has no figure.
 
 The Publications view is not stored: the build merges the references of all setups, sources and the introduction and removes duplicates by link (or by title and year when there is no link).
 

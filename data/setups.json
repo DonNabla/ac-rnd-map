@@ -7,9 +7,7 @@
    "institute": "Lawrence Berkeley National Laboratory (LBNL) / UC Berkeley",
    "collaboration": null,
    "people": [
-    "P. Sorensen (LBNL)",
-    "R. Gibbons (UC Berkeley / LBNL)",
-    "K. Kamdin (2017 study)"
+    "Peter Sorensen"
    ],
    "city": "Berkeley, CA",
    "country": "United States",
@@ -211,9 +209,7 @@
    "institute": "Lawrence Berkeley National Laboratory (LBNL)",
    "collaboration": null,
    "people": [
-    "L. G. Douglas (Diablo Valley College; DOE Community College Internship at LBNL)",
-    "P. Sorensen (LBNL)",
-    "R. Gibbons (UC Berkeley)"
+    "Peter Sorensen"
    ],
    "city": "Berkeley, CA",
    "country": "United States",
@@ -293,12 +289,7 @@
    "institute": "University of Texas at Austin (Kravitz lab); prototype built and first operated at LBNL",
    "collaboration": "CrystaLiZe (UT Austin + LBNL)",
    "people": [
-    "S. Kravitz (UT Austin)",
-    "D. Hunt",
-    "C. O'Brien",
-    "G. Sehr",
-    "K. Mannix",
-    "LBNL: H. Chen, R. Gibbons, S. J. Haselschwardt, Q. Xia, P. Sorensen"
+    "Scott Kravitz"
    ],
    "city": "Austin, TX",
    "country": "United States",
@@ -430,11 +421,7 @@
    "institute": "Nikhef Dark Matter Group / Institute of Physics, University of Amsterdam (Pollmann group); cryogenic part done with the TUM spectrofluorometer (A. Leonhardt)",
    "collaboration": null,
    "people": [
-    "Tina R. Pollmann",
-    "Anna Hurhina",
-    "Marjolein (van Nuland-)Troost",
-    "Pranati Kharbanda",
-    "Andreas Leonhardt (TUM)"
+    "Tina Pollmann"
    ],
    "city": "Amsterdam",
    "country": "Netherlands",
@@ -571,9 +558,7 @@
    "institute": "Physik-Department E15, Technische Universität München",
    "collaboration": null,
    "people": [
-    "Gabriela R. Araujo",
-    "Tina Pollmann",
-    "Andreas Ulrich"
+    "Tina Pollmann"
    ],
    "city": "Garching",
    "country": "Germany",
@@ -632,13 +617,7 @@
    "institute": "Purdue University, Department of Physics and Astronomy",
    "collaboration": "LBECA (Purdue, LLNL, UCSD, LBNL, Stony Brook)",
    "people": [
-    "R. F. Lang",
-    "A. Kopec",
-    "A. L. Baxter",
-    "M. Clark",
-    "S. Li",
-    "J. Qin",
-    "R. Singh"
+    "Rafael Lang"
    ],
    "city": "West Lafayette, IN",
    "country": "United States",
@@ -745,12 +724,7 @@
    "institute": "University of California San Diego, Department of Physics",
    "collaboration": "LBECA (Purdue, LLNL, UCSD, LBNL, Stony Brook)",
    "people": [
-    "K. Ni",
-    "Y. Wei",
-    "J. Long",
-    "F. Lombardi",
-    "Z. Jiang",
-    "J. Ye"
+    "Kaixuan Ni"
    ],
    "city": "La Jolla (San Diego), CA",
    "country": "United States",
@@ -848,15 +822,7 @@
    "institute": "University of California San Diego, Department of Physics",
    "collaboration": null,
    "people": [
-    "J. Qi",
-    "A. Kopec",
-    "K. Ni",
-    "N. Hood",
-    "Y. Ma",
-    "H. Xu",
-    "M. Zhong",
-    "Y. Wei",
-    "Y. Liu"
+    "Kaixuan Ni"
    ],
    "city": "La Jolla (San Diego), CA",
    "country": "United States",
@@ -949,14 +915,7 @@
    "institute": "Lawrence Livermore National Laboratory (LLNL)",
    "collaboration": "LBECA (Purdue, LLNL, UCSD, LBNL, Stony Brook)",
    "people": [
-    "J. Xu",
-    "S. Pereverzev",
-    "A. Bernstein",
-    "B. Lenardo",
-    "J. Kingston",
-    "D. Naim",
-    "K. Kazkaz",
-    "E. Mizrachi"
+    "Jingke Xu"
    ],
    "city": "Livermore, CA",
    "country": "United States",
@@ -1092,13 +1051,7 @@
    "institute": "High Energy Physics Group, Blackett Laboratory, Imperial College London",
    "collaboration": null,
    "people": [
-    "A. Tomás",
-    "H. M. Araújo",
-    "A. J. Bailey",
-    "A. Bayer",
-    "E. Chen",
-    "B. López Paredes",
-    "T. J. Sumner"
+    "Henrique Araújo"
    ],
    "city": "London",
    "country": "United Kingdom",
@@ -1170,12 +1123,7 @@
    "institute": "SLAC National Accelerator Laboratory / Stanford University (KIPAC)",
    "collaboration": "LZ (System Test)",
    "people": [
-    "T. Shutt",
-    "W. Ji",
-    "K. Stifter",
-    "R. Linehan",
-    "R. Mannino",
-    "T. J. Whitis"
+    "Tom Shutt"
    ],
    "city": "Menlo Park, CA",
    "country": "United States",
@@ -1322,13 +1270,7 @@
    "institute": "Max-Planck-Institut für Kernphysik (MPIK), Heidelberg",
    "collaboration": null,
    "people": [
-    "Robert Hammann",
-    "Kai Böse",
-    "Steffen Form",
-    "Luisa Hötzsch",
-    "Teresa Marrodán Undagoitia",
-    "Florian Jörg",
-    "Dominick Cichon"
+    "Teresa Marrodán Undagoitia"
    ],
    "city": "Heidelberg",
    "country": "Germany",
@@ -1412,14 +1354,7 @@
    "institute": "Department of Physics & Center for High Energy Physics, Tsinghua University",
    "collaboration": "RELICS",
    "people": [
-    "Yifei Zhao",
-    "Fei Gao",
-    "Chang Cai",
-    "Kaihang Li",
-    "Jingfan Gu",
-    "Yang Lei",
-    "Lingfeng Xie",
-    "Jiajun Liu"
+    "Fei Gao"
    ],
    "city": "Beijing",
    "country": "China",
@@ -1546,16 +1481,7 @@
    "institute": "National Research Nuclear University MEPhI (Moscow Engineering Physics Institute), with NRC Kurchatov Institute - ITEP",
    "collaboration": "RED-100 (RED = Russian Emission Detector)",
    "people": [
-    "D. Yu. Akimov",
-    "A. I. Bolozdynya",
-    "V. A. Belov",
-    "Yu. V. Efremenko",
-    "A. V. Khromov",
-    "A. M. Konovalov",
-    "A. V. Kumpan",
-    "D. G. Rudik",
-    "O. E. Razuvaeva",
-    "V. V. Sosnovtsev"
+    "Alexander Bolozdynya"
    ],
    "city": "Moscow",
    "country": "Russia",
@@ -1715,8 +1641,7 @@
    "institute": "Astrocent (Particle Astrophysics Science and Technology Centre), Nicolaus Copernicus Astronomical Center of the Polish Academy of Sciences (CAMK PAN)",
    "collaboration": null,
    "people": [
-    "M. Wada",
-    "C. Sunny"
+    "Masayuki Wada"
    ],
    "city": "Warsaw",
    "country": "Poland",
@@ -1808,11 +1733,7 @@
    "institute": "X-ArT Collaboration, led from APC (Université Paris Cité / CNRS-IN2P3); scintillation setup operated at Princeton University",
    "collaboration": "X-ArT (APC, LPNHE, Mines Paris, ICB Dijon, GSSI, Astrocent, Princeton, UC Davis, CENPA, IHEP)",
    "people": [
-    "E. Nikoloudaki",
-    "D. Franco (contact)",
-    "P. Agnes",
-    "C. Galbiati",
-    "M. Wada"
+    "Davide Franco"
    ],
    "city": "Princeton, NJ",
    "country": "United States",
@@ -1926,16 +1847,7 @@
    "institute": "ARIS Collaboration (APC, LPNHE, IPN Orsay, CEA, GSSI, LNGS, Naples, Princeton, Houston, Temple, UC Davis, UCLA); detector run at the ALTO facility, IPN Orsay (now IJCLab)",
    "collaboration": "ARIS (DarkSide-related)",
    "people": [
-    "P. Agnes",
-    "D. Franco",
-    "A. Tonazzo",
-    "C. Giganti",
-    "G. Fiorillo",
-    "C. Galbiati",
-    "E. Pantic",
-    "A. Razeto",
-    "M. Lebois",
-    "J. N. Wilson"
+    "Davide Franco"
    ],
    "city": "Orsay",
    "country": "France",
@@ -2034,14 +1946,7 @@
    "institute": "Lawrence Livermore National Laboratory (with UC Davis, UC San Diego, UC Riverside)",
    "collaboration": null,
    "people": [
-    "J. Xu",
-    "J. Qi",
-    "J. W. Kingston",
-    "E. P. Bernard",
-    "N. S. Bowden",
-    "M. Tripathi",
-    "K. Ni",
-    "S. Westerdale"
+    "Jingke Xu"
    ],
    "city": "Livermore, CA",
    "country": "United States",
@@ -2155,14 +2060,7 @@
    "institute": "INFN Sezione di Napoli and Università di Napoli Federico II (Proto-0; ReD commissioning); ReD beam and source campaigns at INFN LNS and INFN Sezione di Catania",
    "collaboration": "DarkSide-20k (Global Argon Dark Matter Collaboration)",
    "people": [
-    "G. Fiorillo",
-    "G. Matteucci",
-    "M. Caravati",
-    "Y. Suvorov",
-    "C. Hidalgo",
-    "R. de Asmundis",
-    "D. Rudik",
-    "L. Pandola (ReD)"
+    "Giuliana Fiorillo"
    ],
    "city": "Naples",
    "country": "Italy",
@@ -2409,9 +2307,7 @@
    "caveats": [
     "The species releasing the delayed electrons is not identified; the paper finds it is only a subdominant part of the electronegative impurities."
    ],
-   "cited_authors": [
-    "D. S. Akerib et al. (LZ Collaboration author list; no individual analysts are named in the paper)"
-   ],
+   "cited_authors": [],
    "short_name": "LZ few-electron",
    "study_status": "completed",
    "first_year": 2021,
@@ -2553,9 +2449,7 @@
     "PTFE photoluminescence is the talk's working hypothesis; bench work at LBNL attributes the dominant delayed-photon component to quartz-window fluorescence.",
     "Whether the analysis is continuing is not known."
    ],
-   "cited_authors": [
-    "Linda Di Felice (Imperial College London), speaker of the IOP 2025 talk for LZ"
-   ],
+   "cited_authors": [],
    "short_name": "LZ isolated-S1",
    "study_status": "talk only",
    "first_year": 2023,
@@ -2798,10 +2692,7 @@
     "The elevated, decaying single-photon and single-electron rates after large S2s are shown in talks as a preliminary plot without numbers.",
     "'Stingers' were raised at the LIDINE 2026 round table; no published description exists."
    ],
-   "cited_authors": [
-    "Ruben Coronel (Stanford University), speaker at IDM 2026 and the APS Global Physics Summit 2026 for LZ",
-    "Isabelle Darlington (University College London), speaker at IOP 2026 and the UK HEP Forum 2025 for LZ"
-   ],
+   "cited_authors": [],
    "short_name": "LZ AC model",
    "study_status": "ongoing",
    "first_year": 2022,
@@ -3118,15 +3009,7 @@
     "The mechanism behind the delayed photons is not understood; material photoluminescence is a candidate.",
     "The study of the wall charge-insensitive volume was mentioned at the LIDINE 2026 round table; no result is available."
    ],
-   "cited_authors": [
-    "Paloma Cimental (University of Zurich), speaker at EPS-HEP 2025",
-    "Pranati Kharbanda, speaker at LIDINE 2025",
-    "Shenyang Shi (Columbia University), speaker at TAUP 2025",
-    "Giovanni Volta, speaker at IDM 2026",
-    "Jie Tang (CUHK-Shenzhen), speaker at CPS-HEP 2026",
-    "Lanqing Yuan (University of Chicago), PhD thesis 2025",
-    "Jianyu Long (University of Chicago), PhD thesis 2024"
-   ],
+   "cited_authors": [],
    "short_name": "XENONnT",
    "study_status": "ongoing",
    "first_year": 2020,
@@ -3303,9 +3186,7 @@
     "The rise of the delayed-electron rate with electron lifetime is opposite to the purity trend reported by XENON1T and LUX and is not explained in the talk.",
     "Current operation (late 2026) is inferred from recent analyses of new data, not from a collaboration statement."
    ],
-   "cited_authors": [
-    "Shuaijie Li (Yalong Hydro (CJPL) / Shanghai Jiao Tong University), speaker at LIDINE 2025 for PandaX"
-   ],
+   "cited_authors": [],
    "short_name": "PandaX-4T",
    "study_status": "ongoing",
    "first_year": 2021,
@@ -3437,11 +3318,7 @@
     "Start of operation in 2027 is the expectation stated in the 2024 collaboration paper.",
     "Coordinates are approximate (underground halls of LNGS)."
    ],
-   "cited_authors": [
-    "M. Wada (Astrocent), speaker of the LIDINE 2026 overview talk",
-    "E. Nikoloudaki (APC Paris), author of a PhD thesis in preparation on background studies",
-    "D. Franco (APC Paris), thesis supervisor"
-   ],
+   "cited_authors": [],
    "short_name": "DarkSide-20k",
    "study_status": "ongoing",
    "first_year": 2027,
@@ -3457,10 +3334,7 @@
    "institute": "Yale University (McKinsey group; analysis completed with LBNL/UC Berkeley co-authors)",
    "collaboration": null,
    "people": [
-    "E. Bodnia",
-    "E. P. Bernard",
-    "V. Velan",
-    "D. N. McKinsey"
+    "Daniel McKinsey"
    ],
    "city": "New Haven, CT",
    "country": "United States",
@@ -3548,13 +3422,7 @@
    "institute": "Budker Institute of Nuclear Physics SB RAS and Novosibirsk State University",
    "collaboration": null,
    "people": [
-    "A. Buzulutskov",
-    "E. Frolov",
-    "A. Bondar",
-    "E. Borisova",
-    "V. Oleynikov",
-    "A. Sokolov",
-    "V. Nosov"
+    "Alexey Buzulutskov"
    ],
    "city": "Novosibirsk",
    "country": "Russia",
@@ -3645,10 +3513,7 @@
    "institute": "Nagoya University (Kobayashi-Maskawa Institute and Institute for Space-Earth Environmental Research)",
    "collaboration": null,
    "people": [
-    "S. Kazama",
-    "N. Aoyama",
-    "Y. Itow",
-    "M. Kobayashi"
+    "Shingo Kazama"
    ],
    "city": "Nagoya",
    "country": "Japan",
@@ -3720,15 +3585,7 @@
    "institute": "Karlsruhe Institute of Technology, Institute for Astroparticle Physics",
    "collaboration": null,
    "people": [
-    "Y. Biondi",
-    "A. Jansen",
-    "K. Ding",
-    "M. Schrank",
-    "T. Sonius",
-    "A. Schwenck",
-    "A. Elykov",
-    "S. Vetter",
-    "V. H. S. Wu"
+    "Yanina Biondi"
    ],
    "city": "Karlsruhe",
    "country": "Germany",
@@ -3821,13 +3678,7 @@
    "institute": "Johannes Gutenberg University Mainz (Oberlack group)",
    "collaboration": null,
    "people": [
-    "S. A. Mitra",
-    "A. Deisting",
-    "J. Lommler",
-    "U. Oberlack",
-    "F. Piermaier",
-    "Q. Weitzel",
-    "D. Wenz"
+    "Uwe Oberlack"
    ],
    "city": "Mainz",
    "country": "Germany",
@@ -3915,11 +3766,7 @@
    "institute": "University of Freiburg (Schumann group)",
    "collaboration": null,
    "people": [
-    "F. Tönnies",
-    "A. Brown",
-    "F. Kuger",
-    "S. Lindemann",
-    "M. Schumann"
+    "Marc Schumann"
    ],
    "city": "Freiburg",
    "country": "Germany",
@@ -4008,13 +3855,9 @@
    "institute": "University of Zurich; Stockholm University; Max-Planck-Institut für Kernphysik Heidelberg",
    "collaboration": null,
    "people": [
-    "L. Baudis",
-    "J. Conrad",
-    "T. Marrodán Undagoitia",
-    "G. Volta",
-    "L. Hoetzsch",
-    "J. Wulf",
-    "V. C. Antochi"
+    "Laura Baudis (Zurich)",
+    "Jan Conrad (Stockholm)",
+    "Teresa Marrodán Undagoitia (MPIK)"
    ],
    "city": "Zurich",
    "country": "Switzerland",
@@ -4093,12 +3936,7 @@
    "institute": "National Research Nuclear University MEPhI",
    "collaboration": null,
    "people": [
-    "D. Yu. Akimov",
-    "A. I. Bolozdynya",
-    "Yu. V. Efremenko",
-    "A. V. Khromov",
-    "Yu. A. Melikyan",
-    "V. V. Sosnovtsev"
+    "Alexander Bolozdynya"
    ],
    "city": "Moscow",
    "country": "Russia",
@@ -4165,13 +4003,7 @@
    "institute": "University of Zurich (Baudis group)",
    "collaboration": null,
    "people": [
-    "L. Baudis",
-    "M. Galloway",
-    "A. Kish",
-    "J. Wulf",
-    "F. Girard",
-    "K. Thieme",
-    "Y. Biondi"
+    "Laura Baudis"
    ],
    "city": "Zurich",
    "country": "Switzerland",
@@ -4252,11 +4084,7 @@
    "institute": "TRIUMF (Retière group)",
    "collaboration": null,
    "people": [
-    "K. Raymond",
-    "F. Retière",
-    "G. Gallina",
-    "A. Capra",
-    "A. de St Croix"
+    "Fabrice Retière"
    ],
    "city": "Vancouver",
    "country": "Canada",
@@ -4329,7 +4157,7 @@
    "institute": "Universidade Estadual de Campinas (UNICAMP), Instituto de Física Gleb Wataghin",
    "collaboration": null,
    "people": [
-    "E. Segreto"
+    "Ettore Segreto"
    ],
    "city": "Campinas",
    "country": "Brazil",

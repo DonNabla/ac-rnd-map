@@ -73,8 +73,7 @@ Fields of one setup:
 | `provenance` | yes | `opened` ("Sources opened"), `abstract` ("Abstract-level check") or `unchecked` |
 | `confidence` | no | `high`, `medium` or `low`: how fully the sources support the description |
 | `institute`, `collaboration` | no | Host institute and collaboration |
-| `people` | no | List of names (R&D setups) |
-| `cited_authors` | no | List of authors and speakers of the cited work (experiments) |
+| `people` | no | PI or group leader (R&D setups only; one name, or one per site) |
 | `city`, `country`, `country_code` | no | Location; `country_code` is ISO 3166 alpha-2 |
 | `lat`, `lon` | no | Coordinates of the laboratory or detector, both or neither |
 | `location_note` | no | One sentence on what the pin marks |

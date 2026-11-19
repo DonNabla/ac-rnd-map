@@ -722,7 +722,7 @@ SETUPS.forEach(function (s) {
   var meas = (s.measurements || []).map(function (m) { return [m.what, m.result].filter(Boolean).join(' '); }).join(' \n ');
   s.fields = [
     ['name', s.name + ' ' + s.id.replace(/-/g, ' ')], ['short name', s.short], ['institute', s.institute], ['collaboration', s.collaboration],
-    ['people', (s.people || []).concat(s.cited_authors || []).join(' ')], ['city', s.city],
+    ['PI', (s.people || []).join(' ')], ['city', s.city],
     ['country', [s.country, COUNTRY_ALIASES[s.country], s.country_code].filter(Boolean).join(' ')], ['medium', s.medium],
     ['description', s.description], ['mechanisms', (s.mechanisms || []).concat(s.tags.map(function (t) { return (tagById.get(t) || {}).name; })).filter(Boolean).join(' \n ')],
     ['measurements', [meas, s.key_results].filter(Boolean).join(' \n ')], ['references', refs]
@@ -1385,8 +1385,7 @@ function renderSetup(s) {
   if (exp) fact('Collaboration', esc(s.collaboration));
   fact('Institute', esc(s.institute));
   if (!exp) fact('Collaboration', esc(s.collaboration));
-  if (exp) fact('Authors and speakers of the cited work', esc(((s.cited_authors && s.cited_authors.length) ? s.cited_authors : (s.people || [])).join(', ')));
-  else fact('People', esc((s.people || []).join(', ')));
+  if (!exp && s.people && s.people.length) fact('PI / group leader', esc(s.people.join(', ')));
   var loc = esc([s.city, s.country].filter(Boolean).join(', '));
   if (s.placed) loc += '<span class="sub">' + s.lat.toFixed(3) + '°, ' + s.lon.toFixed(3) + '°</span>';
   else loc += '<span class="sub noloc">No location recorded yet; not shown on the map.</span>';

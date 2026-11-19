@@ -1,0 +1,43 @@
+# Docker Swarm stack: one nginx container behind Traefik.
+# Deploy with:  docker stack deploy -c docker-stack.yml acmap
+version: "3.8"
+
+services:
+  web:
+    image: donnabla/ac-rnd-map:latest
+    networks:
+      - public
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: any
+        delay: 5s
+        max_attempts: 5
+        window: 60s
+      update_config:
+        order: start-first
+        parallelism: 1
+        failure_action: rollback
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: 64M
+      labels:
+        - traefik.enable=true
+        - traefik.docker.network=public
+        - traefik.http.routers.acmap.rule=Host(`acmap.rarephysics.com`)
+        - traefik.http.routers.acmap.entrypoints=websecure
+        - traefik.http.routers.acmap.tls=true
+        - traefik.http.routers.acmap.tls.certresolver=letsencrypt
+        - traefik.http.routers.acmap.service=acmap
+        - traefik.http.services.acmap.loadbalancer.server.port=8080
+        - traefik.http.routers.acmap-http.rule=Host(`acmap.rarephysics.com`)
+        - traefik.http.routers.acmap-http.entrypoints=web
+        - traefik.http.routers.acmap-http.middlewares=acmap-redirect-to-https
+        - traefik.http.routers.acmap-http.service=acmap
+        - traefik.http.middlewares.acmap-redirect-to-https.redirectscheme.scheme=https
+        - traefik.http.middlewares.acmap-redirect-to-https.redirectscheme.permanent=true
+
+networks:
+  public:
+    external: true

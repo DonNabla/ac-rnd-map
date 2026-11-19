@@ -1,0 +1,29 @@
+Content licence: Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Copyright (c) 2026 Maxime Pierre
+
+What this covers
+  The content of this repository, as distinct from its code: the files in
+  data/ (setups.json, sources.json, meta.json) and the explanatory text and
+  the detector drawing in src/template.html.
+
+What it does not cover
+  The code (build.py, the script and styles in src/template.html, the Docker
+  and workflow files) is under the MIT licence, see LICENSE.
+  vendor/countries-50m.json is third-party geometry, see vendor/README.md.
+  The papers, theses and talks that the data links to belong to their authors
+  and publishers; only the descriptions written here are licensed.
+
+Summary (not a substitute for the licence)
+  You may copy, redistribute, remix, transform and build upon this content
+  for any purpose, including commercially, provided you give appropriate
+  credit, link to the licence and indicate if changes were made. You may not
+  apply legal terms or technological measures that restrict others from doing
+  anything the licence permits. The content is provided as is, without
+  warranties.
+
+Suggested credit
+  "Isolated S1/S2 R&D Map, https://acmap.rarephysics.com, CC BY 4.0"
+
+Full licence text
+  https://creativecommons.org/licenses/by/4.0/legalcode

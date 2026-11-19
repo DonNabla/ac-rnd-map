@@ -1,0 +1,9 @@
+.git
+.github
+site
+__pycache__
+.DS_Store
+README.md
+LICENSE
+LICENSE-CONTENT
+docker-stack.yml

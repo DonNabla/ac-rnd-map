@@ -1,0 +1,121 @@
+{
+ "tags": [
+  {
+   "id": "A",
+   "name": "Window fluorescence",
+   "desc": "Fluorescence of photosensor windows (quartz)"
+  },
+  {
+   "id": "B",
+   "name": "Material photoluminescence",
+   "desc": "Photoluminescence of TPC materials and contaminants (PTFE, flux, dust, coatings)"
+  },
+  {
+   "id": "C",
+   "name": "Impurity capture / release",
+   "desc": "Electrons captured on impurities and released later"
+  },
+  {
+   "id": "D",
+   "name": "Liquid-surface charge",
+   "desc": "Electrons trapped or charge accumulated at the liquid surface"
+  },
+  {
+   "id": "E",
+   "name": "Electrode emission",
+   "desc": "Grid and electrode emission"
+  },
+  {
+   "id": "F",
+   "name": "Photoionisation",
+   "desc": "Photoionisation of electrodes and impurities within a drift time"
+  },
+  {
+   "id": "G",
+   "name": "Charge-insensitive regions",
+   "desc": "Charge-insensitive regions, light leaks"
+  },
+  {
+   "id": "H",
+   "name": "Argon-specific (EUV, TPB/ESR)",
+   "desc": "Argon-specific: EUV metastables, TPB/ESR alphas, dust"
+  },
+  {
+   "id": "I",
+   "name": "Dark counts / afterpulses",
+   "desc": "Dark counts and afterpulses of photosensors"
+  }
+ ],
+ "leads": [
+  {
+   "name": "XeLab dual-phase xenon TPC (floating / spacer-assisted electrodes)",
+   "institute": "LPNHE Paris with Subatech Nantes",
+   "note": "Dual-phase xenon TPC at LPNHE Paris for electrode development towards XLZD, with single-electron production among its stated R&D topics; no public write-up of a single-electron measurement found yet."
+  },
+  {
+   "name": "PANCAKE large-electrode test platform",
+   "institute": "University of Freiburg",
+   "note": "Large-electrode test platform in which a 1.33 m shallow dual-phase TPC has been operated; spurious emission of light and charge from large electrodes is a stated motivation, with no emission result published yet."
+  },
+  {
+   "name": "LLNL dual-phase argon ionisation chamber (³⁷Ar sub-keV threshold)",
+   "institute": "Lawrence Livermore National Laboratory",
+   "note": "Dual-phase argon ionisation chamber with sub-keV threshold (Sangiorgio et al., 2013), in which single ionisation electrons were reportedly observed and used for absolute charge calibration."
+  },
+  {
+   "name": "LoLX external-crosstalk measurement in liquid xenon",
+   "institute": "McGill University / TRIUMF",
+   "note": "LoLX views about 5 kg of liquid xenon with 96 VUV4 SiPMs; a direct measurement of SiPM external crosstalk in liquid xenon bears on correlated lone hits and fake few-fold S1s."
+  },
+  {
+   "name": "XENON10 sub-GeV single-electron analysis",
+   "institute": "Stony Brook / LLNL / Tel Aviv (Essig, Manalaysay, Mardon, Sorensen, Volansky)",
+   "note": "Re-analysis of 15 kg-days of XENON10 single-electron-trigger data that set the first sub-GeV dark-matter-electron limits from 1-, 2- and 3-electron events; an early use of the few-electron population."
+  },
+  {
+   "name": "F. Girard PhD thesis on SiPMs for xenon TPCs",
+   "institute": "University of Zurich",
+   "note": "PhD thesis (2023) on SiPMs for xenon TPCs, relevant for SiPM dark counts and correlated noise as a source of accidental coincidences."
+  },
+  {
+   "name": "LUX grid-conditioning emitter studies (theses)",
+   "institute": "Imperial College London / LUX Collaboration",
+   "note": "Localised electron and light emitters on the LUX gate grid seen during the 2014 conditioning campaign, described in two theses (A. Bailey 2016, W. Ji 2019); relevant to grid emission as a source of isolated S2s."
+  },
+  {
+   "name": "Tsinghua gaseous-xenon detector for delayed electrons",
+   "institute": "Tsinghua University (RELICS)",
+   "note": "Possible separate gas-phase xenon detector used alongside the RELICS prototype TPC to study delayed electrons, presented in posters at TAUP 2025 and LIDINE 2025; no public write-up found yet."
+  },
+  {
+   "name": "NUXE single-phase reactor CEvNS detector",
+   "institute": "UC San Diego",
+   "note": "Planned ~100 kg single-phase liquid-xenon proportional scintillation counter for reactor CEvNS, designed to avoid single-electron backgrounds related to the liquid surface; no public write-up found yet."
+  },
+  {
+   "name": "Scaling Up TPCs: space charge and pile-up effects",
+   "institute": "CIEMAT Madrid",
+   "note": "LIDINE 2025 talk (R. Santorelli) on pile-up, S1–S2 misidentification and uncorrelated light from ion recombination in large argon and xenon TPCs; it is not stated whether measurements or only modelling are reported."
+  },
+  {
+   "name": "XENON1T PMT qualification (R11410-21) light-emission and afterpulse tests",
+   "institute": "University of Zurich / MPIK Heidelberg",
+   "note": "Predecessor of the XENONnT PMT test campaign, relevant for micro light emission and afterpulses of the R11410-21 tubes installed in XENON1T."
+  },
+  {
+   "name": "XENONnT / Nikhef photoluminescence in-situ analysis",
+   "institute": "Nikhef",
+   "note": "LIDINE 2025 talk (P. Kharbanda) on photoluminescence as a source of delayed photon and electron signals in XENONnT, with lone-hit pile-up driving the 2- and 3-fold lone-S1 rate; covered under the Nikhef bench and XENONnT entries."
+  }
+ ],
+ "past_detectors": [
+  "XENON10",
+  "XENON100",
+  "XENON1T",
+  "ZEPLIN-II",
+  "ZEPLIN-III",
+  "LUX",
+  "PandaX-II",
+  "DarkSide-50"
+ ]
+}

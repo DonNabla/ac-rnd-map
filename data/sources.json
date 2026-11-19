@@ -1,0 +1,2972 @@
+{
+ "reference_talk": {
+  "title": "Accidental Coincidence Backgrounds in Double-Phase TPC Dark Matter Detectors",
+  "speaker": "Masayuki Wada",
+  "affiliation": "Astrocent (Nicolaus Copernicus Astronomical Center, Polish Academy of Sciences)",
+  "event": "LIDINE 2026",
+  "date": "2026-10-06",
+  "url": "https://indico.nikhef.nl/event/7584/contributions/31837/",
+  "slides_url": "https://indico.nikhef.nl/event/7584/contributions/31837/attachments/11517/17946/LIDINE2026_MasayukiWada.pdf",
+  "found": true,
+  "other_talks_used": [
+   {
+    "title": "Round table 1: Lone S1 and S2, accidental coincidences, mitigation, origins, R&D needs (minutes by P. Kharbanda and R. Matheson)",
+    "speaker": "J. Aalbers (chair)",
+    "url": "https://indico.nikhef.nl/event/7584/contributions/31998/attachments/11575/18017/AC_roundtable.pdf"
+   },
+   {
+    "title": "Backgrounds in the LUX-ZEPLIN (LZ) Experiment (TeVPA 2024; origin of the source illustration)",
+    "speaker": "A. Wang",
+    "url": "https://indico.uchicago.edu/event/427/contributions/1397/attachments/369/563/TeVPA2024_LZBackgrounds_AWang.pdf"
+   },
+   {
+    "title": "Latest results from LUX-ZEPLIN (LIDINE 2026; unphysical-drift-time sketch for accidentals)",
+    "speaker": "J. Green",
+    "url": "https://indico.nikhef.nl/event/7584/contributions/31306/attachments/11532/17957/LINDINE%202026%20%232-3.pdf"
+   }
+  ]
+ },
+ "pairing": "An isolated S1 and an isolated S2 come from two unrelated processes. If the S2 happens to follow the S1 by less than the maximum drift time, the event builder pairs them and reconstructs one scatter at a fake depth. To first order the rate is R_AC = R_isoS1 × R_isoS2 × Δt_drift; both rates rise after large energy deposits, so in practice the product is evaluated in time bins or with pulses sampled from data. Small pulses are the most frequent, so the fake events pile up at low S1 and low S2, exactly where ⁸B CEvNS and few-GeV WIMPs are searched for. Published rates: XENON1T 0.7–1.1 Hz and 2.6 mHz (S2 > 100 PE); XENONnT SR0 WIMP search 1.5 Hz and 80 mHz with Δt = 2.2 ms; XENONnT ⁸B search about 15 Hz and 0.15 Hz before cuts (several hundred accidental pairs per day), 2.3 Hz and 18–26 mHz after the shadow cuts; LZ predicts 2.8 ± 0.6 accidental events in 220 live days (WS2024) and 6.6 ± 0.3 in its 5.7 t·yr low-mass search (WS2025).",
+ "pairing_references": [
+  {
+   "title": "XENON1T Dark Matter Data Analysis: Signal & Background Models, and Statistical Inference",
+   "authors": "E. Aprile et al. (XENON)",
+   "year": 2019,
+   "venue": "Phys. Rev. D 99, 112009 (2019); arXiv:1902.11297",
+   "url": "https://arxiv.org/abs/1902.11297",
+   "type": "paper",
+   "verified": true
+  },
+  {
+   "title": "XENONnT WIMP Search: Signal & Background Modeling and Statistical Inference",
+   "authors": "E. Aprile et al. (XENON)",
+   "year": 2025,
+   "venue": "Phys. Rev. D 111, 103040 (2025), doi:10.1103/PhysRevD.111.103040; arXiv:2406.13638",
+   "url": "https://arxiv.org/abs/2406.13638",
+   "type": "paper",
+   "verified": true
+  },
+  {
+   "title": "First Indication of Solar 8B Neutrinos via Coherent Elastic Neutrino-Nucleus Scattering with XENONnT",
+   "authors": "E. Aprile et al. (XENON)",
+   "year": 2024,
+   "venue": "Phys. Rev. Lett. 133, 191002 (2024), doi:10.1103/PhysRevLett.133.191002; arXiv:2408.02877",
+   "url": "https://arxiv.org/abs/2408.02877",
+   "type": "paper",
+   "verified": true
+  },
+  {
+   "title": "First measurement of solar 8B CEvNS with the XENONnT dark matter experiment",
+   "authors": "P. Cimental, for XENON",
+   "year": 2025,
+   "venue": "EPS-HEP 2025, Marseille, 8 July 2025 (slides)",
+   "url": "https://ikarus.physik.uzh.ch/dam/jcr:e786b826-4b67-40d8-8ea4-2e9883a484c5/XENON_CEvNS_EPS_2025_Cimental_vf.pdf",
+   "type": "talk",
+   "verified": true
+  },
+  {
+   "title": "Backgrounds in the LUX-ZEPLIN (LZ) Experiment",
+   "authors": "A. Wang, for LZ",
+   "year": 2024,
+   "venue": "TeVPA 2024 (slides)",
+   "url": "https://indico.uchicago.edu/event/427/contributions/1397/attachments/369/563/TeVPA2024_LZBackgrounds_AWang.pdf",
+   "type": "talk",
+   "verified": true
+  },
+  {
+   "title": "Searches for Light Dark Matter and Evidence of Coherent Elastic Neutrino-Nucleus Scattering of Solar Neutrinos with the LUX-ZEPLIN (LZ) Experiment",
+   "authors": "D. S. Akerib et al. (LZ)",
+   "year": 2026,
+   "venue": "Phys. Rev. Lett. 137, 091806 (2026), doi:10.1103/jvqf-njpj; arXiv:2512.08065",
+   "url": "https://arxiv.org/abs/2512.08065",
+   "type": "arXiv",
+   "verified": true
+  },
+  {
+   "title": "Accidental Coincidence Backgrounds in Double-Phase TPC Dark Matter Detectors",
+   "authors": "M. Wada",
+   "year": 2026,
+   "venue": "LIDINE 2026, Nikhef, Amsterdam, 6 Oct 2026 (slides)",
+   "url": "https://indico.nikhef.nl/event/7584/contributions/31837/attachments/11517/17946/LIDINE2026_MasayukiWada.pdf",
+   "type": "talk",
+   "verified": true
+  }
+ ],
+ "regions": [
+  {
+   "id": "top_pmt_array",
+   "label": "Top photosensor array"
+  },
+  {
+   "id": "top_pmt_window",
+   "label": "Top photosensor windows (quartz)"
+  },
+  {
+   "id": "top_screen",
+   "label": "Top screening electrode"
+  },
+  {
+   "id": "gas_gap",
+   "label": "Gas gap (electroluminescence region)"
+  },
+  {
+   "id": "anode",
+   "label": "Anode"
+  },
+  {
+   "id": "liquid_surface",
+   "label": "Liquid surface"
+  },
+  {
+   "id": "extraction_region",
+   "label": "Liquid between gate and surface (high-field extraction region)"
+  },
+  {
+   "id": "gate",
+   "label": "Gate electrode"
+  },
+  {
+   "id": "bulk_liquid",
+   "label": "Bulk liquid (drift region)"
+  },
+  {
+   "id": "ptfe_wall",
+   "label": "PTFE reflector wall"
+  },
+  {
+   "id": "wall_reflector_tpb",
+   "label": "Argon TPC wall: ESR reflector foil with TPB coating"
+  },
+  {
+   "id": "field_shaping_rings",
+   "label": "Field-shaping rings"
+  },
+  {
+   "id": "wall_charge_insensitive",
+   "label": "Charge-insensitive liquid near the wall (field lines end on the wall)"
+  },
+  {
+   "id": "cathode",
+   "label": "Cathode"
+  },
+  {
+   "id": "below_cathode",
+   "label": "Reverse-field region below the cathode"
+  },
+  {
+   "id": "bottom_screen",
+   "label": "Bottom screening electrode"
+  },
+  {
+   "id": "bottom_pmt_array",
+   "label": "Bottom photosensor array"
+  },
+  {
+   "id": "bottom_pmt_window",
+   "label": "Bottom photosensor windows (quartz)"
+  },
+  {
+   "id": "outer_volume",
+   "label": "Outer / skin volume outside the TPC wall"
+  },
+  {
+   "id": "impurities_in_bulk",
+   "label": "Electronegative impurities dissolved in the bulk liquid"
+  }
+ ],
+ "sources": [
+  {
+   "id": "below-cathode-events",
+   "name": "Events below the cathode",
+   "signal": "S1",
+   "tags": [
+    "G"
+   ],
+   "region": "below_cathode",
+   "extra_regions": [
+    "bottom_screen"
+   ],
+   "medium": "xenon",
+   "mechanism": "Between the cathode and the bottom screening electrode the field points the other way (reverse-field region), so ionisation electrons drift down to the screen and never reach the gas. The scintillation light is still seen, mostly by the bottom array. The result is an S1 with no S2.",
+   "chain": "energy deposit below the cathode → light detected, charge drifts away from the gas → S1 with no S2",
+   "timescale": "prompt; random in time (follows the background rate of the detector)",
+   "correlated_with": "none (random); rate set by radioactivity of the bottom array, cathode and bottom screen",
+   "evidence": "established",
+   "evidence_note": "Named as an S1-only source by LZ (reverse-field region), XENON1T (below-cathode region) and PandaX-II; it is a geometric property of every TPC with a bottom screen.",
+   "key_numbers": [
+    {
+     "text": "XENON1T lone-S1 rate, all origins together: 0.7–1.1 Hz",
+     "ref": 1
+    }
+   ],
+   "mitigation": "S1 hit-pattern and top-bottom asymmetry cuts (light concentrated on the bottom array), consistency of the S1 pattern with drift time; argon designs without a reverse-field region avoid it.",
+   "setups": [
+    "lz-accidental-coincidence-model",
+    "xenonnt"
+   ],
+   "past_setups": [
+    "PandaX-II AC study"
+   ],
+   "references": [
+    {
+     "title": "Background Determination for the LUX-ZEPLIN (LZ) Dark Matter Experiment",
+     "authors": "J. Aalbers et al. (LZ)",
+     "year": 2023,
+     "venue": "Phys. Rev. D 108, 012010 (2023); arXiv:2211.17120",
+     "url": "https://arxiv.org/abs/2211.17120",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "XENON1T Dark Matter Data Analysis: Signal & Background Models, and Statistical Inference",
+     "authors": "E. Aprile et al. (XENON)",
+     "year": 2019,
+     "venue": "Phys. Rev. D 99, 112009 (2019); arXiv:1902.11297",
+     "url": "https://arxiv.org/abs/1902.11297",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Study of background from accidental coincidence signals in the PandaX-II experiment",
+     "authors": "A. Abdukerim et al. (PandaX-II)",
+     "year": 2022,
+     "venue": "Chin. Phys. C 46, 103001 (2022), doi:10.1088/1674-1137/ac7cd8; arXiv:2204.11175",
+     "url": "https://arxiv.org/abs/2204.11175",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Accidental Coincidence Backgrounds in Double-Phase TPC Dark Matter Detectors",
+     "authors": "M. Wada",
+     "year": 2026,
+     "venue": "LIDINE 2026, Nikhef, Amsterdam, 6 Oct 2026 (slides)",
+     "url": "https://indico.nikhef.nl/event/7584/contributions/31837/attachments/11517/17946/LIDINE2026_MasayukiWada.pdf",
+     "type": "talk",
+     "verified": true
+    },
+    {
+     "title": "Round table 1: Lone S1 and S2, accidental coincidences, mitigation, origins, R&D needs (minutes by P. Kharbanda and R. Matheson)",
+     "authors": "J. Aalbers (chair) et al.",
+     "year": 2026,
+     "venue": "LIDINE 2026, Nikhef, Amsterdam, 7 Oct 2026 (round-table minutes, contribution 95)",
+     "url": "https://indico.nikhef.nl/event/7584/contributions/31998/attachments/11575/18017/AC_roundtable.pdf",
+     "type": "talk",
+     "verified": true
+    }
+   ],
+   "in_reference_talk": true,
+   "importance": "unknown",
+   "importance_note": "No published estimate of its share."
+  },
+  {
+   "id": "wall-charge-insensitive-volume",
+   "name": "Charge loss near the wall",
+   "signal": "S1",
+   "tags": [
+    "G"
+   ],
+   "region": "wall_charge_insensitive",
+   "extra_regions": [
+    "ptfe_wall",
+    "wall_reflector_tpb",
+    "cathode"
+   ],
+   "medium": "both",
+   "mechanism": "Close to the wall, and especially in the bottom corner near the cathode, drift-field lines end on the reflector instead of the gate. Electrons from an interaction there are lost on the wall, so the event keeps its S1 and loses all of its S2. Wall charge-up changes the size of this volume with time.",
+   "chain": "energy deposit near the wall → electrons follow field lines onto the wall → S1 with no S2",
+   "timescale": "prompt; random in time",
+   "correlated_with": "none (random); concentrated at large radius and low z",
+   "evidence": "supported",
+   "evidence_note": "XENONnT models the volume with a field-simulation probability map p_CIV(R,Z) and PandaX-II lists total charge loss near the bottom wall as an S1 origin; its share of the isolated-S1 rate is still being measured (XENON S1-only position reconstruction, LIDINE 2026 round table).",
+   "key_numbers": [
+    {
+     "text": "DarkSide-20k risk rating for this source: High (the only isolated-S1 source rated high)",
+     "ref": 2
+    }
+   ],
+   "mitigation": "S1 position reconstruction to remove S1s from the wall, fiducial cuts on paired events, field shaping to shrink the volume.",
+   "setups": [
+    "xenonnt",
+    "lz-accidental-coincidence-model",
+    "darkside-20k-design"
+   ],
+   "past_setups": [
+    "PandaX-II AC study"
+   ],
+   "references": [
+    {
+     "title": "XENONnT WIMP Search: Signal & Background Modeling and Statistical Inference",
+     "authors": "E. Aprile et al. (XENON)",
+     "year": 2025,
+     "venue": "Phys. Rev. D 111, 103040 (2025), doi:10.1103/PhysRevD.111.103040; arXiv:2406.13638",
+     "url": "https://arxiv.org/abs/2406.13638",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Study of background from accidental coincidence signals in the PandaX-II experiment",
+     "authors": "A. Abdukerim et al. (PandaX-II)",
+     "year": 2022,
+     "venue": "Chin. Phys. C 46, 103001 (2022), doi:10.1088/1674-1137/ac7cd8; arXiv:2204.11175",
+     "url": "https://arxiv.org/abs/2204.11175",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Accidental Coincidence Backgrounds in Double-Phase TPC Dark Matter Detectors",
+     "authors": "M. Wada",
+     "year": 2026,
+     "venue": "LIDINE 2026, Nikhef, Amsterdam, 6 Oct 2026 (slides)",
+     "url": "https://indico.nikhef.nl/event/7584/contributions/31837/attachments/11517/17946/LIDINE2026_MasayukiWada.pdf",
+     "type": "talk",
+     "verified": true
+    },
+    {
+     "title": "Round table 1: Lone S1 and S2, accidental coincidences, mitigation, origins, R&D needs (minutes by P. Kharbanda and R. Matheson)",
+     "authors": "J. Aalbers (chair) et al.",
+     "year": 2026,
+     "venue": "LIDINE 2026, Nikhef, Amsterdam, 7 Oct 2026 (round-table minutes, contribution 95)",
+     "url": "https://indico.nikhef.nl/event/7584/contributions/31998/attachments/11575/18017/AC_roundtable.pdf",
+     "type": "talk",
+     "verified": true
+    },
+    {
+     "title": "XENONnT Analysis: Signal Reconstruction, Calibration and Event Selection",
+     "authors": "E. Aprile et al. (XENON)",
+     "year": 2025,
+     "venue": "Phys. Rev. D 111, 062006 (2025); arXiv:2409.08778",
+     "url": "https://arxiv.org/abs/2409.08778",
+     "type": "paper",
+     "verified": true
+    }
+   ],
+   "in_reference_talk": true,
+   "importance": "unknown",
+   "importance_note": "Its share of the isolated-S1 rate is still being measured (LIDINE 2026 round table); rated a high risk for DarkSide-20k in the LIDINE 2026 overview talk."
+  },
+  {
+   "id": "outer-volume-light-leak",
+   "name": "Light leaks from outside",
+   "signal": "S1",
+   "tags": [
+    "G"
+   ],
+   "region": "outer_volume",
+   "extra_regions": [
+    "below_cathode",
+    "ptfe_wall"
+   ],
+   "medium": "both",
+   "mechanism": "Energy deposits in the liquid outside the reflector wall (skin, or the volume around the electrodes) produce scintillation but no collected charge. Part of that light enters the TPC through gaps, holes and the partly transparent reflector and is recorded as a small S1.",
+   "chain": "energy deposit outside the wall → light leaks into the TPC → S1 with no S2",
+   "timescale": "prompt; random in time",
+   "correlated_with": "none (random); coincident with a signal in the skin/veto where one is instrumented",
+   "evidence": "supported",
+   "evidence_note": "Listed by PandaX-II ('possible light leakage from scattering events outside the TPC'), in the LZ source list reproduced in the LIDINE 2026 overview talk, and by the round table for both xenon and argon ('a prominent one' for argon); no published rate.",
+   "key_numbers": [
+    {
+     "text": "DarkSide-20k risk rating: Middle (outer volume is invisible without wavelength shifter)",
+     "ref": 1
+    },
+    {
+     "text": "DS-20k ESR reflector transmits about 2% of visible light",
+     "ref": 1
+    }
+   ],
+   "mitigation": "Skin/outer-detector veto, light-tight reflector design, S1 hit-pattern cuts.",
+   "setups": [
+    "lz-accidental-coincidence-model",
+    "darkside-20k-design"
+   ],
+   "past_setups": [
+    "PandaX-II AC study"
+   ],
+   "references": [
+    {
+     "title": "Study of background from accidental coincidence signals in the PandaX-II experiment",
+     "authors": "A. Abdukerim et al. (PandaX-II)",
+     "year": 2022,
+     "venue": "Chin. Phys. C 46, 103001 (2022), doi:10.1088/1674-1137/ac7cd8; arXiv:2204.11175",
+     "url": "https://arxiv.org/abs/2204.11175",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Accidental Coincidence Backgrounds in Double-Phase TPC Dark Matter Detectors",
+     "authors": "M. Wada",
+     "year": 2026,
+     "venue": "LIDINE 2026, Nikhef, Amsterdam, 6 Oct 2026 (slides)",
+     "url": "https://indico.nikhef.nl/event/7584/contributions/31837/attachments/11517/17946/LIDINE2026_MasayukiWada.pdf",
+     "type": "talk",
+     "verified": true
+    },
+    {
+     "title": "Round table 1: Lone S1 and S2, accidental coincidences, mitigation, origins, R&D needs (minutes by P. Kharbanda and R. Matheson)",
+     "authors": "J. Aalbers (chair) et al.",
+     "year": 2026,
+     "venue": "LIDINE 2026, Nikhef, Amsterdam, 7 Oct 2026 (round-table minutes, contribution 95)",
+     "url": "https://indico.nikhef.nl/event/7584/contributions/31998/attachments/11575/18017/AC_roundtable.pdf",
+     "type": "talk",
+     "verified": true
+    },
+    {
+     "title": "Backgrounds in the LUX-ZEPLIN (LZ) Experiment",
+     "authors": "A. Wang, for LZ",
+     "year": 2024,
+     "venue": "TeVPA 2024 (slides)",
+     "url": "https://indico.uchicago.edu/event/427/contributions/1397/attachments/369/563/TeVPA2024_LZBackgrounds_AWang.pdf",
+     "type": "talk",
+     "verified": true
+    }
+   ],
+   "in_reference_talk": true,
+   "importance": "significant",
+   "importance_note": "Called 'a prominent one' for argon at the LIDINE 2026 round table and rated a middle risk for DarkSide-20k; no published rate, and no estimate for xenon detectors."
+  },
+  {
+   "id": "gas-phase-s1",
+   "name": "S1 from the gas phase",
+   "signal": "S1",
+   "tags": [
+    "G"
+   ],
+   "region": "gas_gap",
+   "extra_regions": [
+    "top_screen",
+    "anode"
+   ],
+   "medium": "both",
+   "mechanism": "An interaction in the gas, in particular above the anode where the field does not send electrons through the electroluminescence gap, gives scintillation without a normal S2. The pulse is S1-like but has a gas-like time profile and is seen mostly by the top array.",
+   "chain": "energy deposit in the gas above the anode → scintillation, no electrons through the gap → S1 with no S2",
+   "timescale": "prompt; random in time",
+   "correlated_with": "none (random)",
+   "evidence": "supported",
+   "evidence_note": "Listed as an isolated-S1 origin by PandaX-II (region above the anode) and in the LZ source list shown in the LIDINE 2026 overview talk; no published rate.",
+   "key_numbers": [
+    {
+     "text": "DarkSide-20k risk rating: Low (removed by pulse-shape discrimination)",
+     "ref": 1
+    }
+   ],
+   "mitigation": "S1 pulse-shape and top-bottom asymmetry cuts.",
+   "setups": [
+    "lz-accidental-coincidence-model"
+   ],
+   "past_setups": [
+    "PandaX-II AC study"
+   ],
+   "references": [
+    {
+     "title": "Study of background from accidental coincidence signals in the PandaX-II experiment",
+     "authors": "A. Abdukerim et al. (PandaX-II)",
+     "year": 2022,
+     "venue": "Chin. Phys. C 46, 103001 (2022), doi:10.1088/1674-1137/ac7cd8; arXiv:2204.11175",
+     "url": "https://arxiv.org/abs/2204.11175",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Accidental Coincidence Backgrounds in Double-Phase TPC Dark Matter Detectors",
+     "authors": "M. Wada",
+     "year": 2026,
+     "venue": "LIDINE 2026, Nikhef, Amsterdam, 6 Oct 2026 (slides)",
+     "url": "https://indico.nikhef.nl/event/7584/contributions/31837/attachments/11517/17946/LIDINE2026_MasayukiWada.pdf",
+     "type": "talk",
+     "verified": true
+    },
+    {
+     "title": "Backgrounds in the LUX-ZEPLIN (LZ) Experiment",
+     "authors": "A. Wang, for LZ",
+     "year": 2024,
+     "venue": "TeVPA 2024 (slides)",
+     "url": "https://indico.uchicago.edu/event/427/contributions/1397/attachments/369/563/TeVPA2024_LZBackgrounds_AWang.pdf",
+     "type": "talk",
+     "verified": true
+    }
+   ],
+   "in_reference_talk": true,
+   "importance": "unknown",
+   "importance_note": "No published rate; rated a low risk for DarkSide-20k because pulse-shape discrimination removes it."
+  },
+  {
+   "id": "pmt-dark-count-pileup",
+   "name": "PMT dark-count pile-up",
+   "signal": "S1",
+   "tags": [
+    "I"
+   ],
+   "region": "top_pmt_array",
+   "extra_regions": [
+    "bottom_pmt_array"
+   ],
+   "medium": "both",
+   "mechanism": "Thermal dark counts of different photosensors fall by chance within the S1 coincidence window and satisfy the 2- or 3-fold requirement. The fake S1 has no physical position and a random hit pattern. SiPMs have far higher dark rates per area and add optical crosstalk between devices.",
+   "chain": "uncorrelated dark counts in 2–3 sensors within the coincidence window → small fake S1",
+   "timescale": "random; coincidence window of order 100 ns",
+   "correlated_with": "none (random)",
+   "evidence": "established",
+   "evidence_note": "PandaX-II identifies PMT dark noise as the dominant non-physical origin of isolated S1s; LZ and XENONnT name it too, while the LIDINE 2026 round table judged it a small contribution in today's detectors.",
+   "key_numbers": [
+    {
+     "text": "PandaX-II dark rate per PMT: 1.9, 0.17 and 0.23 kHz in Runs 9, 10 and 11",
+     "ref": 0
+    },
+    {
+     "text": "Hamamatsu VUV4 and FBK VUV-HD3 SiPMs emit 40 ± 9 and 61 ± 11 secondary photons per avalanche at 4 V overvoltage",
+     "ref": 5
+    }
+   ],
+   "mitigation": "Higher coincidence fold, low-dark-count sensors, hit-pattern and top-bottom asymmetry cuts.",
+   "setups": [
+    "xenonnt",
+    "lz-isolated-s1-study",
+    "lz-accidental-coincidence-model",
+    "zurich-sipm-xurich-ii",
+    "triumf-miel-sipm-secondary-emission"
+   ],
+   "past_setups": [
+    "PandaX-II AC study"
+   ],
+   "references": [
+    {
+     "title": "Study of background from accidental coincidence signals in the PandaX-II experiment",
+     "authors": "A. Abdukerim et al. (PandaX-II)",
+     "year": 2022,
+     "venue": "Chin. Phys. C 46, 103001 (2022), doi:10.1088/1674-1137/ac7cd8; arXiv:2204.11175",
+     "url": "https://arxiv.org/abs/2204.11175",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Background Determination for the LUX-ZEPLIN (LZ) Dark Matter Experiment",
+     "authors": "J. Aalbers et al. (LZ)",
+     "year": 2023,
+     "venue": "Phys. Rev. D 108, 012010 (2023); arXiv:2211.17120",
+     "url": "https://arxiv.org/abs/2211.17120",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "XENONnT Analysis: Signal Reconstruction, Calibration and Event Selection",
+     "authors": "E. Aprile et al. (XENON)",
+     "year": 2025,
+     "venue": "Phys. Rev. D 111, 062006 (2025); arXiv:2409.08778",
+     "url": "https://arxiv.org/abs/2409.08778",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Round table 1: Lone S1 and S2, accidental coincidences, mitigation, origins, R&D needs (minutes by P. Kharbanda and R. Matheson)",
+     "authors": "J. Aalbers (chair) et al.",
+     "year": 2026,
+     "venue": "LIDINE 2026, Nikhef, Amsterdam, 7 Oct 2026 (round-table minutes, contribution 95)",
+     "url": "https://indico.nikhef.nl/event/7584/contributions/31998/attachments/11575/18017/AC_roundtable.pdf",
+     "type": "talk",
+     "verified": true
+    },
+    {
+     "title": "Accidental Coincidence Backgrounds in Double-Phase TPC Dark Matter Detectors",
+     "authors": "M. Wada",
+     "year": 2026,
+     "venue": "LIDINE 2026, Nikhef, Amsterdam, 6 Oct 2026 (slides)",
+     "url": "https://indico.nikhef.nl/event/7584/contributions/31837/attachments/11517/17946/LIDINE2026_MasayukiWada.pdf",
+     "type": "talk",
+     "verified": true
+    },
+    {
+     "title": "Stimulated Secondary Emission of Single Photon Avalanche Diodes",
+     "authors": "K. Raymond et al.",
+     "year": 2024,
+     "venue": "arXiv:2402.09634",
+     "url": "https://arxiv.org/abs/2402.09634",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Characterisation of Silicon Photomultipliers for Liquid Xenon Detectors",
+     "authors": "L. Baudis et al.",
+     "year": 2018,
+     "venue": "JINST 13 P10022; arXiv:1808.06827",
+     "url": "https://arxiv.org/abs/1808.06827",
+     "type": "paper",
+     "verified": true
+    }
+   ],
+   "in_reference_talk": true,
+   "importance": "sub-dominant",
+   "importance_note": "Judged a small contribution in today's detectors at the LIDINE 2026 round table, although PandaX-II found PMT dark noise to be the dominant non-physical origin of its isolated S1s."
+  },
+  {
+   "id": "pmt-light-emission-afterpulses",
+   "name": "PMT light emission, afterpulses",
+   "signal": "S1",
+   "tags": [
+    "I"
+   ],
+   "region": "top_pmt_array",
+   "extra_regions": [
+    "bottom_pmt_array"
+   ],
+   "medium": "xenon",
+   "mechanism": "Some PMTs emit low-intensity light ('micro light emission') that other PMTs detect, so one tube injects correlated single photons into the array. Ion afterpulses from a degraded vacuum add delayed hits and can themselves be accompanied by light. These photons build small S1-like coincidences.",
+   "chain": "light emission or afterpulse in one PMT → photons seen by neighbouring or facing PMTs → small fake S1",
+   "timescale": "continuous (light emission); afterpulses follow a primary hit after the ion transit time (µs scale)",
+   "correlated_with": "specific PMTs and their high voltage; afterpulses follow large pulses in the same tube",
+   "evidence": "established",
+   "evidence_note": "XENON reports that micro light emission in random coincidence with single-electron signals was a significant accidental-coincidence source in XENON1T; first seen in R11410-20 tubes by Akimov et al.",
+   "key_numbers": [
+    {
+     "text": "XENONnT qualification: 368 R11410-21 PMTs tested in cryogenic xenon, 26 rejected",
+     "ref": 0
+    },
+    {
+     "text": "R11410-20 tubes with dark count rate above 10 kHz emit single photons, at room temperature and down to -60 °C",
+     "ref": 1
+    }
+   ],
+   "mitigation": "Screen PMTs for light emission and leaks before installation, lower the voltage of or switch off emitting tubes, exclude them from the coincidence.",
+   "setups": [
+    "xenon-pmt-test-facilities",
+    "mephi-pmt-light-emission",
+    "xenonnt"
+   ],
+   "past_setups": [],
+   "references": [
+    {
+     "title": "Improved quality tests of R11410-21 photomultiplier tubes for the XENONnT experiment",
+     "authors": "V. C. Antochi et al.",
+     "year": 2021,
+     "venue": "JINST 16 P08033; arXiv:2104.15051",
+     "url": "https://arxiv.org/abs/2104.15051",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Observation of light emission from Hamamatsu R11410-20 photomultiplier tubes",
+     "authors": "D. Yu. Akimov et al.",
+     "year": 2015,
+     "venue": "NIM A, doi:10.1016/j.nima.2015.04.066; arXiv:1504.07651",
+     "url": "https://arxiv.org/abs/1504.07651",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "XENONnT Analysis: Signal Reconstruction, Calibration and Event Selection",
+     "authors": "E. Aprile et al. (XENON)",
+     "year": 2025,
+     "venue": "Phys. Rev. D 111, 062006 (2025); arXiv:2409.08778",
+     "url": "https://arxiv.org/abs/2409.08778",
+     "type": "paper",
+     "verified": true
+    }
+   ],
+   "in_reference_talk": false,
+   "importance": "significant",
+   "importance_note": "Reported by XENON as a significant accidental-coincidence source in XENON1T; PMTs are now screened for it, and no share is published for current detectors."
+  },
+  {
+   "id": "cherenkov-pmt-window",
+   "name": "Cherenkov light in PMT windows",
+   "signal": "S1",
+   "tags": [],
+   "region": "top_pmt_window",
+   "extra_regions": [
+    "bottom_pmt_window"
+   ],
+   "medium": "both",
+   "mechanism": "Betas and Compton electrons from radioactivity in or near a PMT cross its quartz window above the Cherenkov threshold. The prompt light is detected mainly by that PMT and a few neighbours, with no ionisation in the liquid.",
+   "chain": "fast electron in a quartz window → Cherenkov photons → S1-like pulse concentrated in one PMT",
+   "timescale": "prompt (ns)",
+   "correlated_with": "none (random); localised on one PMT",
+   "evidence": "supported",
+   "evidence_note": "Named by LZ as a non-xenon process that appears as an S1, and repeated at the LIDINE 2026 round table; no published rate.",
+   "key_numbers": [
+    {
+     "text": "DarkSide-20k risk rating: Low (pulse shape; Cherenkov plus an ER can look like a nuclear recoil, but then has an S2)",
+     "ref": 1
+    }
+   ],
+   "mitigation": "Cut on the fraction of S1 light in a single PMT and on pulse shape (Cherenkov is faster than scintillation).",
+   "setups": [
+    "lz-accidental-coincidence-model"
+   ],
+   "past_setups": [],
+   "references": [
+    {
+     "title": "Background Determination for the LUX-ZEPLIN (LZ) Dark Matter Experiment",
+     "authors": "J. Aalbers et al. (LZ)",
+     "year": 2023,
+     "venue": "Phys. Rev. D 108, 012010 (2023); arXiv:2211.17120",
+     "url": "https://arxiv.org/abs/2211.17120",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Accidental Coincidence Backgrounds in Double-Phase TPC Dark Matter Detectors",
+     "authors": "M. Wada",
+     "year": 2026,
+     "venue": "LIDINE 2026, Nikhef, Amsterdam, 6 Oct 2026 (slides)",
+     "url": "https://indico.nikhef.nl/event/7584/contributions/31837/attachments/11517/17946/LIDINE2026_MasayukiWada.pdf",
+     "type": "talk",
+     "verified": true
+    },
+    {
+     "title": "Round table 1: Lone S1 and S2, accidental coincidences, mitigation, origins, R&D needs (minutes by P. Kharbanda and R. Matheson)",
+     "authors": "J. Aalbers (chair) et al.",
+     "year": 2026,
+     "venue": "LIDINE 2026, Nikhef, Amsterdam, 7 Oct 2026 (round-table minutes, contribution 95)",
+     "url": "https://indico.nikhef.nl/event/7584/contributions/31998/attachments/11575/18017/AC_roundtable.pdf",
+     "type": "talk",
+     "verified": true
+    },
+    {
+     "title": "Backgrounds in the LUX-ZEPLIN (LZ) Experiment",
+     "authors": "A. Wang, for LZ",
+     "year": 2024,
+     "venue": "TeVPA 2024 (slides)",
+     "url": "https://indico.uchicago.edu/event/427/contributions/1397/attachments/369/563/TeVPA2024_LZBackgrounds_AWang.pdf",
+     "type": "talk",
+     "verified": true
+    }
+   ],
+   "in_reference_talk": true,
+   "importance": "unknown",
+   "importance_note": "No published rate; rated a low risk for DarkSide-20k."
+  },
+  {
+   "id": "cherenkov-ptfe",
+   "name": "Cherenkov light in PTFE",
+   "signal": "S1",
+   "tags": [],
+   "region": "ptfe_wall",
+   "extra_regions": [],
+   "medium": "both",
+   "mechanism": "Electrons from decays in or near the PTFE reflector produce Cherenkov light inside the PTFE, which is transparent enough for part of it to reach the photosensors. No charge is produced in the active liquid.",
+   "chain": "fast electron in PTFE → Cherenkov photons → small S1 with no S2",
+   "timescale": "prompt (ns)",
+   "correlated_with": "none (random); at the wall",
+   "evidence": "supported",
+   "evidence_note": "In the LZ source list reproduced in the LIDINE 2026 overview talk and in the round-table minutes (in argon it is removed by cuts and by replacing PTFE with ESR); no published rate.",
+   "key_numbers": [],
+   "mitigation": "Pulse-shape and hit-pattern cuts; DarkSide-20k removes PTFE from the design.",
+   "setups": [
+    "lz-accidental-coincidence-model",
+    "darkside-20k-design"
+   ],
+   "past_setups": [],
+   "references": [
+    {
+     "title": "Accidental Coincidence Backgrounds in Double-Phase TPC Dark Matter Detectors",
+     "authors": "M. Wada",
+     "year": 2026,
+     "venue": "LIDINE 2026, Nikhef, Amsterdam, 6 Oct 2026 (slides)",
+     "url": "https://indico.nikhef.nl/event/7584/contributions/31837/attachments/11517/17946/LIDINE2026_MasayukiWada.pdf",
+     "type": "talk",
+     "verified": true
+    },
+    {
+     "title": "Round table 1: Lone S1 and S2, accidental coincidences, mitigation, origins, R&D needs (minutes by P. Kharbanda and R. Matheson)",
+     "authors": "J. Aalbers (chair) et al.",
+     "year": 2026,
+     "venue": "LIDINE 2026, Nikhef, Amsterdam, 7 Oct 2026 (round-table minutes, contribution 95)",
+     "url": "https://indico.nikhef.nl/event/7584/contributions/31998/attachments/11575/18017/AC_roundtable.pdf",
+     "type": "talk",
+     "verified": true
+    },
+    {
+     "title": "Backgrounds in the LUX-ZEPLIN (LZ) Experiment",
+     "authors": "A. Wang, for LZ",
+     "year": 2024,
+     "venue": "TeVPA 2024 (slides)",
+     "url": "https://indico.uchicago.edu/event/427/contributions/1397/attachments/369/563/TeVPA2024_LZBackgrounds_AWang.pdf",
+     "type": "talk",
+     "verified": true
+    }
+   ],
+   "in_reference_talk": true,
+   "importance": "unknown",
+   "importance_note": "No published estimate of its share."
+  },
+  {
+   "id": "quartz-window-fluorescence",
+   "name": "Quartz window fluorescence",
+   "signal": "S1",
+   "tags": [
+    "A"
+   ],
+   "region": "top_pmt_window",
+   "extra_regions": [
+    "bottom_pmt_window"
+   ],
+   "medium": "xenon",
+   "mechanism": "VUV light from a large S1 or S2 excites the fused-silica windows of the photosensors, which re-emit longer-wavelength photons with a power-law time profile. These delayed single photons pile up into 2–3-fold S1s. The effect does not depend on xenon purity or field.",
+   "chain": "large S1/S2 → VUV excites quartz windows → delayed single photons (power law) → pile-up into small S1",
+   "timescale": "µs to ms after a large pulse, power law; whether it still dominates at 5 ms–1 s is open",
+   "correlated_with": "preceding large S2 or S1 (time)",
+   "evidence": "established",
+   "evidence_note": "Sorensen and Gibbons (LBNL) showed it is the dominant delayed-photon component below 5 ms in their cell: the noise survives removal of PTFE, grid, liquid surface and xenon, and drops with a windowless SiPM; XENONnT lone-hit data suggest it is not the only source at later times.",
+   "key_numbers": [
+    {
+     "text": "Delayed photon noise drops about 20-fold with a windowless SiPM (LBNL cell, t < 5 ms)",
+     "ref": 0
+    },
+    {
+     "text": "LZ: about 48% of 3-fold isolated S1s (0.55 Hz in WS2024) are pile-up of non-VUV single photons",
+     "ref": 1
+    }
+   ],
+   "mitigation": "Time veto after large pulses (shadow cut), windowless or different-window photosensors, higher S1 coincidence fold.",
+   "setups": [
+    "lbnl-xenon-tpc",
+    "lz-isolated-s1-study",
+    "xenonnt"
+   ],
+   "past_setups": [],
+   "references": [
+    {
+     "title": "Quartz fluorescence backgrounds in xenon particle detectors",
+     "authors": "P. Sorensen and R. Gibbons",
+     "year": 2025,
+     "venue": "Phys. Rev. D 112, 052004 (2025), doi:10.1103/lsmf-pm5g; arXiv:2505.08067",
+     "url": "https://arxiv.org/abs/2505.08067",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Investigating the isolated S1 backgrounds in the LUX-ZEPLIN (LZ) experiment",
+     "authors": "L. Di Felice, for LZ",
+     "year": 2025,
+     "venue": "Joint APP/HEPP IOP Conference, 8 April 2025 (slides)",
+     "url": "https://indico.global/event/5646/contributions/122161/attachments/57832/111098/IsolatedS1backgrounds_IOP2025_LDF.pdf",
+     "type": "talk",
+     "verified": true
+    },
+    {
+     "title": "Delayed Photon backgrounds in XENONnT experiment",
+     "authors": "P. Kharbanda, for XENON",
+     "year": 2025,
+     "venue": "LIDINE 2025, Hong Kong, 21-24 Oct 2025 (slides)",
+     "url": "https://indico.ihep.ac.cn/event/24964/contributions/195055/attachments/95920/126461/Lidine_talk_pranati.pdf",
+     "type": "talk",
+     "verified": true
+    },
+    {
+     "title": "Round table 1: Lone S1 and S2, accidental coincidences, mitigation, origins, R&D needs (minutes by P. Kharbanda and R. Matheson)",
+     "authors": "J. Aalbers (chair) et al.",
+     "year": 2026,
+     "venue": "LIDINE 2026, Nikhef, Amsterdam, 7 Oct 2026 (round-table minutes, contribution 95)",
+     "url": "https://indico.nikhef.nl/event/7584/contributions/31998/attachments/11575/18017/AC_roundtable.pdf",
+     "type": "talk",
+     "verified": true
+    }
+   ],
+   "in_reference_talk": false,
+   "importance": "significant",
+   "importance_note": "Dominant delayed-photon component below 5 ms in the LBNL bench cell; XENONnT lone-hit data indicate it is not the only source at later times, and no share is published for a running detector."
+  },
+  {
+   "id": "ptfe-photoluminescence",
+   "name": "PTFE fluorescence",
+   "signal": "S1",
+   "tags": [
+    "B"
+   ],
+   "region": "ptfe_wall",
+   "extra_regions": [],
+   "medium": "xenon",
+   "mechanism": "VUV scintillation absorbed in the PTFE reflector would be re-emitted with a delay as visible or near-UV photons, giving single-photon hits that pile up into S1s after large signals. Bench tests disagree on whether PTFE itself does this at a relevant level.",
+   "chain": "large S1/S2 → VUV absorbed in PTFE → delayed photons → pile-up into small S1",
+   "timescale": "µs to s after a large pulse (assumed power law)",
+   "correlated_with": "preceding large S2 or S1 (time)",
+   "evidence": "hypothesised",
+   "evidence_note": "It is in the LZ source list and was the working hypothesis of the LZ isolated-S1 study, but at LBNL replacing PTFE with aluminium left the delayed photons unchanged, and TUM found no photoluminescence from a LUX PTFE batch at room temperature.",
+   "key_numbers": [
+    {
+     "text": "PTFE (LUX batch) wavelength-shifting efficiency below 0.05–0.35% of TPB for 130–250 nm excitation, 400–550 nm emission, room temperature",
+     "ref": 3
+    },
+    {
+     "text": "DarkSide-20k risk rating: Low (pulse shape, and PTFE removed from the design)",
+     "ref": 0
+    }
+   ],
+   "mitigation": "Time veto after large pulses; material choice and screening.",
+   "setups": [
+    "lz-isolated-s1-study",
+    "lbnl-ptfe-fluorescence-testbed",
+    "tum-vuv-photoluminescence",
+    "lbnl-xenon-tpc"
+   ],
+   "past_setups": [],
+   "references": [
+    {
+     "title": "Accidental Coincidence Backgrounds in Double-Phase TPC Dark Matter Detectors",
+     "authors": "M. Wada",
+     "year": 2026,
+     "venue": "LIDINE 2026, Nikhef, Amsterdam, 6 Oct 2026 (slides)",
+     "url": "https://indico.nikhef.nl/event/7584/contributions/31837/attachments/11517/17946/LIDINE2026_MasayukiWada.pdf",
+     "type": "talk",
+     "verified": true
+    },
+    {
+     "title": "Investigating the isolated S1 backgrounds in the LUX-ZEPLIN (LZ) experiment",
+     "authors": "L. Di Felice, for LZ",
+     "year": 2025,
+     "venue": "Joint APP/HEPP IOP Conference, 8 April 2025 (slides)",
+     "url": "https://indico.global/event/5646/contributions/122161/attachments/57832/111098/IsolatedS1backgrounds_IOP2025_LDF.pdf",
+     "type": "talk",
+     "verified": true
+    },
+    {
+     "title": "Quartz fluorescence backgrounds in xenon particle detectors",
+     "authors": "P. Sorensen and R. Gibbons",
+     "year": 2025,
+     "venue": "Phys. Rev. D 112, 052004 (2025), doi:10.1103/lsmf-pm5g; arXiv:2505.08067",
+     "url": "https://arxiv.org/abs/2505.08067",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Photoluminescence response of acrylic (PMMA) and polytetrafluoroethylene (PTFE) to ultraviolet light",
+     "authors": "G. R. Araujo et al.",
+     "year": 2019,
+     "venue": "Eur. Phys. J. C 79 (2019) 653, doi:10.1140/epjc/s10052-019-7152-2; arXiv:1905.03044",
+     "url": "https://arxiv.org/abs/1905.03044",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Round table 1: Lone S1 and S2, accidental coincidences, mitigation, origins, R&D needs (minutes by P. Kharbanda and R. Matheson)",
+     "authors": "J. Aalbers (chair) et al.",
+     "year": 2026,
+     "venue": "LIDINE 2026, Nikhef, Amsterdam, 7 Oct 2026 (round-table minutes, contribution 95)",
+     "url": "https://indico.nikhef.nl/event/7584/contributions/31998/attachments/11575/18017/AC_roundtable.pdf",
+     "type": "talk",
+     "verified": true
+    }
+   ],
+   "in_reference_talk": true,
+   "importance": "contested",
+   "importance_note": "Working hypothesis of the LZ isolated-S1 study, but bench results from LBNL and TUM disfavour it."
+  },
+  {
+   "id": "contaminant-photoluminescence",
+   "name": "Flux residue and particulates",
+   "signal": "S1",
+   "tags": [
+    "B"
+   ],
+   "region": "top_pmt_array",
+   "extra_regions": [
+    "bottom_pmt_array",
+    "ptfe_wall",
+    "bulk_liquid"
+   ],
+   "medium": "xenon",
+   "mechanism": "Solder-flux residue on PMT bases and cables, and particulates that flake off into the detector, photoluminesce in the visible when hit by VUV light. The emission would add delayed non-VUV photons that are not tied to the position of the photosensor windows.",
+   "chain": "large S1/S2 → VUV excites flux residue or particulates → delayed visible photons → pile-up into small S1",
+   "timescale": "not yet measured (no published decay constants)",
+   "correlated_with": "preceding large S2 or S1 (time)",
+   "evidence": "supported",
+   "evidence_note": "Nikhef measured photoluminescence of the solder fluxes used in XENONnT and LZ under 120–310 nm light; that it contributes to isolated S1s in a detector is not yet shown.",
+   "key_numbers": [
+    {
+     "text": "Flux residues photoluminesce at a few per cent of PEN (efficiency of order 1%); for KS115 the yield rises 2.4-fold at liquid-xenon temperature",
+     "ref": 0
+    }
+   ],
+   "mitigation": "Cleaning and material screening; time veto after large pulses.",
+   "setups": [
+    "nikhef-photoluminescence-bench",
+    "xenonnt"
+   ],
+   "past_setups": [],
+   "references": [
+    {
+     "title": "Photoluminescence of resin-based solder flux residue under ultraviolet excitation from 120 nm to 310 nm",
+     "authors": "A. Hurhina et al.",
+     "year": 2026,
+     "venue": "arXiv:2605.16845",
+     "url": "https://arxiv.org/abs/2605.16845",
+     "type": "arXiv",
+     "verified": true
+    },
+    {
+     "title": "Delayed Photon backgrounds in XENONnT experiment",
+     "authors": "P. Kharbanda, for XENON",
+     "year": 2025,
+     "venue": "LIDINE 2025, Hong Kong, 21-24 Oct 2025 (slides)",
+     "url": "https://indico.ihep.ac.cn/event/24964/contributions/195055/attachments/95920/126461/Lidine_talk_pranati.pdf",
+     "type": "talk",
+     "verified": true
+    }
+   ],
+   "in_reference_talk": false,
+   "importance": "unknown",
+   "importance_note": "Photoluminescence of the flux residues is measured on the bench; a contribution to isolated S1s in a detector is not yet shown."
+  },
+  {
+   "id": "delayed-photon-pileup",
+   "name": "Delayed photon trains",
+   "signal": "S1",
+   "tags": [
+    "A",
+    "B",
+    "I"
+   ],
+   "region": "bottom_pmt_array",
+   "extra_regions": [
+    "top_pmt_array",
+    "top_pmt_window",
+    "bottom_pmt_window",
+    "ptfe_wall"
+   ],
+   "medium": "xenon",
+   "mechanism": "After every large S2 (and after muons) the rate of single-photon hits stays raised for up to seconds. Chance overlaps of these hits form 2–3-fold S1s. This is the observed population; window fluorescence, material photoluminescence and PMT effects are the candidate origins, listed as separate entries.",
+   "chain": "large S2 or muon → raised single-photon rate for ms–s → 2–3 hits coincide → small S1",
+   "timescale": "ms to s after a large S2: power law (LZ index -0.83; XENONnT cut-off near 0.3 s); exponential with 2.3 s after muons (LZ)",
+   "correlated_with": "preceding large S2 (time; in XENONnT only weakly with its hit pattern), muons, high-energy events",
+   "evidence": "established",
+   "evidence_note": "Measured in LUX, LZ (non-VUV photons identified with the double-photoelectron effect) and XENONnT (lone-hit rate after large S2s); XENONnT names delayed signals after high-energy interactions as the primary source of isolated S1s and S2s in its ⁸B search.",
+   "key_numbers": [
+    {
+     "text": "LZ: about 48% of 3-fold isolated S1s (0.55 Hz in WS2024) are non-VUV single-photon pile-up; rate after large S2s follows a power law with index -0.83",
+     "ref": 0
+    },
+    {
+     "text": "XENONnT: delayed lone-hit rate follows a power law with a cut-off at about 0.28 s",
+     "ref": 1
+    },
+    {
+     "text": "XENONnT ⁸B search: isolated-S1 rate about 15 Hz before cuts",
+     "ref": 3
+    },
+    {
+     "text": "XENONnT ⁸B search: isolated-S1 rate 2.3 (2.2) Hz after all cuts in SR0 (SR1)",
+     "ref": 2
+    },
+    {
+     "text": "LUX: delayed photoelectron rate in the top and bottom arrays in a ratio of about 1:2",
+     "ref": 4
+    }
+   ],
+   "mitigation": "Time-shadow veto after large pulses (S2_prev/Δt_prev), exclusion of high-rate periods, S1 BDT on shape and hit pattern.",
+   "setups": [
+    "lz-isolated-s1-study",
+    "xenonnt",
+    "lbnl-xenon-tpc",
+    "nikhef-photoluminescence-bench",
+    "tsinghua-prototype-tpc"
+   ],
+   "past_setups": [
+    "LUX"
+   ],
+   "references": [
+    {
+     "title": "Investigating the isolated S1 backgrounds in the LUX-ZEPLIN (LZ) experiment",
+     "authors": "L. Di Felice, for LZ",
+     "year": 2025,
+     "venue": "Joint APP/HEPP IOP Conference, 8 April 2025 (slides)",
+     "url": "https://indico.global/event/5646/contributions/122161/attachments/57832/111098/IsolatedS1backgrounds_IOP2025_LDF.pdf",
+     "type": "talk",
+     "verified": true
+    },
+    {
+     "title": "Delayed Photon backgrounds in XENONnT experiment",
+     "authors": "P. Kharbanda, for XENON",
+     "year": 2025,
+     "venue": "LIDINE 2025, Hong Kong, 21-24 Oct 2025 (slides)",
+     "url": "https://indico.ihep.ac.cn/event/24964/contributions/195055/attachments/95920/126461/Lidine_talk_pranati.pdf",
+     "type": "talk",
+     "verified": true
+    },
+    {
+     "title": "First Indication of Solar 8B Neutrinos via Coherent Elastic Neutrino-Nucleus Scattering with XENONnT",
+     "authors": "E. Aprile et al. (XENON)",
+     "year": 2024,
+     "venue": "Phys. Rev. Lett. 133, 191002 (2024), doi:10.1103/PhysRevLett.133.191002; arXiv:2408.02877",
+     "url": "https://arxiv.org/abs/2408.02877",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "First measurement of solar 8B CEvNS with the XENONnT dark matter experiment",
+     "authors": "P. Cimental, for XENON",
+     "year": 2025,
+     "venue": "EPS-HEP 2025, Marseille, 8 July 2025 (slides)",
+     "url": "https://ikarus.physik.uzh.ch/dam/jcr:e786b826-4b67-40d8-8ea4-2e9883a484c5/XENON_CEvNS_EPS_2025_Cimental_vf.pdf",
+     "type": "talk",
+     "verified": true
+    },
+    {
+     "title": "Investigation of background electron emission in the LUX detector",
+     "authors": "D. S. Akerib et al. (LUX)",
+     "year": 2020,
+     "venue": "Phys. Rev. D 102, 092004 (2020), doi:10.1103/PhysRevD.102.092004; arXiv:2004.07791",
+     "url": "https://arxiv.org/abs/2004.07791",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Backgrounds in the LUX-ZEPLIN (LZ) Experiment",
+     "authors": "A. Wang, for LZ",
+     "year": 2024,
+     "venue": "TeVPA 2024 (slides)",
+     "url": "https://indico.uchicago.edu/event/427/contributions/1397/attachments/369/563/TeVPA2024_LZBackgrounds_AWang.pdf",
+     "type": "talk",
+     "verified": true
+    }
+   ],
+   "in_reference_talk": true,
+   "importance": "dominant",
+   "importance_note": "XENONnT names delayed signals after high-energy interactions as the primary source of isolated S1s in its ⁸B search, and in LZ about 48% of 3-fold isolated S1s are non-VUV single-photon pile-up."
+  },
+  {
+   "id": "single-electron-misclassified-s1",
+   "name": "Single electrons tagged as S1",
+   "signal": "S1",
+   "tags": [],
+   "region": "gas_gap",
+   "extra_regions": [
+    "liquid_surface"
+   ],
+   "medium": "xenon",
+   "mechanism": "A single extracted electron gives a small electroluminescence pulse. Near the classification boundary the reconstruction can label it S1 instead of S2. The abundant delayed single electrons then feed the isolated-S1 sample.",
+   "chain": "single electron extracted → small electroluminescence pulse → classified as S1 by the peak classifier",
+   "timescale": "follows the single-electron rate: ms–s after large S2s",
+   "correlated_with": "preceding large S2 (time and xy position)",
+   "evidence": "supported",
+   "evidence_note": "XENONnT lists misclassified single electrons as a plausible origin of fake S1s in its analysis papers, PandaX-II lists it too, and the round table repeated it; the fraction is not published.",
+   "key_numbers": [],
+   "mitigation": "Peak-classification cuts on width and area fraction top, S1 BDT, time-shadow veto.",
+   "setups": [
+    "xenonnt"
+   ],
+   "past_setups": [
+    "PandaX-II AC study"
+   ],
+   "references": [
+    {
+     "title": "XENONnT Analysis: Signal Reconstruction, Calibration and Event Selection",
+     "authors": "E. Aprile et al. (XENON)",
+     "year": 2025,
+     "venue": "Phys. Rev. D 111, 062006 (2025); arXiv:2409.08778",
+     "url": "https://arxiv.org/abs/2409.08778",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "XENONnT WIMP Search: Signal & Background Modeling and Statistical Inference",
+     "authors": "E. Aprile et al. (XENON)",
+     "year": 2025,
+     "venue": "Phys. Rev. D 111, 103040 (2025), doi:10.1103/PhysRevD.111.103040; arXiv:2406.13638",
+     "url": "https://arxiv.org/abs/2406.13638",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Study of background from accidental coincidence signals in the PandaX-II experiment",
+     "authors": "A. Abdukerim et al. (PandaX-II)",
+     "year": 2022,
+     "venue": "Chin. Phys. C 46, 103001 (2022), doi:10.1088/1674-1137/ac7cd8; arXiv:2204.11175",
+     "url": "https://arxiv.org/abs/2204.11175",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Round table 1: Lone S1 and S2, accidental coincidences, mitigation, origins, R&D needs (minutes by P. Kharbanda and R. Matheson)",
+     "authors": "J. Aalbers (chair) et al.",
+     "year": 2026,
+     "venue": "LIDINE 2026, Nikhef, Amsterdam, 7 Oct 2026 (round-table minutes, contribution 95)",
+     "url": "https://indico.nikhef.nl/event/7584/contributions/31998/attachments/11575/18017/AC_roundtable.pdf",
+     "type": "talk",
+     "verified": true
+    }
+   ],
+   "in_reference_talk": false,
+   "importance": "unknown",
+   "importance_note": "The fraction of isolated S1s that are misclassified single electrons is not published."
+  },
+  {
+   "id": "stingers",
+   "name": "'Stingers' at the grids",
+   "signal": "S1",
+   "tags": [],
+   "region": "gate",
+   "extra_regions": [
+    "anode",
+    "extraction_region"
+   ],
+   "medium": "xenon",
+   "mechanism": "Small S1-like pulses, called 'stingers' in LZ, attributed to misalignment of the gate and anode grid wires. Raised at the LIDINE 2026 round table; the minutes give no further detail of the process.",
+   "chain": "gate–anode wire misalignment → small S1-like pulse (process not described in the minutes)",
+   "timescale": "not stated",
+   "correlated_with": "not stated",
+   "evidence": "supported",
+   "evidence_note": "Reported for LZ in the LIDINE 2026 round-table minutes only; there is no published description.",
+   "key_numbers": [],
+   "mitigation": "Pulse classification and multivariate cuts (not specified in the minutes).",
+   "setups": [
+    "lz-accidental-coincidence-model"
+   ],
+   "past_setups": [],
+   "references": [
+    {
+     "title": "Round table 1: Lone S1 and S2, accidental coincidences, mitigation, origins, R&D needs (minutes by P. Kharbanda and R. Matheson)",
+     "authors": "J. Aalbers (chair) et al.",
+     "year": 2026,
+     "venue": "LIDINE 2026, Nikhef, Amsterdam, 7 Oct 2026 (round-table minutes, contribution 95)",
+     "url": "https://indico.nikhef.nl/event/7584/contributions/31998/attachments/11575/18017/AC_roundtable.pdf",
+     "type": "talk",
+     "verified": true
+    }
+   ],
+   "in_reference_talk": false,
+   "importance": "unknown",
+   "importance_note": "No published estimate of its share."
+  },
+  {
+   "id": "electrode-micro-discharges",
+   "name": "Sparks on electrodes",
+   "signal": "S1",
+   "tags": [],
+   "region": "cathode",
+   "extra_regions": [
+    "gate",
+    "anode"
+   ],
+   "medium": "xenon",
+   "mechanism": "Small discharges on a high-voltage electrode emit a flash of light without producing electrons that drift to the gas. The flash is recorded as an S1-like pulse.",
+   "chain": "micro-discharge on an electrode → light flash, no drifting charge → S1 with no S2",
+   "timescale": "random; may come in bursts with high-voltage instabilities",
+   "correlated_with": "high-voltage conditions",
+   "evidence": "hypothesised",
+   "evidence_note": "Listed by PandaX-II as a possible physical origin ('tiny sparks on the TPC electrode'); no measurement.",
+   "key_numbers": [],
+   "mitigation": "Stable high voltage, removal of unstable periods, S1 pattern cuts.",
+   "setups": [
+    "kit-motion",
+    "mainz-granite"
+   ],
+   "past_setups": [
+    "PandaX-II AC study"
+   ],
+   "references": [
+    {
+     "title": "Study of background from accidental coincidence signals in the PandaX-II experiment",
+     "authors": "A. Abdukerim et al. (PandaX-II)",
+     "year": 2022,
+     "venue": "Chin. Phys. C 46, 103001 (2022), doi:10.1088/1674-1137/ac7cd8; arXiv:2204.11175",
+     "url": "https://arxiv.org/abs/2204.11175",
+     "type": "paper",
+     "verified": true
+    }
+   ],
+   "in_reference_talk": false,
+   "importance": "unknown",
+   "importance_note": "No measurement; listed by PandaX-II as a possible origin."
+  },
+  {
+   "id": "s2-lost-to-attachment",
+   "name": "S2 lost during the drift",
+   "signal": "S1",
+   "tags": [
+    "C"
+   ],
+   "region": "bulk_liquid",
+   "extra_regions": [
+    "impurities_in_bulk"
+   ],
+   "medium": "xenon",
+   "mechanism": "For a small energy deposit deep in the TPC, the few ionisation electrons can all be captured by electronegative impurities during the drift, or the surviving S2 can fall below the S2 threshold. The S1 is then left without a partner. The captured electrons may reappear later as delayed single electrons.",
+   "chain": "low-energy deposit at long drift → electrons attach to impurities or S2 below threshold → S1 with no S2",
+   "timescale": "prompt; random in time",
+   "correlated_with": "none (random); worse at low electron lifetime and long drift",
+   "evidence": "hypothesised",
+   "evidence_note": "Follows from finite electron lifetime and S2 thresholds; XENONnT only says generically that an S1 or S2 can be 'not reconstructed due to detector effects', and no source singles this out or gives a rate.",
+   "key_numbers": [],
+   "mitigation": "High electron lifetime, low S2 threshold.",
+   "setups": [
+    "xenonnt"
+   ],
+   "past_setups": [],
+   "references": [
+    {
+     "title": "XENONnT WIMP Search: Signal & Background Modeling and Statistical Inference",
+     "authors": "E. Aprile et al. (XENON)",
+     "year": 2025,
+     "venue": "Phys. Rev. D 111, 103040 (2025), doi:10.1103/PhysRevD.111.103040; arXiv:2406.13638",
+     "url": "https://arxiv.org/abs/2406.13638",
+     "type": "paper",
+     "verified": true
+    }
+   ],
+   "in_reference_talk": false,
+   "importance": "unknown",
+   "importance_note": "No published estimate of its share."
+  },
+  {
+   "id": "wall-surface-decays",
+   "name": "Radon daughters on the wall",
+   "signal": "S1",
+   "tags": [
+    "G"
+   ],
+   "region": "ptfe_wall",
+   "extra_regions": [
+    "wall_charge_insensitive"
+   ],
+   "medium": "xenon",
+   "mechanism": "²¹⁰Pb and its daughters plated on the PTFE decay at the surface, where part or all of the ionisation charge is lost on the wall. With partial loss this is the 'surface background' (S1 with a reduced S2); with total loss it is an S1-only event.",
+   "chain": "decay of plated-out radon daughter on the wall → charge lost on PTFE → S1 with reduced or no S2",
+   "timescale": "prompt; random in time",
+   "correlated_with": "none (random); at the wall radius",
+   "evidence": "supported",
+   "evidence_note": "The surface background with reduced S2 is modelled from data by XENON1T (PTFE-surface events including ²¹⁰Po alphas); the S1-only limit as an accidental source is inferred, not measured separately from the wall charge-insensitive volume.",
+   "key_numbers": [
+    {
+     "text": "XENON1T fiducial radius of 42.8 cm chosen to reduce the surface background",
+     "ref": 0
+    }
+   ],
+   "mitigation": "Radial fiducial cut, S1 position reconstruction, radon-free handling of PTFE.",
+   "setups": [
+    "xenonnt"
+   ],
+   "past_setups": [],
+   "references": [
+    {
+     "title": "XENON1T Dark Matter Data Analysis: Signal & Background Models, and Statistical Inference",
+     "authors": "E. Aprile et al. (XENON)",
+     "year": 2019,
+     "venue": "Phys. Rev. D 99, 112009 (2019); arXiv:1902.11297",
+     "url": "https://arxiv.org/abs/1902.11297",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Light Dark Matter Search with 7.8 Tonne-Year of Ionization-Only Data in XENONnT",
+     "authors": "E. Aprile et al. (XENON)",
+     "year": 2026,
+     "venue": "Phys. Rev. Lett. 137, 051003 (2026), doi:10.1103/2lrq-f6bk; arXiv:2601.11296",
+     "url": "https://arxiv.org/abs/2601.11296",
+     "type": "arXiv",
+     "verified": true
+    }
+   ],
+   "in_reference_talk": false,
+   "importance": "unknown",
+   "importance_note": "The S1-only contribution has not been measured separately from the wall charge-insensitive volume."
+  },
+  {
+   "id": "esr-alpha-scintillation",
+   "name": "Alphas in the ESR reflector",
+   "signal": "S1",
+   "tags": [
+    "H"
+   ],
+   "region": "wall_reflector_tpb",
+   "extra_regions": [],
+   "medium": "argon",
+   "mechanism": "Radon daughters deposited on or in the ESR reflector foil emit alphas that make the foil scintillate, or that cross into the thin liquid layer behind it. No charge reaches the gas. This is the dominant isolated-S1 source expected in DarkSide-20k.",
+   "chain": "alpha decay in or on the ESR foil → scintillation of ESR → S1 with no S2",
+   "timescale": "prompt; random in time",
+   "correlated_with": "none (random); at the wall",
+   "evidence": "supported",
+   "evidence_note": "Identified from simulation and material assays as the dominant S1-only source for DarkSide-20k (Wada; Nikoloudaki thesis); not yet checked on detector data.",
+   "key_numbers": [
+    {
+     "text": "DS-20k wall stack, outside to inside: 15 cm acrylic vessel, ~4 cm LAr gap, 4 mm acrylic tile, 1 mm LAr gap, 65 µm ESR, 3 µm TPB, active LAr",
+     "ref": 0
+    }
+   ],
+   "mitigation": "S1 pulse-shape cut (ESR scintillation differs from LAr nuclear recoils), radon-daughter control during assembly.",
+   "setups": [
+    "darkside-20k-design"
+   ],
+   "past_setups": [],
+   "references": [
+    {
+     "title": "Accidental Coincidence Backgrounds in Double-Phase TPC Dark Matter Detectors",
+     "authors": "M. Wada",
+     "year": 2026,
+     "venue": "LIDINE 2026, Nikhef, Amsterdam, 6 Oct 2026 (slides)",
+     "url": "https://indico.nikhef.nl/event/7584/contributions/31837/attachments/11517/17946/LIDINE2026_MasayukiWada.pdf",
+     "type": "talk",
+     "verified": true
+    },
+    {
+     "title": "Reconstruction chain and background studies for low- and high-mass WIMP searches in the DarkSide-20k experiment",
+     "authors": "E. Nikoloudaki",
+     "year": null,
+     "venue": "PhD thesis in preparation, Université Paris Cité / APC (supervisor D. Franco); theses.fr s374402, registered 2 Oct 2023",
+     "url": "https://theses.fr/s374402",
+     "type": "thesis",
+     "verified": true
+    },
+    {
+     "title": "Round table 1: Lone S1 and S2, accidental coincidences, mitigation, origins, R&D needs (minutes by P. Kharbanda and R. Matheson)",
+     "authors": "J. Aalbers (chair) et al.",
+     "year": 2026,
+     "venue": "LIDINE 2026, Nikhef, Amsterdam, 7 Oct 2026 (round-table minutes, contribution 95)",
+     "url": "https://indico.nikhef.nl/event/7584/contributions/31998/attachments/11575/18017/AC_roundtable.pdf",
+     "type": "talk",
+     "verified": true
+    }
+   ],
+   "in_reference_talk": true,
+   "importance": "dominant",
+   "importance_note": "Expected to be the dominant isolated-S1 source in DarkSide-20k, from simulation and material assays; not yet checked on detector data."
+  },
+  {
+   "id": "tpb-alpha-scintillation",
+   "name": "Alphas in the TPB coating",
+   "signal": "S1",
+   "tags": [
+    "H"
+   ],
+   "region": "wall_reflector_tpb",
+   "extra_regions": [],
+   "medium": "argon",
+   "mechanism": "Alphas that start in or on the TPB wavelength-shifter layer make the TPB itself scintillate, and may deposit the rest of their energy in the liquid at the wall where charge is lost. TPB alpha scintillation has a millisecond-long tail, unlike argon nuclear-recoil light.",
+   "chain": "alpha decay in or on TPB → TPB scintillation with long tail → S1 with no S2",
+   "timescale": "prompt pulse plus a tail lasting milliseconds",
+   "correlated_with": "none (random); at the wall",
+   "evidence": "established",
+   "evidence_note": "Stanford et al. measured the millisecond component of TPB scintillation under alpha excitation; DarkSide-50 used a 'LongS1tail' cut against it and DarkSide-20k will too.",
+   "key_numbers": [
+    {
+     "text": "Tagging the long TPB component suppresses surface backgrounds by more than a factor 10³ with negligible loss of nuclear-recoil acceptance",
+     "ref": 0
+    }
+   ],
+   "mitigation": "Cut on the long S1 tail (LongS1tail).",
+   "setups": [
+    "darkside-20k-design"
+   ],
+   "past_setups": [
+    "DarkSide-50"
+   ],
+   "references": [
+    {
+     "title": "Surface background suppression in liquid argon dark matter detectors using a newly discovered time component of tetraphenyl-butadiene scintillation",
+     "authors": "C. Stanford et al.",
+     "year": 2018,
+     "venue": "Phys. Rev. D 98, 062002 (2018); arXiv:1804.06895",
+     "url": "https://arxiv.org/abs/1804.06895",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Accidental Coincidence Backgrounds in Double-Phase TPC Dark Matter Detectors",
+     "authors": "M. Wada",
+     "year": 2026,
+     "venue": "LIDINE 2026, Nikhef, Amsterdam, 6 Oct 2026 (slides)",
+     "url": "https://indico.nikhef.nl/event/7584/contributions/31837/attachments/11517/17946/LIDINE2026_MasayukiWada.pdf",
+     "type": "talk",
+     "verified": true
+    },
+    {
+     "title": "Round table 1: Lone S1 and S2, accidental coincidences, mitigation, origins, R&D needs (minutes by P. Kharbanda and R. Matheson)",
+     "authors": "J. Aalbers (chair) et al.",
+     "year": 2026,
+     "venue": "LIDINE 2026, Nikhef, Amsterdam, 7 Oct 2026 (round-table minutes, contribution 95)",
+     "url": "https://indico.nikhef.nl/event/7584/contributions/31998/attachments/11575/18017/AC_roundtable.pdf",
+     "type": "talk",
+     "verified": true
+    }
+   ],
+   "in_reference_talk": true,
+   "importance": "unknown",
+   "importance_note": "No published estimate of its share; removed in DarkSide-50 with a cut on the long S1 tail."
+  },
+  {
+   "id": "tpb-delayed-emission",
+   "name": "TPB delayed emission",
+   "signal": "S1",
+   "tags": [
+    "H"
+   ],
+   "region": "wall_reflector_tpb",
+   "extra_regions": [
+    "cathode",
+    "anode"
+   ],
+   "medium": "argon",
+   "mechanism": "TPB does not re-emit all 127 nm light promptly: triplet states give delayed components from tens of nanoseconds to microseconds. The late photons distort the S1 pulse shape and add single photons after large pulses.",
+   "chain": "argon VUV light absorbed in TPB → delayed re-emission (ns–µs) → late photons after a pulse",
+   "timescale": "tens of ns to a few µs after any scintillation pulse",
+   "correlated_with": "preceding scintillation pulse (time)",
+   "evidence": "established",
+   "evidence_note": "Measured by Segreto (2015) and, on the nanosecond scale, by ARIS; its contribution to isolated S1s in a TPC has not been quantified.",
+   "key_numbers": [
+    {
+     "text": "ARIS: TPB delayed fluorescence component of 83 ± 5 ns with 14.7 ± 0.6% probability",
+     "ref": 1
+    }
+   ],
+   "mitigation": "Include the TPB response in the pulse-shape model; S1 threshold above single photons.",
+   "setups": [
+    "unicamp-tpb-delayed-emission",
+    "aris"
+   ],
+   "past_setups": [],
+   "references": [
+    {
+     "title": "Evidence of delayed light emission of TetraPhenyl Butadiene excited by liquid Argon scintillation light",
+     "authors": "E. Segreto",
+     "year": 2015,
+     "venue": "Phys. Rev. C 91, 035503; arXiv:1411.4524",
+     "url": "https://arxiv.org/abs/1411.4524",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Characterization of the scintillation time response of liquid argon detectors for dark matter search",
+     "authors": "P. Agnes et al.",
+     "year": 2021,
+     "venue": "JINST 16, P11026 (2021); arXiv:2110.05350",
+     "url": "https://arxiv.org/abs/2110.05350",
+     "type": "paper",
+     "verified": true
+    }
+   ],
+   "in_reference_talk": false,
+   "importance": "unknown",
+   "importance_note": "Its contribution to isolated S1s in a TPC has not been quantified."
+  },
+  {
+   "id": "dust-degraded-alphas",
+   "name": "Dust in the liquid",
+   "signal": "S1",
+   "tags": [
+    "H"
+   ],
+   "region": "bulk_liquid",
+   "extra_regions": [
+    "impurities_in_bulk"
+   ],
+   "medium": "argon",
+   "mechanism": "Dust particles carrying alpha emitters float in the liquid when the flow velocity is below their terminal velocity. An alpha loses part of its energy inside the particle, so the event looks like a low-energy S1; its charge yield is not that of a normal recoil.",
+   "chain": "alpha decay inside a dust particle → degraded-energy scintillation in the liquid → low-energy S1-like event",
+   "timescale": "prompt; random in time",
+   "correlated_with": "none (random); depends on liquid flow",
+   "evidence": "hypothesised",
+   "evidence_note": "Raised at the LIDINE 2026 round table as a concern for argon (dust from plastic coatings, hair, getter zirconium); not quantified as an accidental source.",
+   "key_numbers": [],
+   "mitigation": "Clean assembly, filtration, control of liquid flow.",
+   "setups": [
+    "darkside-20k-design"
+   ],
+   "past_setups": [],
+   "references": [
+    {
+     "title": "Round table 1: Lone S1 and S2, accidental coincidences, mitigation, origins, R&D needs (minutes by P. Kharbanda and R. Matheson)",
+     "authors": "J. Aalbers (chair) et al.",
+     "year": 2026,
+     "venue": "LIDINE 2026, Nikhef, Amsterdam, 7 Oct 2026 (round-table minutes, contribution 95)",
+     "url": "https://indico.nikhef.nl/event/7584/contributions/31998/attachments/11575/18017/AC_roundtable.pdf",
+     "type": "talk",
+     "verified": true
+    }
+   ],
+   "in_reference_talk": false,
+   "importance": "unknown",
+   "importance_note": "Raised as a concern at the LIDINE 2026 round table; not quantified."
+  },
+  {
+   "id": "delayed-electrons-impurity-release",
+   "name": "Delayed electrons (impurity release)",
+   "signal": "S2",
+   "tags": [
+    "C"
+   ],
+   "region": "impurities_in_bulk",
+   "extra_regions": [
+    "bulk_liquid"
+   ],
+   "medium": "xenon",
+   "mechanism": "During the drift of a large charge cloud, a fraction of the electrons attach to electronegative impurities. They are released later, one by one, drift up and are extracted as single electrons at the xy position of the parent event. Single and piled-up few-electron pulses form small S2s. What triggers the release (thermal, field, or photodetachment by delayed photons) is not settled.",
+   "chain": "large S2 → electrons captured on impurities along the drift path → released ms–s later → single/few-electron S2s",
+   "timescale": "ms to ~1 s after a large S2, power law close to t^-1 (LZ: index -1.13; LUX: -1.0 to -1.1)",
+   "correlated_with": "preceding large S2: time, xy position, S2 size and drift time of the parent",
+   "evidence": "established",
+   "evidence_note": "LZ shows that the train amplitude scales with the electrons lost to impurities during the drift while the power law is insensitive to fields and purity; XENON1T and LUX reach the same conclusion, and the UCSD single-phase detector sees the train with no liquid surface at all.",
+   "key_numbers": [
+    {
+     "text": "LZ: delayed single electrons follow a power law with index -1.13 at nominal field",
+     "ref": 0
+    },
+    {
+     "text": "XENON1T: t^-1 power law over O(100) drift times, within a few cm of the parent S2",
+     "ref": 1
+    },
+    {
+     "text": "XENONnT SR0: isolated-S2 rate 80 mHz, an order of magnitude above XENON1T, attributed to more delayed electrons",
+     "ref": 3
+    },
+    {
+     "text": "Single-phase liquid xenon detector (no interface): electron train with exponent about -1.05 to -1.07",
+     "ref": 4
+    }
+   ],
+   "mitigation": "Time and position veto after large S2s (time shadow, position shadow), better purity, exclusion of high-rate periods.",
+   "setups": [
+    "lz-few-electron-study",
+    "xenonnt",
+    "pandax-4t",
+    "lbnl-xenon-tpc",
+    "asterix",
+    "ucsd-lxepsc",
+    "tsinghua-prototype-tpc",
+    "red-100-red-1-double-gate"
+   ],
+   "past_setups": [
+    "XENON1T few-electron",
+    "LUX"
+   ],
+   "references": [
+    {
+     "title": "Study of few-electron backgrounds in the LUX-ZEPLIN detector",
+     "authors": "D. S. Akerib et al. (LZ)",
+     "year": 2026,
+     "venue": "Phys. Rev. D 113, 072018 (2026), arXiv:2510.06500",
+     "url": "https://arxiv.org/abs/2510.06500",
+     "type": "arXiv",
+     "verified": true
+    },
+    {
+     "title": "Emission of Single and Few Electrons in XENON1T and Limits on Light Dark Matter",
+     "authors": "E. Aprile et al. (XENON)",
+     "year": 2022,
+     "venue": "Phys. Rev. D 106, 022001 (2022), doi:10.1103/PhysRevD.106.022001; arXiv:2112.12116; erratum Phys. Rev. D 110, 109903 (2024)",
+     "url": "https://arxiv.org/abs/2112.12116",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Investigation of background electron emission in the LUX detector",
+     "authors": "D. S. Akerib et al. (LUX)",
+     "year": 2020,
+     "venue": "Phys. Rev. D 102, 092004 (2020), doi:10.1103/PhysRevD.102.092004; arXiv:2004.07791",
+     "url": "https://arxiv.org/abs/2004.07791",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "XENONnT WIMP Search: Signal & Background Modeling and Statistical Inference",
+     "authors": "E. Aprile et al. (XENON)",
+     "year": 2025,
+     "venue": "Phys. Rev. D 111, 103040 (2025), doi:10.1103/PhysRevD.111.103040; arXiv:2406.13638",
+     "url": "https://arxiv.org/abs/2406.13638",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Feasibility of Liquid-phase Xenon Proportional Scintillation for Low-energy Physics",
+     "authors": "J. Qi et al.",
+     "year": 2024,
+     "venue": "Phys. Rev. D 111, 012005, doi:10.1103/PhysRevD.111.012005; arXiv:2408.01646",
+     "url": "https://arxiv.org/abs/2408.01646",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Two distinct components of the delayed single electron background signals in liquid xenon emission detectors",
+     "authors": "P. Sorensen and K. Kamdin",
+     "year": 2018,
+     "venue": "JINST 13 P02032 (2018); arXiv:1711.07025",
+     "url": "https://arxiv.org/abs/1711.07025",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Round table 1: Lone S1 and S2, accidental coincidences, mitigation, origins, R&D needs (minutes by P. Kharbanda and R. Matheson)",
+     "authors": "J. Aalbers (chair) et al.",
+     "year": 2026,
+     "venue": "LIDINE 2026, Nikhef, Amsterdam, 7 Oct 2026 (round-table minutes, contribution 95)",
+     "url": "https://indico.nikhef.nl/event/7584/contributions/31998/attachments/11575/18017/AC_roundtable.pdf",
+     "type": "talk",
+     "verified": true
+    },
+    {
+     "title": "Accidental Coincidence Backgrounds in Double-Phase TPC Dark Matter Detectors",
+     "authors": "M. Wada",
+     "year": 2026,
+     "venue": "LIDINE 2026, Nikhef, Amsterdam, 6 Oct 2026 (slides)",
+     "url": "https://indico.nikhef.nl/event/7584/contributions/31837/attachments/11517/17946/LIDINE2026_MasayukiWada.pdf",
+     "type": "talk",
+     "verified": true
+    },
+    {
+     "title": "XENONnT Analysis: Signal Reconstruction, Calibration and Event Selection",
+     "authors": "E. Aprile et al. (XENON)",
+     "year": 2025,
+     "venue": "Phys. Rev. D 111, 062006 (2025); arXiv:2409.08778",
+     "url": "https://arxiv.org/abs/2409.08778",
+     "type": "paper",
+     "verified": true
+    }
+   ],
+   "in_reference_talk": true,
+   "importance": "dominant",
+   "importance_note": "Main origin of delayed single electrons in LZ, XENON1T and LUX, and XENONnT attributes its tenfold higher isolated-S2 rate to delayed electrons; no per-source rate is published."
+  },
+  {
+   "id": "surface-trapped-electrons",
+   "name": "Electrons trapped at surface",
+   "signal": "S2",
+   "tags": [
+    "D"
+   ],
+   "region": "liquid_surface",
+   "extra_regions": [
+    "extraction_region"
+   ],
+   "medium": "xenon",
+   "mechanism": "At extraction fields below saturation not every electron crosses the liquid-gas barrier on first arrival. The rest stay under the surface and are emitted later, singly or in bursts, at the xy position of the parent S2. Argon TPCs report close to 100% extraction and do not see this.",
+   "chain": "large S2 with incomplete extraction → electrons held under the liquid surface → emitted ms later → single electrons and e-bursts",
+   "timescale": "up to ~10 ms after the S2 (LUX e-bursts; correlation visible to 50 ms)",
+   "correlated_with": "preceding large S2: time and xy position; extraction field",
+   "evidence": "established",
+   "evidence_note": "Sorensen and Kamdin separated a fast component that shrinks with extraction field, LUX tied its e-bursts to unextracted electrons, and RED-100's electron shutter removed this part; LZ finds it subdominant to impurity release.",
+   "key_numbers": [
+    {
+     "text": "Electron extraction efficiency saturates only between 7.5 and 10.4 kV/cm (field in the liquid)",
+     "ref": 2
+    },
+    {
+     "text": "LUX e-bursts decay in under 10 ms at the position of the parent S2",
+     "ref": 1
+    },
+    {
+     "text": "RED-100: blocking the charge with a second grid lowers the single-electron rate by a factor ~3",
+     "ref": 3
+    }
+   ],
+   "mitigation": "Higher extraction field, veto in time and xy after large S2s, hardware electron shutter; argon doping of xenon was discussed at the round table.",
+   "setups": [
+    "llnl-xenu-lbeca",
+    "red-100-red-1-double-gate",
+    "asterix",
+    "ucsd-lxepsc",
+    "lz-few-electron-study",
+    "crystalize",
+    "freiburg-single-phase-tpc"
+   ],
+   "past_setups": [
+    "LUX"
+   ],
+   "references": [
+    {
+     "title": "Two distinct components of the delayed single electron background signals in liquid xenon emission detectors",
+     "authors": "P. Sorensen and K. Kamdin",
+     "year": 2018,
+     "venue": "JINST 13 P02032 (2018); arXiv:1711.07025",
+     "url": "https://arxiv.org/abs/1711.07025",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Investigation of background electron emission in the LUX detector",
+     "authors": "D. S. Akerib et al. (LUX)",
+     "year": 2020,
+     "venue": "Phys. Rev. D 102, 092004 (2020), doi:10.1103/PhysRevD.102.092004; arXiv:2004.07791",
+     "url": "https://arxiv.org/abs/2004.07791",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Electron extraction efficiency study for dual-phase xenon dark matter experiments",
+     "authors": "J. Xu et al.",
+     "year": 2019,
+     "venue": "Phys. Rev. D 99, 103024 (2019), doi:10.1103/PhysRevD.99.103024; arXiv:1904.02885",
+     "url": "https://arxiv.org/abs/1904.02885",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "First ground-level laboratory test of the two-phase xenon emission detector RED-100",
+     "authors": "D. Yu. Akimov et al. (RED-100)",
+     "year": 2020,
+     "venue": "JINST 15 (2020) P02020, doi:10.1088/1748-0221/15/02/P02020; arXiv:1910.06190",
+     "url": "https://arxiv.org/abs/1910.06190",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Study of few-electron backgrounds in the LUX-ZEPLIN detector",
+     "authors": "D. S. Akerib et al. (LZ)",
+     "year": 2026,
+     "venue": "Phys. Rev. D 113, 072018 (2026), arXiv:2510.06500",
+     "url": "https://arxiv.org/abs/2510.06500",
+     "type": "arXiv",
+     "verified": true
+    },
+    {
+     "title": "Study of background from accidental coincidence signals in the PandaX-II experiment",
+     "authors": "A. Abdukerim et al. (PandaX-II)",
+     "year": 2022,
+     "venue": "Chin. Phys. C 46, 103001 (2022), doi:10.1088/1674-1137/ac7cd8; arXiv:2204.11175",
+     "url": "https://arxiv.org/abs/2204.11175",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Round table 1: Lone S1 and S2, accidental coincidences, mitigation, origins, R&D needs (minutes by P. Kharbanda and R. Matheson)",
+     "authors": "J. Aalbers (chair) et al.",
+     "year": 2026,
+     "venue": "LIDINE 2026, Nikhef, Amsterdam, 7 Oct 2026 (round-table minutes, contribution 95)",
+     "url": "https://indico.nikhef.nl/event/7584/contributions/31998/attachments/11575/18017/AC_roundtable.pdf",
+     "type": "talk",
+     "verified": true
+    },
+    {
+     "title": "Accidental Coincidence Backgrounds in Double-Phase TPC Dark Matter Detectors",
+     "authors": "M. Wada",
+     "year": 2026,
+     "venue": "LIDINE 2026, Nikhef, Amsterdam, 6 Oct 2026 (slides)",
+     "url": "https://indico.nikhef.nl/event/7584/contributions/31837/attachments/11517/17946/LIDINE2026_MasayukiWada.pdf",
+     "type": "talk",
+     "verified": true
+    }
+   ],
+   "in_reference_talk": true,
+   "importance": "sub-dominant",
+   "importance_note": "LZ finds it subdominant to impurity release for delayed single electrons; LUX attributes its e-bursts within about 10 ms of an S2 to it."
+  },
+  {
+   "id": "photoionisation-impurities",
+   "name": "Photoionisation of impurities",
+   "signal": "S2",
+   "tags": [
+    "F"
+   ],
+   "region": "impurities_in_bulk",
+   "extra_regions": [
+    "bulk_liquid"
+   ],
+   "medium": "both",
+   "mechanism": "VUV photons of an S1 or S2 ionise neutral impurities (or negative ions) in the liquid. The freed electrons drift up and give single-electron S2s within one maximum drift time of the parent pulse, anywhere along the light path.",
+   "chain": "S1 or S2 light → ionises impurities in the bulk → single electrons within one drift time",
+   "timescale": "within one maximum drift time after the S1 or S2",
+   "correlated_with": "preceding S1/S2 (time, within one drift time); impurity concentration",
+   "evidence": "established",
+   "evidence_note": "Seen in ZEPLIN, XENON100 and LUX; the UCSD sealed TPC shows the rate falls linearly with impurity concentration, and DarkSide-50 measures the same process in argon at a much lower level.",
+   "key_numbers": [
+    {
+     "text": "DarkSide-50: photoelectron emission probability per unit length one order of magnitude smaller than in LUX",
+     "ref": 3
+    }
+   ],
+   "mitigation": "Veto of one maximum drift time after large pulses; better purity.",
+   "setups": [
+    "ucsd-sealed-tpc",
+    "pixey-yale",
+    "lz-few-electron-study"
+   ],
+   "past_setups": [
+    "XENON100",
+    "LUX",
+    "DarkSide-50",
+    "ZEPLIN-II",
+    "ZEPLIN-III",
+    "XENON10 S2-only"
+   ],
+   "references": [
+    {
+     "title": "Development and Performance of a Sealed Liquid Xenon Time Projection Chamber",
+     "authors": "Y. Wei et al.",
+     "year": 2021,
+     "venue": "JINST 16 P01018 (2021), doi:10.1088/1748-0221/16/01/P01018; arXiv:2007.16194",
+     "url": "https://arxiv.org/abs/2007.16194",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Observation and applications of single-electron charge signals in the XENON100 experiment",
+     "authors": "E. Aprile et al. (XENON100)",
+     "year": 2014,
+     "venue": "J. Phys. G 41, 035201; arXiv:1311.1088",
+     "url": "https://arxiv.org/abs/1311.1088",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Investigation of background electron emission in the LUX detector",
+     "authors": "D. S. Akerib et al. (LUX)",
+     "year": 2020,
+     "venue": "Phys. Rev. D 102, 092004 (2020), doi:10.1103/PhysRevD.102.092004; arXiv:2004.07791",
+     "url": "https://arxiv.org/abs/2004.07791",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "A study of events with photoelectric emission in the DarkSide-50 liquid argon Time Projection Chamber",
+     "authors": "P. Agnes et al. (DarkSide-50)",
+     "year": 2022,
+     "venue": "Astropart. Phys. 140, 102704 (2022); arXiv:2107.08015",
+     "url": "https://arxiv.org/abs/2107.08015",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "The Electric Field Dependence of Single Electron Emission in the PIXeY Two-Phase Xenon Detector",
+     "authors": "E. Bodnia et al.",
+     "year": 2021,
+     "venue": "JINST 16 P12015; arXiv:2101.03686",
+     "url": "https://arxiv.org/abs/2101.03686",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "XENONnT Analysis: Signal Reconstruction, Calibration and Event Selection",
+     "authors": "E. Aprile et al. (XENON)",
+     "year": 2025,
+     "venue": "Phys. Rev. D 111, 062006 (2025); arXiv:2409.08778",
+     "url": "https://arxiv.org/abs/2409.08778",
+     "type": "paper",
+     "verified": true
+    }
+   ],
+   "in_reference_talk": true,
+   "importance": "unknown",
+   "importance_note": "No published estimate of its share; it is confined to one maximum drift time after a large pulse, which analyses veto."
+  },
+  {
+   "id": "photoelectric-gate",
+   "name": "Photoemission from the gate",
+   "signal": "S2",
+   "tags": [
+    "F"
+   ],
+   "region": "gate",
+   "extra_regions": [
+    "anode"
+   ],
+   "medium": "both",
+   "mechanism": "Electroluminescence light of an S2 hits the gate wires just below it and ejects photoelectrons. They are extracted after the short gate-to-surface drift and appear as a small pulse on the tail of the S2 or as separate few-electron S2s.",
+   "chain": "S2 light → photoelectrons from gate wires → few-electron pulse ~µs after the S2",
+   "timescale": "about 1–2 µs after the S2 (gate-to-surface drift time)",
+   "correlated_with": "preceding S2 (time and xy position)",
+   "evidence": "established",
+   "evidence_note": "HeXe resolves a gate-photoemission peak after the S2, PIXeY measures photoionisation of grids, and DarkSide-50 finds its multi-electron spurious signals consistent with photoionisation of the steel extraction grid.",
+   "key_numbers": [
+    {
+     "text": "HeXe: gate-photoemission peak about 1.5 µs after the S2",
+     "ref": 0
+    },
+    {
+     "text": "Quantum efficiency of stainless steel (SUS304) for 179.5 nm light in liquid xenon is 4.4 times that of MgF2-coated aluminium, (7.2 ± 2.3)×10⁻⁵",
+     "ref": 3
+    }
+   ],
+   "mitigation": "S2 shape cuts, veto after large S2s, low-quantum-efficiency electrode coatings.",
+   "setups": [
+    "hexe",
+    "pixey-yale",
+    "nagoya-electrode-qe"
+   ],
+   "past_setups": [
+    "DarkSide-50",
+    "LUX"
+   ],
+   "references": [
+    {
+     "title": "Operation of a dual-phase xenon detector with wavelength sensitivity from ultraviolet to infrared",
+     "authors": "R. Hammann et al.",
+     "year": 2025,
+     "venue": "Front. Detect. Sci. Technol. 3:1638362 (25 July 2025), doi:10.3389/fdest.2025.1638362",
+     "url": "https://www.frontiersin.org/journals/detector-science-and-technology/articles/10.3389/fdest.2025.1638362/pdf",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "The Electric Field Dependence of Single Electron Emission in the PIXeY Two-Phase Xenon Detector",
+     "authors": "E. Bodnia et al.",
+     "year": 2021,
+     "venue": "JINST 16 P12015; arXiv:2101.03686",
+     "url": "https://arxiv.org/abs/2101.03686",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Characterization of spurious-electron signals in the double-phase argon TPC of the DarkSide-50 experiment",
+     "authors": "P. Agnes et al. (DarkSide-50)",
+     "year": 2025,
+     "venue": "Eur. Phys. J. C 86, 1099 (2026); arXiv:2507.23003",
+     "url": "https://arxiv.org/abs/2507.23003",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Measurement of the Quantum Efficiency of Electrode Materials for VUV Photons in Liquid Xenon",
+     "authors": "S. Kazama et al.",
+     "year": 2025,
+     "venue": "PTEP, doi:10.1093/ptep/ptaf078; arXiv:2503.14819",
+     "url": "https://arxiv.org/abs/2503.14819",
+     "type": "arXiv",
+     "verified": true
+    }
+   ],
+   "in_reference_talk": false,
+   "importance": "unknown",
+   "importance_note": "No published estimate of its share."
+  },
+  {
+   "id": "photoelectric-cathode",
+   "name": "Photoemission from the cathode",
+   "signal": "S2",
+   "tags": [
+    "F"
+   ],
+   "region": "cathode",
+   "extra_regions": [
+    "bottom_screen",
+    "field_shaping_rings"
+   ],
+   "medium": "both",
+   "mechanism": "S1 or S2 light releases photoelectrons from the cathode (wires in xenon; TPB-coated ITO in DarkSide-50) and other metal surfaces. They drift the full length of the TPC and arrive exactly one maximum drift time after the light pulse ('echo').",
+   "chain": "S1 or S2 light → photoelectrons from the cathode → few-electron S2 one maximum drift time later",
+   "timescale": "exactly one maximum drift time after the S1 or S2 (375 µs in DarkSide-50)",
+   "correlated_with": "preceding S1/S2 (fixed delay)",
+   "evidence": "established",
+   "evidence_note": "Measured in LUX, PIXeY and DarkSide-50 (which derived the quantum efficiency of its TPB-coated cathode); ReD uses these echoes to calibrate the single-electron gain.",
+   "key_numbers": [
+    {
+     "text": "DarkSide-50: echoes at the maximum drift time of 375 µs after S1 or S2",
+     "ref": 1
+    }
+   ],
+   "mitigation": "Veto of pulses at one maximum drift time after a large S1/S2; low-quantum-efficiency electrode materials.",
+   "setups": [
+    "red-proto-0",
+    "pixey-yale",
+    "nagoya-electrode-qe"
+   ],
+   "past_setups": [
+    "DarkSide-50",
+    "LUX",
+    "XENON100"
+   ],
+   "references": [
+    {
+     "title": "A study of events with photoelectric emission in the DarkSide-50 liquid argon Time Projection Chamber",
+     "authors": "P. Agnes et al. (DarkSide-50)",
+     "year": 2022,
+     "venue": "Astropart. Phys. 140, 102704 (2022); arXiv:2107.08015",
+     "url": "https://arxiv.org/abs/2107.08015",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Accidental Coincidence Backgrounds in Double-Phase TPC Dark Matter Detectors",
+     "authors": "M. Wada",
+     "year": 2026,
+     "venue": "LIDINE 2026, Nikhef, Amsterdam, 6 Oct 2026 (slides)",
+     "url": "https://indico.nikhef.nl/event/7584/contributions/31837/attachments/11517/17946/LIDINE2026_MasayukiWada.pdf",
+     "type": "talk",
+     "verified": true
+    },
+    {
+     "title": "The Electric Field Dependence of Single Electron Emission in the PIXeY Two-Phase Xenon Detector",
+     "authors": "E. Bodnia et al.",
+     "year": 2021,
+     "venue": "JINST 16 P12015; arXiv:2101.03686",
+     "url": "https://arxiv.org/abs/2101.03686",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Investigation of background electron emission in the LUX detector",
+     "authors": "D. S. Akerib et al. (LUX)",
+     "year": 2020,
+     "venue": "Phys. Rev. D 102, 092004 (2020), doi:10.1103/PhysRevD.102.092004; arXiv:2004.07791",
+     "url": "https://arxiv.org/abs/2004.07791",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Measurement of the Quantum Efficiency of Electrode Materials for VUV Photons in Liquid Xenon",
+     "authors": "S. Kazama et al.",
+     "year": 2025,
+     "venue": "PTEP, doi:10.1093/ptep/ptaf078; arXiv:2503.14819",
+     "url": "https://arxiv.org/abs/2503.14819",
+     "type": "arXiv",
+     "verified": true
+    },
+    {
+     "title": "Observation and applications of single-electron charge signals in the XENON100 experiment",
+     "authors": "E. Aprile et al. (XENON100)",
+     "year": 2014,
+     "venue": "J. Phys. G 41, 035201; arXiv:1311.1088",
+     "url": "https://arxiv.org/abs/1311.1088",
+     "type": "paper",
+     "verified": true
+    }
+   ],
+   "in_reference_talk": true,
+   "importance": "unknown",
+   "importance_note": "No published estimate of its share."
+  },
+  {
+   "id": "gate-hot-spot-emission",
+   "name": "Gate electron emission (hot spots)",
+   "signal": "S2",
+   "tags": [
+    "E"
+   ],
+   "region": "gate",
+   "extra_regions": [],
+   "medium": "xenon",
+   "mechanism": "Localised spots on the gate wires emit electrons spontaneously, steadily or in episodes, even at stable voltage. The behaviour does not follow Fowler-Nordheim field emission: rates do not rise monotonically with voltage and the surface fields are too low. Surface condition (oxide layer, defects, dust) controls it. In LZ and LUX the electrons are accompanied by a photon.",
+   "chain": "defect or contaminated spot on a gate wire → electron emission → single/few-electron S2s at fixed xy ('hot spot')",
+   "timescale": "random or episodic (seconds to hours), not tied to a previous event",
+   "correlated_with": "xy position of the emitter; a photon about 2.2 µs before the S2 (gate-to-surface drift)",
+   "evidence": "established",
+   "evidence_note": "LZ characterised hot-spot emission with extraction-region-only data and showed it can be tagged by the coincident photon; bench studies at Imperial and SLAC linked emission to wire surface quality and showed passivation reduces it.",
+   "key_numbers": [
+    {
+     "text": "LZ: photon precedes the S2 by about 2.2 µs, the drift time from gate to liquid surface",
+     "ref": 1
+    },
+    {
+     "text": "Imperial: emission from cathodic wires starts at surface fields as low as ~10 kV/cm, with average rates of 10–200 counts/s and outbreaks up to ~10⁶ counts/s",
+     "ref": 2
+    }
+   ],
+   "mitigation": "Hot-spot veto in time and xy, photon tag, passivation and cleaning of grids (citric or nitric acid), electropolishing.",
+   "setups": [
+    "lz-few-electron-study",
+    "imperial-wire-emission-chamber",
+    "slac-gas-test-phase-1",
+    "pixey-yale",
+    "xenonnt",
+    "pandax-4t",
+    "kit-motion",
+    "mainz-granite"
+   ],
+   "past_setups": [
+    "LUX"
+   ],
+   "references": [
+    {
+     "title": "Study of few-electron backgrounds in the LUX-ZEPLIN detector",
+     "authors": "D. S. Akerib et al. (LZ)",
+     "year": 2026,
+     "venue": "Phys. Rev. D 113, 072018 (2026), arXiv:2510.06500",
+     "url": "https://arxiv.org/abs/2510.06500",
+     "type": "arXiv",
+     "verified": true
+    },
+    {
+     "title": "Backgrounds in the LUX-ZEPLIN (LZ) Experiment",
+     "authors": "A. Wang, for LZ",
+     "year": 2024,
+     "venue": "TeVPA 2024 (slides)",
+     "url": "https://indico.uchicago.edu/event/427/contributions/1397/attachments/369/563/TeVPA2024_LZBackgrounds_AWang.pdf",
+     "type": "talk",
+     "verified": true
+    },
+    {
+     "title": "Study and mitigation of spurious electron emission from cathodic wires in noble liquid time projection chambers",
+     "authors": "A. Tomás et al.",
+     "year": 2018,
+     "venue": "Astropart. Phys. 103 (2018) 49-61, doi:10.1016/j.astropartphys.2018.07.001; arXiv:1801.07231",
+     "url": "https://arxiv.org/abs/1801.07231",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Design and production of the high voltage electrode grids and electron extraction region for the LZ dual-phase xenon time projection chamber",
+     "authors": "R. Linehan et al.",
+     "year": 2021,
+     "venue": "Nucl. Instrum. Meth. A, doi:10.1016/j.nima.2021.165955; arXiv:2106.06622",
+     "url": "https://arxiv.org/abs/2106.06622",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "The Electric Field Dependence of Single Electron Emission in the PIXeY Two-Phase Xenon Detector",
+     "authors": "E. Bodnia et al.",
+     "year": 2021,
+     "venue": "JINST 16 P12015; arXiv:2101.03686",
+     "url": "https://arxiv.org/abs/2101.03686",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Background Determination for the LUX-ZEPLIN (LZ) Dark Matter Experiment",
+     "authors": "J. Aalbers et al. (LZ)",
+     "year": 2023,
+     "venue": "Phys. Rev. D 108, 012010 (2023); arXiv:2211.17120",
+     "url": "https://arxiv.org/abs/2211.17120",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Accidental Coincidence Backgrounds in Double-Phase TPC Dark Matter Detectors",
+     "authors": "M. Wada",
+     "year": 2026,
+     "venue": "LIDINE 2026, Nikhef, Amsterdam, 6 Oct 2026 (slides)",
+     "url": "https://indico.nikhef.nl/event/7584/contributions/31837/attachments/11517/17946/LIDINE2026_MasayukiWada.pdf",
+     "type": "talk",
+     "verified": true
+    },
+    {
+     "title": "Round table 1: Lone S1 and S2, accidental coincidences, mitigation, origins, R&D needs (minutes by P. Kharbanda and R. Matheson)",
+     "authors": "J. Aalbers (chair) et al.",
+     "year": 2026,
+     "venue": "LIDINE 2026, Nikhef, Amsterdam, 7 Oct 2026 (round-table minutes, contribution 95)",
+     "url": "https://indico.nikhef.nl/event/7584/contributions/31998/attachments/11575/18017/AC_roundtable.pdf",
+     "type": "talk",
+     "verified": true
+    }
+   ],
+   "in_reference_talk": true,
+   "importance": "significant",
+   "importance_note": "Episodic and detector-specific: in LZ the photon tag removes more than an order of magnitude of the 2–4 electron S2 rate; no share of the isolated-S2 rate is published."
+  },
+  {
+   "id": "cathode-electron-emission",
+   "name": "Cathode electron emission",
+   "signal": "S2",
+   "tags": [
+    "E"
+   ],
+   "region": "cathode",
+   "extra_regions": [
+    "bottom_screen"
+   ],
+   "medium": "xenon",
+   "mechanism": "The cathode wires carry the highest surface fields in the TPC and can emit electrons from defects, oxide layers or dust, as seen on test wires. Emitted electrons drift the full length and are extracted as few-electron S2s with no S1.",
+   "chain": "high-field spot on a cathode wire → electron emission → few-electron S2 after a full drift, no S1",
+   "timescale": "random or episodic",
+   "correlated_with": "cathode voltage; xy position of the emitter",
+   "evidence": "supported",
+   "evidence_note": "LZ names electron emission from cathode or gate as a source of pulses tagged as S2s, and Imperial measured spurious emission from cathodic wires in liquid xenon; no rate from the cathode of a running detector is published.",
+   "key_numbers": [
+    {
+     "text": "Nitric-acid cleaning and passivation of stainless-steel wire reduce the emission by at least an order of magnitude",
+     "ref": 1
+    }
+   ],
+   "mitigation": "Wire surface treatment, lower cathode field, S2 width consistent with maximum drift, hot-spot veto.",
+   "setups": [
+    "imperial-wire-emission-chamber",
+    "slac-gas-test-phase-1",
+    "lz-accidental-coincidence-model"
+   ],
+   "past_setups": [],
+   "references": [
+    {
+     "title": "Background Determination for the LUX-ZEPLIN (LZ) Dark Matter Experiment",
+     "authors": "J. Aalbers et al. (LZ)",
+     "year": 2023,
+     "venue": "Phys. Rev. D 108, 012010 (2023); arXiv:2211.17120",
+     "url": "https://arxiv.org/abs/2211.17120",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Study and mitigation of spurious electron emission from cathodic wires in noble liquid time projection chambers",
+     "authors": "A. Tomás et al.",
+     "year": 2018,
+     "venue": "Astropart. Phys. 103 (2018) 49-61, doi:10.1016/j.astropartphys.2018.07.001; arXiv:1801.07231",
+     "url": "https://arxiv.org/abs/1801.07231",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Design and production of the high voltage electrode grids and electron extraction region for the LZ dual-phase xenon time projection chamber",
+     "authors": "R. Linehan et al.",
+     "year": 2021,
+     "venue": "Nucl. Instrum. Meth. A, doi:10.1016/j.nima.2021.165955; arXiv:2106.06622",
+     "url": "https://arxiv.org/abs/2106.06622",
+     "type": "paper",
+     "verified": true
+    }
+   ],
+   "in_reference_talk": true,
+   "importance": "unknown",
+   "importance_note": "No rate from the cathode of a running detector is published."
+  },
+  {
+   "id": "grid-radioactivity",
+   "name": "Radon daughters on the grids",
+   "signal": "S2",
+   "tags": [],
+   "region": "gate",
+   "extra_regions": [
+    "cathode"
+   ],
+   "medium": "xenon",
+   "mechanism": "²¹⁰Pb and other ²²²Rn daughters plate out on the grid wires during production and operation. Their decays deposit energy in the high-field liquid next to the wire: the S1 is suppressed by the strong field, and part of the charge is lost on field lines that end below the wire. The result is an S2 with a missing or too-small S1, with a continuous spectrum up to thousands of electrons.",
+   "chain": "decay of plated-out ²¹⁰Pb chain on a grid wire → S1 suppressed, charge partly collected → S2 with no usable S1",
+   "timescale": "prompt; random in time",
+   "correlated_with": "none (random); drift time at the cathode maximum (cathode) or near zero (gate)",
+   "evidence": "established",
+   "evidence_note": "LZ and LUX built a first-principles model of this background that agrees with their data; XENONnT's S2-only search treats cathode events from ²¹⁰Pb as a main background.",
+   "key_numbers": [
+    {
+     "text": "XENONnT S2-only: a BDT on S2 waveform features rejects about 70% of cathode background at about 80% signal efficiency",
+     "ref": 1
+    },
+    {
+     "text": "LUX: a pulse-shape machine-learning cut against electrode events improves low-mass limits by a factor 2–7",
+     "ref": 2
+    }
+   ],
+   "mitigation": "S2 width and shape (BDT) to tag gate and cathode events, radon-free grid production and storage.",
+   "setups": [
+    "lz-few-electron-study",
+    "xenonnt",
+    "pandax-4t"
+   ],
+   "past_setups": [
+    "LUX"
+   ],
+   "references": [
+    {
+     "title": "Low-Energy Radon Backgrounds from Electrode Grids in Dual-Phase Xenon TPCs",
+     "authors": "D. S. Akerib et al. (LZ and LUX)",
+     "year": 2026,
+     "venue": "Phys. Rev. D 114, 072007 (2026), doi:10.1103/7tk3-33s9; arXiv:2602.21177",
+     "url": "https://arxiv.org/abs/2602.21177",
+     "type": "arXiv",
+     "verified": true
+    },
+    {
+     "title": "Light Dark Matter Search with 7.8 Tonne-Year of Ionization-Only Data in XENONnT",
+     "authors": "E. Aprile et al. (XENON)",
+     "year": 2026,
+     "venue": "Phys. Rev. Lett. 137, 051003 (2026), doi:10.1103/2lrq-f6bk; arXiv:2601.11296",
+     "url": "https://arxiv.org/abs/2601.11296",
+     "type": "arXiv",
+     "verified": true
+    },
+    {
+     "title": "Improving sensitivity to low-mass dark matter in LUX using a novel electrode background mitigation technique",
+     "authors": "D. S. Akerib et al. (LUX)",
+     "year": 2021,
+     "venue": "Phys. Rev. D 104, 012011 (2021), doi:10.1103/PhysRevD.104.012011; arXiv:2011.09602",
+     "url": "https://arxiv.org/abs/2011.09602",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Study of few-electron backgrounds in the LUX-ZEPLIN detector",
+     "authors": "D. S. Akerib et al. (LZ)",
+     "year": 2026,
+     "venue": "Phys. Rev. D 113, 072018 (2026), arXiv:2510.06500",
+     "url": "https://arxiv.org/abs/2510.06500",
+     "type": "arXiv",
+     "verified": true
+    },
+    {
+     "title": "Accidental Coincidence Backgrounds in Double-Phase TPC Dark Matter Detectors",
+     "authors": "M. Wada",
+     "year": 2026,
+     "venue": "LIDINE 2026, Nikhef, Amsterdam, 6 Oct 2026 (slides)",
+     "url": "https://indico.nikhef.nl/event/7584/contributions/31837/attachments/11517/17946/LIDINE2026_MasayukiWada.pdf",
+     "type": "talk",
+     "verified": true
+    },
+    {
+     "title": "Round table 1: Lone S1 and S2, accidental coincidences, mitigation, origins, R&D needs (minutes by P. Kharbanda and R. Matheson)",
+     "authors": "J. Aalbers (chair) et al.",
+     "year": 2026,
+     "venue": "LIDINE 2026, Nikhef, Amsterdam, 7 Oct 2026 (round-table minutes, contribution 95)",
+     "url": "https://indico.nikhef.nl/event/7584/contributions/31998/attachments/11575/18017/AC_roundtable.pdf",
+     "type": "talk",
+     "verified": true
+    }
+   ],
+   "in_reference_talk": true,
+   "importance": "significant",
+   "importance_note": "Cathode events from the ²¹⁰Pb chain are a main background of the XENONnT S2-only search; their share of the isolated S2s behind accidental coincidences is not published."
+  },
+  {
+   "id": "gas-phase-s2",
+   "name": "Events in the gas phase",
+   "signal": "S2",
+   "tags": [],
+   "region": "gas_gap",
+   "extra_regions": [
+    "anode"
+   ],
+   "medium": "both",
+   "mechanism": "An interaction in the gas between the liquid surface and the anode produces scintillation and electroluminescence that overlap in time. The merged, elongated pulse is reconstructed as a single S2 with no separate S1.",
+   "chain": "energy deposit in the gas gap → S1 and electroluminescence merge → one S2-like pulse",
+   "timescale": "prompt; random in time",
+   "correlated_with": "none (random)",
+   "evidence": "supported",
+   "evidence_note": "PandaX-II and LZ describe these merged events and cut on them, and the round table notes that misclassified gas events are usually reconstructed as S2s; no rate is published.",
+   "key_numbers": [
+    {
+     "text": "DarkSide-20k risk rating: Middle (pulse shape)",
+     "ref": 2
+    }
+   ],
+   "mitigation": "Merged-pulse cut on elongated S2s, S2 area-fraction-top and shape cuts.",
+   "setups": [
+    "lz-accidental-coincidence-model"
+   ],
+   "past_setups": [
+    "PandaX-II AC study"
+   ],
+   "references": [
+    {
+     "title": "Study of background from accidental coincidence signals in the PandaX-II experiment",
+     "authors": "A. Abdukerim et al. (PandaX-II)",
+     "year": 2022,
+     "venue": "Chin. Phys. C 46, 103001 (2022), doi:10.1088/1674-1137/ac7cd8; arXiv:2204.11175",
+     "url": "https://arxiv.org/abs/2204.11175",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Background Determination for the LUX-ZEPLIN (LZ) Dark Matter Experiment",
+     "authors": "J. Aalbers et al. (LZ)",
+     "year": 2023,
+     "venue": "Phys. Rev. D 108, 012010 (2023); arXiv:2211.17120",
+     "url": "https://arxiv.org/abs/2211.17120",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Accidental Coincidence Backgrounds in Double-Phase TPC Dark Matter Detectors",
+     "authors": "M. Wada",
+     "year": 2026,
+     "venue": "LIDINE 2026, Nikhef, Amsterdam, 6 Oct 2026 (slides)",
+     "url": "https://indico.nikhef.nl/event/7584/contributions/31837/attachments/11517/17946/LIDINE2026_MasayukiWada.pdf",
+     "type": "talk",
+     "verified": true
+    },
+    {
+     "title": "Round table 1: Lone S1 and S2, accidental coincidences, mitigation, origins, R&D needs (minutes by P. Kharbanda and R. Matheson)",
+     "authors": "J. Aalbers (chair) et al.",
+     "year": 2026,
+     "venue": "LIDINE 2026, Nikhef, Amsterdam, 7 Oct 2026 (round-table minutes, contribution 95)",
+     "url": "https://indico.nikhef.nl/event/7584/contributions/31998/attachments/11575/18017/AC_roundtable.pdf",
+     "type": "talk",
+     "verified": true
+    },
+    {
+     "title": "Backgrounds in the LUX-ZEPLIN (LZ) Experiment",
+     "authors": "A. Wang, for LZ",
+     "year": 2024,
+     "venue": "TeVPA 2024 (slides)",
+     "url": "https://indico.uchicago.edu/event/427/contributions/1397/attachments/369/563/TeVPA2024_LZBackgrounds_AWang.pdf",
+     "type": "talk",
+     "verified": true
+    }
+   ],
+   "in_reference_talk": true,
+   "importance": "unknown",
+   "importance_note": "No published rate; rated a middle risk for DarkSide-20k."
+  },
+  {
+   "id": "above-gate-events",
+   "name": "Events above the gate",
+   "signal": "S2",
+   "tags": [],
+   "region": "extraction_region",
+   "extra_regions": [
+    "liquid_surface",
+    "gate"
+   ],
+   "medium": "both",
+   "mechanism": "In the liquid between gate and surface the field is many times the drift field, so the drift time is too short to separate S1 from S2; the S1 is swallowed by the S2. Just below the gate the mesh can also block the S1 light. In DarkSide-20k this unresolved S1+S2 population is the main isolated-S2 source.",
+   "chain": "energy deposit in the liquid above (or just below) the gate → S1 merged into the S2 or shadowed → S2 with no S1",
+   "timescale": "prompt; random in time",
+   "correlated_with": "none (random); rate set by radioactivity of the top array, anode and grid supports",
+   "evidence": "supported",
+   "evidence_note": "Described by LZ (narrow, square-shaped S2s near the surface), XENON1T (S1 blocked by the mesh) and PandaX-II; for DarkSide-20k it is the simulated dominant S2-only source, not yet seen in data.",
+   "key_numbers": [
+    {
+     "text": "DarkSide-20k: field above the extraction grid is about 17 times the drift field",
+     "ref": 3
+    },
+    {
+     "text": "DarkSide-20k risk rating: High (S1 and S2 are harder to separate than in xenon)",
+     "ref": 3
+    }
+   ],
+   "mitigation": "Narrow/square S2 cut for liquid-surface events, S2 width versus drift time, rise-time and peak-time estimators in argon.",
+   "setups": [
+    "darkside-20k-design",
+    "lz-accidental-coincidence-model"
+   ],
+   "past_setups": [
+    "PandaX-II AC study",
+    "XENON1T few-electron"
+   ],
+   "references": [
+    {
+     "title": "Background Determination for the LUX-ZEPLIN (LZ) Dark Matter Experiment",
+     "authors": "J. Aalbers et al. (LZ)",
+     "year": 2023,
+     "venue": "Phys. Rev. D 108, 012010 (2023); arXiv:2211.17120",
+     "url": "https://arxiv.org/abs/2211.17120",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "XENON1T Dark Matter Data Analysis: Signal & Background Models, and Statistical Inference",
+     "authors": "E. Aprile et al. (XENON)",
+     "year": 2019,
+     "venue": "Phys. Rev. D 99, 112009 (2019); arXiv:1902.11297",
+     "url": "https://arxiv.org/abs/1902.11297",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Study of background from accidental coincidence signals in the PandaX-II experiment",
+     "authors": "A. Abdukerim et al. (PandaX-II)",
+     "year": 2022,
+     "venue": "Chin. Phys. C 46, 103001 (2022), doi:10.1088/1674-1137/ac7cd8; arXiv:2204.11175",
+     "url": "https://arxiv.org/abs/2204.11175",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Accidental Coincidence Backgrounds in Double-Phase TPC Dark Matter Detectors",
+     "authors": "M. Wada",
+     "year": 2026,
+     "venue": "LIDINE 2026, Nikhef, Amsterdam, 6 Oct 2026 (slides)",
+     "url": "https://indico.nikhef.nl/event/7584/contributions/31837/attachments/11517/17946/LIDINE2026_MasayukiWada.pdf",
+     "type": "talk",
+     "verified": true
+    },
+    {
+     "title": "Reconstruction chain and background studies for low- and high-mass WIMP searches in the DarkSide-20k experiment",
+     "authors": "E. Nikoloudaki",
+     "year": null,
+     "venue": "PhD thesis in preparation, Université Paris Cité / APC (supervisor D. Franco); theses.fr s374402, registered 2 Oct 2023",
+     "url": "https://theses.fr/s374402",
+     "type": "thesis",
+     "verified": true
+    },
+    {
+     "title": "Backgrounds in the LUX-ZEPLIN (LZ) Experiment",
+     "authors": "A. Wang, for LZ",
+     "year": 2024,
+     "venue": "TeVPA 2024 (slides)",
+     "url": "https://indico.uchicago.edu/event/427/contributions/1397/attachments/369/563/TeVPA2024_LZBackgrounds_AWang.pdf",
+     "type": "talk",
+     "verified": true
+    }
+   ],
+   "in_reference_talk": true,
+   "importance": "significant",
+   "importance_note": "Expected to be the main isolated-S2 source in DarkSide-20k (simulation; rated a high risk); no published share for xenon detectors."
+  },
+  {
+   "id": "sub-threshold-s1-events",
+   "name": "S1 below threshold",
+   "signal": "S2",
+   "tags": [],
+   "region": "bulk_liquid",
+   "extra_regions": [],
+   "medium": "both",
+   "mechanism": "A real low-energy recoil in the active volume produces an S2 of several electrons while its S1 has too few photons to pass the coincidence requirement. The S2 is physical, but it enters the isolated-S2 sample.",
+   "chain": "low-energy ER or NR in the bulk → S1 below the detection threshold → S2 with no S1",
+   "timescale": "prompt; random in time",
+   "correlated_with": "none (random)",
+   "evidence": "established",
+   "evidence_note": "A selection effect inherent to any S1 threshold rather than a separate finding: it is the basis of S2-only searches (XENON1T, XENONnT, PandaX-4T, DarkSide-50), and LZ and PandaX-II list it among isolated-S2 origins.",
+   "key_numbers": [
+    {
+     "text": "XENON1T lone-S2 rate above 100 PE: 2.6 mHz",
+     "ref": 0
+    },
+    {
+     "text": "DarkSide-20k risk rating: Middle (outside the S2 region of interest for nuclear recoils)",
+     "ref": 4
+    }
+   ],
+   "mitigation": "Not removable as an S2; the accidental pair is rejected by S1–S2 consistency cuts (S2 width versus drift time, S1 top-bottom asymmetry versus drift time).",
+   "setups": [
+    "xenonnt",
+    "pandax-4t"
+   ],
+   "past_setups": [
+    "XENON1T S2-only",
+    "DarkSide-50",
+    "PandaX-II AC study"
+   ],
+   "references": [
+    {
+     "title": "XENON1T Dark Matter Data Analysis: Signal & Background Models, and Statistical Inference",
+     "authors": "E. Aprile et al. (XENON)",
+     "year": 2019,
+     "venue": "Phys. Rev. D 99, 112009 (2019); arXiv:1902.11297",
+     "url": "https://arxiv.org/abs/1902.11297",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Study of background from accidental coincidence signals in the PandaX-II experiment",
+     "authors": "A. Abdukerim et al. (PandaX-II)",
+     "year": 2022,
+     "venue": "Chin. Phys. C 46, 103001 (2022), doi:10.1088/1674-1137/ac7cd8; arXiv:2204.11175",
+     "url": "https://arxiv.org/abs/2204.11175",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Background Determination for the LUX-ZEPLIN (LZ) Dark Matter Experiment",
+     "authors": "J. Aalbers et al. (LZ)",
+     "year": 2023,
+     "venue": "Phys. Rev. D 108, 012010 (2023); arXiv:2211.17120",
+     "url": "https://arxiv.org/abs/2211.17120",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Light Dark Matter Search with Ionization Signals in XENON1T",
+     "authors": "E. Aprile et al. (XENON)",
+     "year": 2019,
+     "venue": "Phys. Rev. Lett. 123, 251801 (2019); arXiv:1907.11485",
+     "url": "https://arxiv.org/abs/1907.11485",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Accidental Coincidence Backgrounds in Double-Phase TPC Dark Matter Detectors",
+     "authors": "M. Wada",
+     "year": 2026,
+     "venue": "LIDINE 2026, Nikhef, Amsterdam, 6 Oct 2026 (slides)",
+     "url": "https://indico.nikhef.nl/event/7584/contributions/31837/attachments/11517/17946/LIDINE2026_MasayukiWada.pdf",
+     "type": "talk",
+     "verified": true
+    }
+   ],
+   "in_reference_talk": true,
+   "importance": "unknown",
+   "importance_note": "No published estimate of its share; it is the physical population that S2-only searches analyse."
+  },
+  {
+   "id": "single-electron-pileup",
+   "name": "Single-electron pile-up",
+   "signal": "S2",
+   "tags": [
+    "C",
+    "D",
+    "E"
+   ],
+   "region": "gas_gap",
+   "extra_regions": [
+    "liquid_surface"
+   ],
+   "medium": "xenon",
+   "mechanism": "Single electrons from all the sources above arrive at a high enough rate that several overlap within one S2 width. The reconstruction merges them into one few-electron S2 above the analysis threshold, even though the electrons come from different places.",
+   "chain": "high single-electron rate → 2 or more electrons overlap in time → one small S2 above threshold",
+   "timescale": "follows the single-electron rate; includes a constant component",
+   "correlated_with": "preceding large S2s for the delayed part; none for the constant part",
+   "evidence": "established",
+   "evidence_note": "XENONnT's S2-only analysis models it as the 'accidental electron' background, including a part attributed to constant single-electron emission; in RED-100 single-electron pile-up set the limit of the reactor run.",
+   "key_numbers": [
+    {
+     "text": "XENONnT S2-only: a neural-network cut rejects about 75% of accidental-electron events at about 99% signal efficiency",
+     "ref": 0
+    },
+    {
+     "text": "RED-100 at ground level: single-electron rate of about 250 kHz with the electron shutter",
+     "ref": 1
+    }
+   ],
+   "mitigation": "Require no other S2 in the preceding maximum drift time, pattern-based separation of electrons at different xy, higher S2 threshold.",
+   "setups": [
+    "xenonnt",
+    "red-100-red-1-double-gate",
+    "pandax-4t",
+    "tsinghua-prototype-tpc"
+   ],
+   "past_setups": [],
+   "references": [
+    {
+     "title": "Light Dark Matter Search with 7.8 Tonne-Year of Ionization-Only Data in XENONnT",
+     "authors": "E. Aprile et al. (XENON)",
+     "year": 2026,
+     "venue": "Phys. Rev. Lett. 137, 051003 (2026), doi:10.1103/2lrq-f6bk; arXiv:2601.11296",
+     "url": "https://arxiv.org/abs/2601.11296",
+     "type": "arXiv",
+     "verified": true
+    },
+    {
+     "title": "First ground-level laboratory test of the two-phase xenon emission detector RED-100",
+     "authors": "D. Yu. Akimov et al. (RED-100)",
+     "year": 2020,
+     "venue": "JINST 15 (2020) P02020, doi:10.1088/1748-0221/15/02/P02020; arXiv:1910.06190",
+     "url": "https://arxiv.org/abs/1910.06190",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "XENONnT Analysis: Signal Reconstruction, Calibration and Event Selection",
+     "authors": "E. Aprile et al. (XENON)",
+     "year": 2025,
+     "venue": "Phys. Rev. D 111, 062006 (2025); arXiv:2409.08778",
+     "url": "https://arxiv.org/abs/2409.08778",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "The low-energy ionization backgrounds in the PandaX-4T experiment",
+     "authors": "S. Li, for PandaX",
+     "year": 2025,
+     "venue": "LIDINE 2025, Hong Kong, 23 Oct 2025 (slides)",
+     "url": "https://indico.ihep.ac.cn/event/24964/contributions/194839/attachments/95872/126379/LIDINE2025_HK_shuaijieli.pdf",
+     "type": "talk",
+     "verified": true
+    }
+   ],
+   "in_reference_talk": false,
+   "importance": "significant",
+   "importance_note": "Modelled as a background component of the XENONnT S2-only search and the limiting background of the RED-100 reactor run; no share of the isolated-S2 rate is published."
+  },
+  {
+   "id": "ptfe-charge-release",
+   "name": "Charge released from PTFE",
+   "signal": "S2",
+   "tags": [],
+   "region": "ptfe_wall",
+   "extra_regions": [
+    "wall_charge_insensitive"
+   ],
+   "medium": "xenon",
+   "mechanism": "Electrons that end on the PTFE wall charge it up, which is seen as a slow change of the drift field near the wall. The idea is that part of this stored charge, or energy stored in plastics, is released later as electrons that drift up along the wall. A wall origin of isolated S2s has not been demonstrated.",
+   "chain": "charge accumulated on the PTFE wall → later release of electrons → few-electron S2s at large radius",
+   "timescale": "unknown",
+   "correlated_with": "unknown; would sit at the wall radius",
+   "evidence": "hypothesised",
+   "evidence_note": "Wall charge-up itself is established (XENONnT corrects for it); release as isolated S2s is a hypothesis in the energy-accumulation picture of Pereverzev, with only preliminary evidence that removing plastics lowers electron trains.",
+   "key_numbers": [],
+   "mitigation": "Radial fiducial cut; fewer plastics in the active region.",
+   "setups": [
+    "llnl-xenu-lbeca"
+   ],
+   "past_setups": [],
+   "references": [
+    {
+     "title": "Detecting Low-Energy Interactions and the Effects of Energy Accumulation in Materials",
+     "authors": "S. Pereverzev",
+     "year": 2021,
+     "venue": "Phys. Rev. D 105, 063002 (2022), doi:10.1103/PhysRevD.105.063002; arXiv:2107.14397",
+     "url": "https://arxiv.org/abs/2107.14397",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Light Dark Matter Search with 7.8 Tonne-Year of Ionization-Only Data in XENONnT",
+     "authors": "E. Aprile et al. (XENON)",
+     "year": 2026,
+     "venue": "Phys. Rev. Lett. 137, 051003 (2026), doi:10.1103/2lrq-f6bk; arXiv:2601.11296",
+     "url": "https://arxiv.org/abs/2601.11296",
+     "type": "arXiv",
+     "verified": true
+    }
+   ],
+   "in_reference_talk": false,
+   "importance": "unknown",
+   "importance_note": "Hypothesis only: a wall origin of isolated S2s has not been demonstrated."
+  },
+  {
+   "id": "argon-spurious-electrons",
+   "name": "Spurious electrons in argon",
+   "signal": "S2",
+   "tags": [
+    "C",
+    "H"
+   ],
+   "region": "impurities_in_bulk",
+   "extra_regions": [
+    "bulk_liquid"
+   ],
+   "medium": "argon",
+   "mechanism": "In DarkSide-50 events with fewer than four electrons are dominated by 'spurious electrons'. A large part are electrons captured by impurities and released later with exponential time constants, correlated with the parent event; the rate follows the state of the purification system. The impurity species is not identified.",
+   "chain": "ionising event → electrons captured on impurities → released ms later → 1–3-electron S2s",
+   "timescale": "exponential components of about 5 ms and 40–80 ms after the parent event",
+   "correlated_with": "preceding event: time, xy position, S2 size and drift time; getter and radon-trap state",
+   "evidence": "established",
+   "evidence_note": "DarkSide-50 spurious-electron paper; the round table notes that trains are much less prominent in argon than in xenon and have a different spectrum.",
+   "key_numbers": [
+    {
+     "text": "30–70% of events below four electrons are delayed electrons released from impurities",
+     "ref": 0
+    },
+    {
+     "text": "Release time constants of about 5 ms and 40–80 ms",
+     "ref": 0
+    },
+    {
+     "text": "DarkSide-20k risk rating for delayed electrons: Low (too small for the nuclear-recoil region)",
+     "ref": 1
+    }
+   ],
+   "mitigation": "Analysis threshold of 4 electrons, veto after preceding events, getter always in the loop.",
+   "setups": [
+    "astrocent-tpc",
+    "red-proto-0"
+   ],
+   "past_setups": [
+    "DarkSide-50"
+   ],
+   "references": [
+    {
+     "title": "Characterization of spurious-electron signals in the double-phase argon TPC of the DarkSide-50 experiment",
+     "authors": "P. Agnes et al. (DarkSide-50)",
+     "year": 2025,
+     "venue": "Eur. Phys. J. C 86, 1099 (2026); arXiv:2507.23003",
+     "url": "https://arxiv.org/abs/2507.23003",
+     "type": "paper",
+     "verified": true
+    },
+    {
+     "title": "Accidental Coincidence Backgrounds in Double-Phase TPC Dark Matter Detectors",
+     "authors": "M. Wada",
+     "year": 2026,
+     "venue": "LIDINE 2026, Nikhef, Amsterdam, 6 Oct 2026 (slides)",
+     "url": "https://indico.nikhef.nl/event/7584/contributions/31837/attachments/11517/17946/LIDINE2026_MasayukiWada.pdf",
+     "type": "talk",
+     "verified": true
+    },
+    {
+     "title": "Round table 1: Lone S1 and S2, accidental coincidences, mitigation, origins, R&D needs (minutes by P. Kharbanda and R. Matheson)",
+     "authors": "J. Aalbers (chair) et al.",
+     "year": 2026,
+     "venue": "LIDINE 2026, Nikhef, Amsterdam, 7 Oct 2026 (round-table minutes, contribution 95)",
+     "url": "https://indico.nikhef.nl/event/7584/contributions/31998/attachments/11575/18017/AC_roundtable.pdf",
+     "type": "talk",
+     "verified": true
+    },
+    {
+     "title": "Sensitivity projections for a dual-phase argon TPC optimized for light dark matter searches through the ionization channel",
+     "authors": "P. Agnes et al.",
+     "year": 2023,
+     "venue": "Phys. Rev. D 107, 112006 (2023); arXiv:2209.01177",
+     "url": "https://arxiv.org/abs/2209.01177",
+     "type": "paper",
+     "verified": true
+    }
+   ],
+   "in_reference_talk": true,
+   "importance": "significant",
+   "importance_note": "Delayed electrons make up 30–70% of DarkSide-50 events below four electrons; rated a low risk for the DarkSide-20k nuclear-recoil search."
+  },
+  {
+   "id": "argon-euv-metastables",
+   "name": "EUV from argon metastables",
+   "signal": "S2",
+   "tags": [
+    "H"
+   ],
+   "region": "bulk_liquid",
+   "extra_regions": [
+    "impurities_in_bulk"
+   ],
+   "medium": "argon",
+   "mechanism": "X-ArT found a long-lived scintillation component in liquid argon and attributes it to extreme-UV emission from metastable atomic states. The proposal is that these energetic photons photoionise impurities and produce spurious electrons long after the event.",
+   "chain": "ionising event → long-lived metastable argon states → EUV photons → photoionisation of impurities → delayed single electrons",
+   "timescale": "longer than 10 µs after the event",
+   "correlated_with": "preceding event (time)",
+   "evidence": "hypothesised",
+   "evidence_note": "The long-lived light is measured (X-ArT), but in a scintillation-only cell: no electrons were measured, so the link to spurious electrons is a proposal.",
+   "key_numbers": [
+    {
+     "text": "Long-lived (>10 µs) component is 11.6 ± 0.2% of the Ar2* light in pure argon",
+     "ref": 0
+    }
+   ],
+   "mitigation": "Xenon doping changes the light emission; purity.",
+   "setups": [
+    "x-art",
+    "astrocent-tpc"
+   ],
+   "past_setups": [],
+   "references": [
+    {
+     "title": "Impact of extreme ultraviolet radiation on the scintillation of pure and xenon-doped liquid argon",
+     "authors": "P. Agnes et al. (X-ArT)",
+     "year": 2025,
+     "venue": "Phys. Rev. D 111, 102001 (2025); arXiv:2410.22863",
+     "url": "https://arxiv.org/abs/2410.22863",
+     "type": "paper",
+     "verified": true
+    }
+   ],
+   "in_reference_talk": false,
+   "importance": "unknown",
+   "importance_note": "Proposal only: no electrons were measured in the scintillation cell."
+  },
+  {
+   "id": "argon-gas-trapped-electrons",
+   "name": "Electrons delayed in gas",
+   "signal": "S2",
+   "tags": [
+    "H"
+   ],
+   "region": "gas_gap",
+   "extra_regions": [],
+   "medium": "argon",
+   "mechanism": "In two-phase argon the electroluminescence signal has slow components that the Novosibirsk group attributes to drifting electrons temporarily trapped on metastable negative argon ions in the gas and released microseconds later. These lengthen the S2 tail and can add single-electron-like pulses just after an S2.",
+   "chain": "electrons crossing the gas gap → temporary trapping on negative ions → released µs later → slow S2 tail / late single electrons",
+   "timescale": "microseconds after the S2 (components of about 5 µs and 40 µs)",
+   "correlated_with": "preceding S2 (time); electric field in the gap",
+   "evidence": "supported",
+   "evidence_note": "The slow components are measured on a bench (Bondar et al.); their role as an isolated-S2 source in a dark-matter TPC is the authors' suggestion.",
+   "key_numbers": [
+    {
+     "text": "Slow electroluminescence components with time constants of about 5 µs and 40 µs at 3–9 Td",
+     "ref": 0
+    }
+   ],
+   "mitigation": "S2 pulse-shape modelling; veto window after the S2.",
+   "setups": [
+    "novosibirsk-two-phase-argon"
+   ],
+   "past_setups": [],
+   "references": [
+    {
+     "title": "Observation of unusual slow components in electroluminescence signal of two-phase argon detector",
+     "authors": "A. Bondar et al.",
+     "year": 2020,
+     "venue": "JINST 15 C06064; arXiv:2004.13355",
+     "url": "https://arxiv.org/abs/2004.13355",
+     "type": "paper",
+     "verified": true
+    }
+   ],
+   "in_reference_talk": false,
+   "importance": "unknown",
+   "importance_note": "Its role as an isolated-S2 source in a dark-matter TPC is the authors' suggestion and is not quantified."
+  },
+  {
+   "id": "argon-39-pileup",
+   "name": "³⁹Ar pile-up",
+   "signal": "both",
+   "tags": [
+    "H"
+   ],
+   "region": "bulk_liquid",
+   "extra_regions": [],
+   "medium": "argon",
+   "mechanism": "Two unrelated ³⁹Ar beta decays in the same drift window could be paired as the S1 of one and the S2 of the other; a hypothesis with no published estimate (underground argon lowers the ³⁹Ar rate by a large factor).",
+   "chain": "two unrelated ³⁹Ar decays within one drift time → wrong S1–S2 pairing",
+   "timescale": "random",
+   "correlated_with": "none (random)",
+   "evidence": "hypothesised",
+   "evidence_note": "No published estimate of ³⁹Ar pile-up as an accidental-coincidence component; it is not among the sources listed in the LIDINE 2026 overview talk.",
+   "key_numbers": [],
+   "mitigation": "Underground argon, pulse-shape discrimination, multiplicity cuts.",
+   "setups": [],
+   "past_setups": [],
+   "references": [],
+   "in_reference_talk": false,
+   "importance": "unknown",
+   "importance_note": "No published estimate of its share."
+  }
+ ]
+}

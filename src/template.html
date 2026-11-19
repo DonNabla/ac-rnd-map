@@ -1,0 +1,2221 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Isolated S1/S2 R&amp;D Map</title>
+<meta name="description" content="World map of the R&D setups and running experiments that study isolated S1 and S2 signals, the ingredients of the accidental-coincidence background in liquid xenon and argon TPCs.">
+<meta name="theme-color" content="#0B1424">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Isolated S1/S2 R&amp;D Map">
+<meta property="og:description" content="World map of the R&D setups and running experiments that study isolated S1 and S2 signals, the ingredients of the accidental-coincidence background in liquid xenon and argon TPCs.">
+<meta property="og:url" content="https://acmap.rarephysics.com/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B1424'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%23F29A4A' stroke-opacity='.5' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='5.5' fill='%23FEC27A'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one screen. A two-row bar (name, views, search / filters) over a full-bleed night map;
+   detail frame floats on the right (bottom sheet on phones); list and overview replace the map. */
+:root {
+  color-scheme: dark;
+  /* palette measured from the reference map */
+  --ocean-top: #111F39;
+  --ocean-mid: #121E36;
+  --ocean-bottom: #0B1425;
+  --ink: #0B1424;
+  --graticule: #1E2D44;
+  --land: #1C3150;
+  --border: #3B5884;
+  --land-hi: #2B4A78;
+  --outline-hi: #8FB3E7;
+  --accent: #F29A4A;
+  --accent-pale: #FEC27A;
+  --text: #F2F8FF;
+  --text-body: #DCE4EF;
+  --text-muted: #A9C3E6;
+  /* derived */
+  --xenon: var(--accent-pale);
+  --argon: #8FB3E7;
+  --materials: #F2F8FF;
+  --land-host: #213A5C;
+  --plate: rgb(11 20 36 / 0.82);
+  --s1: #F2F8FF;
+  --s2: var(--accent-pale);
+  --det-gas: rgb(143 179 231 / 0.07);
+  --det-liquid: rgb(43 74 120 / 0.42);
+  --det-extract: rgb(143 179 231 / 0.2);
+  --det-civ: rgb(169 195 230 / 0.12);
+  --det-hi: rgb(242 154 74 / 0.16);
+  --panel-bg: rgb(11 20 36 / 0.92);
+  --bar-bg: #0D182C;
+  --line: rgb(169 195 230 / 0.2);
+  --line-strong: rgb(169 195 230 / 0.6);
+  --accent-line: rgb(242 154 74 / 0.6);
+  --chip-bg: rgb(43 74 120 / 0.32);
+  --chip-on: rgb(242 154 74 / 0.2);
+  --hover: rgb(143 179 231 / 0.13);
+  --coast-glow: rgb(74 104 152 / 0.13);
+  --hi-glow: rgb(143 179 231 / 0.16);
+  --hi-line: rgb(143 179 231 / 0.7);
+  --shadow: rgb(3 8 18 / 0.55);
+  --font: "IBM Plex Sans", "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+  --panel-w: min(460px, 44%);
+}
+:root { padding: env(safe-area-inset-top, 0px) 0 env(safe-area-inset-bottom, 0px); }
+html { box-sizing: border-box; height: 100%; }
+[hidden] { display: none !important; }
+*, *::before, *::after { box-sizing: inherit; }
+body {
+  height: 100%; margin: 0; background: var(--ink); color: var(--text-body);
+  font: 400 14px/1.5 var(--font); -webkit-font-smoothing: antialiased; overflow: hidden;
+}
+button, input { font: inherit; color: inherit; }
+button { cursor: pointer; }
+a { color: var(--accent-pale); text-underline-offset: 2px; }
+a:hover { color: var(--text); }
+:focus-visible { outline: 2px solid var(--accent-pale); outline-offset: 2px; border-radius: 4px; }
+h1, h2, h3, h4, p { margin: 0; }
+h1, h2, h3 { text-wrap: balance; color: var(--text); }
+
+.app { height: 100%; display: flex; flex-direction: column; min-width: 0; }
+
+/* ---------- bar ---------- */
+.bar {
+  flex: none; background: var(--bar-bg); border-bottom: 1px solid var(--line);
+  padding-block: 8px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: flex; flex-direction: column; gap: 8px; position: relative; z-index: 5;
+}
+.bar-main { display: flex; align-items: center; gap: 10px 16px; flex-wrap: wrap; min-width: 0; }
+.brand { display: flex; flex-direction: column; min-width: 0; margin-right: auto; }
+.brand-kicker { font-size: 12px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--accent); }
+.brand h1 { font-size: 16px; font-weight: 700; line-height: 1.2; }
+.tabs { display: flex; border: 1px solid var(--line); border-radius: 999px; padding: 2px; gap: 2px; }
+.tab { border: 0; background: none; padding: 4px 13px; border-radius: 999px; font-weight: 500; color: var(--text-muted); }
+.tab:hover { background: var(--hover); color: var(--text); }
+.tab[aria-selected="true"] { background: var(--chip-on); color: var(--accent-pale); }
+.search { flex: 0 1 260px; min-width: 150px; }
+.search input {
+  width: 100%; background: var(--ink); border: 1px solid var(--line); border-radius: 999px;
+  padding: 5px 13px; color: var(--text);
+}
+.search input::placeholder { color: var(--text-muted); opacity: 0.75; }
+.search input:focus-visible { outline-offset: 0; border-radius: 999px; }
+.count { font-size: 12.5px; color: var(--text-muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.count b { color: var(--text); font-weight: 600; }
+.btn {
+  border: 1px solid var(--line); background: var(--chip-bg); border-radius: 999px; padding: 4px 12px;
+  font-weight: 500; color: var(--text-body);
+}
+.btn:hover { background: var(--hover); color: var(--text); }
+.filters-toggle { display: none; }
+.filters { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; }
+.fgroup { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
+.flabel { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-right: 2px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 5px; border: 1px solid var(--line); background: var(--chip-bg);
+  border-radius: 999px; padding: 2px 10px; font-size: 12.5px; color: var(--text-body); line-height: 1.5;
+}
+.chip:hover { background: var(--hover); }
+.chip[aria-pressed="true"] { background: var(--chip-on); border-color: var(--accent-line); color: var(--accent-pale); }
+.chip.tagchip { padding: 2px 8px; font-weight: 600; min-width: 28px; justify-content: center; }
+.chip .tag-name { display: none; font-weight: 400; }
+.chip svg { flex: none; }
+.clear { border: 0; background: none; color: var(--text-muted); text-decoration: underline; padding: 2px 4px; font-size: 12.5px; }
+.clear:hover { color: var(--text); }
+
+/* ---------- stage and map ---------- */
+.stage { flex: 1 1 auto; min-height: 0; position: relative; overflow: hidden; }
+.view { position: absolute; inset: 0; }
+.view-map {
+  background:
+    radial-gradient(ellipse 60% 55% at 50% 45%, var(--ocean-mid), transparent 75%),
+    linear-gradient(to bottom, var(--ocean-top), var(--ocean-bottom));
+}
+#map-canvas, #map-svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+#map-svg { touch-action: none; cursor: grab; user-select: none; -webkit-user-select: none; }
+#map-svg:active { cursor: grabbing; }
+.dot { fill: var(--border); opacity: 0.8; pointer-events: none; }
+.marker { cursor: pointer; outline: none; }
+.marker .hit { fill: transparent; }
+.marker .ring { fill: none; stroke-width: 1.5; }
+.marker .ring1 { opacity: 0.55; }
+.marker .ring2 { opacity: 0.3; transform-box: fill-box; transform-origin: center; }
+.marker .rim { fill: none; stroke: var(--ink); stroke-opacity: 0.55; stroke-width: 1; }
+.marker .n { font: 700 11px var(--font); fill: var(--ink); text-anchor: middle; dominant-baseline: central; pointer-events: none; font-variant-numeric: tabular-nums; }
+.marker .selring { fill: none; stroke: var(--text); stroke-width: 1.5; opacity: 0; }
+.marker.sel .selring { opacity: 0.95; }
+.marker:focus-visible .selring { opacity: 1; stroke: var(--accent-pale); stroke-width: 2.5; }
+.marker:hover .ring1, .marker:focus-visible .ring1 { opacity: 0.9; }
+.t-xenon { fill: var(--xenon); } .t-argon { fill: var(--argon); } .t-materials { fill: var(--materials); }
+.s-xenon { stroke: var(--accent); } .s-argon { stroke: var(--argon); } .s-materials { stroke: var(--materials); }
+.c-xenon { fill: var(--xenon); } .c-argon { fill: var(--argon); } .c-materials { fill: var(--materials); }
+.label { pointer-events: none; }
+.label line { stroke: var(--accent); stroke-width: 1.5; stroke-linecap: round; }
+.label .cap { fill: var(--accent-pale); }
+.label text { text-anchor: middle; paint-order: stroke; stroke: var(--ink); stroke-width: 4px; stroke-linejoin: round; font-family: var(--font); }
+.label .l1 { font-size: 13px; font-weight: 700; }
+.label .l2 { font-size: 12px; font-weight: 400; fill: var(--text); }
+@media (prefers-reduced-motion: no-preference) {
+  .marker .ring2 { animation: ping 3.6s ease-in-out infinite; }
+  @keyframes ping { 0%, 100% { transform: scale(1); opacity: 0.3; } 50% { transform: scale(1.18); opacity: 0.12; } }
+}
+
+.caption {
+  background: var(--panel-bg); border: 1px solid var(--accent-line); border-radius: 14px;
+  box-shadow: 0 8px 28px var(--shadow); color: var(--text-body);
+}
+.map-ctl {
+  position: absolute; top: 12px; left: max(12px, env(safe-area-inset-left, 0px));
+  display: flex; flex-direction: column; gap: 6px; z-index: 2;
+}
+.map-ctl button {
+  width: 34px; height: 34px; border-radius: 10px; border: 1px solid var(--line-strong); background: var(--panel-bg);
+  color: var(--text); font-size: 18px; line-height: 1; display: grid; place-items: center; padding: 0;
+}
+.map-ctl button:hover { background: var(--land-hi); }
+.map-ctl .reset { font-size: 12px; font-weight: 600; letter-spacing: 0.02em; }
+.map-note {
+  position: absolute; top: 12px; left: 50%; transform: translateX(-50%); z-index: 2; max-width: calc(100% - 120px);
+  border: 1px solid var(--line-strong); background: var(--panel-bg); border-radius: 999px; padding: 4px 14px;
+  font-size: 12.5px; color: var(--text-body); text-align: center;
+}
+.map-note:hover { background: var(--land-hi); }
+.legend {
+  position: absolute; left: max(12px, env(safe-area-inset-left, 0px)); bottom: 12px; z-index: 2;
+  padding: 10px 14px 12px; max-width: min(300px, calc(100% - 24px)); font-size: 12.5px;
+}
+.legend-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.legend-head button { border: 0; background: none; padding: 0; font-weight: 700; font-size: 13px; color: var(--accent); display: flex; align-items: center; gap: 6px; }
+.legend-head .car { font-size: 10px; color: var(--text-muted); }
+.legend-body { display: grid; gap: 8px; margin-top: 8px; }
+.legend-row { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: center; }
+.legend-item { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.legend-k { width: 100%; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
+.legend .swatch-land { width: 16px; height: 11px; border-radius: 3px; background: var(--land-hi); border: 1px solid var(--outline-hi); }
+.tip {
+  position: absolute; z-index: 3; pointer-events: none; padding: 8px 12px; max-width: 260px; font-size: 12.5px; line-height: 1.4;
+}
+.tip b { display: block; color: var(--accent-pale); font-size: 13.5px; }
+.tip .tip-sub { color: var(--text); }
+.tip ul { margin: 4px 0 0; padding: 0; list-style: none; color: var(--text-body); }
+.tip li { display: flex; gap: 6px; align-items: baseline; }
+.tip .more { color: var(--text-muted); }
+
+/* ---------- scrolling views ---------- */
+.view-scroll { overflow-y: auto; background: linear-gradient(to bottom, var(--ocean-top), var(--ocean-bottom)); }
+.view-inner {
+  max-width: 1080px; margin: 0 auto; padding-block: 20px 48px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: flex; flex-direction: column; gap: 22px; min-width: 0;
+}
+.stage.panel-open .view-scroll .view-inner { margin-left: 0; margin-right: 0; max-width: calc(100% - var(--panel-w) - 12px); }
+.list-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
+.lgroup { display: flex; flex-direction: column; gap: 4px; }
+.lgroup > h3 {
+  font-size: 12px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--text-muted);
+  display: flex; gap: 8px; align-items: baseline; padding: 2px 4px; border-bottom: 1px solid var(--line);
+}
+.lgroup > h3 span { color: var(--accent); font-variant-numeric: tabular-nums; }
+.row {
+  display: grid; grid-template-columns: 18px minmax(0, 1fr) auto; gap: 2px 10px; align-items: start; text-align: left; width: 100%;
+  background: none; border: 0; border-radius: 10px; padding: 7px 8px;
+}
+.row:hover { background: var(--hover); }
+.row[aria-current="true"] { background: var(--chip-on); }
+.row .g { grid-row: span 2; padding-top: 3px; }
+.row .nm { font-weight: 600; color: var(--text); overflow-wrap: anywhere; }
+.row .meta { grid-column: 2; font-size: 12.5px; color: var(--text-muted); overflow-wrap: anywhere; }
+.row .side { grid-row: span 2; display: flex; flex-direction: column; align-items: flex-end; gap: 3px; }
+.row .tg { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; color: var(--text-body); }
+.noloc { color: var(--accent); font-style: italic; }
+.badge {
+  display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+  border-radius: 6px; padding: 1px 6px; border: 1px solid var(--line-strong); color: var(--text-muted); white-space: nowrap;
+}
+.badge.p-verified { border-color: var(--outline-hi); color: var(--outline-hi); }
+.badge.p-new { border-color: var(--accent-line); color: var(--accent-pale); }
+.badge.p-plain { border-style: dashed; }
+.leads { display: grid; gap: 8px; }
+.lead { border: 1px dashed var(--line-strong); border-radius: 12px; padding: 10px 14px; display: grid; gap: 3px; }
+.lead h4 { font-size: 14px; color: var(--text); font-weight: 600; }
+.lead .inst { color: var(--text-muted); font-size: 12.5px; }
+.lead p { font-size: 13px; }
+.lead .why { color: var(--text-muted); }
+.sec { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.sec > h2 { font-size: 18px; font-weight: 700; }
+.sec > h2 small { font-size: 12.5px; font-weight: 400; color: var(--text-muted); margin-left: 6px; }
+.sec p, .sec li { max-width: 76ch; }
+.sec ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; }
+.lede h2 { font-size: 24px; line-height: 1.2; }
+.lede .kick { font-size: 12px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--accent); }
+.src { display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
+.note { font-size: 12.5px; color: var(--text-muted); }
+.callout { border: 1px solid var(--accent-line); border-radius: 14px; padding: 14px 18px; background: var(--panel-bg); display: grid; gap: 8px; }
+.callout h2 { color: var(--accent); font-size: 16px; }
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; max-width: 100%; }
+table { border-collapse: collapse; width: 100%; font-size: 12.5px; }
+th, td { text-align: left; vertical-align: top; padding: 6px 10px; border-bottom: 1px solid var(--line); }
+th { font-size: 12px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--text-muted); background: var(--bar-bg); white-space: nowrap; }
+tr:last-child td { border-bottom: 0; }
+td.num, th.num { text-align: center; font-variant-numeric: tabular-nums; }
+.matrix td, .matrix th { padding: 3px 6px; }
+.matrix th.tagh { text-align: center; min-width: 30px; }
+.matrix td.cell { text-align: center; }
+.matrix .mname { background: none; border: 0; padding: 0; text-align: left; color: var(--text); font-weight: 500; }
+.matrix .mname:hover { color: var(--accent-pale); text-decoration: underline; }
+.matrix tr.grp td { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); background: var(--bar-bg); }
+.matrix .on { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--accent-pale); }
+.matrix .inf { display: inline-block; width: 10px; height: 10px; border-radius: 50%; border: 1.5px dashed var(--accent-pale); }
+.matrix tfoot td { font-weight: 600; color: var(--text); font-variant-numeric: tabular-nums; }
+details { border: 1px solid var(--line); border-radius: 12px; padding: 0; }
+details > summary { cursor: pointer; padding: 8px 14px; font-weight: 600; color: var(--text); list-style-position: inside; }
+details > summary:hover { background: var(--hover); border-radius: 12px; }
+details > .dbody { padding: 4px 14px 14px; display: grid; gap: 10px; min-width: 0; }
+.reflist { margin: 0; padding-left: 22px; display: grid; gap: 7px; }
+.reflist li { overflow-wrap: anywhere; }
+
+/* ---------- detail frame ---------- */
+.panel {
+  position: absolute; z-index: 4; top: 12px; bottom: 12px; right: max(12px, env(safe-area-inset-right, 0px)); width: var(--panel-w);
+  background: var(--panel-bg); border: 1px solid var(--line-strong); border-radius: 16px; box-shadow: 0 12px 40px var(--shadow);
+  display: flex; flex-direction: column; min-width: 0; outline: none;
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+}
+.panel-head { flex: none; display: flex; align-items: flex-start; gap: 10px; padding: 14px 16px 10px; border-bottom: 1px solid var(--line); }
+.panel-head .ttl { flex: 1; min-width: 0; display: grid; gap: 6px; }
+.panel-head h2 { font-size: 18px; font-weight: 700; line-height: 1.25; color: var(--accent-pale); overflow-wrap: anywhere; }
+.panel-head h2:focus-visible { outline: none; }
+.panel-head .chips { display: flex; flex-wrap: wrap; gap: 5px; align-items: center; }
+.pill { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; border: 1px solid var(--line); border-radius: 999px; padding: 1px 9px; color: var(--text-body); }
+.close {
+  flex: none; width: 32px; height: 32px; border-radius: 10px; border: 1px solid var(--line-strong); background: none;
+  color: var(--text); font-size: 18px; line-height: 1; display: grid; place-items: center; padding: 0;
+}
+.close:hover { background: var(--hover); }
+.panel-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 14px 16px 20px; display: flex; flex-direction: column; gap: 16px; }
+.panel-body h3 { font-size: 12px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 5px; }
+.facts { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 4px 14px; margin: 0; font-size: 13px; }
+.facts dt { color: var(--text-muted); }
+.facts dd { margin: 0; color: var(--text); overflow-wrap: anywhere; }
+.facts .sub { display: block; color: var(--text-muted); font-size: 12.5px; }
+.meas { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.meas li { border-left: 2px solid var(--accent-line); padding-left: 10px; display: grid; gap: 2px; }
+.meas .what { color: var(--text-body); }
+.meas .res { color: var(--text); font-weight: 500; }
+.meas .mm { font-size: 12px; color: var(--text-muted); display: flex; gap: 10px; flex-wrap: wrap; font-variant-numeric: tabular-nums; }
+.tagrow { display: flex; flex-wrap: wrap; gap: 5px; }
+.tagbtn { border: 1px solid var(--line-strong); background: var(--chip-bg); border-radius: 8px; padding: 2px 9px; font-size: 12.5px; color: var(--text-body); display: inline-flex; gap: 6px; align-items: baseline; }
+.tagbtn b { color: var(--accent-pale); }
+.tagbtn.inferred { border-style: dashed; }
+.tagbtn[aria-expanded="true"] { background: var(--chip-on); border-color: var(--accent-line); }
+.tagexp { margin-top: 6px; font-size: 12.5px; border: 1px solid var(--accent-line); border-radius: 10px; padding: 8px 10px; }
+.tagexp b { color: var(--accent-pale); }
+.mech { margin: 6px 0 0; padding-left: 18px; font-size: 13px; }
+.refs { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; counter-reset: r; }
+.refs li { display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 0 4px; font-size: 13px; overflow-wrap: anywhere; scroll-margin-top: 8px; }
+.refs li::before { counter-increment: r; content: "[" counter(r) "]"; color: var(--text-muted); font-variant-numeric: tabular-nums; grid-row: span 3; }
+.refs .rt { font-weight: 500; }
+.refs .rm { color: var(--text-muted); font-size: 12.5px; }
+.refs .rb { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-top: 2px; }
+.refs li.flash { background: var(--chip-on); border-radius: 8px; }
+.nolink { color: var(--accent); font-size: 12px; font-style: italic; }
+.rtype { font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; border-radius: 6px; padding: 0 6px; border: 1px solid var(--line-strong); color: var(--text-muted); }
+.rtype.ty-paper { color: var(--accent-pale); border-color: var(--accent-line); }
+.rtype.ty-arXiv { color: var(--outline-hi); border-color: var(--outline-hi); text-transform: none; }
+.rtype.ok { color: var(--text); border-style: solid; }
+.sitelist { display: grid; gap: 2px; }
+.panel details .dbody ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; font-size: 13px; }
+.linkrow { font-size: 12px; color: var(--text-muted); overflow-wrap: anywhere; }
+
+/* ---------- filter bar: toggles, presets ---------- */
+.ftitle { font-size: 12.5px; font-weight: 700; color: var(--accent); }
+.chip[aria-pressed]::before {
+  content: ""; width: 10px; height: 10px; border-radius: 3px; border: 1.5px solid var(--line-strong); flex: none;
+}
+.chip[aria-pressed="true"]::before { background: var(--accent-pale); border-color: var(--accent-pale); box-shadow: inset 0 0 0 1.5px var(--ink); }
+.chip[aria-pressed="true"] { border-color: var(--accent); font-weight: 500; }
+.chip[data-group]::before, .chip.onlychip::before { display: none; }
+.preset {
+  border: 1px dashed var(--line-strong); background: none; border-radius: 999px; padding: 2px 10px; font-size: 12.5px; color: var(--text-muted);
+}
+.preset:hover { color: var(--text); background: var(--hover); border-style: solid; }
+
+/* ---------- detector view ---------- */
+.det-tools { display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: center; }
+.det-legend { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: center; font-size: 12.5px; }
+.det-legend .legend-k { width: auto; margin-left: 6px; }
+.det-legend .legend-k:first-child { margin-left: 0; }
+.det-fig { margin: 0; min-width: 0; display: grid; gap: 8px; }
+.scene-wrap { overflow-x: auto; max-width: 100%; outline: none; }
+.det-fig svg { display: block; width: 100%; height: auto; }
+.det-fig.wide svg { min-width: 960px; max-width: 1240px; }
+.det-fig.narrow svg { max-width: 560px; margin: 0 auto; }
+.det-fig figcaption { font-size: 12.5px; color: var(--text-muted); max-width: 76ch; }
+#view-detector .view-inner { max-width: 1280px; }
+.stage.panel-open #view-detector .view-inner { max-width: calc(100% - var(--panel-w) - 12px); }
+.det-list { display: grid; gap: 14px; }
+.col-S1 { --c: var(--s1); } .col-S2 { --c: var(--s2); }
+.colhead { font: 700 12.5px var(--font); fill: var(--c); letter-spacing: 0.08em; text-transform: uppercase; }
+.slab { cursor: pointer; outline: none; }
+.slab .lhit { fill: transparent; }
+.slab .t { font: 500 13px var(--font); fill: var(--c); }
+.addmark { fill: var(--accent); color: var(--accent); font-weight: 700; }
+.mark { fill: var(--ink); stroke: var(--c); stroke-width: 1.6; }
+.ev-established .mark { fill: var(--c); }
+.ev-hypothesised .mark { stroke-dasharray: 2.2 1.8; }
+.slab.hot .lhit, .slab:focus-visible .lhit { fill: var(--hover); }
+.slab:focus-visible .lhit { stroke: var(--accent-pale); stroke-width: 1.5; }
+.slab.sel .lhit { fill: var(--chip-on); stroke: var(--accent-line); stroke-width: 1; }
+.lead { fill: none; stroke: var(--c); stroke-width: 1; opacity: 0.42; pointer-events: none; }
+.lead.hot { opacity: 1; stroke-width: 1.7; }
+.lead.extra { stroke-dasharray: 4 3; stroke-width: 1.2; }
+.adot { cursor: pointer; }
+.adot .hit { fill: transparent; }
+.adot .dot { fill: var(--c); stroke: var(--ink); stroke-width: 1; }
+.adot.hot .dot { stroke: var(--text); stroke-width: 2; }
+.xdot { fill: var(--ink); stroke: var(--c); stroke-width: 1.6; pointer-events: none; }
+#det-svg.focus .slab:not(.hot), #det-svg.focus .adot:not(.hot), #det-svg.focus .smk:not(.hot) { opacity: 0.25; }
+#det-svg.focus .lead:not(.hot) { opacity: 0.1; }
+.d-ext { fill: var(--det-extract); }
+.i-title { fill: var(--text-body); }
+.i-acr { fill: var(--land); }
+.i-gap { fill: var(--det-liquid); }
+.i-esr { fill: var(--text-muted); opacity: 0.55; }
+.i-tpb { fill: var(--outline-hi); opacity: 0.85; }
+.i-frame { fill: none; stroke: var(--border); stroke-width: 1.2; }
+.inset.emph .i-frame { stroke: var(--accent); stroke-width: 2; }
+.inset.emph .i-title { fill: var(--accent-pale); }
+.thbtn { background: none; border: 0; padding: 0; font: inherit; color: inherit; letter-spacing: inherit; text-transform: inherit; }
+.thbtn:hover { color: var(--text); }
+.srctable .sub { display: block; color: var(--text-muted); font-size: 12px; }
+.srctable tr[data-src] { cursor: pointer; }
+.srctable tr.hot td { background: var(--hover); }
+.srctable tr.sel td { background: var(--chip-on); }
+.srctable tr.grp td { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); background: var(--bar-bg); }
+.srctable .mname { background: none; border: 0; padding: 0; text-align: left; color: var(--text); font-weight: 600; }
+.srctable .mname:hover { color: var(--accent-pale); text-decoration: underline; }
+.srow {
+  display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; gap: 0 10px; align-items: center; text-align: left; width: 100%;
+  background: none; border: 0; border-radius: 10px; padding: 5px 8px;
+}
+.srow:hover, .srow.hot { background: var(--hover); }
+.srow[aria-current="true"] { background: var(--chip-on); }
+.srow .g { grid-row: span 2; display: grid; place-items: center; }
+.srow .nm { font-weight: 600; color: var(--text); overflow-wrap: anywhere; }
+.srow .meta { grid-column: 2 / 4; font-size: 12.5px; color: var(--text-muted); overflow-wrap: anywhere; }
+.evchip {
+  display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; border-radius: 6px;
+  padding: 1px 6px; border: 1.5px solid var(--line-strong); color: var(--text-muted); white-space: nowrap;
+}
+.evchip.ev-established { background: var(--text-muted); border-color: var(--text-muted); color: var(--ink); }
+.evchip.ev-supported { border-color: var(--text-muted); color: var(--text); }
+.evchip.ev-hypothesised { border-style: dashed; }
+.formula {
+  font-size: 19px; font-weight: 500; color: var(--text); border: 1px solid var(--accent-line); border-radius: 12px; padding: 10px 18px;
+  background: var(--panel-bg); width: fit-content; max-width: 100%; font-variant-numeric: tabular-nums;
+}
+.formula sub { font-size: 0.62em; color: var(--text-muted); }
+.provisional { border: 1px dashed var(--accent); border-radius: 10px; padding: 8px 12px; color: var(--accent-pale); font-size: 13px; }
+.chain { border-left: 2px solid var(--accent-line); padding-left: 10px; margin-top: 6px; color: var(--text); }
+.srcbtns { display: flex; flex-wrap: wrap; gap: 5px; }
+.srcbtn { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line-strong); background: var(--chip-bg); border-radius: 999px; padding: 1px 10px 1px 3px; font-size: 12.5px; color: var(--text-body); }
+.srcbtn:hover { background: var(--hover); color: var(--text); }
+/* drawing */
+.d-cryo { fill: var(--ink); stroke: var(--border); stroke-width: 3; }
+.d-gas { fill: var(--det-gas); }
+.d-liq { fill: var(--det-liquid); }
+.d-inner { fill: none; stroke: var(--border); stroke-width: 1.2; }
+.d-box { fill: var(--ink); stroke: var(--border); stroke-width: 1.5; }
+.d-cable { fill: none; stroke: var(--border); stroke-width: 1.5; stroke-dasharray: 3 3; }
+.d-ptfe { fill: var(--text-body); opacity: 0.8; }
+.d-ring { fill: var(--border); stroke: var(--text-muted); stroke-width: 0.8; }
+.d-civ { fill: var(--det-civ); stroke: var(--text-muted); stroke-width: 0.8; stroke-dasharray: 2 3; }
+.d-pmt { fill: var(--land); stroke: var(--border); stroke-width: 1.2; }
+.d-win { fill: var(--outline-hi); opacity: 0.75; }
+.d-el { fill: none; stroke: var(--text-muted); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 0.1 7; }
+.d-surf { fill: none; stroke: var(--outline-hi); stroke-width: 1.2; opacity: 0.9; }
+.d-imp { fill: var(--text-muted); opacity: 0.55; }
+.d-lab { font: 400 12px var(--font); fill: var(--text-muted); }
+.d-ref { opacity: 0.6; }
+.d-ph { fill: none; stroke: var(--s1); stroke-width: 1; stroke-dasharray: 4 4; }
+.d-e { fill: none; stroke: var(--s2); stroke-width: 2; stroke-linecap: round; stroke-dasharray: 0.1 8; }
+.d-ehead, .d-s2 { fill: var(--s2); }
+.d-s2 { opacity: 0.7; }
+.d-vtx { fill: var(--s1); }
+.d-reft { font: 500 12px var(--font); fill: var(--text-muted); }
+.d-field { fill: none; stroke: var(--text-muted); stroke-width: 1.2; }
+.d-fhead { fill: var(--text-muted); }
+.d-hi { fill: var(--det-hi); stroke: var(--accent); stroke-width: 1.2; opacity: 0; pointer-events: none; }
+.d-hi.d-hi-line { fill: none; stroke-width: 3; }
+.d-hi.on { opacity: 1; }
+/* source markers and glyphs */
+.sig-S1 .shp { --c: var(--s1); } .sig-S2 .shp { --c: var(--s2); } .sig-both .shp { --c: var(--s1); } .sig-both .shp.shp2 { --c: var(--s2); }
+.ev-established .shp { fill: var(--c); stroke: var(--ink); stroke-width: 1; }
+.ev-established .shp.shp2 { stroke: none; }
+.ev-supported .shp, .ev-hypothesised .shp { fill: var(--ink); stroke: var(--c); stroke-width: 2.2; }
+.ev-supported .shp.shp2, .ev-hypothesised .shp.shp2 { fill: none; }
+.ev-hypothesised .shp { stroke-dasharray: 3.5 2.5; }
+.smk .num, .sg .num { font: 700 11.5px var(--font); text-anchor: middle; dominant-baseline: central; fill: var(--text); pointer-events: none; font-variant-numeric: tabular-nums; }
+.ev-established .num { fill: var(--ink); }
+.smk { cursor: pointer; outline: none; }
+.smk .hit { fill: transparent; }
+.smk .halo { fill: none; stroke: var(--accent); stroke-width: 2; opacity: 0; }
+.smk.hot .halo, .smk.sel .halo, .smk:focus-visible .halo { opacity: 1; }
+.smk.sel .halo { stroke: var(--text); }
+.smk.off { opacity: 0.1; pointer-events: none; }
+
+/* ---------- fix pass: header, filters, states ---------- */
+.skip { position: absolute; left: -999px; top: 6px; z-index: 30; background: var(--accent-pale); color: var(--ink); padding: 6px 12px; border-radius: 8px; font-weight: 600; }
+.skip:focus { left: 8px; color: var(--ink); }
+.map-sub { position: absolute; top: 8px; left: 210px; z-index: 1; max-width: min(620px, calc(100% - 720px)); text-align: left; font-size: 12px; line-height: 1.35; color: var(--text-muted); pointer-events: none; text-shadow: 0 0 6px var(--ink), 0 0 2px var(--ink); }
+.map-ctl .reset { width: auto; min-width: 34px; padding: 0 6px; }
+.count { min-width: 196px; text-align: right; }
+.bar.plain .search, .bar.plain .count { visibility: hidden; }
+.bar.plain .filters, .bar.plain .filters-toggle { display: none; }
+.chip { border-color: var(--line-strong); }
+.chip[aria-pressed]::before { border-color: var(--text-muted); }
+.fhint { font-size: 12px; color: var(--text-muted); }
+.fmenu { position: relative; }
+.menu-btn {
+  display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line-strong); background: var(--chip-bg); border-radius: 999px;
+  padding: 2px 12px; font-size: 12.5px; color: var(--text-body); line-height: 1.5;
+}
+.menu-btn::after { content: ""; border: 4px solid transparent; border-top-color: var(--text-muted); margin-top: 4px; }
+.menu-btn:hover { background: var(--hover); }
+.menu-btn.on { background: var(--chip-on); border-color: var(--accent); color: var(--accent-pale); font-weight: 600; }
+.fpop { display: none; position: absolute; top: calc(100% + 6px); left: 0; z-index: 8; padding: 10px; gap: 5px; min-width: 270px; }
+.fpop.open { display: grid; }
+.fpop .chip { justify-content: flex-start; width: 100%; }
+.fpop .chip .tag-name { display: inline; font-weight: 400; }
+.fpop .chip b { min-width: 12px; }
+.clear { min-height: 24px; display: inline-flex; align-items: center; padding: 2px 6px; }
+.matrix .mname, .srctable .mname { min-height: 24px; display: inline-flex; align-items: center; }
+.legend-head button { min-height: 24px; }
+.meas .mm a { display: inline-flex; min-height: 24px; align-items: center; }
+.map-loading { position: absolute; inset: 0; display: grid; place-items: center; color: var(--text-muted); pointer-events: none; }
+.map-empty, .empty { text-align: center; display: grid; gap: 10px; justify-items: center; }
+.map-empty { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 2; padding: 16px 22px; }
+.empty { padding: 28px 0; }
+.hint { position: absolute; top: 56px; left: 76px; z-index: 3; width: min(440px, calc(100% - 130px)); padding: 12px 16px; display: grid; gap: 8px; font-size: 13px; }
+.hint b { color: var(--accent); font-size: 13.5px; }
+.hint .acts { display: flex; gap: 8px; flex-wrap: wrap; }
+.hint .hint-sub { display: none; color: var(--text-muted); }
+.zoom-hint {
+  position: absolute; top: 18px; left: calc(max(12px, env(safe-area-inset-left, 0px)) + 44px); z-index: 2; font-size: 12px; color: var(--text-muted);
+  background: var(--panel-bg); border-radius: 8px; padding: 2px 8px; pointer-events: none;
+}
+.imark { fill: var(--ink); }
+.iring { fill: none; stroke: var(--ink); stroke-width: 1.3; }
+.legend .swatch-land { background: var(--land-hi); }
+.matched { color: var(--accent-pale); }
+.keydet { align-self: flex-start; }
+.keylist { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 3px 18px; font-size: 13px; min-width: min(640px, 70vw); }
+.keylist b { color: var(--accent-pale); display: inline-block; min-width: 14px; }
+/* panel */
+.refgroup h4 { font-size: 12px; font-weight: 600; color: var(--text-body); margin: 10px 0 5px; }
+.refgroup:first-of-type h4 { margin-top: 0; }
+.refs li::before { content: none; }
+.refs .rn { grid-row: span 3; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+.refs li { grid-template-columns: 30px minmax(0, 1fr); }
+.linkrow { display: flex; gap: 8px; align-items: center; }
+.linktxt { flex: 1; min-width: 0; background: var(--ink); border: 1px solid var(--line-strong); border-radius: 8px; padding: 3px 8px; font-size: 12px; color: var(--text-muted); }
+.impchip {
+  display: inline-block; font-size: 12px; font-weight: 600; border-radius: 6px; padding: 1px 6px; border: 1.5px solid var(--outline-hi);
+  color: var(--outline-hi); white-space: nowrap;
+}
+.impchip.imp-dominant { background: var(--outline-hi); color: var(--ink); }
+.impchip.imp-unknown, .impchip.imp-contested { border-style: dashed; color: var(--text-muted); border-color: var(--text-muted); }
+/* about */
+.stats { display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 6px; }
+.stat { display: grid; gap: 0; }
+.stat b { font-size: 26px; line-height: 1.1; color: var(--accent-pale); font-variant-numeric: tabular-nums; }
+.stat span { font-size: 12px; color: var(--text-muted); }
+.about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(330px, 100%), 1fr)); gap: 14px; }
+.card { border: 1px solid var(--accent-line); border-radius: 14px; background: var(--panel-bg); padding: 14px 18px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.card.blue { border-color: var(--line-strong); }
+.card h3 { font-size: 15px; font-weight: 700; color: var(--accent); }
+.card.blue h3 { color: var(--text-muted); }
+.card ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+.card li, .card p { font-size: 13.5px; overflow-wrap: anywhere; }
+.card b { color: var(--text); }
+.matrixwrap { max-height: min(72vh, 640px); overflow: auto; }
+.matrix thead th { position: sticky; top: 0; z-index: 2; }
+.matrix td:first-child, .matrix th:first-child { position: sticky; left: 0; z-index: 1; background: var(--bar-bg); }
+.matrix thead th:first-child { z-index: 3; }
+.matrix abbr { text-decoration: none; }
+/* detector */
+.det-head { display: flex; flex-wrap: wrap; gap: 8px 28px; align-items: flex-end; justify-content: space-between; }
+.det-title h2 { font-size: 19px; font-weight: 700; }
+.det-title p { font-size: 13px; color: var(--text-muted); }
+#view-detector .view-inner { gap: 14px; padding-block: 14px 48px; }
+.det-legend .legend-item { white-space: normal; }
+.dagger { fill: var(--outline-hi); color: var(--outline-hi); font-weight: 700; }
+.d-lab, .d-reft { paint-order: stroke; stroke: var(--plate); stroke-width: 3.5px; stroke-linejoin: round; }
+.d-reft { font: 500 12px var(--font); fill: var(--text-body); }
+.srcwrap { overflow: visible; }
+.srctable thead th { position: sticky; top: 0; z-index: 2; }
+/* ---------- narrow ---------- */
+@media (max-width: 860px) {
+  .filters-toggle { display: inline-flex; align-items: center; gap: 6px; }
+  .filters { display: none; }
+  .filters.open { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; max-height: 46vh; overflow-y: auto; }
+  .chip .tag-name { display: inline; }
+  .chip.tagchip { justify-content: flex-start; }
+  .search { flex: 1 1 150px; }
+  .brand h1 { font-size: 15px; }
+  .panel {
+    top: auto; left: 0; right: 0; bottom: 0; width: auto; max-height: 62%; border-radius: 16px 16px 0 0;
+    border-left: 0; border-right: 0; border-bottom: 0;
+  }
+  .panel-head { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  .panel-body { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  .stage.panel-open .view-scroll .view-inner { max-width: 1080px; padding-bottom: 66vh; }
+  .stage.panel-open .legend { display: none; }
+  .map-note { top: auto; bottom: 12px; left: auto; right: 12px; transform: none; max-width: 60%; border-radius: 12px; }
+  .stage.panel-open .map-note { display: none; }
+  .lede h2 { font-size: 20px; }
+  .ftitle { display: none; }
+  .filters.open { flex-wrap: nowrap; overflow-x: hidden; max-height: 54vh; }
+  .filters.open .fgroup { max-width: 100%; }
+  .menu-btn { display: none; }
+  .fpop, .fpop.open { display: flex; flex-wrap: wrap; position: static; padding: 0; border: 0; background: none; box-shadow: none; min-width: 0; }
+  .fpop .chip { width: auto; }
+  .bar.plain .search, .bar.plain .count { display: none; }
+  .map-sub { display: none; }
+  .count { min-width: 0; text-align: left; }
+  .hint { width: calc(100% - 24px); left: 12px; top: auto; bottom: 64px; }
+  .hint .hint-sub { display: block; }
+  .zoom-hint { top: 100px; left: max(12px, env(safe-area-inset-left, 0px)); top: 140px; }
+  .keylist { min-width: 0; }
+  .stage.panel-open #view-detector .view-inner { max-width: 1080px; }
+  .d-lab { font-size: 12.5px; }
+  .d-reft { font-size: 12px; }
+  .tab { padding: 4px 9px; }
+  .formula { font-size: 16px; padding: 8px 12px; }
+}
+</style>
+</head>
+<body>
+<a class="skip" id="skip" href="#map">Skip to map</a>
+<div class="app" id="app">
+  <header class="bar on-map">
+    <div class="bar-main">
+      <div class="brand">
+        <span class="brand-kicker">Accidental coincidence R&amp;D</span>
+        <h1>Isolated S1/S2 R&amp;D map</h1>
+      </div>
+      <div class="tabs" role="tablist" aria-label="View">
+        <button class="tab" role="tab" id="tab-map" data-view="map" aria-selected="true" aria-controls="view-map" tabindex="0">Map</button>
+        <button class="tab" role="tab" id="tab-list" data-view="list" aria-selected="false" aria-controls="view-list" tabindex="-1">List</button>
+        <button class="tab" role="tab" id="tab-detector" data-view="detector" aria-selected="false" aria-controls="view-detector" tabindex="-1">Detector</button>
+        <button class="tab" role="tab" id="tab-about" data-view="about" aria-selected="false" aria-controls="view-about" tabindex="-1">About</button>
+      </div>
+      <div class="search">
+        <input id="q" type="search" placeholder="Search setups, people, places, physics" aria-label="Search setups" autocomplete="off" spellcheck="false">
+      </div>
+      <button class="btn filters-toggle" id="filters-toggle" aria-expanded="false" aria-controls="filters">Filters <span id="filters-n"></span></button>
+      <div class="count" id="count" aria-live="polite"></div>
+    </div>
+    <div class="filters" id="filters"></div>
+  </header>
+
+  <main class="stage" id="stage">
+    <section class="view view-map" id="view-map" role="tabpanel" aria-labelledby="tab-map">
+      <canvas id="map-canvas" aria-hidden="true"></canvas>
+      <svg id="map-svg" role="group" tabindex="-1" aria-label="World map of setups. Use the list view for a text version.">
+        <g id="g-dots"></g><g id="g-labels"></g><g id="g-markers"></g>
+      </svg>
+      <div class="map-loading" id="map-loading">Loading the map…</div>
+      <div class="map-ctl">
+        <button id="zin" aria-label="Zoom in" title="Zoom in">+</button>
+        <button id="zout" aria-label="Zoom out" title="Zoom out">&minus;</button>
+        <button id="zreset" class="reset" aria-label="Reset view" title="Reset view">Reset</button>
+      </div>
+      <p class="map-sub">R&amp;D setups and running experiments that study isolated S1 and S2 signals, the ingredients of the accidental-coincidence background in xenon and argon TPCs &middot; built <span class="build-date"></span></p>
+      <span class="zoom-hint" id="zoom-hint">Scroll or pinch to zoom</span>
+      <button class="map-note" id="map-note" hidden></button>
+      <div class="hint caption" id="hint" role="note" hidden>
+        <b>How to read this</b>
+        <p class="hint-sub">R&amp;D setups and running experiments that study isolated S1 and S2 signals in xenon and argon TPCs &middot; built <span class="build-date"></span></p>
+        <p>Each marker is a setup or an experiment: colour gives the target, shape the type, and a number means several at one site. Select one for its measurements and papers; the filters above narrow by target, type, status or mechanism.</p>
+        <div class="acts"><button class="btn" id="hint-det">Where the signals arise: Detector view</button><button class="btn" id="hint-ok">Got it</button></div>
+      </div>
+      <div class="map-empty caption" id="map-empty" hidden><p>No setup matches these filters.</p><button class="btn" id="map-empty-clear">Clear filters</button></div>
+      <div class="legend caption" id="legend"></div>
+      <div class="tip caption" id="tip" hidden></div>
+    </section>
+    <section class="view view-scroll" id="view-list" role="tabpanel" aria-labelledby="tab-list" hidden><div class="view-inner" id="list-inner"></div></section>
+    <section class="view view-scroll" id="view-detector" role="tabpanel" aria-labelledby="tab-detector" hidden><div class="view-inner" id="det-inner"></div></section>
+    <section class="view view-scroll" id="view-about" role="tabpanel" aria-labelledby="tab-about" hidden><div class="view-inner" id="about-inner"></div></section>
+    <aside class="panel" id="panel" aria-label="Details" tabindex="-1" hidden></aside>
+  </main>
+</div>
+
+<!-- build.py replaces the two comment markers below with JSON. Do not edit them. -->
+<script id="app-data" type="application/json">/*__APP_DATA__*/</script>
+<script id="world-topo" type="application/json">/*__WORLD_TOPOJSON__*/</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js" integrity="sha384-CjloA8y00+1SDAUkjs099PVfnY2KmDC2BZnws9kh8D/lX1s46w6EPhpXdqMfjK6i" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js" integrity="sha384-9dCJK6nh7skY14HrcvlLYlFga9/MehJjL9ONWRflmiXNRuf8p2jiF4Y5PR881PTq" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-geo-projection@4.0.0/dist/d3-geo-projection.min.js" integrity="sha384-4C75ouycBmNQkYM1g57WhODWh671y+Atne6FZrE/ITHAg412SN8Ai3dPCa+itkz2" crossorigin="anonymous"></script>
+<script>
+(function () {
+'use strict';
+
+/* ================= data ================= */
+var DATA, TOPO = null;
+try { DATA = JSON.parse(document.getElementById('app-data').textContent); }
+catch (e) { DATA = { setups: [], tags: [], leads: [], build_date: '' }; }
+try { TOPO = JSON.parse(document.getElementById('world-topo').textContent); } catch (e) { TOPO = null; }
+
+var $ = function (id) { return document.getElementById(id); };
+function esc(v) {
+  return String(v == null ? '' : v).replace(/[&<>"']/g, function (c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+  });
+}
+function safeUrl(u) { return typeof u === 'string' && /^https?:\/\//i.test(u) ? u : null; }
+function link(u, text) { return '<a href="' + esc(u) + '" target="_blank" rel="noopener">' + text + '</a>'; }
+var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var narrow = function () { return window.matchMedia('(max-width: 860px)').matches; };
+
+var SETUPS = DATA.setups || [];
+var byId = new Map(SETUPS.map(function (s) { return [s.id, s]; }));
+var TARGETS = [['xenon', 'Xenon'], ['argon', 'Argon'], ['both', 'Xenon + argon'], ['materials', 'Materials']];
+var KINDS = [['lab', 'R&D setup'], ['in-situ', 'Experiment']];
+var TARGET_LABEL = { xenon: 'Xenon', argon: 'Argon', both: 'Xenon + argon', materials: 'Materials' };
+var KIND_LABEL = { lab: 'R&D setup', 'in-situ': 'Experiment' };
+var PROV = {
+  opened: ['Sources opened', 'p-verified', 'The linked sources were opened and resolved to the stated work. It does not mean a person checked the content.'],
+  abstract: ['Abstract-level check', 'p-new', 'Found and checked at abstract or landing-page level.'],
+  unchecked: ['Not yet checked', 'p-plain', 'Listed, but its sources have not been opened yet.']
+};
+function prov(s) { return PROV[s.provenance] || PROV.unchecked; }
+
+var TAGS = DATA.tags || [];
+var tagById = new Map(TAGS.map(function (t) { return [t.id, t]; }));
+
+/* ---- search index: folded text per field, so a result can say where it matched ---- */
+function fold(t) {
+  t = String(t == null ? '' : t).toLowerCase();
+  if (t.normalize) t = t.normalize('NFD').replace(/[̀-ͯ]/g, '');
+  return t.replace(/iz(e|a|i)/g, 'is$1').replace(/yz(e|i)/g, 'ys$1').replace(/\bcolor/g, 'colour').replace(/center/g, 'centre').replace(/fiber/g, 'fibre');
+}
+var COUNTRY_ALIASES = {
+  'United States': 'USA US U.S. America', 'United Kingdom': 'UK U.K. Britain England', Netherlands: 'NL Holland', Germany: 'DE Deutschland',
+  Italy: 'IT Italia', Switzerland: 'CH Schweiz', China: 'CN PRC', Russia: 'RU', Japan: 'JP', France: 'FR', Poland: 'PL Polska', Canada: 'CA', Brazil: 'BR Brasil'
+};
+function firstYearOf(s) {
+  if (typeof s.first_year === 'number') return s.first_year;
+  var m = /(19|20)\d{2}/.exec(s.years_active || '');
+  return m ? +m[0] : null;
+}
+SETUPS.forEach(function (s) {
+  s.placed = typeof s.lat === 'number' && typeof s.lon === 'number';
+  s.short = s.short_name || shortName(s.name);
+  s.year0 = firstYearOf(s);
+  s.tags = s.tags || [];
+  var refs = (s.references || []).map(function (r) { return [r.authors, r.title].filter(Boolean).join(' '); }).join(' \n ');
+  var meas = (s.measurements || []).map(function (m) { return [m.what, m.result].filter(Boolean).join(' '); }).join(' \n ');
+  s.fields = [
+    ['name', s.name + ' ' + s.id.replace(/-/g, ' ')], ['short name', s.short], ['institute', s.institute], ['collaboration', s.collaboration],
+    ['people', (s.people || []).concat(s.cited_authors || []).join(' ')], ['city', s.city],
+    ['country', [s.country, COUNTRY_ALIASES[s.country], s.country_code].filter(Boolean).join(' ')], ['medium', s.medium],
+    ['description', s.description], ['mechanisms', (s.mechanisms || []).concat(s.tags.map(function (t) { return (tagById.get(t) || {}).name; })).filter(Boolean).join(' \n ')],
+    ['measurements', [meas, s.key_results].filter(Boolean).join(' \n ')], ['references', refs]
+  ].filter(function (f) { return f[1]; }).map(function (f) { return [f[0], fold(f[1])]; });
+  s.hay = s.fields.map(function (f) { return f[1]; }).join(' \n ');
+});
+function qWords() { return fold(state.q).split(/\s+/).filter(Boolean); }
+function wordIn(hay, w) {
+  if (w.length > 3) return hay.indexOf(w) >= 0;
+  return new RegExp('(^|[^a-z0-9])' + w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '([^a-z0-9]|$)').test(hay);
+}
+function matchField(s) {            /* the first field, in display priority, that contains a search word */
+  var ws = qWords();
+  if (!ws.length) return '';
+  for (var i = 0; i < s.fields.length; i++) {
+    for (var j = 0; j < ws.length; j++) if (wordIn(s.fields[i][1], ws[j])) return s.fields[i][0];
+  }
+  return '';
+}
+
+/* ================= state ================= */
+var state = { view: 'map', q: '', targets: new Set(), kinds: new Set(), phases: new Set(), tags: new Set(), only: null, onlyLabel: '', saved: null,
+  selId: null, site: null, srcId: null, dsig: null, dmed: null, dsort: null, dsortDir: 1, group: 'country' };
+var matched = SETUPS.slice();
+var lastFocus = null;
+
+function matches(s) {
+  if (state.targets.size && !state.targets.has(s.target)) return false;
+  if (state.kinds.size && !state.kinds.has(s.kind)) return false;
+  if (state.phases.size && !state.phases.has(s.phase)) return false;
+  if (state.only && !state.only.has(s.id)) return false;
+  if (state.tags.size && !s.tags.some(function (t) { return state.tags.has(t); })) return false;
+  if (state.q) {
+    var words = qWords();
+    for (var i = 0; i < words.length; i++) if (!wordIn(s.hay, words[i])) return false;
+  }
+  return true;
+}
+
+/* ================= glyphs ================= */
+/* target is colour plus an inner mark (argon: dot, materials: ring); type is shape */
+function innerMark(target) {
+  if (target === 'argon') return '<circle class="imark" r="2.1"/>';
+  if (target === 'materials') return '<circle class="iring" r="3.1"/>';
+  return '';
+}
+function glyph(target, kind, size) {
+  var body;
+  if (kind === 'in-situ') {
+    body = target === 'both'
+      ? '<path class="t-xenon" d="M0,-7L-7,0L0,7Z"/><path class="t-argon" d="M0,-7L7,0L0,7Z"/>'
+      : '<path class="t-' + target + '" d="M0,-7L7,0L0,7L-7,0Z"/>';
+  } else {
+    body = target === 'both'
+      ? '<path class="t-xenon" d="M0,-6A6,6 0 0 0 0,6Z"/><path class="t-argon" d="M0,-6A6,6 0 0 1 0,6Z"/>'
+      : '<circle class="t-' + target + '" r="6"/>';
+  }
+  body += innerMark(target);
+  if (size) return '<svg width="' + size + '" height="' + size + '" viewBox="-8 -8 16 16" aria-hidden="true">' + body + '</svg>';
+  return body;
+}
+
+/* ================= filters UI ================= */
+var PHASES = [['running', 'Running'], ['construction', 'Under construction'], ['completed', 'Completed']];
+var PHASE_LABEL = { running: 'Running', construction: 'Under construction or planned', completed: 'Completed', unknown: 'Not stated' };
+var PRESETS = [
+  ['Running experiments', { kinds: ['in-situ'], phases: ['running'] }],
+  ['Active R&D', { kinds: ['lab'], phases: ['running', 'construction'] }],
+  ['Xenon only', { targets: ['xenon'] }],
+  ['Argon only', { targets: ['argon'] }]
+];
+var FSETS = ['targets', 'kinds', 'phases', 'tags'];
+function clearFilters() {
+  FSETS.forEach(function (k) { state[k].clear(); });
+  state.only = null; state.onlyLabel = ''; state.saved = null; state.q = ''; $('q').value = '';
+}
+function snapshotFilters() {
+  var o = { q: state.q };
+  FSETS.forEach(function (k) { o[k] = Array.from(state[k]); });
+  return o;
+}
+function restoreFilters(o) {
+  clearFilters();
+  FSETS.forEach(function (k) { (o[k] || []).forEach(function (v) { state[k].add(v); }); });
+  state.q = o.q || ''; $('q').value = state.q;
+}
+function closeMechMenu() {
+  var p = $('f-mech-pop');
+  if (p && p.classList.contains('open')) { p.classList.remove('open'); $('f-mech-btn').setAttribute('aria-expanded', 'false'); return true; }
+  return false;
+}
+function buildFilters() {
+  var grp = function (label, key, items, withGlyph) {
+    return '<div class="fgroup" role="group" aria-label="Filter by ' + esc(label.toLowerCase()) + '"><span class="flabel">' + esc(label) + '</span>' + items.map(function (t) {
+      var g = withGlyph === 'target' ? glyph(t[0], 'lab', 12) : withGlyph === 'kind' ? glyph('xenon', t[0], 12) : '';
+      return '<button class="chip" id="f-' + key + '-' + t[0] + '" data-f="' + key + '" data-v="' + t[0] + '" aria-pressed="false">' + g + esc(t[1]) + '</button>';
+    }).join('') + '</div>';
+  };
+  var h = '<span class="ftitle">Filters</span><span class="fhint">any within a group, all across groups</span>';
+  h += grp('Target', 'targets', TARGETS, 'target');
+  h += grp('Type', 'kinds', KINDS, 'kind');
+  h += grp('Status', 'phases', PHASES, '');
+  h += '<div class="fgroup fmenu"><span class="flabel">Mechanism</span>' +
+    '<button class="menu-btn" id="f-mech-btn" aria-expanded="false" aria-controls="f-mech-pop">Any mechanism</button>' +
+    '<div class="fpop caption" id="f-mech-pop" role="group" aria-label="Filter by mechanism">' + TAGS.map(function (t) {
+      return '<button class="chip tagchip" id="f-tag-' + t.id + '" data-f="tags" data-v="' + t.id + '" aria-pressed="false"><b>' + t.id + '</b><span class="tag-name">' + esc(t.name) + '</span></button>';
+    }).join('') + '</div></div>';
+  h += '<div class="fgroup" role="group" aria-label="Quick filters"><span class="flabel">Quick</span>' + PRESETS.map(function (p, i) {
+    return '<button class="preset" id="f-preset-' + i + '" data-preset="' + i + '">' + esc(p[0]) + '</button>';
+  }).join('') + '</div>';
+  h += '<button class="chip onlychip" id="f-only" hidden></button>';
+  h += '<button class="clear" id="f-clear" hidden>Clear filters</button>';
+  $('filters').innerHTML = h;
+  $('filters').addEventListener('click', function (ev) {
+    var b = ev.target.closest('button');
+    if (!b) return;
+    if (b.id === 'f-mech-btn') {
+      var open = $('f-mech-pop').classList.toggle('open');
+      b.setAttribute('aria-expanded', String(open));
+      return;
+    }
+    if (b.id === 'f-clear') clearFilters();
+    else if (b.id === 'f-only') {                 /* back to the filters that were set before "Show these on the map" */
+      var saved = state.saved;
+      state.only = null; state.onlyLabel = ''; state.saved = null;
+      if (saved) restoreFilters(saved);
+    } else if (b.dataset.preset != null) {
+      var p = PRESETS[+b.dataset.preset][1];
+      clearFilters();
+      Object.keys(p).forEach(function (k) { p[k].forEach(function (v) { state[k].add(v); }); });
+    } else if (b.dataset.f) {
+      var set = state[b.dataset.f], v = b.dataset.v;
+      if (set.has(v)) set.delete(v); else set.add(v);
+    }
+    applyFilters();
+  });
+  document.addEventListener('click', function (ev) { if (!ev.target.closest('.fmenu')) closeMechMenu(); });
+  $('q').addEventListener('input', function () { state.q = $('q').value.trim(); applyFilters(); });
+  $('filters-toggle').addEventListener('click', function () {
+    var open = $('filters').classList.toggle('open');
+    $('filters-toggle').setAttribute('aria-expanded', String(open));
+    requestAnimationFrame(resizeMap);
+  });
+}
+function applyFilters() {
+  matched = SETUPS.filter(matches);
+  document.querySelectorAll('#filters .chip[data-f]').forEach(function (b) {
+    b.setAttribute('aria-pressed', String(state[b.dataset.f].has(b.dataset.v)));
+  });
+  var tg = Array.from(state.tags).sort();
+  $('f-mech-btn').textContent = tg.length ? tg.join(', ') : 'Any mechanism';
+  $('f-mech-btn').classList.toggle('on', tg.length > 0);
+  var n = state.targets.size + state.kinds.size + state.phases.size + state.tags.size + (state.only ? 1 : 0);
+  $('f-clear').hidden = !(n || state.q);
+  $('f-only').hidden = !state.only;
+  if (state.only) { $('f-only').textContent = 'Studying: ' + state.onlyLabel + ' ×'; $('f-only').setAttribute('aria-label', 'Remove the filter: setups studying ' + state.onlyLabel); }
+  $('filters-n').textContent = n ? '(' + n + ')' : '';
+  var onMap = matched.filter(function (s) { return s.placed; }).length;
+  $('count').innerHTML = '<b>' + matched.length + '</b> of ' + SETUPS.length + ' setups' + (n || state.q ? ' match' : '') + (onMap < matched.length ? ' &middot; ' + onMap + ' on map' : '');
+  $('map-empty').hidden = matched.length > 0;
+  if (state.site && !$('panel').hidden) closePanel();
+  rebuildHost();
+  clustersDirty = true;
+  schedule();
+  renderList();
+}
+
+/* ================= map ================= */
+var W = 1000, LON0 = 11, LAT_TOP = 83.9, LAT_BOT = -56.4, MAXK = 40;
+var millerRaw = function (l, p) { return [l, 1.25 * Math.log(Math.tan(Math.PI / 4 + 0.4 * p))]; };
+var hasD3 = typeof d3 !== 'undefined';
+var proj, H = 493.5, geo = null, zoom, svgSel, T = null, base = 1, sw = 0, sh = 0, dpr = 1, padY = 0, padX = 0;
+var focusHost = -1, hostPaths = {};
+var canvas = $('map-canvas'), ctx = canvas.getContext('2d'), col = {};
+var clusters = [], clustersDirty = true, clusterK = 0, rafPending = false;
+var measureCtx = document.createElement('canvas').getContext('2d');
+
+function initMap() {
+  if (!hasD3) { $('map-loading').textContent = 'The map library did not load. The list view has every setup.'; return; }
+  $('map-loading').hidden = true;
+  var cs = getComputedStyle(document.documentElement);
+  ['graticule', 'land', 'border', 'land-hi', 'land-host', 'coast-glow', 'hi-glow', 'hi-line'].forEach(function (n) { col[n] = cs.getPropertyValue('--' + n).trim(); });
+
+  proj = (d3.geoMiller ? d3.geoMiller() : d3.geoProjection(millerRaw)).rotate([-LON0, 0]).scale(W / (2 * Math.PI)).translate([0, 0]).precision(0.1);
+  var yTop = proj([LON0, LAT_TOP])[1], yBot = proj([LON0, LAT_BOT])[1];
+  proj.translate([W / 2, -yTop]);
+  H = yBot - yTop;
+
+  SETUPS.forEach(function (s) {
+    if (!s.placed) return;
+    var p = proj([s.lon, s.lat]);
+    s.wx = p[0]; s.wy = p[1];
+    s.siteKey = s.lat.toFixed(2) + ',' + s.lon.toFixed(2);
+    if (!(s.wy >= 0 && s.wy <= H)) s.wy = Math.max(2, Math.min(H - 2, s.wy));
+  });
+
+  if (TOPO && typeof topojson !== 'undefined' && TOPO.objects && TOPO.objects.countries) {
+    try {
+      var obj = { type: 'GeometryCollection', geometries: TOPO.objects.countries.geometries.filter(function (g) {
+        return g.id !== '010' && !(g.properties && g.properties.name === 'Antarctica');
+      }) };
+      var feats = topojson.feature(TOPO, obj).features;
+      var mk = function (g) { var p = new Path2D(); d3.geoPath(proj, p)(g); return p; };
+      geo = {
+        feats: feats,
+        land: mk({ type: 'FeatureCollection', features: feats }),
+        borders: mk(topojson.mesh(TOPO, obj)),
+        coast: mk(topojson.mesh(TOPO, obj, function (a, b) { return a === b; })),
+        host: null
+      };
+      var gr = new Path2D(), i;
+      for (i = -180; i < 180; i += 30) { var x = proj([i, 0])[0]; gr.moveTo(x, 0); gr.lineTo(x, H); }
+      for (i = -40; i <= 80; i += 20) { var y = proj([LON0, i])[1]; gr.moveTo(0, y); gr.lineTo(W, y); }
+      geo.grat = gr;
+      setTimeout(function () {       /* which country each site lies in, for the highlight */
+        var cache = {};
+        SETUPS.forEach(function (s) {
+          s.host = -1;
+          if (!s.placed) return;
+          if (cache[s.siteKey] != null) { s.host = cache[s.siteKey]; return; }
+          for (var j = 0; j < feats.length; j++) if (d3.geoContains(feats[j], [s.lon, s.lat])) { s.host = j; break; }
+          cache[s.siteKey] = s.host;
+        });
+        geo.hostsReady = true;
+        rebuildHost(); schedule();
+      }, 30);
+    } catch (e) { geo = null; }
+  }
+
+  svgSel = d3.select('#map-svg');
+  zoom = d3.zoom().scaleExtent([1, MAXK]).on('zoom', function (ev) { T = ev.transform; if (ev.sourceEvent) { hideTip(); $('zoom-hint').hidden = true; } schedule(); });
+  svgSel.call(zoom).on('dblclick.zoom', null);
+  $('zin').addEventListener('click', function () { zoomBy(1.8); });
+  $('zout').addEventListener('click', function () { zoomBy(1 / 1.8); });
+  $('zreset').addEventListener('click', function () { resetView(true); });
+  if (window.ResizeObserver) new ResizeObserver(resizeMap).observe($('view-map'));
+  window.addEventListener('resize', resizeMap);
+  resizeMap();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { schedule(); });
+}
+
+function resizeMap() {
+  if (!zoom) return;
+  var el = $('view-map');
+  var w = el.clientWidth, h = el.clientHeight;
+  if (!w || !h || (w === sw && h === sh)) return;
+  var first = !T || !sw, centre = null;
+  if (!first) centre = [(sw / 2 - T.x) / (T.k * base), (sh / 2 - T.y) / (T.k * base), T.k * base];
+  sw = w; sh = h; dpr = Math.min(window.devicePixelRatio || 1, 2);
+  canvas.width = Math.round(sw * dpr); canvas.height = Math.round(sh * dpr);
+  base = Math.min(sw / W, sh / H);
+  padY = narrow() ? 0.6 * sh : 0;   /* on phones the map may slide up from under the bottom sheet */
+  zoom.extent([[0, 0], [sw, sh]]).translateExtent(extent());
+  if (first) resetView(false);
+  else setView(centre[0], centre[1], Math.max(1, Math.min(MAXK, centre[2] / base)), 0, [sw / 2, sh / 2]);
+}
+function extent() { return [[0, -padY], [W * base + padX, H * base + padY]]; }
+function constrain(t) { return zoom.constrain()(t, [[0, 0], [sw, sh]], extent()); }
+function updateExtent() {       /* while a panel is open the map may slide left by the panel width, so no marker is stuck under it */
+  if (!zoom || !sw) return;
+  var open = !$('panel').hidden && state.view === 'map' && !narrow();
+  var nx = open ? $('panel').offsetWidth + 24 : 0;
+  if (nx === padX) return;
+  padX = nx;
+  zoom.translateExtent(extent());
+  if (!padX && T) svgSel.call(zoom.transform, constrain(T));
+}
+function featPath(j) {
+  if (!hostPaths[j]) { var p = new Path2D(); d3.geoPath(proj, p)(geo.feats[j]); hostPaths[j] = p; }
+  return hostPaths[j];
+}
+function rebuildHost() {        /* countries of the setups that pass the filters */
+  if (!geo || !geo.hostsReady) return;
+  var seen = {}, list = [];
+  matched.forEach(function (s) { if (s.host >= 0 && !seen[s.host]) { seen[s.host] = 1; list.push(s.host); } });
+  geo.hostList = list;
+}
+function setFocusHost(j) {
+  j = (typeof j === 'number') ? j : -1;
+  if (j !== focusHost) { focusHost = j; schedule(); }
+}
+function setView(wx, wy, k, dur, at) {
+  at = at || [sw / 2, sh / 2];
+  var t = constrain(d3.zoomIdentity.translate(at[0], at[1]).scale(k).translate(-wx * base, -wy * base));
+  if (dur && !reducedMotion) svgSel.transition().duration(dur).call(zoom.transform, t);
+  else svgSel.call(zoom.transform, t);
+}
+function resetView(animate) {
+  var cover = Math.max(sw / W, sh / H) / base;
+  var k = Math.max(1, Math.min(2.2, cover));
+  var c = proj([-12, 36]);
+  setView(c[0], c[1], k, animate ? 400 : 0);
+}
+function zoomBy(f) {
+  if (!T) return;
+  var at = visibleCentre(), k = Math.max(1, Math.min(MAXK, T.k * f));
+  if (f > 1) {                  /* zoom in on the selected marker, else on the visible marker nearest the centre */
+    var best = null, bd = 1e9;
+    clusters.forEach(function (c) {
+      if (!c.vis) return;
+      var d = c.sel ? -1 : Math.hypot(c.sx - at[0], c.sy - at[1]);
+      if (d < bd) { bd = d; best = c; }
+    });
+    if (best && (best.sel || bd < Math.min(sw, sh) * 0.4)) { setView(best.wx, best.wy, k, 250, [best.sx, best.sy]); return; }
+  }
+  setView((at[0] - T.x) / (T.k * base), (at[1] - T.y) / (T.k * base), k, 250, at);
+}
+function panelBox() {
+  var p = $('panel');
+  if (p.hidden || state.view !== 'map') return null;
+  return narrow() ? { bottom: p.offsetHeight } : { right: p.offsetWidth + 12 };
+}
+function visibleCentre() {
+  var b = panelBox();
+  if (!b) return [sw / 2, sh / 2];
+  return b.right ? [(sw - b.right) / 2, sh / 2] : [sw / 2, (sh - b.bottom) / 2];
+}
+function toScreen(wx, wy) { return [T.x + T.k * base * wx, T.y + T.k * base * wy]; }
+
+function schedule() {
+  if (rafPending) return;
+  rafPending = true;
+  requestAnimationFrame(function () { rafPending = false; draw(); });
+}
+
+function draw() {
+  if (!T || !sw) return;
+  var s = T.k * base;
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  if (geo) {
+    ctx.save();
+    ctx.setTransform(dpr * s, 0, 0, dpr * s, dpr * T.x, dpr * T.y);
+    ctx.beginPath(); ctx.rect(0, 0, W, H); ctx.clip();
+    ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+    ctx.strokeStyle = col.graticule; ctx.lineWidth = 1 / s; ctx.stroke(geo.grat);
+    ctx.strokeStyle = col['coast-glow'];
+    ctx.lineWidth = 11 / s; ctx.stroke(geo.coast);
+    ctx.lineWidth = 5 / s; ctx.stroke(geo.coast);
+    ctx.fillStyle = col.land; ctx.fill(geo.land);
+    if (geo.hostList) { ctx.fillStyle = col['land-host']; geo.hostList.forEach(function (j) { ctx.fill(featPath(j)); }); }
+    if (focusHost >= 0) { ctx.fillStyle = col['land-hi']; ctx.fill(featPath(focusHost)); }
+    ctx.strokeStyle = col.border; ctx.lineWidth = 0.9 / s; ctx.stroke(geo.borders);
+    if (focusHost >= 0) {
+      ctx.strokeStyle = col['hi-glow']; ctx.lineWidth = 6 / s; ctx.stroke(featPath(focusHost));
+      ctx.strokeStyle = col['hi-line']; ctx.lineWidth = 1.2 / s; ctx.stroke(featPath(focusHost));
+    }
+    ctx.restore();
+  }
+  if (clustersDirty || Math.abs(clusterK - s) > 1e-9) { clusters = makeClusters(s); clusterK = s; clustersDirty = false; }
+  renderMarkers();
+}
+
+/* ---- clustering: setups at one site, then sites closer than ~22 px on screen ---- */
+function makeClusters(s) {
+  var thr = 22 / s, sites = new Map();
+  matched.forEach(function (x) {
+    if (!x.placed) return;
+    var g = sites.get(x.siteKey);
+    if (!g) sites.set(x.siteKey, g = { key: x.siteKey, wx: x.wx, wy: x.wy, items: [] });
+    g.items.push(x);
+  });
+  var arr = Array.from(sites.values()).sort(function (a, b) { return b.items.length - a.items.length || (a.key < b.key ? -1 : 1); });
+  var out = [];
+  arr.forEach(function (g) {
+    var best = null, bd = thr;
+    out.forEach(function (c) { var d = Math.hypot(c.wx - g.wx, c.wy - g.wy); if (d < bd) { bd = d; best = c; } });
+    if (best) { best.sites.push(g); best.items = best.items.concat(g.items); }
+    else out.push({ wx: g.wx, wy: g.wy, sites: [g], items: g.items.slice() });
+  });
+  out.forEach(function (c) {
+    c.items.sort(function (a, b) { return a.name.localeCompare(b.name); });
+    c.id = c.items.map(function (x) { return x.id; }).join('|');
+    var n = c.items.length;
+    c.r = n === 1 ? (c.items[0].kind === 'in-situ' ? 7 : 6) : 9 + Math.min(4, n - 1);
+    var tc = { xenon: 0, argon: 0, materials: 0 };
+    c.items.forEach(function (x) { if (x.target === 'both') { tc.xenon += 0.5; tc.argon += 0.5; } else tc[x.target] = (tc[x.target] || 0) + 1; });
+    c.tc = tc;
+    c.dom = ['xenon', 'argon', 'materials'].sort(function (a, b) { return tc[b] - tc[a]; })[0];
+    c.lab = clusterLabel(c);
+    c.prio = n * 10 + c.items.filter(function (x) { return x.kind === 'in-situ'; }).length * 3 + (c.items.some(function (x) { return x.provenance === 'verified'; }) ? 1 : 0);
+  });
+  return out;
+}
+var LAB_NAMES = ['LNGS', 'SURF', 'CJPL', 'SNOLAB', 'Boulby', 'Kamioka', 'LBNL', 'LLNL', 'SLAC', 'Nikhef', 'MPIK', 'TRIUMF', 'Fermilab', 'CERN'];
+var LAB_ALIASES = { LNGS: /\bLNGS\b|Gran Sasso/, SURF: /\bSURF\b|Sanford/, CJPL: /\bCJPL\b|Jinping/, Boulby: /Boulby/ };
+function uniq(a) { return Array.from(new Set(a.filter(Boolean))); }
+function shortName(n) {
+  n = String(n).replace(/\s*\([^)]*\)/g, '').replace(/\s*:.*$/, '').trim();
+  if (n.length > 30) {
+    var cutAt = n.slice(0, 29).replace(/\s+\S*$/, '');
+    n = (cutAt.length >= 16 ? cutAt : n.slice(0, 29)).replace(/[\s,;\/-]+$/, '') + '\u2026';
+  }
+  return n;
+}
+/* hand-defined regions used to name a marker that groups several cities: name, lat0, lat1, lon0, lon1 */
+var REGION_BOXES = [
+  ['San Francisco Bay Area', 36.9, 38.7, -123.3, -121.2], ['Southern California', 32.4, 34.7, -119.6, -116.4], ['US East Coast', 38.4, 43.2, -77.6, -70.4],
+  ['Rhine valley and Zurich', 46.9, 50.3, 7.2, 9.3], ['Central Italy', 40.4, 43.2, 11.8, 15.2], ['Moscow', 55.2, 56.3, 36.8, 38.4],
+  ['Paris area', 48.4, 49.2, 1.8, 2.8], ['Southern England', 50.6, 52.4, -2.2, 0.6], ['Benelux', 50.6, 53.6, 3.2, 7.2]
+];
+function clusterLabel(c) {
+  var it = c.items, n = it.length;
+  if (n === 1) return { name: it[0].short, sub: [it[0].city, it[0].country].filter(Boolean).join(' \u00b7 ') };
+  var txt = it.map(function (x) { return [x.name, x.institute, x.location_note, x.city].join(' '); });
+  var best = null, bestN = 0;
+  LAB_NAMES.forEach(function (a) {
+    var re = LAB_ALIASES[a] || new RegExp('\\b' + a + '\\b');
+    var k = txt.filter(function (t) { return re.test(t); }).length;
+    if (k > bestN) { best = a; bestN = k; }
+  });
+  var cities = uniq(it.map(function (x) { return String(x.city || '').replace(/\s*\([^)]*\)/g, '').split(',')[0].trim(); }));
+  var countries = uniq(it.map(function (x) { return x.country; }));
+  var where = countries.length ? ' \u00b7 ' + countries.join(', ') : '';
+  var cityList = cities.slice(0, 3).join(', ') + (cities.length > 3 ? ', \u2026' : '');
+  if (best && bestN === n) return { name: best, sub: n + ' setups' + where };
+  if (cities.length === 1) return { name: cities[0], sub: n + ' setups' + where };
+  var box = REGION_BOXES.filter(function (b) { return it.every(function (x) { return x.lat >= b[1] && x.lat <= b[2] && x.lon >= b[3] && x.lon <= b[4]; }); })[0];
+  if (box) return { name: box[0], sub: n + ' setups \u00b7 ' + cityList };
+  if (best && bestN >= 2 && bestN * 2 > n) return { name: best + ' and nearby', sub: n + ' setups \u00b7 ' + cityList };
+  return { name: n + ' setups', sub: cityList };
+}
+
+function markerBody(c) {
+  var r = c.r, dom = c.dom, h = '';
+  h += '<circle class="hit" r="' + Math.max(15, r + 8) + '"/>';
+  h += '<circle class="ring ring2 s-' + dom + '" r="' + (r + 9) + '"/><circle class="ring ring1 s-' + dom + '" r="' + (r + 5) + '"/>';
+  h += '<circle class="selring" r="' + (r + 12.5) + '"/>';
+  if (c.items.length === 1) {
+    h += glyph(c.items[0].target, c.items[0].kind);
+    h += c.items[0].kind === 'in-situ' ? '<path class="rim" d="M0,-7L7,0L0,7L-7,0Z"/>' : '<circle class="rim" r="6"/>';
+  } else {
+    var parts = ['xenon', 'argon', 'materials'].filter(function (t) { return c.tc[t] > 0; });
+    if (parts.length === 1) h += '<circle class="c-' + parts[0] + '" r="' + r + '"/>';
+    else {
+      var tot = c.items.length, a0 = 0;
+      parts.forEach(function (t) {
+        var a1 = a0 + c.tc[t] / tot * 2 * Math.PI;
+        h += '<path class="c-' + t + '" d="' + d3.arc()({ innerRadius: 0, outerRadius: r, startAngle: a0, endAngle: a1 }) + '"/>';
+        a0 = a1;
+      });
+    }
+    h += '<circle class="rim" r="' + r + '"/><text class="n">' + c.items.length + '</text>';
+  }
+  return h;
+}
+function clusterAria(c) {
+  if (c.items.length === 1) {
+    var s = c.items[0];
+    return s.name + ', ' + KIND_LABEL[s.kind] + ', ' + TARGET_LABEL[s.target] + (c.lab.sub ? ', ' + c.lab.sub : '');
+  }
+  var head = /^\d+ setups$/.test(c.lab.name) ? c.lab.name + (c.lab.sub ? ' near ' + c.lab.sub : '') : c.lab.name + ', ' + c.items.length + ' setups';
+  return head + ': ' + c.items.map(function (x) { return x.short; }).join('; ');
+}
+function textW(str, font) { measureCtx.font = font; return measureCtx.measureText(str).width; }
+
+function renderMarkers() {
+  var selCluster = null;
+  clusters.forEach(function (c) {
+    var p = toScreen(c.wx, c.wy); c.sx = p[0]; c.sy = p[1];
+    c.vis = c.sx > -30 && c.sx < sw + 30 && c.sy > -30 && c.sy < sh + 30;
+    c.sel = (state.selId && c.items.some(function (x) { return x.id === state.selId; })) || (state.site && state.site.id === c.id);
+    if (c.sel) selCluster = c;
+  });
+
+  var dim = [];   /* filtered-out setups are hidden, not dimmed */
+  d3.select('#g-dots').selectAll('circle').data(dim, function (d) { return d.id; }).join('circle')
+    .attr('class', 'dot').attr('r', 2.4)
+    .attr('cx', function (d) { return T.x + T.k * base * d.wx; }).attr('cy', function (d) { return T.y + T.k * base * d.wy; });
+
+  var ms = d3.select('#g-markers').selectAll('g.marker').data(clusters, function (d) { return d.id; });
+  ms.exit().remove();
+  var en = ms.enter().append('g').attr('class', 'marker').attr('tabindex', 0).attr('role', 'button')
+    .attr('aria-label', clusterAria)
+    .html(markerBody)
+    .on('click', function (ev, d) { ev.stopPropagation(); activate(d, this); })
+    .on('keydown', function (ev, d) { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); activate(d, this); } })
+    .on('pointerenter', function (ev, d) { if (ev.pointerType !== 'touch') showTip(d); })
+    .on('pointerleave', hideTip)
+    .on('focus', function (ev, d) { if (this.matches(':focus-visible')) showTip(d); })
+    .on('blur', hideTip);
+  en.merge(ms)
+    .attr('transform', function (d) { return 'translate(' + d.sx.toFixed(1) + ',' + d.sy.toFixed(1) + ')'; })
+    .classed('sel', function (d) { return !!d.sel; })
+    .style('display', function (d) { return d.vis ? null : 'none'; });
+
+  /* labels: leader up to a two-line label, placed by priority, skipped when they would collide */
+  var order = clusters.filter(function (c) { return c.vis; }).sort(function (a, b) { return (b.sel - a.sel) || (b.prio - a.prio) || (a.id < b.id ? -1 : 1); });
+  var boxes = [], placed = [];
+  var hit = function (a, b) { return a.x < b.x + b.w && b.x < a.x + a.w && a.y < b.y + b.h && b.y < a.y + a.h; };
+  var pb = panelBox();
+  order.forEach(function (c) {
+    if (!c.lw) c.lw = Math.max(textW(c.lab.name, '700 13px "IBM Plex Sans", sans-serif'), c.lab.sub ? textW(c.lab.sub, '400 11px "IBM Plex Sans", sans-serif') : 0) + 10;
+    var h = c.lab.sub ? 32 : 18, lens = [30, 58, 88, 120];
+    for (var i = 0; i < lens.length; i++) {
+      var top = c.sy - lens[i] - 4 - h;
+      var box = { x: c.sx - c.lw / 2, y: top, w: c.lw, h: h };
+      var lead = { x: c.sx - 2, y: top + h, w: 4, h: lens[i] - c.r };
+      if (top < 4 || box.x < 4 || box.x + box.w > sw - 4) continue;
+      if (pb && pb.right && box.x + box.w > sw - pb.right) continue;
+      if (pb && pb.bottom && c.sy > sh - pb.bottom) continue;
+      var bad = boxes.some(function (b) { return hit(box, b) || hit(lead, b); }) ||
+        clusters.some(function (o) {
+          if (o === c || !o.vis) return false;
+          var mb = { x: o.sx - o.r - 4, y: o.sy - o.r - 4, w: 2 * o.r + 8, h: 2 * o.r + 8 };
+          return hit(box, mb) || hit(lead, mb);
+        });
+      if (bad) continue;
+      boxes.push({ x: box.x - 4, y: box.y - 3, w: box.w + 8, h: box.h + 6 }, lead);
+      c.L = lens[i]; placed.push(c);
+      break;
+    }
+  });
+  var ls = d3.select('#g-labels').selectAll('g.label').data(placed, function (d) { return d.id; });
+  ls.exit().remove();
+  var le = ls.enter().append('g').attr('class', 'label').attr('aria-hidden', 'true');
+  le.append('line'); le.append('circle').attr('class', 'cap').attr('r', 2.5);
+  le.append('text').attr('class', 'l1'); le.append('text').attr('class', 'l2');
+  var all = le.merge(ls).attr('transform', function (d) { return 'translate(' + d.sx.toFixed(1) + ',' + d.sy.toFixed(1) + ')'; });
+  all.select('line').attr('y1', 0).attr('y2', function (d) { return -d.L; });
+  all.select('.cap').attr('cy', function (d) { return -d.L; });
+  all.select('.l1').attr('y', function (d) { return -d.L - (d.lab.sub ? 22 : 8); }).attr('class', function (d) { return 'l1 t-' + d.dom; }).text(function (d) { return d.lab.name; });
+  all.select('.l2').attr('y', function (d) { return -d.L - 8; }).text(function (d) { return d.lab.sub; });
+}
+
+function showTip(c) {
+  setFocusHost(c.items[0].host);
+  var tip = $('tip'), n = c.items.length;
+  var h = '<b>' + esc(n === 1 ? c.items[0].name : c.lab.name) + '</b>';
+  if (n === 1) {
+    var s = c.items[0];
+    h += '<span class="tip-sub">' + esc([s.city, s.country].filter(Boolean).join(' · ')) + '</span><ul><li>' + esc(KIND_LABEL[s.kind] + ' · ' + TARGET_LABEL[s.target]) + '</li></ul>';
+  } else {
+    h += '<span class="tip-sub">' + esc(c.lab.sub) + '</span><ul>' + c.items.slice(0, 6).map(function (x) {
+      return '<li>' + glyph(x.target, x.kind, 10) + '<span>' + esc(x.short) + '</span></li>';
+    }).join('') + (n > 6 ? '<li class="more">and ' + (n - 6) + ' more</li>' : '') + '</ul>';
+  }
+  tip.innerHTML = h; tip.hidden = false;
+  var tw = tip.offsetWidth, th = tip.offsetHeight;
+  var x = Math.max(8, Math.min(sw - tw - 8, c.sx - tw / 2));
+  var y = c.sy + c.r + 16;
+  if (y + th > sh - 8) y = c.sy - c.r - 16 - th;
+  tip.style.left = x + 'px'; tip.style.top = Math.max(8, y) + 'px';
+}
+function hideTip() {
+  $('tip').hidden = true;
+  var sel = byId.get(state.selId);
+  setFocusHost(sel && state.view === 'map' ? sel.host : -1);
+}
+
+function activate(c, el) {
+  hideTip();
+  lastFocus = el || null;
+  if (c.items.length === 1) select(c.items[0].id);
+  else openSite(c);
+}
+function ensureVisible(s) {
+  if (!T || !s.placed || state.view !== 'map') return;
+  var p = toScreen(s.wx, s.wy), b = panelBox() || {}, m = 50;
+  var ok = p[0] > m && p[0] < sw - (b.right || 0) - m && p[1] > m + 40 && p[1] < sh - (b.bottom || 0) - m;
+  if (!ok) setView(s.wx, s.wy, T.k, 450, visibleCentre());
+}
+
+/* ================= routing and detail frame ================= */
+/* The hash carries the view or the selection: #map #list #detector #about #<setup-id> #src-<source-id> */
+var VIEWS = ['map', 'list', 'detector', 'about'];
+var routing = false;
+function curHash() { return state.srcId ? 'src-' + state.srcId : state.selId ? state.selId : state.view; }
+function pushHash() {
+  if (routing) return;
+  var h = curHash();
+  if (location.hash.replace(/^#/, '') === h) return;
+  try { location.hash = h; } catch (e) { /* ignore */ }
+}
+function replaceHash() {
+  if (routing) return;
+  var h = '#' + curHash();
+  if (location.hash === h) return;
+  try { history.replaceState(null, '', h); } catch (e) { try { location.hash = h; } catch (e2) { /* ignore */ } }
+}
+function readHash() {
+  var h = '';
+  try { h = decodeURIComponent(location.hash.replace(/^#/, '')); } catch (e) { h = ''; }
+  if (!/^[A-Za-z0-9-]*$/.test(h)) h = '';
+  if (h === curHash() || (!h && curHash() === 'map')) return;
+  routing = true;
+  try {
+    if (h.indexOf('src-') === 0 && srcById.has(h.slice(4))) selectSource(h.slice(4), { fromHash: true });
+    else if (h && byId.has(h)) select(h, { fromHash: true });
+    else { hidePanel(); setView2(VIEWS.indexOf(h) >= 0 ? h : 'map'); }
+  } finally { routing = false; }
+}
+var REF_GROUPS = [['Papers and preprints', ['paper', 'arXiv']], ['Theses', ['thesis']], ['Talks and posters', ['talk', 'poster']], ['Other', ['web']]];
+function refHtml(r, idx) {
+  var u = safeUrl(r.url);
+  var meta = [r.authors, r.year, r.venue].filter(Boolean).map(esc).join(' · ');
+  var badges = '<span class="rtype ty-' + esc(r.type) + '">' + esc(r.type) + '</span>';
+  if (r.verified === true) badges += '<span class="rtype ok" title="The link was opened and resolved to the stated work. It does not mean a person checked the content.">opened</span>';
+  if (!u) badges += '<span class="nolink">no link found</span>';
+  return '<li data-refidx="' + idx + '"><span class="rn">[' + (idx + 1) + ']</span><span class="rt">' + (u ? link(u, esc(r.title)) : esc(r.title)) + '</span>' +
+    (meta ? '<span class="rm">' + meta + '</span>' : '') + '<span class="rb">' + badges + '</span></li>';
+}
+function refsSection(refs) {
+  refs = refs || [];
+  if (!refs.length) return '<section><h3>References</h3><p class="note">No reference recorded.</p></section>';
+  var h = '<section id="refs"><h3>References (' + refs.length + ')</h3>';
+  REF_GROUPS.forEach(function (g) {
+    var items = refs.map(function (r, i) { return [r, i]; }).filter(function (x) { return g[1].indexOf(x[0].type) >= 0; });
+    if (!items.length) return;
+    h += '<div class="refgroup"><h4>' + g[0] + '</h4><ul class="refs">' + items.map(function (x) { return refHtml(x[0], x[1]); }).join('') + '</ul></div>';
+  });
+  return h + '</section>';
+}
+function refLink(refs, idx) {
+  var r = (idx != null && refs) ? refs[idx] : null;
+  if (!r) return '';
+  var u = safeUrl(r.url);
+  return u ? link(u, 'ref [' + (idx + 1) + ']').replace('<a ', '<a title="' + esc(r.title) + '" ')
+           : '<button class="clear" data-ref="' + idx + '">ref [' + (idx + 1) + '], no link found</button>';
+}
+function tagKey(tags) { return tags.map(function (t) { return t + ' ' + ((tagById.get(t) || {}).name || ''); }).join('; '); }
+function rowHtml(s) {
+  var p = prov(s);
+  var meta = [s.institute, [s.city, s.country].filter(Boolean).join(', ')].filter(Boolean).map(esc).join(' · ');
+  var mf = state.q ? matchField(s) : '';
+  return '<button class="row" data-id="' + esc(s.id) + '"' + (state.selId === s.id ? ' aria-current="true"' : '') + '>' +
+    '<span class="g">' + glyph(s.target, s.kind, 16) + '</span>' +
+    '<span class="nm">' + esc(s.name) + '</span>' +
+    '<span class="side"><span class="tg" title="' + esc('Mechanisms: ' + tagKey(s.tags)) + '">' + esc(s.tags.join(' ')) + '</span><span class="badge ' + p[1] + '" title="' + esc(p[2]) + '">' + esc(p[0]) + '</span></span>' +
+    '<span class="meta">' + (meta || 'Institute not stated') + ' · ' + esc(KIND_LABEL[s.kind]) + ', ' + esc(TARGET_LABEL[s.target].toLowerCase()) +
+    (state.group === 'year' && s.year0 ? ' · since ' + s.year0 : '') +
+    (s.placed ? '' : ' <span class="noloc">· no location yet</span>') +
+    (mf && mf !== 'name' && mf !== 'short name' ? ' <span class="matched">· matched in ' + esc(mf) + '</span>' : '') + '</span></button>';
+}
+function panelHead(title, chips) {
+  return '<div class="panel-head"><div class="ttl"><h2 id="panel-title" tabindex="-1">' + esc(title) + '</h2><div class="chips">' + chips + '</div></div>' +
+    '<button class="close" id="panel-close" aria-label="Close details" title="Close (Esc)">&times;</button></div>';
+}
+function copyRow(hash) {
+  var url = '';
+  try { url = location.origin + location.pathname + '#' + hash; } catch (e) { url = '#' + hash; }
+  return '<div class="linkrow"><button class="btn" id="copy-link" data-copy="' + esc(url) + '">Copy link</button>' +
+    '<input class="linktxt" id="link-text" type="text" readonly aria-label="Link to this entry" value="' + esc(url) + '"></div>';
+}
+function statusLine(s) {
+  var ph = PHASE_LABEL[s.phase] || PHASE_LABEL.unknown;
+  if (s.kind === 'in-situ') return esc('Detector: ' + ph.toLowerCase()) + (s.study_status ? '<span class="sub">' + esc('This study: ' + s.study_status) + '</span>' : '');
+  return esc(ph) + (s.phase_inferred && s.phase !== 'unknown' ? '<span class="sub">(inferred from active years)</span>' : '');
+}
+var MEAS_SHOWN = 4;
+function renderSetup(s) {
+  var p = prov(s), h = '', f = '';
+  var chips = '<span class="pill">' + glyph(s.target, s.kind, 12) + esc(TARGET_LABEL[s.target]) + '</span><span class="pill">' + esc(KIND_LABEL[s.kind]) + '</span>' +
+    '<span class="badge ' + p[1] + '" title="' + esc(p[2]) + '">' + esc(p[0]) + '</span>' +
+    (s.confidence ? '<span class="badge" title="How fully the sources opened support this description">confidence: ' + esc(s.confidence) + '</span>' : '');
+  h += panelHead(s.name, chips) + '<div class="panel-body">';
+
+  var fact = function (k, v) { if (v) f += '<dt>' + k + '</dt><dd>' + v + '</dd>'; };
+  var exp = s.kind === 'in-situ';
+  if (exp) fact('Collaboration', esc(s.collaboration));
+  fact('Institute', esc(s.institute));
+  if (!exp) fact('Collaboration', esc(s.collaboration));
+  if (exp) fact('Authors and speakers of the cited work', esc(((s.cited_authors && s.cited_authors.length) ? s.cited_authors : (s.people || [])).join(', ')));
+  else fact('People', esc((s.people || []).join(', ')));
+  var loc = esc([s.city, s.country].filter(Boolean).join(', '));
+  if (s.placed) loc += '<span class="sub">' + s.lat.toFixed(3) + '°, ' + s.lon.toFixed(3) + '°</span>';
+  else loc += '<span class="sub noloc">No location recorded yet; not shown on the map.</span>';
+  if (s.location_note) loc += '<span class="sub">' + esc(s.location_note) + '</span>';
+  fact('Location', loc);
+  fact('Medium', esc(s.medium));
+  fact('Years active', esc(s.years_active));
+  fact('Status', statusLine(s));
+  h += '<dl class="facts">' + f + '</dl>';
+
+  if (s.description || s.why_relevant) h += '<section><h3>Setup</h3>' + (s.description ? '<p>' + esc(s.description) + '</p>' : '') + (s.why_relevant ? '<p class="note" style="margin-top:6px">' + esc(s.why_relevant) + '</p>' : '') + '</section>';
+  if (s.key_results) h += '<section><h3>Key results</h3><p>' + esc(s.key_results) + '</p></section>';
+
+  var ms = s.measurements || [];
+  if (ms.length) {
+    h += '<section><h3>Measurements (' + ms.length + ')</h3><ul class="meas" id="meas">' + ms.map(function (m, i) {
+      var rl = refLink(s.references, m.ref);
+      return '<li' + (i >= MEAS_SHOWN ? ' hidden' : '') + '><span class="what">' + esc(m.what) + '</span>' + (m.result ? '<span class="res">' + esc(m.result) + '</span>' : '') +
+        ((m.year || rl) ? '<span class="mm">' + (m.year ? '<span>' + esc(m.year) + '</span>' : '') + rl + '</span>' : '') + '</li>';
+    }).join('') + '</ul>' + (ms.length > MEAS_SHOWN ? '<div style="margin-top:8px"><button class="btn" id="meas-all" data-act="allmeas">Show all ' + ms.length + '</button></div>' : '') + '</section>';
+  }
+
+  var probes = SOURCES.filter(function (x) { return (x.setups || []).indexOf(s.id) >= 0; });
+  if (probes.length || s.tags.length || (s.mechanisms && s.mechanisms.length)) {
+    h += '<section><h3>Sources it probes</h3>';
+    if (probes.length) h += '<div class="srcbtns">' + probes.map(function (x) {
+      return '<button class="srcbtn" data-src="' + esc(x.id) + '" title="Open on the Detector view">' + srcGlyph(x, 20) + esc(x.name) + '</button>';
+    }).join('') + '</div>';
+    if (s.tags.length) {
+      h += '<div class="tagrow" style="margin-top:8px">' + s.tags.map(function (t) {
+        var tg = tagById.get(t) || { name: '', desc: '' };
+        return '<button class="tagbtn' + (s.tags_inferred ? ' inferred' : '') + '" data-tag="' + esc(t) + '" aria-expanded="false" title="' + esc(tg.name + (tg.desc ? ': ' + tg.desc : '')) + '"><b>' + esc(t) + '</b>' + esc(tg.name) + '</button>';
+      }).join('') + '</div><div class="tagexp" id="tagexp" hidden></div>';
+      if (s.tags_inferred) h += '<p class="note" style="margin-top:6px">Dashed tags are inferred by keyword from the mechanisms listed for this entry.</p>';
+    }
+    if (s.mechanisms && s.mechanisms.length) h += '<ul class="mech">' + s.mechanisms.map(function (m) { return '<li>' + esc(m) + '</li>'; }).join('') + '</ul>';
+    h += '</section>';
+  }
+
+  if (s.caveats && s.caveats.length) h += '<section><h3>Caveats</h3><ul class="mech" style="margin-top:0">' + s.caveats.map(function (c) { return '<li>' + esc(c) + '</li>'; }).join('') + '</ul></section>';
+
+  h += refsSection(s.references);
+
+  var sibs = s.placed ? SETUPS.filter(function (x) { return x !== s && x.placed && x.siteKey === s.siteKey; }) : [];
+  if (sibs.length) h += '<section><h3>Also at this site</h3><div class="sitelist">' + sibs.map(rowHtml).join('') + '</div></section>';
+  h += copyRow(s.id) + '</div>';
+  return h;
+}
+function showPanel(html) {
+  var p = $('panel');
+  p.innerHTML = html; p.hidden = false;
+  $('stage').classList.add('panel-open');
+  var body = p.querySelector('.panel-body'); if (body) body.scrollTop = 0;
+  updateExtent();
+  setDetMode();
+}
+function select(id, opt) {
+  opt = opt || {};
+  var s = byId.get(id);
+  if (!s) return;
+  if (!opt.fromHash && !lastFocus) lastFocus = document.activeElement;
+  state.selId = id; state.site = null; state.srcId = null;
+  if (state.view !== 'list' && state.view !== 'map') setView2('map');
+  showPanel(renderSetup(s));
+  pushHash();
+  markRows(); markSources();
+  if (!opt.fromHash) { var t = $('panel-title'); if (t) t.focus({ preventScroll: true }); }
+  if (state.view === 'map') {
+    setFocusHost(s.host);
+    requestAnimationFrame(function () { resizeMap(); ensureVisible(s); schedule(); });
+  }
+}
+function openSite(c) {
+  state.selId = null; state.srcId = null; state.site = { id: c.id };
+  var multi = c.sites.length > 1;
+  var h = panelHead(c.lab.name, (/^\d+ setups$/.test(c.lab.name) ? '' : '<span class="pill">' + c.items.length + ' setups</span>') + (c.lab.sub ? '<span class="pill">' + esc(c.lab.sub.replace(/^\d+ setups( · )?/, '')) + '</span>' : ''));
+  h += '<div class="panel-body">';
+  if (multi) h += '<p class="note">These setups are at ' + c.sites.length + ' nearby locations that overlap at this zoom.</p><div><button class="btn" id="site-zoom">Zoom in to separate them</button></div>';
+  h += '<div class="sitelist">' + c.items.map(rowHtml).join('') + '</div></div>';
+  showPanel(h);
+  replaceHash();
+  markRows();
+  var t = $('panel-title'); if (t) t.focus({ preventScroll: true });
+  ensureVisible({ placed: true, wx: c.wx, wy: c.wy });
+  var z = $('site-zoom');
+  if (z) z.addEventListener('click', function () {
+    var xs = c.sites.map(function (g) { return g.wx; }), ys = c.sites.map(function (g) { return g.wy; });
+    var dx = Math.max.apply(null, xs) - Math.min.apply(null, xs), dy = Math.max.apply(null, ys) - Math.min.apply(null, ys);
+    closePanel();
+    var k = Math.min(MAXK, Math.max(T.k * 2, 0.5 * Math.min(sw, sh) / (Math.max(dx, dy, 1e-4) * base)));
+    setView((Math.max.apply(null, xs) + Math.min.apply(null, xs)) / 2, (Math.max.apply(null, ys) + Math.min.apply(null, ys)) / 2, k, 600);
+  });
+  schedule();
+}
+function hidePanel() {
+  if ($('panel').hidden) return false;
+  $('panel').hidden = true; $('panel').innerHTML = '';
+  $('stage').classList.remove('panel-open');
+  state.selId = null; state.site = null; state.srcId = null;
+  markRows(); markSources();
+  setFocusHost(-1);
+  updateExtent();
+  setDetMode();
+  schedule();
+  return true;
+}
+function closePanel() {
+  if (!hidePanel()) return;
+  replaceHash();
+  if (lastFocus && document.contains(lastFocus)) { try { lastFocus.focus({ preventScroll: true }); } catch (e) { /* ignore */ } }
+  lastFocus = null;
+}
+function markRows() {
+  document.querySelectorAll('.row[data-id]').forEach(function (r) {
+    if (r.dataset.id === state.selId) r.setAttribute('aria-current', 'true'); else r.removeAttribute('aria-current');
+  });
+}
+$('panel').addEventListener('click', function (ev) {
+  var b = ev.target.closest('button');
+  if (!b) return;
+  if (b.id === 'panel-close') return closePanel();
+  if (b.dataset.onmap) return showOnMap(b.dataset.onmap);
+  if (b.dataset.src) { lastFocus = null; return selectSource(b.dataset.src); }
+  if (b.dataset.id) { lastFocus = null; return select(b.dataset.id); }
+  if (b.dataset.act === 'allmeas') {
+    $('panel').querySelectorAll('#meas li[hidden]').forEach(function (li) { li.hidden = false; });
+    b.parentNode.hidden = true;
+    return;
+  }
+  if (b.dataset.copy) {
+    var txt = b.dataset.copy, inp = $('link-text');
+    var fallback = function () { if (inp) { inp.focus(); inp.select(); } b.textContent = 'Select and copy'; };
+    try {
+      navigator.clipboard.writeText(txt).then(function () { b.textContent = 'Copied'; }, fallback);
+    } catch (e) { fallback(); }
+    return;
+  }
+  if (b.dataset.tag) {
+    var box = $('tagexp'), was = b.getAttribute('aria-expanded') === 'true';
+    $('panel').querySelectorAll('.tagbtn').forEach(function (x) { x.setAttribute('aria-expanded', 'false'); });
+    if (was) { box.hidden = true; return; }
+    var t = tagById.get(b.dataset.tag);
+    b.setAttribute('aria-expanded', 'true');
+    box.innerHTML = '<b>' + esc(b.dataset.tag) + ' · ' + esc(t ? t.name : '') + '</b><br>' + esc(t ? t.desc : '');
+    box.hidden = false; return;
+  }
+  if (b.dataset.ref != null) {
+    var li = $('panel').querySelector('[data-refidx="' + (+b.dataset.ref) + '"]');
+    if (li) { li.scrollIntoView({ block: 'nearest' }); li.classList.add('flash'); setTimeout(function () { li.classList.remove('flash'); }, 1400); }
+  }
+});
+
+/* ================= list view ================= */
+var GROUPS = [['country', 'Country'], ['target', 'Target'], ['kind', 'Type'], ['phase', 'Status'], ['year', 'First active year'], ['name', 'A–Z']];
+var PHASE_ORDER = { running: 0, construction: 1, completed: 2, unknown: 3 };
+function renderList() {
+  var el = $('list-inner');
+  var h = '<div class="sec"><div class="list-tools" role="group" aria-label="Group or sort the list"><span class="flabel">Group by</span>' + GROUPS.map(function (g) {
+    return '<button class="chip" data-group="' + g[0] + '" aria-pressed="' + (state.group === g[0]) + '">' + esc(g[1]) + '</button>';
+  }).join('') + '</div>' +
+    '<details class="keydet"><summary>Mechanism key A–I</summary><div class="dbody"><ul class="keylist">' + TAGS.map(function (t) { return '<li><b>' + esc(t.id) + '</b> ' + esc(t.name) + '</li>'; }).join('') + '</ul></div></details>';
+  var keyOf = {
+    country: function (s) { return s.country || 'Country not stated'; },
+    target: function (s) { return TARGET_LABEL[s.target]; },
+    kind: function (s) { return KIND_LABEL[s.kind] + 's'; },
+    phase: function (s) { return PHASE_LABEL[s.phase] || PHASE_LABEL.unknown; },
+    year: function () { return 'By first active year'; },
+    name: function () { return 'All setups'; }
+  }[state.group] || function () { return 'All setups'; };
+  var groups = new Map();
+  matched.slice().sort(function (a, b) {
+    if (state.group === 'year') return ((a.year0 || 9999) - (b.year0 || 9999)) || a.name.localeCompare(b.name);
+    return a.name.localeCompare(b.name);
+  }).forEach(function (s) {
+    var k = keyOf(s); if (!groups.has(k)) groups.set(k, { items: [], s: s }); groups.get(k).items.push(s);
+  });
+  var keys = Array.from(groups.keys()).sort(function (a, b) {
+    if (state.group === 'phase') return PHASE_ORDER[groups.get(a).s.phase] - PHASE_ORDER[groups.get(b).s.phase];
+    var za = /not stated/i.test(a), zb = /not stated/i.test(b);
+    return (za - zb) || a.localeCompare(b);
+  });
+  if (!matched.length) h += '<div class="empty"><p>No setup matches these filters.</p><button class="btn" data-act="clear">Clear filters</button></div>';
+  keys.forEach(function (k) {
+    h += '<div class="lgroup"><h3>' + esc(k) + ' <span>' + groups.get(k).items.length + '</span></h3>' + groups.get(k).items.map(rowHtml).join('') + '</div>';
+  });
+  h += '</div>';
+  if ((DATA.leads || []).length) {
+    h += '<div class="sec"><h2>Other setups we know of, not yet documented here <small>' + DATA.leads.length + '</small></h2><div class="leads">' +
+      DATA.leads.map(function (l) {
+        return '<div class="lead"><h4>' + esc(l.name) + '</h4>' + (l.institute ? '<span class="inst">' + esc(l.institute) + '</span>' : '') + (l.note ? '<p>' + esc(l.note) + '</p>' : '') + '</div>';
+      }).join('') + '</div></div>';
+  }
+  el.innerHTML = h;
+}
+$('list-inner').addEventListener('click', function (ev) {
+  var b = ev.target.closest('button');
+  if (!b) return;
+  if (b.dataset.act === 'clear') { clearFilters(); applyFilters(); return; }
+  if (b.dataset.group) { state.group = b.dataset.group; renderList(); var nb = $('list-inner').querySelector('[data-group="' + state.group + '"]'); if (nb) nb.focus(); return; }
+  if (b.dataset.id) { lastFocus = b; select(b.dataset.id); }
+});
+
+/* ================= about view ================= */
+function renderAbout() {
+  var h = '', rt = (DATA.tpc || {}).reference_talk || {};
+  var nLab = SETUPS.filter(function (s) { return s.kind === 'lab'; }).length, nIn = SETUPS.length - nLab;
+  var pc = {}; SETUPS.forEach(function (s) { pc[s.provenance] = (pc[s.provenance] || 0) + 1; });
+  var nCountries = uniq(SETUPS.map(function (s) { return s.country; })).length;
+  var stat = function (n, t) { return '<div class="stat"><b>' + n + '</b><span>' + t + '</span></div>'; };
+  h += '<div class="sec lede"><span class="kick">About this map</span><h2>Who studies where isolated S1 and S2 signals come from</h2>' +
+    '<p>A map of the R&amp;D setups and running experiments that study the origin of isolated S1 and isolated S2 signals, the two ingredients of the accidental-coincidence background in liquid xenon and liquid argon TPCs. ' +
+    'It is for people working on low-energy analyses and detector R&amp;D who want to see who measures what, where, and which papers to read.</p>' +
+    '<div class="stats">' + stat(nLab, 'R&amp;D setups') + stat(nIn, 'entries in running or planned experiments') + stat(nCountries, 'countries') + stat(SOURCES.length, 'candidate sources on the Detector view') + '</div></div>';
+
+  var past = DATA.past_detectors || [];
+  h += '<div class="about-grid">';
+  h += '<div class="card"><h3>Scope and conventions</h3><ul>' +
+    '<li>An entry is one setup or one study programme with public work on isolated S1s, isolated S2s, delayed electrons or photons, or accidental coincidences.</li>' +
+    '<li>A detector can have several entries when its studies are distinct: LZ has three.</li>' +
+    '<li>Experiments that no longer run are left out' + (past.length ? ' (' + esc(past.join(', ')) + ')' : '') + '. Their papers still appear as references on the Detector view.</li>' +
+    '<li>An entry spread over several sites carries one pin, at the detector or the main laboratory.</li>' +
+    '<li>Sites closer than a marker width share one numbered marker until you zoom in.</li></ul></div>';
+  h += '<div class="card blue"><h3>Method and disclosure</h3>' +
+    '<p>Compiled with AI research agents from public papers, preprints, theses and talks; built ' + esc(DATA.build_date) + '. Not reviewed by the collaborations or groups described. ' +
+    '“Sources opened” means an agent opened the link and it resolved to the stated work; it does not mean a person checked the content.</p>' +
+    '<p class="note">' + (pc.opened || 0) + ' entries are marked “Sources opened” and ' + (pc.abstract || 0) + ' “Abstract-level check”' + (pc.unchecked ? '; ' + pc.unchecked + ' are not yet checked' : '') + '.</p>' +
+    '<p>Source code and data: ' + link('https://github.com/DonNabla/ac-rnd-map', 'github.com/DonNabla/ac-rnd-map') + '. Corrections and missing setups: ' + link('https://github.com/DonNabla/ac-rnd-map/issues', 'open an issue there') + '.</p>' +
+    '<p class="note">Licences: code MIT, content (data and text) CC BY 4.0.</p></div>';
+  h += '<div class="card"><h3>How to read an entry</h3><ul>' +
+    '<li><b>Status.</b> Running, under construction or planned, completed. For an experiment it is the state of the detector; the state of the individual study is given beside it when known. “Inferred” means it was derived from the active years.</li>' +
+    '<li><b>Confidence.</b> High, medium or low: how fully the sources opened support the description of the entry.</li>' +
+    '<li><b>Mechanism tags.</b> A solid tag is taken from the entry’s own sources. A dashed tag is inferred by keyword from the mechanisms listed for the entry.</li>' +
+    '<li><b>Markers.</b> Colour and inner mark give the target, shape gives the type, a number means several setups at one site.</li></ul></div>';
+  var links = [];
+  if (rt.found) {
+    var u = safeUrl(rt.url) || safeUrl(rt.slides_url);
+    var t1 = esc((rt.speaker ? rt.speaker + ', ' : '') + '“' + (rt.title || 'overview talk') + '”' + (rt.event ? ', ' + rt.event : ''));
+    links.push('Source overview on the Detector view: ' + (u ? link(u, t1) : t1) + '.');
+    var rtb = (rt.other_talks_used || []).filter(function (t) { return /round/i.test(t.title || ''); })[0];
+    if (rtb) links.push('Round table: ' + (safeUrl(rtb.url) ? link(rtb.url, esc(rtb.title)) : esc(rtb.title)) + '.');
+  }
+  links.push('Map geometry: Natural Earth, via world-atlas.');
+  links.push('Map style: after an earlier map by the author of this page. Typeface: IBM Plex Sans.');
+  h += '<div class="card blue"><h3>Credits</h3><ul>' + links.map(function (l) { return '<li>' + l + '</li>'; }).join('') + '</ul></div>';
+  h += '</div>';
+
+  h += '<div class="sec"><h2>Mechanism key A–I</h2>' +
+    '<div class="tablewrap"><table><thead><tr><th>Tag</th><th>Candidate source</th><th class="num">R&amp;D setups</th><th class="num">Experiments</th></tr></thead><tbody>' +
+    TAGS.map(function (t) {
+      var lab = SETUPS.filter(function (s) { return s.kind === 'lab' && s.tags.indexOf(t.id) >= 0; }).length;
+      var ins = SETUPS.filter(function (s) { return s.kind === 'in-situ' && s.tags.indexOf(t.id) >= 0; }).length;
+      return '<tr><td><b>' + esc(t.id) + '</b> ' + esc(t.name) + '</td><td>' + esc(t.desc) + '</td><td class="num">' + lab + '</td><td class="num">' + ins + '</td></tr>';
+    }).join('') + '</tbody></table></div></div>';
+
+  h += '<div class="sec"><h2>Coverage matrix <small>setups × mechanisms</small></h2>' + matrixHtml() +
+    '<p class="note">Filled dot: tag from the entry’s sources. Dashed circle: tag inferred by keyword. Select a name to open the entry.</p></div>';
+  h += '<p class="note">' + link('https://github.com/DonNabla/ac-rnd-map', 'Repository: github.com/DonNabla/ac-rnd-map') + '</p>';
+  $('about-inner').innerHTML = h;
+}
+function matrixHtml() {
+  var h = '<div class="tablewrap matrixwrap"><table class="matrix"><thead><tr><th>Setup</th>' + TAGS.map(function (t) {
+    return '<th class="tagh" title="' + esc(t.name) + '"><abbr title="' + esc(t.name) + '">' + esc(t.id) + '</abbr></th>';
+  }).join('') + '</tr></thead><tbody>';
+  KINDS.forEach(function (k) {
+    var rows = SETUPS.filter(function (s) { return s.kind === k[0]; }).sort(function (a, b) { return a.short.localeCompare(b.short); });
+    if (!rows.length) return;
+    h += '<tr class="grp"><td colspan="' + (TAGS.length + 1) + '">' + esc(k[1]) + 's (' + rows.length + ')</td></tr>';
+    rows.forEach(function (s) {
+      h += '<tr><td><button class="mname" data-id="' + esc(s.id) + '" title="' + esc(s.name) + '">' + esc(s.short) + '</button></td>' + TAGS.map(function (t) {
+        var on = s.tags.indexOf(t.id) >= 0;
+        return '<td class="cell">' + (on ? '<span class="' + (s.tags_inferred ? 'inf' : 'on') + '" role="img" aria-label="' + esc(t.id + (s.tags_inferred ? ' (inferred)' : '')) + '"></span>' : '') + '</td>';
+      }).join('') + '</tr>';
+    });
+  });
+  h += '</tbody><tfoot><tr><td>Setups per tag</td>' + TAGS.map(function (t) {
+    return '<td class="cell">' + SETUPS.filter(function (s) { return s.tags.indexOf(t.id) >= 0; }).length + '</td>';
+  }).join('') + '</tr></tfoot></table></div>';
+  return h;
+}
+$('about-inner').addEventListener('click', function (ev) {
+  var b = ev.target.closest('button[data-id]');
+  if (b) { lastFocus = null; select(b.dataset.id); }
+});
+
+/* ================= detector view ================= */
+var TPC = DATA.tpc || {};
+var SOURCES = (TPC.sources || []).slice();
+var SIG_RANK = { S1: 0, both: 1, S2: 2 };
+SOURCES.sort(function (a, b) { return SIG_RANK[a.signal] - SIG_RANK[b.signal]; });
+SOURCES.forEach(function (s, i) { s.n = i + 1; });
+var srcById = new Map(SOURCES.map(function (s) { return [s.id, s]; }));
+var SIG_LABEL = { S1: 'Isolated S1', S2: 'Isolated S2', both: 'Isolated S1 and S2' };
+var SIG_SHORT = { S1: 'S1', S2: 'S2', both: 'S1+S2' };
+var MED_LABEL = { xenon: 'Xenon', argon: 'Argon', both: 'Xenon and argon' };
+var EV_NOTE = { established: 'A published measurement shows the mechanism occurs.', supported: 'Indirect or preliminary evidence.', hypothesised: 'Proposed, not shown.' };
+var REGION_DEFAULT = {
+  top_pmt_array: 'Top PMT array', top_pmt_window: 'Top PMT windows', top_screen: 'Top screening mesh', gas_gap: 'Gas gap',
+  anode: 'Anode', liquid_surface: 'Liquid surface', gate: 'Gate', bulk_liquid: 'Bulk liquid (drift region)', ptfe_wall: 'PTFE wall',
+  field_shaping_rings: 'Field-shaping rings', wall_charge_insensitive: 'Charge-insensitive liquid near the wall', cathode: 'Cathode',
+  below_cathode: 'Reverse-field region below the cathode', bottom_screen: 'Bottom screening mesh', bottom_pmt_array: 'Bottom PMT array',
+  bottom_pmt_window: 'Bottom PMT windows', outer_volume: 'Outer volume (skin)', cryostat: 'Cryostat', impurities_in_bulk: 'Impurities in the bulk liquid',
+  extraction_region: 'Liquid between gate and surface (extraction region)', wall_reflector_tpb: 'Argon TPC wall: ESR reflector foil with TPB coating'
+};
+var regionLabels = {};
+(TPC.regions || []).forEach(function (r) { if (r && r.id) regionLabels[r.id] = r.label; });
+function regLabel(id) { return regionLabels[id] || REGION_DEFAULT[id] || String(id).replace(/_/g, ' '); }
+
+/* Region geometry in detector coordinates (the drawing is 520 wide, 800 tall with the argon inset).
+   L / R: the segment along which sources of the left (isolated S1) / right (isolated S2) column are spread.
+   hi: highlight rectangles. Keep DRAWN_REGIONS in build.py in step with these keys. */
+function elec(y, hi) { return { L: [146, y, 226, y], R: [374, y, 294, y], hi: hi }; }
+var REG = {
+  top_pmt_array: elec(71, [[130, 48, 260, 44]]),
+  top_pmt_window: elec(95.5, [[130, 91, 260, 9]]),
+  top_screen: elec(122, [[130, 118, 260, 8]]),
+  anode: elec(152, [[130, 148, 260, 8]]),
+  gas_gap: elec(174, [[130, 154, 260, 41]]),
+  liquid_surface: elec(196, [[32, 192, 456, 8]]),
+  extraction_region: elec(214, [[130, 197, 260, 34]]),
+  gate: elec(232, [[130, 228, 260, 8]]),
+  bulk_liquid: { L: [164, 272, 164, 468], R: [356, 272, 356, 468], hi: [[130, 234, 260, 264]] },
+  impurities_in_bulk: { L: [212, 300, 212, 450], R: [312, 300, 312, 450], hi: [[130, 234, 260, 264]] },
+  ptfe_wall: { L: [125, 258, 125, 362], R: [395, 258, 395, 362], hi: [[120, 112, 10, 436], [390, 112, 10, 436]] },
+  wall_charge_insensitive: { L: [135, 388, 135, 472], R: [385, 388, 385, 472], hi: [[130, 244, 10, 250], [380, 244, 10, 250]] },
+  field_shaping_rings: { L: [112, 300, 112, 440], R: [408, 300, 408, 440], hi: [[106, 246, 12, 250], [402, 246, 12, 250]] },
+  cathode: elec(500, [[130, 496, 260, 8]]),
+  below_cathode: elec(520, [[130, 502, 260, 36]]),
+  bottom_screen: elec(540, [[130, 536, 260, 8]]),
+  bottom_pmt_window: elec(559.5, [[130, 555, 260, 9]]),
+  bottom_pmt_array: elec(584, [[130, 563, 260, 44]]),
+  outer_volume: { L: [70, 320, 70, 480], R: [450, 320, 450, 480], hi: [[34, 200, 70, 420], [416, 200, 70, 420]] },
+  cryostat: { L: [28, 330, 28, 400], R: [492, 330, 492, 400], hi: [[24, 16, 472, 632, 36]] },
+  wall_reflector_tpb: {
+    L: [224, 706, 224, 760], R: [224, 706, 224, 760], hi: [[170, 694, 72, 76]], inset: true,
+    pick: function (it, i, n) {      /* ESR sources on the ESR layer, the rest on the TPB layer */
+      return [/esr/i.test(it.s.id + ' ' + it.s.name) ? 188 : 224, 706 + 54 * (i + 0.5) / n];
+    }
+  }
+};
+var DET_OX = 330, DET_H = 800, detMode = null;
+function along(sg, t) { return [sg[0] + (sg[2] - sg[0]) * t, sg[1] + (sg[3] - sg[1]) * t]; }
+function srcShape(sig) {
+  if (sig === 'S2') return '<rect class="shp" x="-10.5" y="-10.5" width="21" height="21" rx="4"/>';
+  if (sig === 'both') return '<path class="shp" d="M0,-14L14,0L0,14L-14,0Z"/><path class="shp shp2" d="M0,-14L14,0L0,14"/>';
+  return '<circle class="shp" r="11"/>';
+}
+function srcGlyph(s, size) {
+  return '<svg class="sg sig-' + s.signal + ' ev-' + s.evidence + '" width="' + size + '" height="' + size + '" viewBox="-16 -16 32 32" aria-hidden="true">' +
+    srcShape(s.signal) + '<text class="num">' + s.n + '</text></svg>';
+}
+function srcVisible(s) {
+  return (!state.dsig || s.signal === state.dsig || s.signal === 'both') && (!state.dmed || s.medium === state.dmed || s.medium === 'both');
+}
+
+/* the detector itself, in detector coordinates */
+function tpcDrawing(showInset, emphInset) {
+  var h = '', i, x, y;
+  var labs = '';       /* part labels are returned separately so they can sit above the leader lines */
+  var lab = function (tx, ty, t, anchor) { labs += '<text class="d-lab" x="' + tx + '" y="' + ty + '"' + (anchor ? ' text-anchor="' + anchor + '"' : '') + '>' + t + '</text>'; return ''; };
+  h += '<rect class="d-cryo" x="24" y="16" width="472" height="632" rx="36"/>';
+  h += '<rect class="d-gas" x="32" y="24" width="456" height="616" rx="30"/>';
+  h += '<path class="d-liq" d="M32,196H488V610a30,30 0 0 1 -30,30H62a30,30 0 0 1 -30,-30Z"/>';
+  h += '<rect class="d-inner" x="32" y="24" width="456" height="616" rx="30"/>';
+  h += '<rect class="d-ext" x="130" y="197" width="260" height="35"/>';
+  h += '<rect class="d-civ" x="130" y="244" width="10" height="250"/><rect class="d-civ" x="380" y="244" width="10" height="250"/>';
+  [[158, 262], [200, 250], [246, 300], [336, 262], [330, 318], [240, 366], [186, 432], [226, 478], [336, 388], [286, 444], [334, 470], [192, 486], [288, 484], [150, 348], [300, 250], [284, 322]].forEach(function (p) {
+    h += '<circle class="d-imp" cx="' + p[0] + '" cy="' + p[1] + '" r="1.7"/>';
+  });
+  h += '<g class="d-ref"><path class="d-ph" d="M260,420L236,100M260,420L284,100M260,420L232,556M260,420L288,556"/>' +
+    '<path class="d-e" d="M260,410V206"/><path class="d-ehead" d="M260,200l-4,8h8Z"/>' +
+    '<ellipse class="d-s2" cx="260" cy="174" rx="16" ry="7"/><path class="d-ph" d="M254,168L248,100M266,168L272,100"/>' +
+    '<circle class="d-vtx" cx="260" cy="420" r="3.5"/></g>';
+  labs += '<text class="d-reft" x="268" y="436">interaction (S1)</text><text class="d-reft" x="268" y="340">e<tspan baseline-shift="super" font-size="9">−</tspan> drift</text><text class="d-reft" x="238" y="178" text-anchor="end">S2</text>';
+  h += '<rect class="d-ptfe" x="120" y="112" width="10" height="436"/><rect class="d-ptfe" x="390" y="112" width="10" height="436"/>';
+  for (y = 250; y <= 484; y += 26) h += '<rect class="d-ring" x="108" y="' + y + '" width="8" height="10" rx="2"/><rect class="d-ring" x="404" y="' + y + '" width="8" height="10" rx="2"/>';
+  for (i = 0; i < 7; i++) {
+    x = 137 + i * 36;
+    h += '<rect class="d-pmt" x="' + x + '" y="50" width="30" height="42" rx="4"/><rect class="d-win" x="' + x + '" y="92" width="30" height="7"/>';
+    h += '<rect class="d-win" x="' + x + '" y="556" width="30" height="7"/><rect class="d-pmt" x="' + x + '" y="563" width="30" height="42" rx="4"/>';
+  }
+  h += '<path class="d-surf" d="M32,196H488"/>';
+  [122, 152, 232, 500, 540].forEach(function (yy) { h += '<path class="d-el" d="M133,' + yy + 'H388"/>'; });
+  h += '<path class="d-field" d="M246,250V292"/><path class="d-fhead" d="M246,300l-4,-9h8Z"/>';
+  labs += '<text class="d-reft" x="240" y="276" text-anchor="end">drift field</text>';
+  h += '<path class="d-field" d="M140,534V516"/><path class="d-fhead" d="M140,509l-4,9h8Z"/>';
+  h += lab(260, 42, 'top PMT array', 'middle') + lab(260, 624, 'bottom PMT array', 'middle') + lab(260, 664, 'cryostat', 'middle');
+  h += lab(416, 100, 'PMT windows') + lab(416, 126, 'top screen') + lab(416, 156, 'anode') + lab(416, 178, 'gas gap') + lab(416, 218, 'extraction') + lab(416, 236, 'gate');
+  h += lab(416, 258, 'field rings') + lab(416, 504, 'cathode') + lab(416, 523, 'reverse field') + lab(416, 544, 'bottom screen') + lab(416, 563, 'PMT windows');
+  h += lab(40, 120, 'gas') + lab(40, 190, 'liquid level') + lab(40, 222, 'liquid') + lab(40, 262, 'PTFE wall') + lab(36, 506, 'outer volume');
+  h += lab(374, 256, 'charge-insensitive', 'end');
+  if (showInset) {
+    h += '<g class="inset' + (emphInset ? ' emph' : '') + '"><text class="d-lab i-title" x="60" y="684">Argon detectors only: wall of ESR reflector foil with TPB coating</text>' +
+      '<rect class="i-acr" x="60" y="694" width="70" height="76"/><rect class="i-gap" x="130" y="694" width="40" height="76"/>' +
+      '<rect class="i-esr" x="170" y="694" width="36" height="76"/><rect class="i-tpb" x="206" y="694" width="36" height="76"/>' +
+      '<rect class="i-gap" x="242" y="694" width="160" height="76"/><rect class="i-frame" x="60" y="694" width="342" height="76"/>' +
+      lab(95, 786, 'acrylic', 'middle') + lab(150, 786, 'LAr gap', 'middle') + lab(188, 786, 'ESR', 'middle') + lab(224, 786, 'TPB', 'middle') + lab(322, 786, 'active LAr', 'middle') + '</g>';
+  }
+  Object.keys(REG).forEach(function (id) {
+    if (REG[id].inset && !showInset) return;
+    REG[id].hi.forEach(function (r) {
+      h += '<rect class="d-hi' + (id === 'cryostat' ? ' d-hi-line' : '') + '" data-reg="' + id + '" x="' + r[0] + '" y="' + r[1] + '" width="' + r[2] + '" height="' + r[3] + '" rx="' + (r[4] || 3) + '"/>';
+    });
+  });
+  return { base: h, labels: labs };
+}
+function segCross(a, b, E) {       /* do the slanted parts of two leaders cross? */
+  var d = function (px, py, qx, qy, rx, ry) { return (qx - px) * (ry - py) - (qy - py) * (rx - px); };
+  var d1 = d(E, a.ly, a.ax, a.ay, E, b.ly), d2 = d(E, a.ly, a.ax, a.ay, b.ax, b.ay);
+  var d3 = d(E, b.ly, b.ax, b.ay, E, a.ly), d4 = d(E, b.ly, b.ax, b.ay, a.ax, a.ay);
+  return d1 * d2 < 0 && d3 * d4 < 0;
+}
+var sceneItems = [];
+function renderScene() {
+  if (!detMode) return;
+  var wide = detMode === 'wide', ox = wide ? DET_OX : 0, Wv = wide ? 1180 : 520;
+  var showInset = state.dmed !== 'xenon', h = '';
+  var vis = SOURCES.filter(srcVisible), items = [];
+  SOURCES.forEach(function (s) { s.drawn = !!REG[s.region]; });
+  vis.forEach(function (s) {
+    if (!s.drawn) return;
+    var sides = s.signal === 'S1' ? ['L'] : s.signal === 'S2' ? ['R'] : (wide ? (state.dsig === 'S1' ? ['L'] : state.dsig === 'S2' ? ['R'] : ['L', 'R']) : ['L']);
+    sides.forEach(function (sd) { items.push({ s: s, side: sd }); });
+  });
+  var groups = {};
+  items.forEach(function (it) { var k = it.s.region + '|' + it.side; (groups[k] = groups[k] || []).push(it); });
+  Object.keys(groups).forEach(function (k) {
+    var g = groups[k], R = REG[g[0].s.region];
+    g.forEach(function (it, i) {
+      var p = R.pick ? R.pick(it, i, g.length) : along(R[it.side], (i + 0.5) / g.length);
+      it.ax = p[0] + ox; it.ay = p[1];
+    });
+  });
+  sceneItems = items;
+  var dr = tpcDrawing(showInset, state.dmed === 'argon');
+  var partLabels = '<g transform="translate(' + ox + ',0)">' + dr.labels + '</g><g id="det-extra"></g>';
+  h += '<g transform="translate(' + ox + ',0)">' + dr.base + '</g>';
+  if (wide) {
+    var EL = ox - 14, ER = ox + 520 + 14, leads = '', dots = '', labs = '';
+    [['L', EL, 'S1'], ['R', ER, 'S2']].forEach(function (c) {
+      var sd = c[0], E = c[1], col = items.filter(function (it) { return it.side === sd; });
+      col.sort(function (a, b) { return (a.ay - b.ay) || (sd === 'L' ? a.ax - b.ax : b.ax - a.ax); });
+      var top = 48, bot = DET_H - 12, pitch = 23, i, j, pass, n = col.length;
+      var nBoth = col.filter(function (it) { return it.s.signal === 'both'; }).length;
+      /* labels as close as possible to their anchor height, at least one pitch apart (pool adjacent blocks) */
+      var blocks = [];
+      for (i = 0; i < n; i++) {
+        var blk = { i0: i, n: 1, sum: col[i].ay };
+        blk.y = blk.sum;
+        while (blocks.length && blocks[blocks.length - 1].y + blocks[blocks.length - 1].n * pitch > blk.y) {
+          var pv = blocks.pop();
+          blk = { i0: pv.i0, n: pv.n + blk.n, sum: pv.sum + blk.sum - blk.n * pv.n * pitch };
+          blk.y = blk.sum / blk.n;
+        }
+        blk.y = Math.max(top, Math.min(bot - (blk.n - 1) * pitch, blk.y));
+        blocks.push(blk);
+      }
+      blocks.forEach(function (bk) { for (j = 0; j < bk.n; j++) col[bk.i0 + j].ly = bk.y + j * pitch; });
+      for (i = 1; i < n; i++) col[i].ly = Math.max(col[i].ly, col[i - 1].ly + pitch);
+      for (i = n - 1; i >= 0; i--) col[i].ly = Math.min(col[i].ly, i === n - 1 ? bot : col[i + 1].ly - pitch);
+      for (pass = 0; pass < 8; pass++) {
+        var swapped = false;
+        for (i = 0; i < n; i++) for (j = i + 1; j < n; j++) {
+          if (segCross(col[i], col[j], E)) { var t = col[i].ly; col[i].ly = col[j].ly; col[j].ly = t; swapped = true; }
+        }
+        if (!swapped) break;
+      }
+      labs += '<text class="colhead col-' + c[2] + '" x="' + (sd === 'L' ? E - 4 : E + 4) + '" y="22" text-anchor="' + (sd === 'L' ? 'end' : 'start') + '">Isolated ' + c[2] + ' \u00b7 ' + (n - nBoth) + (nBoth ? ' + ' + nBoth + ' both' : '') + '</text>';
+      col.forEach(function (it) {
+        var s = it.s, cls = ' col-' + c[2] + ' ev-' + s.evidence, id = esc(s.id);
+        it.E = E;
+        var w = textW(s.name, '500 13px "IBM Plex Sans", sans-serif') + (s.in_reference_talk === false ? 14 : 0) + 30;
+        leads += '<path class="lead' + cls + '" data-src="' + id + '" d="M' + (sd === 'L' ? E - 3 : E + 3) + ',' + it.ly + 'H' + E + 'L' + it.ax.toFixed(1) + ',' + it.ay.toFixed(1) + '"/>';
+        dots += '<g class="adot' + cls + '" data-src="' + id + '" aria-hidden="true"><circle class="hit" cx="' + it.ax.toFixed(1) + '" cy="' + it.ay.toFixed(1) + '" r="10"/><circle class="dot" cx="' + it.ax.toFixed(1) + '" cy="' + it.ay.toFixed(1) + '" r="4.5"/></g>';
+        labs += '<g class="slab' + cls + '" data-src="' + id + '" tabindex="0" role="button" aria-label="' + esc(s.name + ', ' + SIG_LABEL[s.signal] + ', ' + s.evidence + ', at ' + regLabel(s.region)) + '">' +
+          '<rect class="lhit" x="' + (sd === 'L' ? E - w : E - 2) + '" y="' + (it.ly - 10.5) + '" width="' + (w + 2) + '" height="21" rx="6"/>' +
+          '<circle class="mark" cx="' + (sd === 'L' ? E - 10 : E + 10) + '" cy="' + it.ly + '" r="4.5"/>' +
+          '<text class="t" x="' + (sd === 'L' ? E - 22 : E + 22) + '" y="' + (it.ly + 4.5) + '" text-anchor="' + (sd === 'L' ? 'end' : 'start') + '">' + esc(s.name) +
+          (s.in_reference_talk === false ? '<tspan class="dagger" dx="3">†</tspan>' : '') + '</text></g>';
+      });
+    });
+    h += leads + partLabels + dots + labs;
+  } else {
+    h += partLabels;
+    items.forEach(function (it) {
+      var s = it.s;
+      h += '<g class="smk sig-' + s.signal + ' ev-' + s.evidence + '" data-src="' + esc(s.id) + '" tabindex="0" role="button" aria-label="' +
+        esc(s.n + '. ' + s.name + ', ' + SIG_LABEL[s.signal] + ', ' + s.evidence + ', at ' + regLabel(s.region)) + '" transform="translate(' + it.ax.toFixed(1) + ',' + it.ay.toFixed(1) + ')">' +
+        '<circle class="hit" r="21"/><g transform="scale(0.8)"><circle class="halo" r="16.5"/>' + srcShape(s.signal) + '<text class="num">' + s.n + '</text></g></g>';
+    });
+  }
+  $('det-scene').innerHTML = '<svg id="det-svg" viewBox="0 0 ' + Wv + ' ' + (showInset ? DET_H : 676) + '" role="img" aria-label="Schematic cross-section of a dual-phase TPC. ' +
+    (wide ? 'Sources of isolated S1 pulses are labelled on the left and sources of isolated S2 pulses on the right, each joined by a line to the place where it arises.' : 'Numbered markers show where each source of isolated S1 or S2 pulses arises.') +
+    ' The same sources are listed below the drawing.">' + h + '</svg>';
+  $('det-fig').className = 'det-fig ' + detMode;
+
+  /* legend */
+  var mk = function (ev) { return '<svg class="col-S1 ev-' + ev + '" width="14" height="14" viewBox="-7 -7 14 14" aria-hidden="true"><circle class="mark" r="4.5"/></svg>'; };
+  var lg = function (sig, ev, t) { return '<span class="legend-item">' + srcGlyph({ signal: sig, evidence: ev, n: '' }, 20) + t + '</span>'; };
+  var evd = function (ev) { return '<span class="legend-item">' + (wide ? mk(ev) : srcGlyph({ signal: 'S1', evidence: ev, n: '' }, 20)) + '<span><b>' + ev + '</b>: ' + esc(EV_NOTE[ev].replace(/\.$/, '').replace(/^./, function (ch) { return ch.toLowerCase(); })) + '</span></span>'; };
+  $('det-legend').innerHTML = (wide ? '' : '<span class="legend-k">Signal</span>' + lg('S1', 'established', 'isolated S1') + lg('S2', 'established', 'isolated S2') + lg('both', 'established', 'both')) +
+    '<span class="legend-k">Evidence</span>' + evd('established') + evd('supported') + evd('hypothesised') +
+    '<span class="legend-item"><b class="dagger">†</b> not in the overview talk\u2019s lists; added from the round-table minutes and papers</span>' +
+    (wide ? '<span class="legend-item"><svg width="26" height="10" viewBox="0 0 26 10" aria-hidden="true"><path class="lead extra col-S1 hot" d="M1,5H25"/></svg>dashed line: where else it arises, shown on hover or selection</span>'
+          : '<span class="legend-item">small hollow dot: where else the selected source arises</span>');
+
+  /* list (narrow) or table (wide) */
+  $('det-list').hidden = wide; $('det-table').hidden = !wide;
+  if (wide) renderSrcTable(vis); else renderSrcList(vis);
+  document.querySelectorAll('#det-tools .chip').forEach(function (b) { b.setAttribute('aria-pressed', String(state[b.dataset.d] === b.dataset.v)); });
+  markSources();
+}
+function srcRow(s) {
+  return '<button class="srow" data-src="' + esc(s.id) + '"' + (state.srcId === s.id ? ' aria-current="true"' : '') + '>' +
+    '<span class="g">' + srcGlyph(s, 26) + '</span>' +
+    '<span class="nm">' + esc(s.name) + (s.in_reference_talk === false ? ' <b class="dagger">†</b>' : '') + (s.drawn ? '' : ' <span class="badge p-plain">not drawn</span>') + '</span>' +
+    '<span class="evchip ev-' + esc(s.evidence) + '">' + esc(s.evidence) + '</span>' +
+    '<span class="meta">' + esc(regLabel(s.region)) + ' \u00b7 ' + esc(s.timescale || 'timescale not stated') + (s.medium !== 'both' ? ' \u00b7 ' + esc(MED_LABEL[s.medium].toLowerCase()) + ' only' : '') +
+    (s.importance ? ' \u00b7 contribution: ' + esc(s.importance) : '') + '</span></button>';
+}
+function renderSrcList(vis) {
+  var h = '';
+  [['S1', 'Isolated S1'], ['S2', 'Isolated S2']].forEach(function (g) {
+    if (state.dsig && state.dsig !== g[0]) return;
+    var rows = vis.filter(function (s) { return s.signal === g[0] || s.signal === 'both'; });
+    h += '<div class="lgroup"><h3>' + g[1] + ' <span>' + rows.length + '</span></h3>' + (rows.length ? rows.map(srcRow).join('') : '<p class="note">No source matches.</p>') + '</div>';
+  });
+  $('det-list').innerHTML = h;
+}
+var SRC_COLS = [['name', 'Source'], ['signal', 'Signal'], ['where', 'Where'], ['timescale', 'Timescale'], ['evidence', 'Evidence'], ['importance', 'Contribution'], ['setups', 'Setups']];
+var EV_RANK = { established: 0, supported: 1, hypothesised: 2 };
+var IMP_RANK = { dominant: 0, significant: 1, 'sub-dominant': 2, contested: 3, unknown: 4 };
+function renderSrcTable(vis) {
+  var key = state.dsort || 'signal', dir = state.dsortDir || 1;
+  var hasImp = SOURCES.some(function (s) { return !!s.importance; });
+  var cols = SRC_COLS.filter(function (c) { return c[0] !== 'importance' || hasImp; });
+  var val = {
+    name: function (s) { return s.name.toLowerCase(); }, signal: function (s) { return SIG_RANK[s.signal]; }, where: function (s) { return regLabel(s.region).toLowerCase(); },
+    timescale: function (s) { return (s.timescale || '\uffff').toLowerCase(); }, evidence: function (s) { return EV_RANK[s.evidence]; },
+    importance: function (s) { return s.importance in IMP_RANK ? IMP_RANK[s.importance] : 9; }, setups: function (s) { return -(s.setups || []).length; }
+  }[key];
+  var rows = vis.slice().sort(function (a, b) { var x = val(a), y = val(b); return (x < y ? -1 : x > y ? 1 : a.n - b.n) * dir; });
+  var h = '<div class="tablewrap srcwrap"><table class="srctable"><thead><tr>' + cols.map(function (c) {
+    return '<th' + (c[0] === 'setups' ? ' class="num"' : '') + ' aria-sort="' + (key === c[0] ? (dir > 0 ? 'ascending' : 'descending') : 'none') + '"><button class="thbtn" data-sort="' + c[0] + '">' + c[1] + (key === c[0] ? (dir > 0 ? ' \u2191' : ' \u2193') : '') + '</button></th>';
+  }).join('') + '</tr></thead><tbody>';
+  var last = null;
+  rows.forEach(function (s) {
+    if (key === 'signal' && s.signal !== last) { last = s.signal; h += '<tr class="grp"><td colspan="' + cols.length + '">' + esc(SIG_LABEL[s.signal]) + '</td></tr>'; }
+    h += '<tr data-src="' + esc(s.id) + '"><td><button class="mname" data-src="' + esc(s.id) + '">' + esc(s.name) + '</button>' + (s.in_reference_talk === false ? ' <b class="dagger">†</b>' : '') + (s.drawn ? '' : ' <span class="badge p-plain">not drawn</span>') +
+      '</td><td>' + esc(SIG_SHORT[s.signal]) + (s.medium !== 'both' ? '<span class="sub">' + esc(MED_LABEL[s.medium].toLowerCase()) + ' only</span>' : '') + '</td><td>' + esc(regLabel(s.region)) + '</td><td>' + esc(s.timescale || '') +
+      '</td><td><span class="evchip ev-' + esc(s.evidence) + '">' + esc(s.evidence) + '</span></td>' + (hasImp ? '<td>' + impChip(s) + '</td>' : '') + '<td class="num">' + (s.setups || []).length + '</td></tr>';
+  });
+  h += '</tbody></table></div>' + (rows.length ? '' : '<p class="note">No source matches.</p>');
+  $('det-table').innerHTML = h;
+}
+function hotSource(id) {
+  var svg = $('det-svg');
+  document.querySelectorAll('#view-detector [data-src]').forEach(function (el) { el.classList.toggle('hot', !!id && el.dataset.src === id); });
+  if (!svg) return;
+  svg.classList.toggle('focus', !!id);
+  var s = id && srcById.get(id), regs = s ? [s.region].concat(s.extra_regions || []) : [];
+  svg.querySelectorAll('.d-hi').forEach(function (r) { r.classList.toggle('on', regs.indexOf(r.dataset.reg) >= 0); });
+  var ex = '', wide = detMode === 'wide', ox = wide ? DET_OX : 0;
+  if (s) sceneItems.filter(function (it) { return it.s === s; }).forEach(function (it) {
+    (s.extra_regions || []).forEach(function (rid, k) {
+      var R = REG[rid];
+      if (!R || (R.inset && state.dmed === 'xenon')) return;
+      var p = R.inset ? [224, 700] : along(R[it.side], 0.06 + 0.05 * (k % 3));
+      var c = ' col-' + (it.side === 'L' ? 'S1' : 'S2');
+      if (wide) ex += '<path class="lead extra hot' + c + '" d="M' + it.E + ',' + it.ly + 'L' + (p[0] + ox).toFixed(1) + ',' + p[1].toFixed(1) + '"/>';
+      ex += '<circle class="xdot' + (wide ? c : ' col-' + (s.signal === 'S2' ? 'S2' : 'S1')) + '" cx="' + (p[0] + ox).toFixed(1) + '" cy="' + p[1].toFixed(1) + '" r="' + (wide ? 3.6 : 5) + '"/>';
+    });
+  });
+  var g = $('det-extra'); if (g) g.innerHTML = ex;
+}
+function markSources() {
+  document.querySelectorAll('#view-detector [data-src]').forEach(function (el) {
+    var on = el.dataset.src === state.srcId;
+    el.classList.toggle('sel', on);
+    if (el.classList.contains('srow')) { if (on) el.setAttribute('aria-current', 'true'); else el.removeAttribute('aria-current'); }
+  });
+  hotSource(state.srcId);
+}
+function setDetMode() {
+  var w = $('stage').clientWidth;
+  if (!w || !SOURCES) return;
+  /* the labelled scene needs about 1000 px; beside an open panel on a smaller window the numbered variant is used, so nothing is cut */
+  var avail = w - ((!$('panel').hidden && !narrow()) ? $('panel').offsetWidth + 24 : 0);
+  var m = avail >= 1000 ? 'wide' : 'narrow';
+  if (m !== detMode) { detMode = m; if ($('det-scene')) renderScene(); }
+}
+function impChip(s) {
+  if (!s.importance) return '';
+  return '<span class="impchip imp-' + esc(s.importance) + '"' + (s.importance_note ? ' title="' + esc(s.importance_note) + '"' : '') + '>contribution: ' + esc(s.importance) + '</span>';
+}
+function renderDetector() {
+  var rt = TPC.reference_talk || {}, h = '';
+  var nAdd = SOURCES.filter(function (s) { return s.in_reference_talk === false; }).length;
+  var n1 = SOURCES.filter(function (s) { return s.signal === 'S1'; }).length, n2 = SOURCES.filter(function (s) { return s.signal === 'S2'; }).length, nb = SOURCES.length - n1 - n2;
+  h += '<div class="det-head"><div class="det-title"><h2>Where isolated S1s and S2s arise in a dual-phase TPC</h2>' +
+    '<p>' + SOURCES.length + ' sources: ' + n1 + ' isolated S1, ' + n2 + ' isolated S2' + (nb ? ', ' + nb + ' both' : '') + '. Select one for its mechanism, evidence and the setups that study it.</p></div>';
+  var chip = function (d, v, t) { return '<button class="chip" id="d-' + d + '-' + v + '" data-d="' + d + '" data-v="' + v + '" aria-pressed="false">' + t + '</button>'; };
+  h += '<div class="det-tools" id="det-tools"><div class="fgroup" role="group" aria-label="Show sources of"><span class="flabel">Show only</span>' +
+    chip('dsig', 'S1', 'S1 sources') + chip('dsig', 'S2', 'S2 sources') + '</div>' +
+    '<div class="fgroup" role="group" aria-label="Medium"><span class="flabel">Medium</span>' + chip('dmed', 'xenon', 'Xenon') + chip('dmed', 'argon', 'Argon') + '</div></div></div>';
+  if (TPC.provisional) h += '<p class="provisional"><b>Provisional content.</b> The researched source list is not in this version yet. This placeholder has one entry per mechanism tag A–I, without numbers or references.</p>';
+  h += '<figure class="det-fig" id="det-fig"><div class="scene-wrap" id="det-scene" tabindex="-1"></div>' +
+    '<div class="det-legend" id="det-legend"></div>' +
+    '<figcaption>Schematic, redrawn and not to scale: the top of the detector is stretched and the drift region compressed. The faint lines show one ordinary event for orientation: S1 light reaching both arrays, electrons drifting up, S2 light in the gas gap. Every source listed produces a pulse without its partner.</figcaption></figure>';
+  h += '<div id="det-table" hidden></div><div id="det-list" class="det-list" hidden></div>';
+  h += '<div class="sec"><h2>How lone pulses become events</h2>' +
+    '<p class="formula">R<sub>AC</sub> = R<sub>iso-S1</sub> × R<sub>iso-S2</sub> × Δt<sub>drift</sub></p>' +
+    '<p>' + esc(TPC.pairing || 'An isolated S1 and an isolated S2 that happen to fall within one maximum drift time are paired by the event builder and pass as a single low-energy event.') + '</p>' +
+    '<p>No per-source rate estimates are published; the numbers given are total isolated-pulse rates, time constants and cut efficiencies.</p>';
+  var pr = (TPC.pairing_references || []);
+  if (pr.length) h += '<details><summary>Sources for these rates (' + pr.length + ')</summary><div class="dbody"><ul class="refs">' + pr.map(refHtml).join('') + '</ul></div></details>';
+  if (rt.found) {
+    var u = safeUrl(rt.url) || safeUrl(rt.slides_url);
+    var who = 'the overview by ' + esc((rt.speaker || '').replace(/^(\S)\S*\s+(?=\S)/, '$1. ') || 'the speaker') + (rt.event ? ' (' + esc(rt.event) + ')' : '');
+    var rtb = (rt.other_talks_used || []).filter(function (t) { return /round/i.test(t.title || ''); })[0];
+    var rtxt = 'the sketch from the ' + esc(rt.event || 'workshop') + ' round table on accidental coincidences';
+    h += '<p class="note">After ' + (u ? link(u, who) : who) + ' and ' + (rtb && safeUrl(rtb.url) ? link(rtb.url, rtxt) : rtxt) + '. Schematic, redrawn.' +
+      ' The source lists follow that talk (' + (SOURCES.length - nAdd) + ' of ' + SOURCES.length + '); the other ' + nAdd + ' are additions from the round-table minutes and papers, marked <b class="dagger">†</b>.</p>';
+    var ot = (rt.other_talks_used || []).filter(function (t) { return t && t.title && t !== rtb; });
+    if (ot.length) h += '<p class="note">Also used: ' + ot.map(function (t) {
+      var tt = esc(t.title) + (t.speaker ? ' (' + esc(t.speaker) + ')' : '');
+      return safeUrl(t.url) ? link(t.url, tt) : tt;
+    }).join('; ') + '.</p>';
+  } else {
+    h += '<p class="note">The drawing is schematic.</p>';
+  }
+  h += '</div>';
+  $('det-inner').innerHTML = h;
+  detMode = null;
+  setDetMode();
+  window.addEventListener('resize', setDetMode);
+  var inner = $('det-inner');
+  inner.addEventListener('click', function (ev) {
+    var c = ev.target.closest('#det-tools .chip');
+    if (c) { state[c.dataset.d] = state[c.dataset.d] === c.dataset.v ? null : c.dataset.v; renderScene(); return; }
+    var th = ev.target.closest('[data-sort]');
+    if (th) {
+      if (state.dsort === th.dataset.sort || (!state.dsort && th.dataset.sort === 'signal')) state.dsortDir = -(state.dsortDir || 1); else { state.dsort = th.dataset.sort; state.dsortDir = 1; }
+      renderSrcTable(SOURCES.filter(srcVisible)); markSources();
+      var nbt = inner.querySelector('[data-sort="' + (state.dsort || 'signal') + '"]'); if (nbt) nbt.focus();
+      return;
+    }
+    var el = ev.target.closest('[data-src]');
+    if (el) { lastFocus = el.matches('button') ? el : null; selectSource(el.dataset.src); }
+  });
+  inner.addEventListener('keydown', function (ev) {
+    var el = ev.target.closest && ev.target.closest('svg [data-src]');
+    if (el && (ev.key === 'Enter' || ev.key === ' ')) { ev.preventDefault(); lastFocus = null; selectSource(el.dataset.src); }
+  });
+  inner.addEventListener('pointerover', function (ev) { var el = ev.target.closest('[data-src]'); if (el) hotSource(el.dataset.src); });
+  inner.addEventListener('pointerout', function (ev) { if (ev.target.closest('[data-src]')) hotSource(state.srcId); });
+  inner.addEventListener('focusin', function (ev) { var el = ev.target.closest('[data-src]'); if (el) hotSource(el.dataset.src); });
+  inner.addEventListener('focusout', function () { hotSource(state.srcId); });
+}
+function renderSource(s) {
+  var h = '', f = '';
+  var chips = '<span class="pill">' + srcGlyph(s, 18) + esc(SIG_LABEL[s.signal]) + '</span><span class="pill">' + esc(MED_LABEL[s.medium] || s.medium) + '</span>' +
+    '<span class="evchip ev-' + esc(s.evidence) + '" title="' + esc(EV_NOTE[s.evidence] || '') + '">' + esc(s.evidence) + '</span>' + impChip(s);
+  h += panelHead(s.name, chips) + '<div class="panel-body">';
+  var fact = function (k, v) { if (v) f += '<dt>' + k + '</dt><dd>' + v + '</dd>'; };
+  var where = esc(regLabel(s.region));
+  var ex = (s.extra_regions || []).map(regLabel);
+  if (ex.length) where += '<span class="sub">also: ' + esc(ex.join('; ')) + '</span>';
+  if (!s.drawn) where += '<span class="sub noloc">This region is not drawn in the diagram.</span>';
+  fact('Where', where);
+  fact('Signal', esc(SIG_LABEL[s.signal]));
+  fact('Medium', esc(MED_LABEL[s.medium] || s.medium));
+  fact('Timescale', esc(s.timescale));
+  fact('Correlated with', esc(s.correlated_with));
+  fact('Evidence', esc(s.evidence) + '<span class="sub">' + esc(EV_NOTE[s.evidence] || '') + '</span>' + (s.evidence_note ? '<span class="sub">' + esc(s.evidence_note) + '</span>' : ''));
+  if (s.importance) fact('Contribution', esc(s.importance) + (s.importance_note ? '<span class="sub">' + esc(s.importance_note) + '</span>' : ''));
+  h += '<dl class="facts">' + f + '</dl>';
+  if (TPC.provisional) h += '<p class="provisional">Provisional entry derived from the mechanism tag only.</p>';
+  if (s.mechanism) h += '<section><h3>Mechanism</h3><p>' + esc(s.mechanism) + '</p>' + (s.chain ? '<p class="chain">' + esc(s.chain) + '</p>' : '') + '</section>';
+  else if (s.chain) h += '<section><h3>Chain</h3><p class="chain">' + esc(s.chain) + '</p></section>';
+  if (s.key_numbers && s.key_numbers.length) {
+    h += '<section><h3>Key numbers</h3><ul class="meas">' + s.key_numbers.map(function (k) {
+      var rl = refLink(s.references, k.ref);
+      return '<li><span class="res">' + esc(k.text) + '</span>' + (rl ? '<span class="mm">' + rl + '</span>' : '') + '</li>';
+    }).join('') + '</ul></section>';
+  }
+  if (s.mitigation) h += '<section><h3>Mitigation</h3><p>' + esc(s.mitigation) + '</p></section>';
+  if (s.tags && s.tags.length) {
+    h += '<section><h3>Mechanism tags</h3><div class="tagrow">' + s.tags.map(function (t) {
+      var tg = tagById.get(t) || { name: '', desc: '' };
+      return '<button class="tagbtn" data-tag="' + esc(t) + '" aria-expanded="false" title="' + esc(tg.name + (tg.desc ? ': ' + tg.desc : '')) + '"><b>' + esc(t) + '</b>' + esc(tg.name) + '</button>';
+    }).join('') + '</div><div class="tagexp" id="tagexp" hidden></div></section>';
+  }
+  var su = (s.setups || []).map(function (id) { return byId.get(id); }).filter(Boolean);
+  h += '<section><h3>Setups studying this (' + su.length + ')</h3>';
+  if (su.length) h += '<div class="sitelist">' + su.map(rowHtml).join('') + '</div><div style="margin-top:8px"><button class="btn" id="src-onmap" data-onmap="' + esc(s.id) + '">Show these on the map</button></div>';
+  else h += '<p class="note">No setup on this map is recorded as studying it.</p>';
+  if (s.past_setups && s.past_setups.length) h += '<h3 style="margin-top:12px">Past experiments (not on the map)</h3><p>' + esc(s.past_setups.join('; ')) + '</p><p class="note">Their papers are in the references below.</p>';
+  h += '</section>';
+  h += refsSection(s.references);
+  if ((TPC.reference_talk || {}).found && s.in_reference_talk === false) h += '<p class="note"><b class="dagger">†</b> Not in the overview talk’s lists; added from the round-table minutes and papers.</p>';
+  h += copyRow('src-' + s.id) + '</div>';
+  return h;
+}
+function revealLabel() {
+  var w = $('det-scene'), l = document.querySelector('#det-svg .slab.sel');
+  if (!w || !l) return;
+  var a = w.getBoundingClientRect(), b = l.getBoundingClientRect();
+  if (b.right > a.right - 8) w.scrollLeft += b.right - a.right + 16;
+  else if (b.left < a.left + 8) w.scrollLeft -= a.left - b.left + 16;
+}
+function selectSource(id, opt) {
+  opt = opt || {};
+  var s = srcById.get(id);
+  if (!s) return;
+  if (!opt.fromHash && !lastFocus) lastFocus = document.activeElement;
+  state.srcId = id; state.selId = null; state.site = null;
+  if (state.view !== 'detector') setView2('detector');
+  showPanel(renderSource(s));
+  pushHash();
+  markRows(); markSources(); revealLabel();
+  if (!opt.fromHash) { var t = $('panel-title'); if (t) t.focus({ preventScroll: true }); }
+}
+function showOnMap(id) {
+  var s = srcById.get(id);
+  if (!s) return;
+  var saved = state.saved || snapshotFilters();
+  clearFilters();
+  state.saved = saved;
+  state.only = new Set(s.setups || []); state.onlyLabel = s.name;
+  lastFocus = null;
+  hidePanel();
+  setView2('map');
+  applyFilters();
+  if (zoom && sw) resetView(false);
+}
+
+/* ================= legend, views, keys ================= */
+function buildLegend() {
+  var open = !narrow();
+  try { var v = localStorage.getItem('acmap-legend'); if (v === '0') open = false; if (v === '1') open = true; } catch (e) { /* storage unavailable */ }
+  var item = function (svg, text) { return '<span class="legend-item">' + svg + esc(text) + '</span>'; };
+  var cluster = '<svg width="20" height="20" viewBox="-10 -10 20 20" aria-hidden="true"><path class="c-xenon" d="M0,-9A9,9 0 1 1 -7.8,4.5L0,0Z"/><path class="c-argon" d="M-7.8,4.5A9,9 0 0 1 0,-9L0,0Z"/><text class="n" style="font:700 10px var(--font);fill:var(--ink);text-anchor:middle;dominant-baseline:central">3</text></svg>';
+  $('legend').innerHTML = '<div class="legend-head"><button id="legend-toggle" aria-expanded="' + open + '" aria-controls="legend-body">Legend <span class="car">' + (open ? 'hide' : 'show') + '</span></button></div>' +
+    '<div class="legend-body" id="legend-body"' + (open ? '' : ' hidden') + '>' +
+    '<div class="legend-row"><span class="legend-k">Target (colour and inner mark)</span>' + TARGETS.map(function (t) { return item(glyph(t[0], 'lab', 14), t[1]); }).join('') + '</div>' +
+    '<div class="legend-row"><span class="legend-k">Type (shape)</span>' + item(glyph('xenon', 'lab', 14), 'R&D setup') + item(glyph('xenon', 'in-situ', 14), 'Experiment') + '</div>' +
+    '<div class="legend-row">' + item(cluster, 'Several setups at one site, split by target') + '</div>' +
+    '<div class="legend-row">' + item('<span class="swatch-land"></span>', 'Country of the hovered or selected site') + '</div></div>';
+  $('legend-toggle').addEventListener('click', function () {
+    var b = $('legend-body'); b.hidden = !b.hidden;
+    this.setAttribute('aria-expanded', String(!b.hidden));
+    this.querySelector('.car').textContent = b.hidden ? 'show' : 'hide';
+    try { localStorage.setItem('acmap-legend', b.hidden ? '0' : '1'); } catch (e) { /* storage unavailable */ }
+  });
+}
+function setView2(v) {
+  if (VIEWS.indexOf(v) < 0) v = 'map';
+  state.view = v;
+  VIEWS.forEach(function (n) {
+    $('view-' + n).hidden = n !== v;
+    $('tab-' + n).setAttribute('aria-selected', String(n === v));
+    $('tab-' + n).setAttribute('tabindex', n === v ? '0' : '-1');
+  });
+  var bar = document.querySelector('.bar');
+  bar.classList.toggle('plain', v === 'detector' || v === 'about');
+  bar.classList.toggle('on-map', v === 'map');
+  if (v === 'detector' || v === 'about') { $('filters').classList.remove('open'); $('filters-toggle').setAttribute('aria-expanded', 'false'); }
+  if ((state.site && v !== 'map') || (state.srcId && v !== 'detector') || (state.selId && v !== 'map' && v !== 'list')) hidePanel();
+  updateExtent();
+  if (v === 'detector') setDetMode();
+  if (v === 'map') { requestAnimationFrame(function () { resizeMap(); schedule(); var s = byId.get(state.selId); if (s) ensureVisible(s); }); }
+  pushHash();
+}
+document.querySelectorAll('.tab').forEach(function (b) { b.addEventListener('click', function () { hidePanel(); setView2(b.dataset.view); }); });
+document.querySelector('.tabs').addEventListener('keydown', function (ev) {
+  var i = VIEWS.indexOf(state.view), n = null;
+  if (ev.key === 'ArrowRight') n = (i + 1) % VIEWS.length;
+  else if (ev.key === 'ArrowLeft') n = (i + VIEWS.length - 1) % VIEWS.length;
+  else if (ev.key === 'Home') n = 0;
+  else if (ev.key === 'End') n = VIEWS.length - 1;
+  if (n == null) return;
+  ev.preventDefault();
+  setView2(VIEWS[n]);
+  $('tab-' + VIEWS[n]).focus();
+});
+document.addEventListener('keydown', function (ev) {
+  if (ev.key !== 'Escape') return;
+  if (!$('tip').hidden) hideTip();
+  if (closeMechMenu()) { $('f-mech-btn').focus(); return; }
+  if (!$('panel').hidden) { closePanel(); return; }
+  if ($('filters').classList.contains('open')) { $('filters').classList.remove('open'); $('filters-toggle').setAttribute('aria-expanded', 'false'); $('filters-toggle').focus(); }
+});
+$('map-svg').addEventListener('click', hideTip);
+$('skip').addEventListener('click', function (ev) {
+  ev.preventDefault();
+  setView2('map');
+  try { $('map-svg').focus(); } catch (e) { /* ignore */ }
+});
+$('map-empty-clear').addEventListener('click', function () { clearFilters(); applyFilters(); });
+
+/* first-visit hint, remembered per browser */
+(function () {
+  var seen = false;
+  try { seen = localStorage.getItem('acmap-hint') === '1'; } catch (e) { seen = false; }
+  var hint = $('hint');
+  if (!seen) hint.hidden = false;
+  var done = function () { hint.hidden = true; try { localStorage.setItem('acmap-hint', '1'); } catch (e) { /* storage unavailable */ } };
+  $('hint-ok').addEventListener('click', done);
+  $('hint-det').addEventListener('click', function () { done(); setView2('detector'); });
+})();
+
+/* ================= start ================= */
+document.querySelectorAll('.build-date').forEach(function (el) { el.textContent = DATA.build_date || ''; });
+buildFilters();
+buildLegend();
+var nUnplaced = SETUPS.filter(function (s) { return !s.placed; }).length;
+if (nUnplaced) {
+  $('map-note').hidden = false;
+  $('map-note').textContent = nUnplaced + ' of ' + SETUPS.length + ' setups have no location yet. See the list.';
+  $('map-note').addEventListener('click', function () { setView2('list'); });
+}
+initMap();
+applyFilters();
+renderAbout();
+renderDetector();
+document.querySelector('.bar').classList.add('on-map');
+window.addEventListener('hashchange', readHash);
+readHash();
+})();
+</script>
+</body>
+</html>

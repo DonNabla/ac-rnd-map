@@ -91,10 +91,13 @@ h1, h2, h3 { text-wrap: balance; color: var(--text); }
 .brand { display: flex; flex-direction: column; min-width: 0; margin-right: auto; }
 .brand-kicker { font-size: 12px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--accent); }
 .brand h1 { font-size: 16px; font-weight: 700; line-height: 1.2; }
-.tabs { display: flex; border: 1px solid var(--line); border-radius: 999px; padding: 2px; gap: 2px; }
-.tab { border: 0; background: none; padding: 4px 13px; border-radius: 999px; font-weight: 500; color: var(--text-muted); }
+.tabs { display: flex; border: 1px solid var(--line); border-radius: 14px; padding: 3px; gap: 3px; }
+.tab { border: 1px solid transparent; background: none; padding: 6px 18px; border-radius: 11px; color: var(--text-muted); display: flex; flex-direction: column; align-items: center; gap: 1px; line-height: 1.2; min-height: 44px; justify-content: center; }
+.tab .tab-t { font-size: 15.5px; font-weight: 600; color: var(--text); }
+.tab .tab-s { font-size: 12px; font-weight: 400; white-space: nowrap; }
 .tab:hover { background: var(--hover); color: var(--text); }
-.tab[aria-selected="true"] { background: var(--chip-on); color: var(--accent-pale); }
+.tab[aria-selected="true"] { background: var(--chip-on); border-color: var(--accent); color: var(--accent-pale); }
+.tab[aria-selected="true"] .tab-t { color: var(--accent); }
 .search { flex: 0 1 260px; min-width: 150px; }
 .search input {
   width: 100%; background: var(--ink); border: 1px solid var(--line); border-radius: 999px;
@@ -353,6 +356,7 @@ details > .dbody { padding: 4px 14px 14px; display: grid; gap: 10px; min-width: 
 .det-fig svg { display: block; width: 100%; height: auto; }
 .det-fig.wide svg { min-width: 960px; max-width: 1240px; }
 .det-fig.narrow svg { max-width: 560px; margin: 0 auto; }
+.det-fig .det-legend svg { display: inline-block; flex: none; width: auto; height: auto; min-width: 0; max-width: none; margin: 0; vertical-align: middle; }
 .det-fig figcaption { font-size: 12.5px; color: var(--text-muted); max-width: 76ch; }
 #view-detector .view-inner { max-width: 1280px; }
 .stage.panel-open #view-detector .view-inner { max-width: calc(100% - var(--panel-w) - 12px); }
@@ -593,7 +597,9 @@ details > .dbody { padding: 4px 14px 14px; display: grid; gap: 10px; min-width: 
   .stage.panel-open #view-detector .view-inner { max-width: 1080px; }
   .d-lab { font-size: 12.5px; }
   .d-reft { font-size: 12px; }
-  .tab { padding: 4px 9px; }
+  .tab { padding: 5px 11px; min-height: 40px; }
+  .tab .tab-s { display: none; }
+  .tab .tab-t { font-size: 14.5px; }
   .formula { font-size: 16px; padding: 8px 12px; }
 }
 </style>
@@ -608,10 +614,10 @@ details > .dbody { padding: 4px 14px 14px; display: grid; gap: 10px; min-width: 
         <h1>Isolated S1/S2 R&amp;D map</h1>
       </div>
       <div class="tabs" role="tablist" aria-label="View">
-        <button class="tab" role="tab" id="tab-map" data-view="map" aria-selected="true" aria-controls="view-map" tabindex="0">Map</button>
-        <button class="tab" role="tab" id="tab-list" data-view="list" aria-selected="false" aria-controls="view-list" tabindex="-1">List</button>
-        <button class="tab" role="tab" id="tab-detector" data-view="detector" aria-selected="false" aria-controls="view-detector" tabindex="-1">Detector</button>
-        <button class="tab" role="tab" id="tab-about" data-view="about" aria-selected="false" aria-controls="view-about" tabindex="-1">About</button>
+        <button class="tab" role="tab" id="tab-map" data-view="map" aria-selected="true" aria-controls="view-map" tabindex="0"><span class="tab-t">Map</span><span class="tab-s">Sites worldwide</span></button>
+        <button class="tab" role="tab" id="tab-list" data-view="list" aria-selected="false" aria-controls="view-list" tabindex="-1"><span class="tab-t">List</span><span class="tab-s">All setups</span></button>
+        <button class="tab" role="tab" id="tab-detector" data-view="detector" aria-selected="false" aria-controls="view-detector" tabindex="-1"><span class="tab-t">Detector</span><span class="tab-s">Signal sources</span></button>
+        <button class="tab" role="tab" id="tab-about" data-view="about" aria-selected="false" aria-controls="view-about" tabindex="-1"><span class="tab-t">About</span><span class="tab-s">Scope and method</span></button>
       </div>
       <div class="search">
         <input id="q" type="search" placeholder="Search setups, people, places, physics" aria-label="Search setups" autocomplete="off" spellcheck="false">

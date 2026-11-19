@@ -15,7 +15,7 @@ Corrections and missing setups are welcome: open an issue or a pull request.
 | Path | What it is |
 |---|---|
 | `data/setups.json` | The setups and experiments shown on the map and in the list |
-| `data/sources.json` | The detector view: candidate sources of isolated S1/S2, the regions of the drawing, the pairing text, references, and the credit for the overview talk |
+| `data/sources.json` | The detector view: candidate sources of isolated S1/S2, the categories that group them, the regions of the drawing, the pairing text, references, and the credit for the overview talk |
 | `data/meta.json` | The mechanism key A–I, the list of other known setups not yet documented, the names of past detectors left out |
 | `src/template.html` | The whole page (markup, styles, script) with two placeholders for the data and the map geometry |
 | `vendor/countries-50m.json` | World geometry (world-atlas 2.0.2, from Natural Earth); see `vendor/README.md` |
@@ -88,6 +88,8 @@ Fields of one setup:
 | `references` | no | List of `{title, authors, year, venue, url, type, verified}`; `type` is `paper`, `arXiv`, `thesis`, `talk`, `poster` or `web`; `url` may be `null`; `verified` is `true` when the link was opened and resolved to the stated work |
 
 A source in `data/sources.json` has `id`, `name`, `signal` (`S1`, `S2`, `both`), `medium` (`xenon`, `argon`, `both`), `region` and `extra_regions` (ids from the `regions` list), `evidence` (`established`, `supported`, `hypothesised`), optional `importance`, the text fields `mechanism`, `chain`, `timescale`, `correlated_with`, `mitigation`, `key_numbers` (`{text, ref}`), `setups` (ids from `data/setups.json`), `past_setups` (plain names) and `references`.
+
+The `categories` list in the same file groups the sources for the figure: each has `id`, `signal` (`S1` or `S2`), `name`, `summary` and `sources` (source ids). Every source lists its category ids in `categories`, and the two must agree; the build checks this.
 
 ## Credits
 

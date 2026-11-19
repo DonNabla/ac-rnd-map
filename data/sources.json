@@ -174,6 +174,135 @@
    "label": "Electronegative impurities dissolved in the bulk liquid"
   }
  ],
+ "categories": [
+  {
+   "id": "s1-lost-charge",
+   "signal": "S1",
+   "name": "Real events with lost charge",
+   "summary": "An energy deposit gives light, but its electrons never reach the gas: charge-insensitive regions, attachment, or light leaking in from outside.",
+   "sources": [
+    "below-cathode-events",
+    "wall-charge-insensitive-volume",
+    "outer-volume-light-leak",
+    "gas-phase-s1",
+    "s2-lost-to-attachment",
+    "wall-surface-decays"
+   ]
+  },
+  {
+   "id": "s1-delayed-light",
+   "signal": "S1",
+   "name": "Delayed light from materials",
+   "summary": "Photons emitted long after a large signal by windows, walls or residues, piling up into S1-like pulses.",
+   "sources": [
+    "delayed-photon-pileup",
+    "quartz-window-fluorescence",
+    "ptfe-photoluminescence",
+    "contaminant-photoluminescence"
+   ]
+  },
+  {
+   "id": "s1-sensors",
+   "signal": "S1",
+   "name": "Photosensor noise",
+   "summary": "Dark counts, afterpulses and light emitted by the sensors themselves.",
+   "sources": [
+    "pmt-dark-count-pileup",
+    "pmt-light-emission-afterpulses"
+   ]
+  },
+  {
+   "id": "s1-cherenkov",
+   "signal": "S1",
+   "name": "Cherenkov light",
+   "summary": "Prompt light from charged particles in sensor windows or PTFE, with no charge signal.",
+   "sources": [
+    "cherenkov-pmt-window",
+    "cherenkov-ptfe"
+   ]
+  },
+  {
+   "id": "s1-misidentified",
+   "signal": "S1",
+   "name": "Misidentified pulses",
+   "summary": "Small charge or discharge signals that the reconstruction classifies as an S1.",
+   "sources": [
+    "single-electron-misclassified-s1",
+    "stingers",
+    "electrode-micro-discharges"
+   ]
+  },
+  {
+   "id": "s1-argon",
+   "signal": "S1",
+   "name": "Argon walls and wavelength shifter",
+   "summary": "Specific to argon detectors: alphas in the reflector and TPB layers, delayed TPB light, dust and ³⁹Ar.",
+   "sources": [
+    "esr-alpha-scintillation",
+    "tpb-alpha-scintillation",
+    "tpb-delayed-emission",
+    "dust-degraded-alphas",
+    "argon-39-pileup"
+   ]
+  },
+  {
+   "id": "s2-delayed-electrons",
+   "signal": "S2",
+   "name": "Delayed electrons after large S2s",
+   "summary": "Electrons from an earlier event that reach the gas late: trapped at the surface, held by impurities, or stuck on walls.",
+   "sources": [
+    "delayed-electrons-impurity-release",
+    "surface-trapped-electrons",
+    "argon-spurious-electrons",
+    "argon-gas-trapped-electrons",
+    "ptfe-charge-release"
+   ]
+  },
+  {
+   "id": "s2-photo",
+   "signal": "S2",
+   "name": "Electrons released by light",
+   "summary": "S1 or S2 photons free electrons from impurities in the liquid or from the metal of the electrodes.",
+   "sources": [
+    "photoionisation-impurities",
+    "photoelectric-gate",
+    "photoelectric-cathode",
+    "argon-euv-metastables"
+   ]
+  },
+  {
+   "id": "s2-electrodes",
+   "signal": "S2",
+   "name": "Electrode emission and radioactivity",
+   "summary": "Electrons emitted by the grids themselves, or decays on their wires.",
+   "sources": [
+    "gate-hot-spot-emission",
+    "cathode-electron-emission",
+    "grid-radioactivity"
+   ]
+  },
+  {
+   "id": "s2-missing-s1",
+   "signal": "S2",
+   "name": "Real events with missing S1",
+   "summary": "An energy deposit gives charge, but its S1 is too small, merged with the S2, or absent.",
+   "sources": [
+    "gas-phase-s2",
+    "above-gate-events",
+    "sub-threshold-s1-events"
+   ]
+  },
+  {
+   "id": "s2-pileup",
+   "signal": "S2",
+   "name": "Pile-up",
+   "summary": "Unrelated small signals overlapping in time into one S2-like pulse.",
+   "sources": [
+    "single-electron-pileup",
+    "argon-39-pileup"
+   ]
+  }
+ ],
  "sources": [
   {
    "id": "below-cathode-events",
@@ -256,7 +385,10 @@
    ],
    "in_reference_talk": true,
    "importance": "unknown",
-   "importance_note": "No published estimate of its share."
+   "importance_note": "No published estimate of its share.",
+   "categories": [
+    "s1-lost-charge"
+   ]
   },
   {
    "id": "wall-charge-insensitive-volume",
@@ -342,7 +474,10 @@
    ],
    "in_reference_talk": true,
    "importance": "unknown",
-   "importance_note": "Its share of the isolated-S1 rate is still being measured (LIDINE 2026 round table); rated a high risk for DarkSide-20k in the LIDINE 2026 overview talk."
+   "importance_note": "Its share of the isolated-S1 rate is still being measured (LIDINE 2026 round table); rated a high risk for DarkSide-20k in the LIDINE 2026 overview talk.",
+   "categories": [
+    "s1-lost-charge"
+   ]
   },
   {
    "id": "outer-volume-light-leak",
@@ -421,7 +556,10 @@
    ],
    "in_reference_talk": true,
    "importance": "significant",
-   "importance_note": "Called 'a prominent one' for argon at the LIDINE 2026 round table and rated a middle risk for DarkSide-20k; no published rate, and no estimate for xenon detectors."
+   "importance_note": "Called 'a prominent one' for argon at the LIDINE 2026 round table and rated a middle risk for DarkSide-20k; no published rate, and no estimate for xenon detectors.",
+   "categories": [
+    "s1-lost-charge"
+   ]
   },
   {
    "id": "gas-phase-s1",
@@ -486,7 +624,10 @@
    ],
    "in_reference_talk": true,
    "importance": "unknown",
-   "importance_note": "No published rate; rated a low risk for DarkSide-20k because pulse-shape discrimination removes it."
+   "importance_note": "No published rate; rated a low risk for DarkSide-20k because pulse-shape discrimination removes it.",
+   "categories": [
+    "s1-lost-charge"
+   ]
   },
   {
    "id": "pmt-dark-count-pileup",
@@ -594,7 +735,10 @@
    ],
    "in_reference_talk": true,
    "importance": "sub-dominant",
-   "importance_note": "Judged a small contribution in today's detectors at the LIDINE 2026 round table, although PandaX-II found PMT dark noise to be the dominant non-physical origin of its isolated S1s."
+   "importance_note": "Judged a small contribution in today's detectors at the LIDINE 2026 round table, although PandaX-II found PMT dark noise to be the dominant non-physical origin of its isolated S1s.",
+   "categories": [
+    "s1-sensors"
+   ]
   },
   {
    "id": "pmt-light-emission-afterpulses",
@@ -662,7 +806,10 @@
    ],
    "in_reference_talk": false,
    "importance": "significant",
-   "importance_note": "Reported by XENON as a significant accidental-coincidence source in XENON1T; PMTs are now screened for it, and no share is published for current detectors."
+   "importance_note": "Reported by XENON as a significant accidental-coincidence source in XENON1T; PMTs are now screened for it, and no share is published for current detectors.",
+   "categories": [
+    "s1-sensors"
+   ]
   },
   {
    "id": "cherenkov-pmt-window",
@@ -731,7 +878,10 @@
    ],
    "in_reference_talk": true,
    "importance": "unknown",
-   "importance_note": "No published rate; rated a low risk for DarkSide-20k."
+   "importance_note": "No published rate; rated a low risk for DarkSide-20k.",
+   "categories": [
+    "s1-cherenkov"
+   ]
   },
   {
    "id": "cherenkov-ptfe",
@@ -785,7 +935,10 @@
    ],
    "in_reference_talk": true,
    "importance": "unknown",
-   "importance_note": "No published estimate of its share."
+   "importance_note": "No published estimate of its share.",
+   "categories": [
+    "s1-cherenkov"
+   ]
   },
   {
    "id": "quartz-window-fluorescence",
@@ -862,7 +1015,10 @@
    ],
    "in_reference_talk": false,
    "importance": "significant",
-   "importance_note": "Dominant delayed-photon component below 5 ms in the LBNL bench cell; XENONnT lone-hit data indicate it is not the only source at later times, and no share is published for a running detector."
+   "importance_note": "Dominant delayed-photon component below 5 ms in the LBNL bench cell; XENONnT lone-hit data indicate it is not the only source at later times, and no share is published for a running detector.",
+   "categories": [
+    "s1-delayed-light"
+   ]
   },
   {
    "id": "ptfe-photoluminescence",
@@ -947,7 +1103,10 @@
    ],
    "in_reference_talk": true,
    "importance": "contested",
-   "importance_note": "Working hypothesis of the LZ isolated-S1 study, but bench results from LBNL and TUM disfavour it."
+   "importance_note": "Working hypothesis of the LZ isolated-S1 study, but bench results from LBNL and TUM disfavour it.",
+   "categories": [
+    "s1-delayed-light"
+   ]
   },
   {
    "id": "contaminant-photoluminescence",
@@ -1003,7 +1162,10 @@
    ],
    "in_reference_talk": false,
    "importance": "unknown",
-   "importance_note": "Photoluminescence of the flux residues is measured on the bench; a contribution to isolated S1s in a detector is not yet shown."
+   "importance_note": "Photoluminescence of the flux residues is measured on the bench; a contribution to isolated S1s in a detector is not yet shown.",
+   "categories": [
+    "s1-delayed-light"
+   ]
   },
   {
    "id": "delayed-photon-pileup",
@@ -1119,7 +1281,10 @@
    ],
    "in_reference_talk": true,
    "importance": "dominant",
-   "importance_note": "XENONnT names delayed signals after high-energy interactions as the primary source of isolated S1s in its ⁸B search, and in LZ about 48% of 3-fold isolated S1s are non-VUV single-photon pile-up."
+   "importance_note": "XENONnT names delayed signals after high-energy interactions as the primary source of isolated S1s in its ⁸B search, and in LZ about 48% of 3-fold isolated S1s are non-VUV single-photon pile-up.",
+   "categories": [
+    "s1-delayed-light"
+   ]
   },
   {
    "id": "single-electron-misclassified-s1",
@@ -1185,7 +1350,10 @@
    ],
    "in_reference_talk": false,
    "importance": "unknown",
-   "importance_note": "The fraction of isolated S1s that are misclassified single electrons is not published."
+   "importance_note": "The fraction of isolated S1s that are misclassified single electrons is not published.",
+   "categories": [
+    "s1-misidentified"
+   ]
   },
   {
    "id": "stingers",
@@ -1223,7 +1391,10 @@
    ],
    "in_reference_talk": false,
    "importance": "unknown",
-   "importance_note": "No published estimate of its share."
+   "importance_note": "No published estimate of its share.",
+   "categories": [
+    "s1-misidentified"
+   ]
   },
   {
    "id": "electrode-micro-discharges",
@@ -1264,7 +1435,10 @@
    ],
    "in_reference_talk": false,
    "importance": "unknown",
-   "importance_note": "No measurement; listed by PandaX-II as a possible origin."
+   "importance_note": "No measurement; listed by PandaX-II as a possible origin.",
+   "categories": [
+    "s1-misidentified"
+   ]
   },
   {
    "id": "s2-lost-to-attachment",
@@ -1303,7 +1477,10 @@
    ],
    "in_reference_talk": false,
    "importance": "unknown",
-   "importance_note": "No published estimate of its share."
+   "importance_note": "No published estimate of its share.",
+   "categories": [
+    "s1-lost-charge"
+   ]
   },
   {
    "id": "wall-surface-decays",
@@ -1356,7 +1533,10 @@
    ],
    "in_reference_talk": false,
    "importance": "unknown",
-   "importance_note": "The S1-only contribution has not been measured separately from the wall charge-insensitive volume."
+   "importance_note": "The S1-only contribution has not been measured separately from the wall charge-insensitive volume.",
+   "categories": [
+    "s1-lost-charge"
+   ]
   },
   {
    "id": "esr-alpha-scintillation",
@@ -1416,7 +1596,10 @@
    ],
    "in_reference_talk": true,
    "importance": "dominant",
-   "importance_note": "Expected to be the dominant isolated-S1 source in DarkSide-20k, from simulation and material assays; not yet checked on detector data."
+   "importance_note": "Expected to be the dominant isolated-S1 source in DarkSide-20k, from simulation and material assays; not yet checked on detector data.",
+   "categories": [
+    "s1-argon"
+   ]
   },
   {
    "id": "tpb-alpha-scintillation",
@@ -1478,7 +1661,10 @@
    ],
    "in_reference_talk": true,
    "importance": "unknown",
-   "importance_note": "No published estimate of its share; removed in DarkSide-50 with a cut on the long S1 tail."
+   "importance_note": "No published estimate of its share; removed in DarkSide-50 with a cut on the long S1 tail.",
+   "categories": [
+    "s1-argon"
+   ]
   },
   {
    "id": "tpb-delayed-emission",
@@ -1533,7 +1719,10 @@
    ],
    "in_reference_talk": false,
    "importance": "unknown",
-   "importance_note": "Its contribution to isolated S1s in a TPC has not been quantified."
+   "importance_note": "Its contribution to isolated S1s in a TPC has not been quantified.",
+   "categories": [
+    "s1-argon"
+   ]
   },
   {
    "id": "dust-degraded-alphas",
@@ -1572,7 +1761,10 @@
    ],
    "in_reference_talk": false,
    "importance": "unknown",
-   "importance_note": "Raised as a concern at the LIDINE 2026 round table; not quantified."
+   "importance_note": "Raised as a concern at the LIDINE 2026 round table; not quantified.",
+   "categories": [
+    "s1-argon"
+   ]
   },
   {
    "id": "delayed-electrons-impurity-release",
@@ -1710,7 +1902,10 @@
    ],
    "in_reference_talk": true,
    "importance": "dominant",
-   "importance_note": "Main origin of delayed single electrons in LZ, XENON1T and LUX, and XENONnT attributes its tenfold higher isolated-S2 rate to delayed electrons; no per-source rate is published."
+   "importance_note": "Main origin of delayed single electrons in LZ, XENON1T and LUX, and XENONnT attributes its tenfold higher isolated-S2 rate to delayed electrons; no per-source rate is published.",
+   "categories": [
+    "s2-delayed-electrons"
+   ]
   },
   {
    "id": "surface-trapped-electrons",
@@ -1833,7 +2028,10 @@
    ],
    "in_reference_talk": true,
    "importance": "sub-dominant",
-   "importance_note": "LZ finds it subdominant to impurity release for delayed single electrons; LUX attributes its e-bursts within about 10 ms of an S2 to it."
+   "importance_note": "LZ finds it subdominant to impurity release for delayed single electrons; LUX attributes its e-bursts within about 10 ms of an S2 to it.",
+   "categories": [
+    "s2-delayed-electrons"
+   ]
   },
   {
    "id": "photoionisation-impurities",
@@ -1931,7 +2129,10 @@
    ],
    "in_reference_talk": true,
    "importance": "unknown",
-   "importance_note": "No published estimate of its share; it is confined to one maximum drift time after a large pulse, which analyses veto."
+   "importance_note": "No published estimate of its share; it is confined to one maximum drift time after a large pulse, which analyses veto.",
+   "categories": [
+    "s2-photo"
+   ]
   },
   {
    "id": "photoelectric-gate",
@@ -2011,7 +2212,10 @@
    ],
    "in_reference_talk": false,
    "importance": "unknown",
-   "importance_note": "No published estimate of its share."
+   "importance_note": "No published estimate of its share.",
+   "categories": [
+    "s2-photo"
+   ]
   },
   {
    "id": "photoelectric-cathode",
@@ -2107,7 +2311,10 @@
    ],
    "in_reference_talk": true,
    "importance": "unknown",
-   "importance_note": "No published estimate of its share."
+   "importance_note": "No published estimate of its share.",
+   "categories": [
+    "s2-photo"
+   ]
   },
   {
    "id": "gate-hot-spot-emission",
@@ -2225,7 +2432,10 @@
    ],
    "in_reference_talk": true,
    "importance": "significant",
-   "importance_note": "Episodic and detector-specific: in LZ the photon tag removes more than an order of magnitude of the 2–4 electron S2 rate; no share of the isolated-S2 rate is published."
+   "importance_note": "Episodic and detector-specific: in LZ the photon tag removes more than an order of magnitude of the 2–4 electron S2 rate; no share of the isolated-S2 rate is published.",
+   "categories": [
+    "s2-electrodes"
+   ]
   },
   {
    "id": "cathode-electron-emission",
@@ -2289,7 +2499,10 @@
    ],
    "in_reference_talk": true,
    "importance": "unknown",
-   "importance_note": "No rate from the cathode of a running detector is published."
+   "importance_note": "No rate from the cathode of a running detector is published.",
+   "categories": [
+    "s2-electrodes"
+   ]
   },
   {
    "id": "grid-radioactivity",
@@ -2384,7 +2597,10 @@
    ],
    "in_reference_talk": true,
    "importance": "significant",
-   "importance_note": "Cathode events from the ²¹⁰Pb chain are a main background of the XENONnT S2-only search; their share of the isolated S2s behind accidental coincidences is not published."
+   "importance_note": "Cathode events from the ²¹⁰Pb chain are a main background of the XENONnT S2-only search; their share of the isolated S2s behind accidental coincidences is not published.",
+   "categories": [
+    "s2-electrodes"
+   ]
   },
   {
    "id": "gas-phase-s2",
@@ -2464,7 +2680,10 @@
    ],
    "in_reference_talk": true,
    "importance": "unknown",
-   "importance_note": "No published rate; rated a middle risk for DarkSide-20k."
+   "importance_note": "No published rate; rated a middle risk for DarkSide-20k.",
+   "categories": [
+    "s2-missing-s1"
+   ]
   },
   {
    "id": "above-gate-events",
@@ -2560,7 +2779,10 @@
    ],
    "in_reference_talk": true,
    "importance": "significant",
-   "importance_note": "Expected to be the main isolated-S2 source in DarkSide-20k (simulation; rated a high risk); no published share for xenon detectors."
+   "importance_note": "Expected to be the main isolated-S2 source in DarkSide-20k (simulation; rated a high risk); no published share for xenon detectors.",
+   "categories": [
+    "s2-missing-s1"
+   ]
   },
   {
    "id": "sub-threshold-s1-events",
@@ -2645,7 +2867,10 @@
    ],
    "in_reference_talk": true,
    "importance": "unknown",
-   "importance_note": "No published estimate of its share; it is the physical population that S2-only searches analyse."
+   "importance_note": "No published estimate of its share; it is the physical population that S2-only searches analyse.",
+   "categories": [
+    "s2-missing-s1"
+   ]
   },
   {
    "id": "single-electron-pileup",
@@ -2725,7 +2950,10 @@
    ],
    "in_reference_talk": false,
    "importance": "significant",
-   "importance_note": "Modelled as a background component of the XENONnT S2-only search and the limiting background of the RED-100 reactor run; no share of the isolated-S2 rate is published."
+   "importance_note": "Modelled as a background component of the XENONnT S2-only search and the limiting background of the RED-100 reactor run; no share of the isolated-S2 rate is published.",
+   "categories": [
+    "s2-pileup"
+   ]
   },
   {
    "id": "ptfe-charge-release",
@@ -2771,7 +2999,10 @@
    ],
    "in_reference_talk": false,
    "importance": "unknown",
-   "importance_note": "Hypothesis only: a wall origin of isolated S2s has not been demonstrated."
+   "importance_note": "Hypothesis only: a wall origin of isolated S2s has not been demonstrated.",
+   "categories": [
+    "s2-delayed-electrons"
+   ]
   },
   {
    "id": "argon-spurious-electrons",
@@ -2854,7 +3085,10 @@
    ],
    "in_reference_talk": true,
    "importance": "significant",
-   "importance_note": "Delayed electrons make up 30–70% of DarkSide-50 events below four electrons; rated a low risk for the DarkSide-20k nuclear-recoil search."
+   "importance_note": "Delayed electrons make up 30–70% of DarkSide-50 events below four electrons; rated a low risk for the DarkSide-20k nuclear-recoil search.",
+   "categories": [
+    "s2-delayed-electrons"
+   ]
   },
   {
    "id": "argon-euv-metastables",
@@ -2899,7 +3133,10 @@
    ],
    "in_reference_talk": false,
    "importance": "unknown",
-   "importance_note": "Proposal only: no electrons were measured in the scintillation cell."
+   "importance_note": "Proposal only: no electrons were measured in the scintillation cell.",
+   "categories": [
+    "s2-photo"
+   ]
   },
   {
    "id": "argon-gas-trapped-electrons",
@@ -2941,7 +3178,10 @@
    ],
    "in_reference_talk": false,
    "importance": "unknown",
-   "importance_note": "Its role as an isolated-S2 source in a dark-matter TPC is the authors' suggestion and is not quantified."
+   "importance_note": "Its role as an isolated-S2 source in a dark-matter TPC is the authors' suggestion and is not quantified.",
+   "categories": [
+    "s2-delayed-electrons"
+   ]
   },
   {
    "id": "argon-39-pileup",
@@ -2966,7 +3206,11 @@
    "references": [],
    "in_reference_talk": false,
    "importance": "unknown",
-   "importance_note": "No published estimate of its share."
+   "importance_note": "No published estimate of its share.",
+   "categories": [
+    "s1-argon",
+    "s2-pileup"
+   ]
   }
  ]
 }

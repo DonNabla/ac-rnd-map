@@ -47,7 +47,7 @@ RESERVED_IDS = {"map", "list", "detector", "about"}
 
 # Working-note wording that must not be published (checked on every text field).
 WORDING_RE = re.compile(r"\b(seed|orchestrator|enrichment|extractor|agents?|I opened|I found|deck|doc table|not re-checked)\b", re.I)
-WORDING_SKIP_KEYS = {"id", "url", "slides_url", "provenance", "type", "region", "extra_regions", "setups",
+WORDING_SKIP_KEYS = {"id", "url", "slides_url", "provenance", "type", "region", "extra_regions", "setups", "categories",
                      "signal", "evidence", "importance", "target", "kind", "phase", "country_code", "tags"}
 
 
@@ -152,6 +152,39 @@ def validate(setups, sources_doc, meta):
             if ref is not None and not (isinstance(ref, int) and 0 <= ref < n_refs):
                 errors.append("%s: key number %d ref %r is not an index into references" % (w, i, ref))
     check_refs(sources_doc.get("pairing_references") or [], "pairing_references", errors)
+
+    cats = sources_doc.get("categories") or []
+    cat_ids = collections.Counter(c.get("id") for c in cats)
+    for c in cats:
+        w = "category %s" % c.get("id")
+        if not isinstance(c.get("id"), str) or not ID_RE.match(c.get("id")):
+            errors.append("%s: id must be lower-case letters, digits and hyphens" % w)
+        if cat_ids[c.get("id")] > 1:
+            errors.append("%s: id is used more than once" % w)
+        if not c.get("name"):
+            errors.append("%s: missing name" % w)
+        if c.get("signal") not in ("S1", "S2"):
+            errors.append("%s: signal %r (allowed: S1, S2)" % (w, c.get("signal")))
+        if not c.get("sources"):
+            errors.append("%s: has no sources" % w)
+        for sid in c.get("sources") or []:
+            if sid not in sids:
+                errors.append("%s: source id %r does not exist" % (w, sid))
+    if cats:
+        for x in sources:
+            mine = x.get("categories") or []
+            if not mine:
+                errors.append("source %s: is in no category" % x.get("id"))
+            for cid in mine:
+                if cid not in cat_ids:
+                    errors.append("source %s: category id %r does not exist" % (x.get("id"), cid))
+                elif x.get("id") not in (next(c for c in cats if c.get("id") == cid).get("sources") or []):
+                    errors.append("source %s: lists category %r, but that category does not list it" % (x.get("id"), cid))
+        for c in cats:
+            for sid in c.get("sources") or []:
+                src = next((x for x in sources if x.get("id") == sid), None)
+                if src is not None and c.get("id") not in (src.get("categories") or []):
+                    errors.append("category %s: lists source %r, but that source does not list the category" % (c.get("id"), sid))
 
     tag_ids = [t.get("id") for t in meta.get("tags") or []]
     if sorted(tag_ids) != sorted(TAG_IDS):
@@ -300,6 +333,22 @@ def simplify_topology(topo, eps_deg=0.02, min_island_deg=0.2):
             "objects": {"countries": {"type": "GeometryCollection", "geometries": geoms}}}
 
 
+def check_svg_sizing(template):
+    """Guard: a rule such as `.figure svg { width: 100% }` also stretches every small icon inside
+    that container. Returns the offending selectors (bare `svg` reached by a descendant combinator)."""
+    css = "\n".join(re.findall(r"<style>(.*?)</style>", template, re.S))
+    css = re.sub(r"/\*.*?\*/", "", css, flags=re.S)
+    bad = []
+    for m in re.finditer(r"([^{}]+)\{([^{}]*)\}", css):
+        if not re.search(r"(?<![-\w])width\s*:\s*100%", m.group(2)):
+            continue
+        for sel in m.group(1).split(","):
+            sel = sel.strip()
+            if re.search(r"[^\s>+~]\s+svg$", sel):
+                bad.append(sel)
+    return bad
+
+
 def inline_json(obj):
     s = json.dumps(obj, ensure_ascii=False, separators=(",", ":"))
     # Safe inside <script>: no "</", no "<!--", no raw line separators.
@@ -329,6 +378,7 @@ def main():
             sys.exit("build.py: src/template.html must contain %s exactly once" % mark)
 
     errors = validate(setups, sources_doc, meta)
+    errors += ["src/template.html sizes a bare svg to 100% under a container: " + sel for sel in check_svg_sizing(template)]
     wording = []
     for x in setups:
         find_wording(x, "setup", None, wording)
@@ -342,7 +392,8 @@ def main():
     print("build %s" % build_date)
     print("setups: %d  (by type: %s; by target: %s; by status: %s)"
           % (len(setups), count(setups, "kind"), count(setups, "target"), count(setups, "phase")))
-    print("sources: %d  (by signal: %s; by evidence: %s)" % (len(sources), count(sources, "signal"), count(sources, "evidence")))
+    print("sources: %d in %d categories  (by signal: %s; by evidence: %s)"
+          % (len(sources), len(sources_doc.get("categories") or []), count(sources, "signal"), count(sources, "evidence")))
     n_refs = sum(len(x.get("references") or []) for x in setups + sources)
     n_nourl = sum(1 for x in setups + sources for r in (x.get("references") or []) if not r.get("url"))
     print("references: %d, of which %d without link; leads: %d" % (n_refs, n_nourl, len(meta.get("leads") or [])))

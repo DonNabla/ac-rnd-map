@@ -191,7 +191,7 @@ h1, h2, h3 { text-wrap: balance; color: var(--text); }
 }
 .legend-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .legend-head button { border: 0; background: none; padding: 0; font-weight: 700; font-size: 13px; color: var(--accent); display: flex; align-items: center; gap: 6px; }
-.legend-head .car { font-size: 10px; color: var(--text-muted); }
+.legend-head .car { font-size: 12px; color: var(--text-muted); }
 .legend-body { display: grid; gap: 8px; margin-top: 8px; }
 .legend-row { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: center; }
 .legend-item { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
@@ -353,9 +353,6 @@ details > .dbody { padding: 4px 14px 14px; display: grid; gap: 10px; min-width: 
 .det-legend .legend-k:first-child { margin-left: 0; }
 .det-fig { margin: 0; min-width: 0; display: grid; gap: 8px; }
 .scene-wrap { overflow-x: auto; max-width: 100%; outline: none; }
-.det-fig svg { display: block; width: 100%; height: auto; }
-.det-fig.wide svg { min-width: 960px; max-width: 1240px; }
-.det-fig.narrow svg { max-width: 560px; margin: 0 auto; }
 .det-fig .det-legend svg { display: inline-block; flex: none; width: auto; height: auto; min-width: 0; max-width: none; margin: 0; vertical-align: middle; }
 .det-fig figcaption { font-size: 12.5px; color: var(--text-muted); max-width: 76ch; }
 #view-detector .view-inner { max-width: 1280px; }
@@ -561,6 +558,111 @@ details > .dbody { padding: 4px 14px 14px; display: grid; gap: 10px; min-width: 
 .d-reft { font: 500 12px var(--font); fill: var(--text-body); }
 .srcwrap { overflow: visible; }
 .srctable thead th { position: sticky; top: 0; z-index: 2; }
+/* ---------- readability pass: collapsed sections, category figure, type scale ---------- */
+body { font-size: 14.5px; line-height: 1.55; }
+.panel-body { gap: 18px; line-height: 1.6; padding-top: 16px; }
+.panel-head h2 { font-size: 19px; }
+.sec > h2 { font-size: 17px; }
+.lede h2 { font-size: 22px; }
+.legend.closed { padding: 4px 12px; }
+.fpop .fgroup { align-items: flex-start; }
+.fpop { gap: 12px; min-width: 300px; }
+.psec { border: 1px solid var(--line); border-radius: 12px; }
+.psec > summary {
+  display: flex; align-items: center; gap: 10px; min-height: 38px; padding: 4px 14px; cursor: pointer; list-style: none; line-height: 1.35;
+  font-weight: 600; color: var(--text); border-radius: 12px;
+}
+.psec > summary::-webkit-details-marker { display: none; }
+.psec > summary::before { content: ""; flex: none; border: 5px solid transparent; border-left-color: var(--text-muted); margin-right: -2px; }
+.psec[open] > summary::before { border-left-color: transparent; border-top-color: var(--text-muted); margin-top: 5px; margin-right: 0; margin-left: -2px; }
+.psec > summary:hover { background: var(--hover); }
+.psec > summary > span:first-of-type { flex: 1; min-width: 0; }
+.pn { flex: none; font-size: 12px; font-weight: 600; color: var(--text-muted); border: 1px solid var(--line-strong); border-radius: 999px; padding: 0 8px; font-variant-numeric: tabular-nums; }
+.pbody { padding: 4px 14px 14px; display: grid; gap: 10px; min-width: 0; }
+.pbody h4 { font-size: 12px; font-weight: 600; color: var(--text-body); margin-top: 6px; }
+.panel .panel-body .psec + .psec { margin-top: -10px; }
+.plist { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+.lead-p { font-size: 15px; color: var(--text); }
+.pfoot { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+.iconbtn {
+  flex: none; width: 32px; height: 32px; border-radius: 10px; border: 1px solid var(--line-strong); background: none; color: var(--text-muted);
+  display: grid; place-items: center; padding: 0;
+}
+.iconbtn:hover { background: var(--hover); color: var(--text); }
+.iconbtn.done { color: var(--ink); background: var(--accent-pale); border-color: var(--accent-pale); }
+.ico { width: 16px; height: 16px; flex: none; }
+.backlink { align-self: flex-start; border: 0; background: none; padding: 4px 0; min-height: 28px; color: var(--accent-pale); font-weight: 500; text-align: left; }
+.backlink:hover { color: var(--text); text-decoration: underline; }
+.row { grid-template-columns: 18px minmax(0, 1fr); }
+.row .g { grid-row: span 2; }
+.row .meta { grid-column: 2; }
+button.evchip { cursor: pointer; font-family: inherit; }
+.panel-body .srcbtn { padding: 2px 10px; }
+.panel-body .tagrow { margin-top: 2px; }
+/* detector: figure of categories */
+.det-fig { position: relative; }
+.det-fig .scene { display: block; width: 100%; height: auto; }
+.det-fig.wide .scene { min-width: 820px; max-width: 920px; margin: 0 auto; }
+.det-fig.narrow .scene { max-width: 560px; margin: 0 auto; }
+.det-fig figcaption { display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: center; justify-content: center; max-width: none; font-size: 12.5px; }
+.det-fig figcaption .det-legend { display: inline-flex; flex-wrap: wrap; gap: 4px 14px; align-items: center; }
+.det-tools { display: flex; align-items: center; gap: 8px; }
+.segs { display: inline-flex; border: 1px solid var(--line-strong); border-radius: 999px; padding: 2px; gap: 2px; }
+.seg { border: 0; background: none; border-radius: 999px; padding: 3px 14px; min-height: 28px; font-size: 13px; color: var(--text-muted); font-weight: 500; }
+.seg:hover { background: var(--hover); color: var(--text); }
+.seg[aria-pressed="true"] { background: var(--chip-on); color: var(--accent-pale); }
+.det-chips { display: grid; gap: 8px; }
+.det-chips .fgroup { align-items: flex-start; }
+.catchip {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 30px; border: 1px solid var(--line-strong); background: var(--chip-bg);
+  border-radius: 999px; padding: 2px 6px 2px 12px; font-size: 13px; color: var(--c); font-weight: 500;
+}
+.catchip:hover, .catchip.hot { background: var(--hover); }
+.catchip[aria-pressed="true"] { background: var(--chip-on); border-color: var(--accent); }
+.cblock { cursor: pointer; outline: none; }
+.cblock .lhit { fill: transparent; stroke: transparent; stroke-width: 1; }
+.cblock .cname { font: 600 15.5px var(--font); fill: var(--c); }
+.cblock .ccount { font: 400 12px var(--font); fill: var(--text-muted); }
+.cblock .orig { fill: var(--c); }
+.cblock:hover .lhit, .cblock.hot .lhit { fill: var(--hover); }
+.cblock:focus-visible .lhit { stroke: var(--accent-pale); stroke-width: 1.5; fill: var(--hover); }
+.cblock.sel .lhit { fill: var(--chip-on); stroke: var(--accent-line); }
+.lead { opacity: 0.16; stroke-width: 0.8; }
+.adot { cursor: pointer; outline: none; }
+.adot .ptsel, .adot .dnum { display: none; }
+.adot.catsel .pt { display: none; }
+.adot.catsel .ptsel, .adot.catsel .dnum { display: inline; }
+.adot .dnum { font: 700 12px var(--font); text-anchor: middle; dominant-baseline: central; fill: var(--c); pointer-events: none; font-variant-numeric: tabular-nums; }
+.adot.ev-established .dnum { fill: var(--ink); }
+.adot:focus-visible .mark, .adot.sel .mark { stroke: var(--accent); stroke-width: 3; stroke-dasharray: none; }
+#det-svg.focus .cblock:not(.hot), #det-svg.focus .adot:not(.hot) { opacity: 0.25; }
+#det-svg.focus .lead:not(.hot) { opacity: 0.06; }
+#det-svg.focus .lead.hot { opacity: 0.9; stroke-width: 1.4; }
+#det-tip { left: 0; top: 0; }
+/* detector: accordion and category card */
+.det-acc { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr)); gap: 18px 24px; align-items: start; }
+.accgroup { display: grid; gap: 8px; min-width: 0; }
+.accgroup > h3 { font-size: 12px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--text-muted); }
+.acc-t { display: grid; gap: 1px; }
+.acc-n { font-weight: 600; color: var(--text); }
+.acc-s { font-weight: 400; font-size: 12.5px; color: var(--text-muted); }
+.arows, .crows { display: grid; gap: 2px; }
+.arow {
+  display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) auto; gap: 4px 12px; align-items: center; text-align: left; width: 100%;
+  background: none; border: 0; border-radius: 8px; padding: 6px 8px; min-height: 32px; font-size: 13.5px;
+}
+.arow:hover, .crow:hover { background: var(--hover); }
+.a-n { color: var(--text); font-weight: 500; overflow-wrap: anywhere; }
+.a-w { color: var(--text-muted); font-size: 12.5px; overflow-wrap: anywhere; }
+.a-e { display: inline-flex; align-items: center; gap: 5px; color: var(--text-muted); font-size: 12px; white-space: nowrap; }
+.crow {
+  display: grid; grid-template-columns: 26px minmax(0, 1fr) auto; gap: 1px 10px; align-items: center; text-align: left; width: 100%;
+  background: none; border: 0; border-radius: 10px; padding: 7px 8px;
+}
+.c-i { grid-row: span 2; width: 24px; height: 24px; border-radius: 50%; border: 1.5px solid var(--c); color: var(--c); display: grid; place-items: center; font-size: 12px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.c-n { font-weight: 600; color: var(--text); overflow-wrap: anywhere; }
+.c-m { grid-column: 2 / 4; font-size: 12.5px; color: var(--text-muted); overflow-wrap: anywhere; }
+.c-e { display: inline-flex; }
 /* ---------- narrow ---------- */
 @media (max-width: 860px) {
   .filters-toggle { display: inline-flex; align-items: center; gap: 6px; }
@@ -582,6 +684,11 @@ details > .dbody { padding: 4px 14px 14px; display: grid; gap: 10px; min-width: 
   .stage.panel-open .map-note { display: none; }
   .lede h2 { font-size: 20px; }
   .ftitle { display: none; }
+  .fpop .fgroup { align-items: center; }
+  .det-head { align-items: flex-start; }
+  .arow { grid-template-columns: minmax(0, 1fr) auto; }
+  .arow .a-w { grid-column: 1; grid-row: 2; }
+  .arow .a-e { grid-row: span 2; }
   .filters.open { flex-wrap: nowrap; overflow-x: hidden; max-height: 54vh; }
   .filters.open .fgroup { max-width: 100%; }
   .menu-btn { display: none; }
@@ -751,12 +858,12 @@ function matchField(s) {            /* the first field, in display priority, tha
 
 /* ================= state ================= */
 var state = { view: 'map', q: '', targets: new Set(), kinds: new Set(), phases: new Set(), tags: new Set(), only: null, onlyLabel: '', saved: null,
-  selId: null, site: null, srcId: null, dsig: null, dmed: null, dsort: null, dsortDir: 1, group: 'country' };
+  selId: null, site: null, srcId: null, catId: null, dmed: null, group: 'country' };
 var matched = SETUPS.slice();
 var lastFocus = null;
 
 function matches(s) {
-  if (state.targets.size && !state.targets.has(s.target)) return false;
+  if (state.targets.size && !(state.targets.has(s.target) || (s.target === 'both' && (state.targets.has('xenon') || state.targets.has('argon'))))) return false;
   if (state.kinds.size && !state.kinds.has(s.kind)) return false;
   if (state.phases.size && !state.phases.has(s.phase)) return false;
   if (state.only && !state.only.has(s.id)) return false;
@@ -794,13 +901,8 @@ function glyph(target, kind, size) {
 /* ================= filters UI ================= */
 var PHASES = [['running', 'Running'], ['construction', 'Under construction'], ['completed', 'Completed']];
 var PHASE_LABEL = { running: 'Running', construction: 'Under construction or planned', completed: 'Completed', unknown: 'Not stated' };
-var PRESETS = [
-  ['Running experiments', { kinds: ['in-situ'], phases: ['running'] }],
-  ['Active R&D', { kinds: ['lab'], phases: ['running', 'construction'] }],
-  ['Xenon only', { targets: ['xenon'] }],
-  ['Argon only', { targets: ['argon'] }]
-];
 var FSETS = ['targets', 'kinds', 'phases', 'tags'];
+var HAS_BOTH = SETUPS.some(function (s) { return s.target === 'both'; });
 function clearFilters() {
   FSETS.forEach(function (k) { state[k].clear(); });
   state.only = null; state.onlyLabel = ''; state.saved = null; state.q = ''; $('q').value = '';
@@ -815,38 +917,34 @@ function restoreFilters(o) {
   FSETS.forEach(function (k) { (o[k] || []).forEach(function (v) { state[k].add(v); }); });
   state.q = o.q || ''; $('q').value = state.q;
 }
-function closeMechMenu() {
-  var p = $('f-mech-pop');
-  if (p && p.classList.contains('open')) { p.classList.remove('open'); $('f-mech-btn').setAttribute('aria-expanded', 'false'); return true; }
+function closeMore() {
+  var p = $('f-more-pop');
+  if (p && p.classList.contains('open')) { p.classList.remove('open'); $('f-more-btn').setAttribute('aria-expanded', 'false'); return true; }
   return false;
 }
 function buildFilters() {
-  var grp = function (label, key, items, withGlyph) {
-    return '<div class="fgroup" role="group" aria-label="Filter by ' + esc(label.toLowerCase()) + '"><span class="flabel">' + esc(label) + '</span>' + items.map(function (t) {
+  var chips = function (key, items, withGlyph) {
+    return items.map(function (t) {
       var g = withGlyph === 'target' ? glyph(t[0], 'lab', 12) : withGlyph === 'kind' ? glyph('xenon', t[0], 12) : '';
       return '<button class="chip" id="f-' + key + '-' + t[0] + '" data-f="' + key + '" data-v="' + t[0] + '" aria-pressed="false">' + g + esc(t[1]) + '</button>';
-    }).join('') + '</div>';
+    }).join('');
   };
-  var h = '<span class="ftitle">Filters</span><span class="fhint">any within a group, all across groups</span>';
-  h += grp('Target', 'targets', TARGETS, 'target');
-  h += grp('Type', 'kinds', KINDS, 'kind');
-  h += grp('Status', 'phases', PHASES, '');
-  h += '<div class="fgroup fmenu"><span class="flabel">Mechanism</span>' +
-    '<button class="menu-btn" id="f-mech-btn" aria-expanded="false" aria-controls="f-mech-pop">Any mechanism</button>' +
-    '<div class="fpop caption" id="f-mech-pop" role="group" aria-label="Filter by mechanism">' + TAGS.map(function (t) {
+  var grp = function (label, inner) { return '<div class="fgroup" role="group" aria-label="Filter by ' + esc(label.toLowerCase()) + '"><span class="flabel">' + esc(label) + '</span>' + inner + '</div>'; };
+  var targets = TARGETS.filter(function (t) { return t[0] !== 'both' || HAS_BOTH; });
+  var h = grp('Target', chips('targets', targets, 'target')) + grp('Type', chips('kinds', KINDS, 'kind'));
+  h += '<div class="fgroup fmenu"><button class="menu-btn" id="f-more-btn" aria-expanded="false" aria-controls="f-more-pop">More filters</button>' +
+    '<div class="fpop caption" id="f-more-pop">' + grp('Status', chips('phases', PHASES, '')) +
+    grp('Mechanism', TAGS.map(function (t) {
       return '<button class="chip tagchip" id="f-tag-' + t.id + '" data-f="tags" data-v="' + t.id + '" aria-pressed="false"><b>' + t.id + '</b><span class="tag-name">' + esc(t.name) + '</span></button>';
-    }).join('') + '</div></div>';
-  h += '<div class="fgroup" role="group" aria-label="Quick filters"><span class="flabel">Quick</span>' + PRESETS.map(function (p, i) {
-    return '<button class="preset" id="f-preset-' + i + '" data-preset="' + i + '">' + esc(p[0]) + '</button>';
-  }).join('') + '</div>';
+    }).join('')) + '</div></div>';
   h += '<button class="chip onlychip" id="f-only" hidden></button>';
-  h += '<button class="clear" id="f-clear" hidden>Clear filters</button>';
+  h += '<button class="clear" id="f-clear" hidden>Clear</button>';
   $('filters').innerHTML = h;
   $('filters').addEventListener('click', function (ev) {
     var b = ev.target.closest('button');
     if (!b) return;
-    if (b.id === 'f-mech-btn') {
-      var open = $('f-mech-pop').classList.toggle('open');
+    if (b.id === 'f-more-btn') {
+      var open = $('f-more-pop').classList.toggle('open');
       b.setAttribute('aria-expanded', String(open));
       return;
     }
@@ -855,17 +953,13 @@ function buildFilters() {
       var saved = state.saved;
       state.only = null; state.onlyLabel = ''; state.saved = null;
       if (saved) restoreFilters(saved);
-    } else if (b.dataset.preset != null) {
-      var p = PRESETS[+b.dataset.preset][1];
-      clearFilters();
-      Object.keys(p).forEach(function (k) { p[k].forEach(function (v) { state[k].add(v); }); });
     } else if (b.dataset.f) {
       var set = state[b.dataset.f], v = b.dataset.v;
       if (set.has(v)) set.delete(v); else set.add(v);
     }
     applyFilters();
   });
-  document.addEventListener('click', function (ev) { if (!ev.target.closest('.fmenu')) closeMechMenu(); });
+  document.addEventListener('click', function (ev) { if (!ev.target.closest('.fmenu')) closeMore(); });
   $('q').addEventListener('input', function () { state.q = $('q').value.trim(); applyFilters(); });
   $('filters-toggle').addEventListener('click', function () {
     var open = $('filters').classList.toggle('open');
@@ -878,10 +972,10 @@ function applyFilters() {
   document.querySelectorAll('#filters .chip[data-f]').forEach(function (b) {
     b.setAttribute('aria-pressed', String(state[b.dataset.f].has(b.dataset.v)));
   });
-  var tg = Array.from(state.tags).sort();
-  $('f-mech-btn').textContent = tg.length ? tg.join(', ') : 'Any mechanism';
-  $('f-mech-btn').classList.toggle('on', tg.length > 0);
-  var n = state.targets.size + state.kinds.size + state.phases.size + state.tags.size + (state.only ? 1 : 0);
+  var more = state.phases.size + state.tags.size;
+  $('f-more-btn').textContent = 'More filters' + (more ? ' (' + more + ')' : '');
+  $('f-more-btn').classList.toggle('on', more > 0);
+  var n = state.targets.size + state.kinds.size + more + (state.only ? 1 : 0);
   $('f-clear').hidden = !(n || state.q);
   $('f-only').hidden = !state.only;
   if (state.only) { $('f-only').textContent = 'Studying: ' + state.onlyLabel + ' ×'; $('f-only').setAttribute('aria-label', 'Remove the filter: setups studying ' + state.onlyLabel); }
@@ -1293,10 +1387,10 @@ function ensureVisible(s) {
 }
 
 /* ================= routing and detail frame ================= */
-/* The hash carries the view or the selection: #map #list #detector #about #<setup-id> #src-<source-id> */
+/* The hash carries the view or the selection: #map #list #detector #about #<setup-id> #cat-<category-id> #src-<source-id> */
 var VIEWS = ['map', 'list', 'detector', 'about'];
 var routing = false;
-function curHash() { return state.srcId ? 'src-' + state.srcId : state.selId ? state.selId : state.view; }
+function curHash() { return state.srcId ? 'src-' + state.srcId : state.catId ? 'cat-' + state.catId : state.selId ? state.selId : state.view; }
 function pushHash() {
   if (routing) return;
   var h = curHash();
@@ -1317,9 +1411,15 @@ function readHash() {
   routing = true;
   try {
     if (h.indexOf('src-') === 0 && srcById.has(h.slice(4))) selectSource(h.slice(4), { fromHash: true });
+    else if (h.indexOf('cat-') === 0 && catById.has(h.slice(4))) selectCategory(h.slice(4), { fromHash: true });
     else if (h && byId.has(h)) select(h, { fromHash: true });
     else { hidePanel(); setView2(VIEWS.indexOf(h) >= 0 ? h : 'map'); }
   } finally { routing = false; }
+}
+function linkFor(hash) {
+  var url = '';
+  try { url = location.origin + location.pathname + '#' + hash; } catch (e) { url = '#' + hash; }
+  return url;
 }
 var REF_GROUPS = [['Papers and preprints', ['paper', 'arXiv']], ['Theses', ['thesis']], ['Talks and posters', ['talk', 'poster']], ['Other', ['web']]];
 function refHtml(r, idx) {
@@ -1331,16 +1431,14 @@ function refHtml(r, idx) {
   return '<li data-refidx="' + idx + '"><span class="rn">[' + (idx + 1) + ']</span><span class="rt">' + (u ? link(u, esc(r.title)) : esc(r.title)) + '</span>' +
     (meta ? '<span class="rm">' + meta + '</span>' : '') + '<span class="rb">' + badges + '</span></li>';
 }
-function refsSection(refs) {
-  refs = refs || [];
-  if (!refs.length) return '<section><h3>References</h3><p class="note">No reference recorded.</p></section>';
-  var h = '<section id="refs"><h3>References (' + refs.length + ')</h3>';
+function refsBody(refs) {
+  var h = '';
   REF_GROUPS.forEach(function (g) {
-    var items = refs.map(function (r, i) { return [r, i]; }).filter(function (x) { return g[1].indexOf(x[0].type) >= 0; });
+    var items = (refs || []).map(function (r, i) { return [r, i]; }).filter(function (x) { return g[1].indexOf(x[0].type) >= 0; });
     if (!items.length) return;
     h += '<div class="refgroup"><h4>' + g[0] + '</h4><ul class="refs">' + items.map(function (x) { return refHtml(x[0], x[1]); }).join('') + '</ul></div>';
   });
-  return h + '</section>';
+  return h;
 }
 function refLink(refs, idx) {
   var r = (idx != null && refs) ? refs[idx] : null;
@@ -1349,95 +1447,81 @@ function refLink(refs, idx) {
   return u ? link(u, 'ref [' + (idx + 1) + ']').replace('<a ', '<a title="' + esc(r.title) + '" ')
            : '<button class="clear" data-ref="' + idx + '">ref [' + (idx + 1) + '], no link found</button>';
 }
-function tagKey(tags) { return tags.map(function (t) { return t + ' ' + ((tagById.get(t) || {}).name || ''); }).join('; '); }
+/* a collapsed section of the detail frame, with its count in the header */
+function psec(title, n, body, open) {
+  if (!body) return '';
+  return '<details class="psec"' + (open ? ' open' : '') + '><summary><span>' + esc(title) + '</span>' + (n != null ? '<span class="pn">' + n + '</span>' : '') + '</summary><div class="pbody">' + body + '</div></details>';
+}
 function rowHtml(s) {
-  var p = prov(s);
-  var meta = [s.institute, [s.city, s.country].filter(Boolean).join(', ')].filter(Boolean).map(esc).join(' · ');
+  var meta = [s.institute || s.collaboration, [s.city, s.country].filter(Boolean).join(', ')].filter(Boolean).map(esc).join(' · ');
   var mf = state.q ? matchField(s) : '';
-  return '<button class="row" data-id="' + esc(s.id) + '"' + (state.selId === s.id ? ' aria-current="true"' : '') + '>' +
+  return '<button class="row" data-id="' + esc(s.id) + '"' + (state.selId === s.id ? ' aria-current="true"' : '') + ' title="' + esc(KIND_LABEL[s.kind] + ', ' + TARGET_LABEL[s.target].toLowerCase()) + '">' +
     '<span class="g">' + glyph(s.target, s.kind, 16) + '</span>' +
     '<span class="nm">' + esc(s.name) + '</span>' +
-    '<span class="side"><span class="tg" title="' + esc('Mechanisms: ' + tagKey(s.tags)) + '">' + esc(s.tags.join(' ')) + '</span><span class="badge ' + p[1] + '" title="' + esc(p[2]) + '">' + esc(p[0]) + '</span></span>' +
-    '<span class="meta">' + (meta || 'Institute not stated') + ' · ' + esc(KIND_LABEL[s.kind]) + ', ' + esc(TARGET_LABEL[s.target].toLowerCase()) +
+    '<span class="meta">' + (meta || 'Institute not stated') +
     (state.group === 'year' && s.year0 ? ' · since ' + s.year0 : '') +
     (s.placed ? '' : ' <span class="noloc">· no location yet</span>') +
     (mf && mf !== 'name' && mf !== 'short name' ? ' <span class="matched">· matched in ' + esc(mf) + '</span>' : '') + '</span></button>';
 }
-function panelHead(title, chips) {
+var ICON_LINK = '<svg class="ico" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6.6 9.4a3 3 0 0 0 4.2 0l2.3-2.3a3 3 0 0 0-4.2-4.2l-.8.8M9.4 6.6a3 3 0 0 0-4.2 0L2.9 8.9a3 3 0 0 0 4.2 4.2l.8-.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>';
+function panelHead(title, chips, hash) {
   return '<div class="panel-head"><div class="ttl"><h2 id="panel-title" tabindex="-1">' + esc(title) + '</h2><div class="chips">' + chips + '</div></div>' +
+    (hash ? '<button class="iconbtn" id="copy-link" data-copy="' + esc(linkFor(hash)) + '" aria-label="Copy a link to this entry" title="Copy link">' + ICON_LINK + '</button>' : '') +
     '<button class="close" id="panel-close" aria-label="Close details" title="Close (Esc)">&times;</button></div>';
 }
-function copyRow(hash) {
-  var url = '';
-  try { url = location.origin + location.pathname + '#' + hash; } catch (e) { url = '#' + hash; }
-  return '<div class="linkrow"><button class="btn" id="copy-link" data-copy="' + esc(url) + '">Copy link</button>' +
-    '<input class="linktxt" id="link-text" type="text" readonly aria-label="Link to this entry" value="' + esc(url) + '"></div>';
-}
-function statusLine(s) {
+function statusShort(s) {
   var ph = PHASE_LABEL[s.phase] || PHASE_LABEL.unknown;
-  if (s.kind === 'in-situ') return esc('Detector: ' + ph.toLowerCase()) + (s.study_status ? '<span class="sub">' + esc('This study: ' + s.study_status) + '</span>' : '');
-  return esc(ph) + (s.phase_inferred && s.phase !== 'unknown' ? '<span class="sub">(inferred from active years)</span>' : '');
+  return s.kind === 'in-situ' ? 'Detector ' + ph.toLowerCase() : ph;
 }
-var MEAS_SHOWN = 4;
 function renderSetup(s) {
-  var p = prov(s), h = '', f = '';
+  var p = prov(s), h = '', f = '', exp = s.kind === 'in-situ';
   var chips = '<span class="pill">' + glyph(s.target, s.kind, 12) + esc(TARGET_LABEL[s.target]) + '</span><span class="pill">' + esc(KIND_LABEL[s.kind]) + '</span>' +
-    '<span class="badge ' + p[1] + '" title="' + esc(p[2]) + '">' + esc(p[0]) + '</span>' +
-    (s.confidence ? '<span class="badge" title="How fully the sources opened support this description">confidence: ' + esc(s.confidence) + '</span>' : '');
-  h += panelHead(s.name, chips) + '<div class="panel-body">';
+    '<span class="pill">' + esc(statusShort(s)) + '</span>';
+  h += panelHead(s.name, chips, s.id) + '<div class="panel-body"><input class="linktxt" id="link-text" type="text" readonly hidden aria-label="Link to this entry" value="' + esc(linkFor(s.id)) + '">';
 
   var fact = function (k, v) { if (v) f += '<dt>' + k + '</dt><dd>' + v + '</dd>'; };
-  var exp = s.kind === 'in-situ';
-  if (exp) fact('Collaboration', esc(s.collaboration));
-  fact('Institute', esc(s.institute));
-  if (!exp) fact('Collaboration', esc(s.collaboration));
+  if (exp && s.collaboration) fact('Collaboration', esc(s.collaboration));
+  else fact('Institute', esc(s.institute));
   if (!exp && s.people && s.people.length) fact('PI / group leader', esc(s.people.join(', ')));
-  var loc = esc([s.city, s.country].filter(Boolean).join(', '));
-  if (s.placed) loc += '<span class="sub">' + s.lat.toFixed(3) + '°, ' + s.lon.toFixed(3) + '°</span>';
-  else loc += '<span class="sub noloc">No location recorded yet; not shown on the map.</span>';
-  if (s.location_note) loc += '<span class="sub">' + esc(s.location_note) + '</span>';
-  fact('Location', loc);
+  fact('Location', esc([s.city, s.country].filter(Boolean).join(', ')) || (s.placed ? '' : 'Not recorded yet'));
   fact('Medium', esc(s.medium));
-  fact('Years active', esc(s.years_active));
-  fact('Status', statusLine(s));
+  fact('Active years', esc(s.years_active));
   h += '<dl class="facts">' + f + '</dl>';
 
-  if (s.description || s.why_relevant) h += '<section><h3>Setup</h3>' + (s.description ? '<p>' + esc(s.description) + '</p>' : '') + (s.why_relevant ? '<p class="note" style="margin-top:6px">' + esc(s.why_relevant) + '</p>' : '') + '</section>';
-  if (s.key_results) h += '<section><h3>Key results</h3><p>' + esc(s.key_results) + '</p></section>';
+  if (s.key_results) h += '<p class="lead-p">' + esc(s.key_results) + '</p>';
+
+  h += psec('Setup', null, (s.description ? '<p>' + esc(s.description) + '</p>' : '') + (s.why_relevant ? '<p class="note">' + esc(s.why_relevant) + '</p>' : ''));
 
   var ms = s.measurements || [];
-  if (ms.length) {
-    h += '<section><h3>Measurements (' + ms.length + ')</h3><ul class="meas" id="meas">' + ms.map(function (m, i) {
-      var rl = refLink(s.references, m.ref);
-      return '<li' + (i >= MEAS_SHOWN ? ' hidden' : '') + '><span class="what">' + esc(m.what) + '</span>' + (m.result ? '<span class="res">' + esc(m.result) + '</span>' : '') +
-        ((m.year || rl) ? '<span class="mm">' + (m.year ? '<span>' + esc(m.year) + '</span>' : '') + rl + '</span>' : '') + '</li>';
-    }).join('') + '</ul>' + (ms.length > MEAS_SHOWN ? '<div style="margin-top:8px"><button class="btn" id="meas-all" data-act="allmeas">Show all ' + ms.length + '</button></div>' : '') + '</section>';
-  }
+  h += psec('Measurements', ms.length, ms.length ? '<ul class="meas">' + ms.map(function (m) {
+    var rl = refLink(s.references, m.ref);
+    return '<li><span class="what">' + esc(m.what) + '</span>' + (m.result ? '<span class="res">' + esc(m.result) + '</span>' : '') +
+      ((m.year || rl) ? '<span class="mm">' + (m.year ? '<span>' + esc(m.year) + '</span>' : '') + rl + '</span>' : '') + '</li>';
+  }).join('') + '</ul>' : '');
 
   var probes = SOURCES.filter(function (x) { return (x.setups || []).indexOf(s.id) >= 0; });
-  if (probes.length || s.tags.length || (s.mechanisms && s.mechanisms.length)) {
-    h += '<section><h3>Sources it probes</h3>';
-    if (probes.length) h += '<div class="srcbtns">' + probes.map(function (x) {
-      return '<button class="srcbtn" data-src="' + esc(x.id) + '" title="Open on the Detector view">' + srcGlyph(x, 20) + esc(x.name) + '</button>';
-    }).join('') + '</div>';
-    if (s.tags.length) {
-      h += '<div class="tagrow" style="margin-top:8px">' + s.tags.map(function (t) {
-        var tg = tagById.get(t) || { name: '', desc: '' };
-        return '<button class="tagbtn' + (s.tags_inferred ? ' inferred' : '') + '" data-tag="' + esc(t) + '" aria-expanded="false" title="' + esc(tg.name + (tg.desc ? ': ' + tg.desc : '')) + '"><b>' + esc(t) + '</b>' + esc(tg.name) + '</button>';
-      }).join('') + '</div><div class="tagexp" id="tagexp" hidden></div>';
-      if (s.tags_inferred) h += '<p class="note" style="margin-top:6px">Dashed tags are inferred by keyword from the mechanisms listed for this entry.</p>';
-    }
-    if (s.mechanisms && s.mechanisms.length) h += '<ul class="mech">' + s.mechanisms.map(function (m) { return '<li>' + esc(m) + '</li>'; }).join('') + '</ul>';
-    h += '</section>';
+  var pb = '';
+  if (probes.length) pb += '<div class="srcbtns">' + probes.map(function (x) {
+    return '<button class="srcbtn" data-src="' + esc(x.id) + '" title="Open on the Detector view">' + esc(x.name) + '</button>';
+  }).join('') + '</div>';
+  if (s.tags.length) {
+    pb += '<div class="tagrow">' + s.tags.map(function (t) {
+      var tg = tagById.get(t) || { name: '', desc: '' };
+      return '<button class="tagbtn' + (s.tags_inferred ? ' inferred' : '') + '" data-tag="' + esc(t) + '" aria-expanded="false" title="' + esc(tg.name + (tg.desc ? ': ' + tg.desc : '')) + '"><b>' + esc(t) + '</b>' + esc(tg.name) + '</button>';
+    }).join('') + '</div><div class="tagexp" id="tagexp" hidden></div>';
   }
+  h += psec('Signal sources it probes', probes.length, pb);
 
-  if (s.caveats && s.caveats.length) h += '<section><h3>Caveats</h3><ul class="mech" style="margin-top:0">' + s.caveats.map(function (c) { return '<li>' + esc(c) + '</li>'; }).join('') + '</ul></section>';
-
-  h += refsSection(s.references);
+  var cav = s.caveats || [];
+  h += psec('Caveats', cav.length, cav.length ? '<ul class="plist">' + cav.map(function (c) { return '<li>' + esc(c) + '</li>'; }).join('') + '</ul>' : '');
+  h += psec('References', (s.references || []).length, refsBody(s.references));
 
   var sibs = s.placed ? SETUPS.filter(function (x) { return x !== s && x.placed && x.siteKey === s.siteKey; }) : [];
-  if (sibs.length) h += '<section><h3>Also at this site</h3><div class="sitelist">' + sibs.map(rowHtml).join('') + '</div></section>';
-  h += copyRow(s.id) + '</div>';
+  h += psec('Also at this site', sibs.length, sibs.length ? '<div class="sitelist">' + sibs.map(rowHtml).join('') + '</div>' : '');
+
+  h += '<p class="pfoot" title="' + esc(p[2]) + '">' + esc(p[0]) + (s.confidence ? ' · confidence ' + esc(s.confidence) : '') +
+    (exp && s.study_status ? ' · this study: ' + esc(s.study_status) : '') +
+    (s.phase_inferred && s.phase !== 'unknown' ? ' · status inferred from active years' : '') + '</p></div>';
   return h;
 }
 function showPanel(html) {
@@ -1453,11 +1537,11 @@ function select(id, opt) {
   var s = byId.get(id);
   if (!s) return;
   if (!opt.fromHash && !lastFocus) lastFocus = document.activeElement;
-  state.selId = id; state.site = null; state.srcId = null;
+  state.selId = id; state.site = null; state.srcId = null; state.catId = null;
   if (state.view !== 'list' && state.view !== 'map') setView2('map');
   showPanel(renderSetup(s));
   pushHash();
-  markRows(); markSources();
+  markRows(); markScene();
   if (!opt.fromHash) { var t = $('panel-title'); if (t) t.focus({ preventScroll: true }); }
   if (state.view === 'map') {
     setFocusHost(s.host);
@@ -1465,7 +1549,7 @@ function select(id, opt) {
   }
 }
 function openSite(c) {
-  state.selId = null; state.srcId = null; state.site = { id: c.id };
+  state.selId = null; state.srcId = null; state.catId = null; state.site = { id: c.id };
   var multi = c.sites.length > 1;
   var h = panelHead(c.lab.name, (/^\d+ setups$/.test(c.lab.name) ? '' : '<span class="pill">' + c.items.length + ' setups</span>') + (c.lab.sub ? '<span class="pill">' + esc(c.lab.sub.replace(/^\d+ setups( · )?/, '')) + '</span>' : ''));
   h += '<div class="panel-body">';
@@ -1490,11 +1574,12 @@ function hidePanel() {
   if ($('panel').hidden) return false;
   $('panel').hidden = true; $('panel').innerHTML = '';
   $('stage').classList.remove('panel-open');
-  state.selId = null; state.site = null; state.srcId = null;
-  markRows(); markSources();
+  state.selId = null; state.site = null; state.srcId = null; state.catId = null;
+  markRows();
   setFocusHost(-1);
   updateExtent();
   setDetMode();
+  markScene();
   schedule();
   return true;
 }
@@ -1514,19 +1599,19 @@ $('panel').addEventListener('click', function (ev) {
   if (!b) return;
   if (b.id === 'panel-close') return closePanel();
   if (b.dataset.onmap) return showOnMap(b.dataset.onmap);
-  if (b.dataset.src) { lastFocus = null; return selectSource(b.dataset.src); }
+  if (b.dataset.cat) { lastFocus = null; return selectCategory(b.dataset.cat); }
+  if (b.dataset.src) { lastFocus = null; return selectSource(b.dataset.src, { cat: b.dataset.incat }); }
   if (b.dataset.id) { lastFocus = null; return select(b.dataset.id); }
-  if (b.dataset.act === 'allmeas') {
-    $('panel').querySelectorAll('#meas li[hidden]').forEach(function (li) { li.hidden = false; });
-    b.parentNode.hidden = true;
-    return;
-  }
   if (b.dataset.copy) {
     var txt = b.dataset.copy, inp = $('link-text');
-    var fallback = function () { if (inp) { inp.focus(); inp.select(); } b.textContent = 'Select and copy'; };
-    try {
-      navigator.clipboard.writeText(txt).then(function () { b.textContent = 'Copied'; }, fallback);
-    } catch (e) { fallback(); }
+    var done = function () { b.classList.add('done'); b.setAttribute('title', 'Link copied'); setTimeout(function () { b.classList.remove('done'); b.setAttribute('title', 'Copy link'); }, 1600); };
+    var fallback = function () { if (inp) { inp.hidden = false; inp.focus(); inp.select(); } };
+    try { navigator.clipboard.writeText(txt).then(done, fallback); } catch (e) { fallback(); }
+    return;
+  }
+  if (b.dataset.act === 'evnote') {
+    var n = $('ev-note');
+    if (n) { n.hidden = !n.hidden; b.setAttribute('aria-expanded', String(!n.hidden)); }
     return;
   }
   if (b.dataset.tag) {
@@ -1540,7 +1625,10 @@ $('panel').addEventListener('click', function (ev) {
   }
   if (b.dataset.ref != null) {
     var li = $('panel').querySelector('[data-refidx="' + (+b.dataset.ref) + '"]');
-    if (li) { li.scrollIntoView({ block: 'nearest' }); li.classList.add('flash'); setTimeout(function () { li.classList.remove('flash'); }, 1400); }
+    if (li) {
+      var d = li.closest('details'); if (d) d.open = true;
+      li.scrollIntoView({ block: 'nearest' }); li.classList.add('flash'); setTimeout(function () { li.classList.remove('flash'); }, 1400);
+    }
   }
 });
 
@@ -1551,8 +1639,7 @@ function renderList() {
   var el = $('list-inner');
   var h = '<div class="sec"><div class="list-tools" role="group" aria-label="Group or sort the list"><span class="flabel">Group by</span>' + GROUPS.map(function (g) {
     return '<button class="chip" data-group="' + g[0] + '" aria-pressed="' + (state.group === g[0]) + '">' + esc(g[1]) + '</button>';
-  }).join('') + '</div>' +
-    '<details class="keydet"><summary>Mechanism key A–I</summary><div class="dbody"><ul class="keylist">' + TAGS.map(function (t) { return '<li><b>' + esc(t.id) + '</b> ' + esc(t.name) + '</li>'; }).join('') + '</ul></div></details>';
+  }).join('') + '</div>';
   var keyOf = {
     country: function (s) { return s.country || 'Country not stated'; },
     target: function (s) { return TARGET_LABEL[s.target]; },
@@ -1579,10 +1666,10 @@ function renderList() {
   });
   h += '</div>';
   if ((DATA.leads || []).length) {
-    h += '<div class="sec"><h2>Other setups we know of, not yet documented here <small>' + DATA.leads.length + '</small></h2><div class="leads">' +
+    h += '<details class="psec leadsec"><summary><span>Other setups we know of, not yet documented here</span><span class="pn">' + DATA.leads.length + '</span></summary><div class="pbody"><div class="leads">' +
       DATA.leads.map(function (l) {
         return '<div class="lead"><h4>' + esc(l.name) + '</h4>' + (l.institute ? '<span class="inst">' + esc(l.institute) + '</span>' : '') + (l.note ? '<p>' + esc(l.note) + '</p>' : '') + '</div>';
-      }).join('') + '</div></div>';
+      }).join('') + '</div></div></details>';
   }
   el.innerHTML = h;
 }
@@ -1602,18 +1689,17 @@ function renderAbout() {
   var nCountries = uniq(SETUPS.map(function (s) { return s.country; })).length;
   var stat = function (n, t) { return '<div class="stat"><b>' + n + '</b><span>' + t + '</span></div>'; };
   h += '<div class="sec lede"><span class="kick">About this map</span><h2>Who studies where isolated S1 and S2 signals come from</h2>' +
-    '<p>A map of the R&amp;D setups and running experiments that study the origin of isolated S1 and isolated S2 signals, the two ingredients of the accidental-coincidence background in liquid xenon and liquid argon TPCs. ' +
-    'It is for people working on low-energy analyses and detector R&amp;D who want to see who measures what, where, and which papers to read.</p>' +
-    '<div class="stats">' + stat(nLab, 'R&amp;D setups') + stat(nIn, 'entries in running or planned experiments') + stat(nCountries, 'countries') + stat(SOURCES.length, 'candidate sources on the Detector view') + '</div></div>';
+    '<p>The R&amp;D setups and running experiments that study the origin of isolated S1 and isolated S2 signals, the two ingredients of the accidental-coincidence background in liquid xenon and liquid argon TPCs. ' +
+    'For people in low-energy analyses and detector R&amp;D who want to see who measures what, where, and which papers to read.</p>' +
+    '<div class="stats">' + stat(nLab, 'R&amp;D setups') + stat(nIn, 'entries in experiments') + stat(nCountries, 'countries') + stat(SOURCES.length, 'candidate sources') + '</div></div>';
 
   var past = DATA.past_detectors || [];
   h += '<div class="about-grid">';
-  h += '<div class="card"><h3>Scope and conventions</h3><ul>' +
-    '<li>An entry is one setup or one study programme with public work on isolated S1s, isolated S2s, delayed electrons or photons, or accidental coincidences.</li>' +
+  h += '<div class="card"><h3>Scope</h3><ul>' +
+    '<li>One entry is one setup or one study programme with public work on isolated S1s, isolated S2s, delayed electrons or photons, or accidental coincidences.</li>' +
     '<li>A detector can have several entries when its studies are distinct: LZ has three.</li>' +
-    '<li>Experiments that no longer run are left out' + (past.length ? ' (' + esc(past.join(', ')) + ')' : '') + '. Their papers still appear as references on the Detector view.</li>' +
-    '<li>An entry spread over several sites carries one pin, at the detector or the main laboratory.</li>' +
-    '<li>Sites closer than a marker width share one numbered marker until you zoom in.</li></ul></div>';
+    '<li>Experiments that no longer run are left out' + (past.length ? ' (' + esc(past.join(', ')) + ')' : '') + '; their papers still appear on the Detector view.</li>' +
+    '<li>An entry spread over several sites has one pin, at the detector or the main laboratory.</li></ul></div>';
   h += '<div class="card blue"><h3>Method and disclosure</h3>' +
     '<p>Compiled with AI research agents from public papers, preprints, theses and talks; built ' + esc(DATA.build_date) + '. Not reviewed by the collaborations or groups described. ' +
     '“Sources opened” means an agent opened the link and it resolved to the stated work; it does not mean a person checked the content.</p>' +
@@ -1621,20 +1707,20 @@ function renderAbout() {
     '<p>Source code and data: ' + link('https://github.com/DonNabla/ac-rnd-map', 'github.com/DonNabla/ac-rnd-map') + '. Corrections and missing setups: ' + link('https://github.com/DonNabla/ac-rnd-map/issues', 'open an issue there') + '.</p>' +
     '<p class="note">Licences: code MIT, content (data and text) CC BY 4.0.</p></div>';
   h += '<div class="card"><h3>How to read an entry</h3><ul>' +
-    '<li><b>Status.</b> Running, under construction or planned, completed. For an experiment it is the state of the detector; the state of the individual study is given beside it when known. “Inferred” means it was derived from the active years.</li>' +
-    '<li><b>Confidence.</b> High, medium or low: how fully the sources opened support the description of the entry.</li>' +
-    '<li><b>Mechanism tags.</b> A solid tag is taken from the entry’s own sources. A dashed tag is inferred by keyword from the mechanisms listed for the entry.</li>' +
-    '<li><b>Markers.</b> Colour and inner mark give the target, shape gives the type, a number means several setups at one site.</li></ul></div>';
+    '<li><b>Status.</b> For an experiment it is the state of the detector, not of the individual study.</li>' +
+    '<li><b>Confidence.</b> How fully the sources opened support the description.</li>' +
+    '<li><b>Mechanism tags.</b> Solid: from the entry’s own sources. Dashed: inferred by keyword.</li>' +
+    '<li><b>Markers.</b> Colour and inner mark give the target, shape the type, a number means several setups at one site.</li></ul></div>';
   var links = [];
   if (rt.found) {
     var u = safeUrl(rt.url) || safeUrl(rt.slides_url);
-    var t1 = esc((rt.speaker ? rt.speaker + ', ' : '') + '“' + (rt.title || 'overview talk') + '”' + (rt.event ? ', ' + rt.event : ''));
-    links.push('Source overview on the Detector view: ' + (u ? link(u, t1) : t1) + '.');
+    var t1 = esc((rt.speaker ? rt.speaker + ', ' : '') + (rt.event || 'overview talk'));
+    links.push('Detector view: after the overview by ' + (u ? link(u, t1) : t1) + '.');
     var rtb = (rt.other_talks_used || []).filter(function (t) { return /round/i.test(t.title || ''); })[0];
-    if (rtb) links.push('Round table: ' + (safeUrl(rtb.url) ? link(rtb.url, esc(rtb.title)) : esc(rtb.title)) + '.');
+    if (rtb) links.push((safeUrl(rtb.url) ? link(rtb.url, esc(rt.event || '') + ' round table on accidental coincidences') : 'Round table on accidental coincidences') + '.');
   }
   links.push('Map geometry: Natural Earth, via world-atlas.');
-  links.push('Map style: after an earlier map by the author of this page. Typeface: IBM Plex Sans.');
+  links.push('Map style after an earlier map by the author. Typeface: IBM Plex Sans.');
   h += '<div class="card blue"><h3>Credits</h3><ul>' + links.map(function (l) { return '<li>' + l + '</li>'; }).join('') + '</ul></div>';
   h += '</div>';
 
@@ -1646,8 +1732,8 @@ function renderAbout() {
       return '<tr><td><b>' + esc(t.id) + '</b> ' + esc(t.name) + '</td><td>' + esc(t.desc) + '</td><td class="num">' + lab + '</td><td class="num">' + ins + '</td></tr>';
     }).join('') + '</tbody></table></div></div>';
 
-  h += '<div class="sec"><h2>Coverage matrix <small>setups × mechanisms</small></h2>' + matrixHtml() +
-    '<p class="note">Filled dot: tag from the entry’s sources. Dashed circle: tag inferred by keyword. Select a name to open the entry.</p></div>';
+  h += '<details class="psec"><summary><span>Show coverage matrix (setups × mechanisms)</span></summary><div class="pbody">' + matrixHtml() +
+    '<p class="note">Filled dot: tag from the entry’s sources. Dashed circle: tag inferred by keyword. Select a name to open the entry.</p></div></details>';
   h += '<p class="note">' + link('https://github.com/DonNabla/ac-rnd-map', 'Repository: github.com/DonNabla/ac-rnd-map') + '</p>';
   $('about-inner').innerHTML = h;
 }
@@ -1731,7 +1817,7 @@ var REG = {
     }
   }
 };
-var DET_OX = 330, DET_H = 800, detMode = null;
+var DET_OX = 220, DET_H = 800, detMode = null;
 function along(sg, t) { return [sg[0] + (sg[2] - sg[0]) * t, sg[1] + (sg[3] - sg[1]) * t]; }
 function srcShape(sig) {
   if (sig === 'S2') return '<rect class="shp" x="-10.5" y="-10.5" width="21" height="21" rx="4"/>';
@@ -1742,9 +1828,7 @@ function srcGlyph(s, size) {
   return '<svg class="sg sig-' + s.signal + ' ev-' + s.evidence + '" width="' + size + '" height="' + size + '" viewBox="-16 -16 32 32" aria-hidden="true">' +
     srcShape(s.signal) + '<text class="num">' + s.n + '</text></svg>';
 }
-function srcVisible(s) {
-  return (!state.dsig || s.signal === state.dsig || s.signal === 'both') && (!state.dmed || s.medium === state.dmed || s.medium === 'both');
-}
+function srcVisible(s) { return !state.dmed || s.medium === state.dmed || s.medium === 'both'; }
 
 /* the detector itself, in detector coordinates */
 function tpcDrawing(showInset, emphInset) {
@@ -1764,7 +1848,7 @@ function tpcDrawing(showInset, emphInset) {
     '<path class="d-e" d="M260,410V206"/><path class="d-ehead" d="M260,200l-4,8h8Z"/>' +
     '<ellipse class="d-s2" cx="260" cy="174" rx="16" ry="7"/><path class="d-ph" d="M254,168L248,100M266,168L272,100"/>' +
     '<circle class="d-vtx" cx="260" cy="420" r="3.5"/></g>';
-  labs += '<text class="d-reft" x="268" y="436">interaction (S1)</text><text class="d-reft" x="268" y="340">e<tspan baseline-shift="super" font-size="9">−</tspan> drift</text><text class="d-reft" x="238" y="178" text-anchor="end">S2</text>';
+  labs += '<text class="d-reft" x="268" y="436">interaction (S1)</text><text class="d-reft" x="268" y="340">electron drift</text><text class="d-reft" x="238" y="178" text-anchor="end">S2</text>';
   h += '<rect class="d-ptfe" x="120" y="112" width="10" height="436"/><rect class="d-ptfe" x="390" y="112" width="10" height="436"/>';
   for (y = 250; y <= 484; y += 26) h += '<rect class="d-ring" x="108" y="' + y + '" width="8" height="10" rx="2"/><rect class="d-ring" x="404" y="' + y + '" width="8" height="10" rx="2"/>';
   for (i = 0; i < 7; i++) {
@@ -1797,23 +1881,44 @@ function tpcDrawing(showInset, emphInset) {
   });
   return { base: h, labels: labs };
 }
-function segCross(a, b, E) {       /* do the slanted parts of two leaders cross? */
-  var d = function (px, py, qx, qy, rx, ry) { return (qx - px) * (ry - py) - (qy - py) * (rx - px); };
-  var d1 = d(E, a.ly, a.ax, a.ay, E, b.ly), d2 = d(E, a.ly, a.ax, a.ay, b.ax, b.ay);
-  var d3 = d(E, b.ly, b.ax, b.ay, E, a.ly), d4 = d(E, b.ly, b.ax, b.ay, a.ax, a.ay);
-  return d1 * d2 < 0 && d3 * d4 < 0;
+/* ---- categories: the figure and the lists are organised by these groups of sources ---- */
+var CATS = (TPC.categories || []).map(function (c) {
+  return { id: c.id, signal: c.signal === 'S2' ? 'S2' : 'S1', name: c.name, summary: c.summary || '', sources: (c.sources || []).filter(function (id) { return srcById.has(id); }) };
+}).filter(function (c) { return c.id && c.sources.length; });
+if (!CATS.length && SOURCES.length) {          /* data without categories: one group per signal */
+  CATS = [['S1', 'all-s1', 'Isolated S1 sources'], ['S2', 'all-s2', 'Isolated S2 sources']].map(function (g) {
+    return { id: g[1], signal: g[0], name: g[2], summary: '', sources: SOURCES.filter(function (s) { return s.signal === g[0] || s.signal === 'both'; }).map(function (s) { return s.id; }) };
+  }).filter(function (c) { return c.sources.length; });
 }
-var sceneItems = [];
+var catById = new Map(CATS.map(function (c) { return [c.id, c]; }));
+function catsOf(s) { return CATS.filter(function (c) { return c.sources.indexOf(s.id) >= 0; }); }
+function catMembers(c) { return c.sources.map(function (id) { return srcById.get(id); }).filter(srcVisible); }
+function wrapName(name, max) {
+  var words = String(name).split(/\s+/), lines = [''];
+  words.forEach(function (w) {
+    var cur = lines[lines.length - 1];
+    if (cur && (cur + ' ' + w).length > max && lines.length < 2) lines.push(w);
+    else lines[lines.length - 1] = cur ? cur + ' ' + w : w;
+  });
+  return lines;
+}
+var sceneItems = [], hoverCat = null;
 function renderScene() {
-  if (!detMode) return;
-  var wide = detMode === 'wide', ox = wide ? DET_OX : 0, Wv = wide ? 1180 : 520;
-  var showInset = state.dmed !== 'xenon', h = '';
-  var vis = SOURCES.filter(srcVisible), items = [];
+  if (!detMode || !$('det-scene')) return;
+  var wide = detMode === 'wide', ox = wide ? DET_OX : 0, Wv = wide ? 960 : 520;
+  var showInset = state.dmed !== 'xenon', Hv = showInset ? DET_H : 676, h = '';
   SOURCES.forEach(function (s) { s.drawn = !!REG[s.region]; });
-  vis.forEach(function (s) {
-    if (!s.drawn) return;
-    var sides = s.signal === 'S1' ? ['L'] : s.signal === 'S2' ? ['R'] : (wide ? (state.dsig === 'S1' ? ['L'] : state.dsig === 'S2' ? ['R'] : ['L', 'R']) : ['L']);
-    sides.forEach(function (sd) { items.push({ s: s, side: sd }); });
+  var items = [], cats = [];
+  CATS.forEach(function (c) {
+    var mem = catMembers(c);
+    if (!mem.length) return;
+    var cc = { c: c, side: c.signal === 'S2' ? 'R' : 'L', items: [], n: mem.length };
+    mem.forEach(function (s, i) {
+      if (!s.drawn) return;
+      var it = { s: s, cat: c, side: cc.side, n: i + 1 };
+      items.push(it); cc.items.push(it);
+    });
+    cats.push(cc);
   });
   var groups = {};
   items.forEach(function (it) { var k = it.s.region + '|' + it.side; (groups[k] = groups[k] || []).push(it); });
@@ -1828,290 +1933,282 @@ function renderScene() {
   var dr = tpcDrawing(showInset, state.dmed === 'argon');
   var partLabels = '<g transform="translate(' + ox + ',0)">' + dr.labels + '</g><g id="det-extra"></g>';
   h += '<g transform="translate(' + ox + ',0)">' + dr.base + '</g>';
+  var leads = '', blocks = '', dots = '';
   if (wide) {
-    var EL = ox - 14, ER = ox + 520 + 14, leads = '', dots = '', labs = '';
-    [['L', EL, 'S1'], ['R', ER, 'S2']].forEach(function (c) {
-      var sd = c[0], E = c[1], col = items.filter(function (it) { return it.side === sd; });
-      col.sort(function (a, b) { return (a.ay - b.ay) || (sd === 'L' ? a.ax - b.ax : b.ax - a.ax); });
-      var top = 48, bot = DET_H - 12, pitch = 23, i, j, pass, n = col.length;
-      var nBoth = col.filter(function (it) { return it.s.signal === 'both'; }).length;
-      /* labels as close as possible to their anchor height, at least one pitch apart (pool adjacent blocks) */
-      var blocks = [];
-      for (i = 0; i < n; i++) {
-        var blk = { i0: i, n: 1, sum: col[i].ay };
+    [['L', ox - 10, 'S1'], ['R', ox + 530, 'S2']].forEach(function (cfg) {
+      var sd = cfg[0], E = cfg[1], col = cats.filter(function (cc) { return cc.side === sd; });
+      col.forEach(function (cc) {
+        cc.my = cc.items.length ? cc.items.reduce(function (a, it) { return a + it.ay; }, 0) / cc.items.length : Hv / 2;
+      });
+      col.sort(function (a, b) { return a.my - b.my; });
+      var top = 70, bot = Hv - 36, pitch = 64, stack = [], i, j, n = col.length;
+      for (i = 0; i < n; i++) {             /* blocks as near their sources as possible, one pitch apart */
+        var blk = { i0: i, n: 1, sum: col[i].my };
         blk.y = blk.sum;
-        while (blocks.length && blocks[blocks.length - 1].y + blocks[blocks.length - 1].n * pitch > blk.y) {
-          var pv = blocks.pop();
+        while (stack.length && stack[stack.length - 1].y + stack[stack.length - 1].n * pitch > blk.y) {
+          var pv = stack.pop();
           blk = { i0: pv.i0, n: pv.n + blk.n, sum: pv.sum + blk.sum - blk.n * pv.n * pitch };
           blk.y = blk.sum / blk.n;
         }
         blk.y = Math.max(top, Math.min(bot - (blk.n - 1) * pitch, blk.y));
-        blocks.push(blk);
+        stack.push(blk);
       }
-      blocks.forEach(function (bk) { for (j = 0; j < bk.n; j++) col[bk.i0 + j].ly = bk.y + j * pitch; });
-      for (i = 1; i < n; i++) col[i].ly = Math.max(col[i].ly, col[i - 1].ly + pitch);
-      for (i = n - 1; i >= 0; i--) col[i].ly = Math.min(col[i].ly, i === n - 1 ? bot : col[i + 1].ly - pitch);
-      for (pass = 0; pass < 8; pass++) {
-        var swapped = false;
-        for (i = 0; i < n; i++) for (j = i + 1; j < n; j++) {
-          if (segCross(col[i], col[j], E)) { var t = col[i].ly; col[i].ly = col[j].ly; col[j].ly = t; swapped = true; }
-        }
-        if (!swapped) break;
-      }
-      labs += '<text class="colhead col-' + c[2] + '" x="' + (sd === 'L' ? E - 4 : E + 4) + '" y="22" text-anchor="' + (sd === 'L' ? 'end' : 'start') + '">Isolated ' + c[2] + ' \u00b7 ' + (n - nBoth) + (nBoth ? ' + ' + nBoth + ' both' : '') + '</text>';
-      col.forEach(function (it) {
-        var s = it.s, cls = ' col-' + c[2] + ' ev-' + s.evidence, id = esc(s.id);
-        it.E = E;
-        var w = textW(s.name, '500 13px "IBM Plex Sans", sans-serif') + (s.in_reference_talk === false ? 14 : 0) + 30;
-        leads += '<path class="lead' + cls + '" data-src="' + id + '" d="M' + (sd === 'L' ? E - 3 : E + 3) + ',' + it.ly + 'H' + E + 'L' + it.ax.toFixed(1) + ',' + it.ay.toFixed(1) + '"/>';
-        dots += '<g class="adot' + cls + '" data-src="' + id + '" aria-hidden="true"><circle class="hit" cx="' + it.ax.toFixed(1) + '" cy="' + it.ay.toFixed(1) + '" r="10"/><circle class="dot" cx="' + it.ax.toFixed(1) + '" cy="' + it.ay.toFixed(1) + '" r="4.5"/></g>';
-        labs += '<g class="slab' + cls + '" data-src="' + id + '" tabindex="0" role="button" aria-label="' + esc(s.name + ', ' + SIG_LABEL[s.signal] + ', ' + s.evidence + ', at ' + regLabel(s.region)) + '">' +
-          '<rect class="lhit" x="' + (sd === 'L' ? E - w : E - 2) + '" y="' + (it.ly - 10.5) + '" width="' + (w + 2) + '" height="21" rx="6"/>' +
-          '<circle class="mark" cx="' + (sd === 'L' ? E - 10 : E + 10) + '" cy="' + it.ly + '" r="4.5"/>' +
-          '<text class="t" x="' + (sd === 'L' ? E - 22 : E + 22) + '" y="' + (it.ly + 4.5) + '" text-anchor="' + (sd === 'L' ? 'end' : 'start') + '">' + esc(s.name) +
-          (s.in_reference_talk === false ? '<tspan class="dagger" dx="3">†</tspan>' : '') + '</text></g>';
+      stack.forEach(function (bk) { for (j = 0; j < bk.n; j++) col[bk.i0 + j].ly = bk.y + j * pitch; });
+      blocks += '<text class="colhead col-' + cfg[2] + '" x="' + (sd === 'L' ? E - 12 : E + 12) + '" y="26" text-anchor="' + (sd === 'L' ? 'end' : 'start') + '">Isolated ' + cfg[2] + '</text>';
+      col.forEach(function (cc) {
+        var c = cc.c, lines = wrapName(c.name, 22), bh = lines.length * 19 + 24, y0 = cc.ly - bh / 2, cls = ' col-' + cfg[2];
+        var tx = sd === 'L' ? E - 14 : E + 14, anchor = sd === 'L' ? 'end' : 'start';
+        cc.items.forEach(function (it) {
+          it.E = E; it.ly = cc.ly;
+          leads += '<path class="lead' + cls + '" data-cat="' + esc(c.id) + '" data-src="' + esc(it.s.id) + '" d="M' + E + ',' + cc.ly.toFixed(1) + 'L' + it.ax.toFixed(1) + ',' + it.ay.toFixed(1) + '"/>';
+        });
+        blocks += '<g class="cblock' + cls + '" data-cat="' + esc(c.id) + '" tabindex="0" role="button" aria-label="' + esc(c.name + ', ' + cc.n + ' sources of isolated ' + cfg[2]) + '">' +
+          '<rect class="lhit" x="' + (sd === 'L' ? E - 204 : E + 4) + '" y="' + y0.toFixed(1) + '" width="200" height="' + bh + '" rx="8"/>' +
+          '<circle class="orig" cx="' + E + '" cy="' + cc.ly.toFixed(1) + '" r="3"/>' +
+          lines.map(function (ln, k) { return '<text class="cname" x="' + tx + '" y="' + (y0 + 20 + k * 19).toFixed(1) + '" text-anchor="' + anchor + '">' + esc(ln) + '</text>'; }).join('') +
+          '<text class="ccount" x="' + tx + '" y="' + (y0 + 20 + lines.length * 19).toFixed(1) + '" text-anchor="' + anchor + '">' + cc.n + (cc.n === 1 ? ' source' : ' sources') + '</text></g>';
       });
     });
-    h += leads + partLabels + dots + labs;
-  } else {
-    h += partLabels;
-    items.forEach(function (it) {
-      var s = it.s;
-      h += '<g class="smk sig-' + s.signal + ' ev-' + s.evidence + '" data-src="' + esc(s.id) + '" tabindex="0" role="button" aria-label="' +
-        esc(s.n + '. ' + s.name + ', ' + SIG_LABEL[s.signal] + ', ' + s.evidence + ', at ' + regLabel(s.region)) + '" transform="translate(' + it.ax.toFixed(1) + ',' + it.ay.toFixed(1) + ')">' +
-        '<circle class="hit" r="21"/><g transform="scale(0.8)"><circle class="halo" r="16.5"/>' + srcShape(s.signal) + '<text class="num">' + s.n + '</text></g></g>';
-    });
   }
-  $('det-scene').innerHTML = '<svg id="det-svg" viewBox="0 0 ' + Wv + ' ' + (showInset ? DET_H : 676) + '" role="img" aria-label="Schematic cross-section of a dual-phase TPC. ' +
-    (wide ? 'Sources of isolated S1 pulses are labelled on the left and sources of isolated S2 pulses on the right, each joined by a line to the place where it arises.' : 'Numbered markers show where each source of isolated S1 or S2 pulses arises.') +
-    ' The same sources are listed below the drawing.">' + h + '</svg>';
+  items.forEach(function (it) {
+    var s = it.s, x = it.ax.toFixed(1), y = it.ay.toFixed(1), col = it.side === 'L' ? 'S1' : 'S2';
+    dots += '<g class="adot col-' + col + ' ev-' + s.evidence + '" data-src="' + esc(s.id) + '" data-cat="' + esc(it.cat.id) + '" tabindex="0" role="button" aria-label="' +
+      esc(s.name + ', ' + s.evidence + ', in ' + it.cat.name) + '">' +
+      '<circle class="hit" cx="' + x + '" cy="' + y + '" r="' + (wide ? 11 : 21) + '"/>' +
+      '<circle class="mark pt" cx="' + x + '" cy="' + y + '" r="' + (wide ? 5 : 7) + '"/>' +
+      '<circle class="mark ptsel" cx="' + x + '" cy="' + y + '" r="' + (wide ? 9.5 : 12) + '"/>' +
+      '<text class="dnum" x="' + x + '" y="' + y + '">' + it.n + '</text></g>';
+  });
+  h += leads + partLabels + dots + blocks;
+  $('det-scene').innerHTML = '<svg id="det-svg" class="scene" viewBox="0 0 ' + Wv + ' ' + Hv + '" role="img" aria-label="Schematic cross-section of a dual-phase TPC. ' +
+    (wide ? 'Groups of isolated-S1 sources are named on the left and groups of isolated-S2 sources on the right; lines join each group to the places where its sources arise.' : 'Dots mark where each source of isolated S1 or S2 pulses arises.') +
+    ' The same groups are listed below the drawing.">' + h + '</svg>';
   $('det-fig').className = 'det-fig ' + detMode;
 
-  /* legend */
-  var mk = function (ev) { return '<svg class="col-S1 ev-' + ev + '" width="14" height="14" viewBox="-7 -7 14 14" aria-hidden="true"><circle class="mark" r="4.5"/></svg>'; };
-  var lg = function (sig, ev, t) { return '<span class="legend-item">' + srcGlyph({ signal: sig, evidence: ev, n: '' }, 20) + t + '</span>'; };
-  var evd = function (ev) { return '<span class="legend-item">' + (wide ? mk(ev) : srcGlyph({ signal: 'S1', evidence: ev, n: '' }, 20)) + '<span><b>' + ev + '</b>: ' + esc(EV_NOTE[ev].replace(/\.$/, '').replace(/^./, function (ch) { return ch.toLowerCase(); })) + '</span></span>'; };
-  $('det-legend').innerHTML = (wide ? '' : '<span class="legend-k">Signal</span>' + lg('S1', 'established', 'isolated S1') + lg('S2', 'established', 'isolated S2') + lg('both', 'established', 'both')) +
-    '<span class="legend-k">Evidence</span>' + evd('established') + evd('supported') + evd('hypothesised') +
-    '<span class="legend-item"><b class="dagger">†</b> not in the overview talk\u2019s lists; added from the round-table minutes and papers</span>' +
-    (wide ? '<span class="legend-item"><svg width="26" height="10" viewBox="0 0 26 10" aria-hidden="true"><path class="lead extra col-S1 hot" d="M1,5H25"/></svg>dashed line: where else it arises, shown on hover or selection</span>'
-          : '<span class="legend-item">small hollow dot: where else the selected source arises</span>');
-
-  /* list (narrow) or table (wide) */
-  $('det-list').hidden = wide; $('det-table').hidden = !wide;
-  if (wide) renderSrcTable(vis); else renderSrcList(vis);
-  document.querySelectorAll('#det-tools .chip').forEach(function (b) { b.setAttribute('aria-pressed', String(state[b.dataset.d] === b.dataset.v)); });
-  markSources();
+  /* phone and beside-the-panel layout: the groups as chips above the figure */
+  var chips = $('det-chips');
+  chips.hidden = wide;
+  if (!wide) {
+    chips.innerHTML = [['S1', 'Isolated S1'], ['S2', 'Isolated S2']].map(function (g) {
+      var list = cats.filter(function (cc) { return cc.c.signal === g[0]; });
+      if (!list.length) return '';
+      return '<div class="fgroup" role="group" aria-label="' + g[1] + ' groups"><span class="flabel">' + g[1] + '</span>' + list.map(function (cc) {
+        return '<button class="catchip col-' + g[0] + '" data-cat="' + esc(cc.c.id) + '" aria-pressed="false">' + esc(cc.c.name) + ' <span class="pn">' + cc.n + '</span></button>';
+      }).join('') + '</div>';
+    }).join('');
+  }
+  renderAccordion(cats);
+  document.querySelectorAll('#det-tools .seg').forEach(function (b) { b.setAttribute('aria-pressed', String((state.dmed || '') === b.dataset.med)); });
+  markScene();
 }
-function srcRow(s) {
-  return '<button class="srow" data-src="' + esc(s.id) + '"' + (state.srcId === s.id ? ' aria-current="true"' : '') + '>' +
-    '<span class="g">' + srcGlyph(s, 26) + '</span>' +
-    '<span class="nm">' + esc(s.name) + (s.in_reference_talk === false ? ' <b class="dagger">†</b>' : '') + (s.drawn ? '' : ' <span class="badge p-plain">not drawn</span>') + '</span>' +
-    '<span class="evchip ev-' + esc(s.evidence) + '">' + esc(s.evidence) + '</span>' +
-    '<span class="meta">' + esc(regLabel(s.region)) + ' \u00b7 ' + esc(s.timescale || 'timescale not stated') + (s.medium !== 'both' ? ' \u00b7 ' + esc(MED_LABEL[s.medium].toLowerCase()) + ' only' : '') +
-    (s.importance ? ' \u00b7 contribution: ' + esc(s.importance) : '') + '</span></button>';
-}
-function renderSrcList(vis) {
+function evMark(ev) { return '<svg class="col-S1 ev-' + esc(ev) + '" width="14" height="14" viewBox="-7 -7 14 14" aria-hidden="true"><circle class="mark" r="4.5"/></svg>'; }
+function dagger(s) { return s.in_reference_talk === false ? ' <b class="dagger" title="Added beyond the overview talk">†</b>' : ''; }
+function renderAccordion(cats) {
   var h = '';
   [['S1', 'Isolated S1'], ['S2', 'Isolated S2']].forEach(function (g) {
-    if (state.dsig && state.dsig !== g[0]) return;
-    var rows = vis.filter(function (s) { return s.signal === g[0] || s.signal === 'both'; });
-    h += '<div class="lgroup"><h3>' + g[1] + ' <span>' + rows.length + '</span></h3>' + (rows.length ? rows.map(srcRow).join('') : '<p class="note">No source matches.</p>') + '</div>';
+    var list = cats.filter(function (cc) { return cc.c.signal === g[0]; });
+    if (!list.length) return;
+    h += '<div class="accgroup"><h3>' + g[1] + '</h3>' + list.map(function (cc) {
+      var c = cc.c;
+      return '<details class="psec acc" data-acc="' + esc(c.id) + '"><summary><span class="acc-t"><span class="acc-n">' + esc(c.name) + '</span><span class="acc-s">' + esc(c.summary) + '</span></span><span class="pn">' + cc.n + '</span></summary>' +
+        '<div class="pbody"><div class="arows">' + catMembers(c).map(function (s) {
+          return '<button class="arow" data-src="' + esc(s.id) + '" data-incat="' + esc(c.id) + '"><span class="a-n">' + esc(s.name) + dagger(s) + '</span><span class="a-w">' + esc(regLabel(s.region)) + '</span>' +
+            '<span class="a-e">' + evMark(s.evidence) + esc(s.evidence) + '</span></button>';
+        }).join('') + '</div></div></details>';
+    }).join('') + '</div>';
   });
-  $('det-list').innerHTML = h;
+  $('det-acc').innerHTML = h;
 }
-var SRC_COLS = [['name', 'Source'], ['signal', 'Signal'], ['where', 'Where'], ['timescale', 'Timescale'], ['evidence', 'Evidence'], ['importance', 'Contribution'], ['setups', 'Setups']];
-var EV_RANK = { established: 0, supported: 1, hypothesised: 2 };
-var IMP_RANK = { dominant: 0, significant: 1, 'sub-dominant': 2, contested: 3, unknown: 4 };
-function renderSrcTable(vis) {
-  var key = state.dsort || 'signal', dir = state.dsortDir || 1;
-  var hasImp = SOURCES.some(function (s) { return !!s.importance; });
-  var cols = SRC_COLS.filter(function (c) { return c[0] !== 'importance' || hasImp; });
-  var val = {
-    name: function (s) { return s.name.toLowerCase(); }, signal: function (s) { return SIG_RANK[s.signal]; }, where: function (s) { return regLabel(s.region).toLowerCase(); },
-    timescale: function (s) { return (s.timescale || '\uffff').toLowerCase(); }, evidence: function (s) { return EV_RANK[s.evidence]; },
-    importance: function (s) { return s.importance in IMP_RANK ? IMP_RANK[s.importance] : 9; }, setups: function (s) { return -(s.setups || []).length; }
-  }[key];
-  var rows = vis.slice().sort(function (a, b) { var x = val(a), y = val(b); return (x < y ? -1 : x > y ? 1 : a.n - b.n) * dir; });
-  var h = '<div class="tablewrap srcwrap"><table class="srctable"><thead><tr>' + cols.map(function (c) {
-    return '<th' + (c[0] === 'setups' ? ' class="num"' : '') + ' aria-sort="' + (key === c[0] ? (dir > 0 ? 'ascending' : 'descending') : 'none') + '"><button class="thbtn" data-sort="' + c[0] + '">' + c[1] + (key === c[0] ? (dir > 0 ? ' \u2191' : ' \u2193') : '') + '</button></th>';
-  }).join('') + '</tr></thead><tbody>';
-  var last = null;
-  rows.forEach(function (s) {
-    if (key === 'signal' && s.signal !== last) { last = s.signal; h += '<tr class="grp"><td colspan="' + cols.length + '">' + esc(SIG_LABEL[s.signal]) + '</td></tr>'; }
-    h += '<tr data-src="' + esc(s.id) + '"><td><button class="mname" data-src="' + esc(s.id) + '">' + esc(s.name) + '</button>' + (s.in_reference_talk === false ? ' <b class="dagger">†</b>' : '') + (s.drawn ? '' : ' <span class="badge p-plain">not drawn</span>') +
-      '</td><td>' + esc(SIG_SHORT[s.signal]) + (s.medium !== 'both' ? '<span class="sub">' + esc(MED_LABEL[s.medium].toLowerCase()) + ' only</span>' : '') + '</td><td>' + esc(regLabel(s.region)) + '</td><td>' + esc(s.timescale || '') +
-      '</td><td><span class="evchip ev-' + esc(s.evidence) + '">' + esc(s.evidence) + '</span></td>' + (hasImp ? '<td>' + impChip(s) + '</td>' : '') + '<td class="num">' + (s.setups || []).length + '</td></tr>';
-  });
-  h += '</tbody></table></div>' + (rows.length ? '' : '<p class="note">No source matches.</p>');
-  $('det-table').innerHTML = h;
-}
-function hotSource(id) {
+/* highlight state of the figure: hovered or selected category, selected source */
+function markScene() {
   var svg = $('det-svg');
-  document.querySelectorAll('#view-detector [data-src]').forEach(function (el) { el.classList.toggle('hot', !!id && el.dataset.src === id); });
   if (!svg) return;
-  svg.classList.toggle('focus', !!id);
-  var s = id && srcById.get(id), regs = s ? [s.region].concat(s.extra_regions || []) : [];
+  var act = hoverCat || state.catId, src = state.srcId && srcById.get(state.srcId);
+  svg.classList.toggle('focus', !!act);
+  svg.querySelectorAll('[data-cat]').forEach(function (el) {
+    var on = !!act && el.dataset.cat === act;
+    el.classList.toggle('hot', on);
+    if (el.classList.contains('adot')) {
+      el.classList.toggle('catsel', !!state.catId && el.dataset.cat === state.catId);
+      el.classList.toggle('sel', !!src && el.dataset.src === src.id);
+    }
+    if (el.classList.contains('cblock')) el.classList.toggle('sel', el.dataset.cat === state.catId);
+  });
+  document.querySelectorAll('#det-chips .catchip').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.cat === state.catId)); });
+  var regs = src ? [src.region].concat(src.extra_regions || []) : [];
   svg.querySelectorAll('.d-hi').forEach(function (r) { r.classList.toggle('on', regs.indexOf(r.dataset.reg) >= 0); });
-  var ex = '', wide = detMode === 'wide', ox = wide ? DET_OX : 0;
-  if (s) sceneItems.filter(function (it) { return it.s === s; }).forEach(function (it) {
-    (s.extra_regions || []).forEach(function (rid, k) {
+  var ex = '', ox = detMode === 'wide' ? DET_OX : 0;
+  if (src) sceneItems.filter(function (it) { return it.s === src; }).forEach(function (it) {
+    (src.extra_regions || []).forEach(function (rid, k) {
       var R = REG[rid];
       if (!R || (R.inset && state.dmed === 'xenon')) return;
       var p = R.inset ? [224, 700] : along(R[it.side], 0.06 + 0.05 * (k % 3));
-      var c = ' col-' + (it.side === 'L' ? 'S1' : 'S2');
-      if (wide) ex += '<path class="lead extra hot' + c + '" d="M' + it.E + ',' + it.ly + 'L' + (p[0] + ox).toFixed(1) + ',' + p[1].toFixed(1) + '"/>';
-      ex += '<circle class="xdot' + (wide ? c : ' col-' + (s.signal === 'S2' ? 'S2' : 'S1')) + '" cx="' + (p[0] + ox).toFixed(1) + '" cy="' + p[1].toFixed(1) + '" r="' + (wide ? 3.6 : 5) + '"/>';
+      ex += '<circle class="xdot col-' + (it.side === 'L' ? 'S1' : 'S2') + '" cx="' + (p[0] + ox).toFixed(1) + '" cy="' + p[1].toFixed(1) + '" r="4.5"/>';
     });
   });
   var g = $('det-extra'); if (g) g.innerHTML = ex;
 }
-function markSources() {
-  document.querySelectorAll('#view-detector [data-src]').forEach(function (el) {
-    var on = el.dataset.src === state.srcId;
-    el.classList.toggle('sel', on);
-    if (el.classList.contains('srow')) { if (on) el.setAttribute('aria-current', 'true'); else el.removeAttribute('aria-current'); }
-  });
-  hotSource(state.srcId);
-}
+function markSources() { markScene(); }
 function setDetMode() {
   var w = $('stage').clientWidth;
-  if (!w || !SOURCES) return;
-  /* the labelled scene needs about 1000 px; beside an open panel on a smaller window the numbered variant is used, so nothing is cut */
+  if (!w) return;
+  /* the labelled scene needs about 900 px; on a phone, or beside an open panel on a smaller window, the groups become chips above the figure */
   var avail = w - ((!$('panel').hidden && !narrow()) ? $('panel').offsetWidth + 24 : 0);
-  var m = avail >= 1000 ? 'wide' : 'narrow';
-  if (m !== detMode) { detMode = m; if ($('det-scene')) renderScene(); }
+  var m = avail >= 900 ? 'wide' : 'narrow';
+  if (m !== detMode) { detMode = m; renderScene(); }
 }
-function impChip(s) {
-  if (!s.importance) return '';
-  return '<span class="impchip imp-' + esc(s.importance) + '"' + (s.importance_note ? ' title="' + esc(s.importance_note) + '"' : '') + '>contribution: ' + esc(s.importance) + '</span>';
+function showDetTip(el) {
+  var s = srcById.get(el.dataset.src), tip = $('det-tip'), fig = $('det-fig');
+  if (!s || !tip) return;
+  tip.innerHTML = '<b>' + esc(s.name) + '</b><span class="tip-sub">' + esc(regLabel(s.region)) + ' · ' + esc(s.evidence) + '</span>';
+  tip.hidden = false;
+  var a = fig.getBoundingClientRect(), b = el.querySelector('.pt').getBoundingClientRect();
+  var x = b.left + b.width / 2 - a.left - tip.offsetWidth / 2, y = b.top - a.top - tip.offsetHeight - 10;
+  tip.style.left = Math.max(4, Math.min(a.width - tip.offsetWidth - 4, x)) + 'px';
+  tip.style.top = (y < 0 ? b.bottom - a.top + 10 : y) + 'px';
 }
 function renderDetector() {
   var rt = TPC.reference_talk || {}, h = '';
   var nAdd = SOURCES.filter(function (s) { return s.in_reference_talk === false; }).length;
-  var n1 = SOURCES.filter(function (s) { return s.signal === 'S1'; }).length, n2 = SOURCES.filter(function (s) { return s.signal === 'S2'; }).length, nb = SOURCES.length - n1 - n2;
   h += '<div class="det-head"><div class="det-title"><h2>Where isolated S1s and S2s arise in a dual-phase TPC</h2>' +
-    '<p>' + SOURCES.length + ' sources: ' + n1 + ' isolated S1, ' + n2 + ' isolated S2' + (nb ? ', ' + nb + ' both' : '') + '. Select one for its mechanism, evidence and the setups that study it.</p></div>';
-  var chip = function (d, v, t) { return '<button class="chip" id="d-' + d + '-' + v + '" data-d="' + d + '" data-v="' + v + '" aria-pressed="false">' + t + '</button>'; };
-  h += '<div class="det-tools" id="det-tools"><div class="fgroup" role="group" aria-label="Show sources of"><span class="flabel">Show only</span>' +
-    chip('dsig', 'S1', 'S1 sources') + chip('dsig', 'S2', 'S2 sources') + '</div>' +
-    '<div class="fgroup" role="group" aria-label="Medium"><span class="flabel">Medium</span>' + chip('dmed', 'xenon', 'Xenon') + chip('dmed', 'argon', 'Argon') + '</div></div></div>';
-  if (TPC.provisional) h += '<p class="provisional"><b>Provisional content.</b> The researched source list is not in this version yet. This placeholder has one entry per mechanism tag A–I, without numbers or references.</p>';
-  h += '<figure class="det-fig" id="det-fig"><div class="scene-wrap" id="det-scene" tabindex="-1"></div>' +
-    '<div class="det-legend" id="det-legend"></div>' +
-    '<figcaption>Schematic, redrawn and not to scale: the top of the detector is stretched and the drift region compressed. The faint lines show one ordinary event for orientation: S1 light reaching both arrays, electrons drifting up, S2 light in the gas gap. Every source listed produces a pulse without its partner.</figcaption></figure>';
-  h += '<div id="det-table" hidden></div><div id="det-list" class="det-list" hidden></div>';
-  h += '<div class="sec"><h2>How lone pulses become events</h2>' +
-    '<p class="formula">R<sub>AC</sub> = R<sub>iso-S1</sub> × R<sub>iso-S2</sub> × Δt<sub>drift</sub></p>' +
+    '<p>' + SOURCES.length + ' candidate sources in ' + CATS.length + ' groups. Select a group to see its sources.</p></div>' +
+    '<div class="det-tools" id="det-tools" role="group" aria-label="Medium"><span class="flabel">Medium</span><span class="segs">' +
+    [['', 'All'], ['xenon', 'Xenon'], ['argon', 'Argon']].map(function (m) { return '<button class="seg" id="d-med-' + (m[0] || 'all') + '" data-med="' + m[0] + '" aria-pressed="false">' + m[1] + '</button>'; }).join('') + '</span></div></div>';
+  if (TPC.provisional) h += '<p class="provisional"><b>Provisional content.</b> The researched source list is not in this version yet.</p>';
+  h += '<div class="det-chips" id="det-chips" hidden></div>';
+  h += '<figure class="det-fig" id="det-fig"><div class="scene-wrap" id="det-scene"></div><div class="tip caption" id="det-tip" hidden></div>' +
+    '<figcaption><span class="det-legend">' +
+    ['established', 'supported', 'hypothesised'].map(function (ev) { return '<span class="legend-item" title="' + esc(EV_NOTE[ev]) + '">' + evMark(ev) + ev + '</span>'; }).join('') +
+    (rt.found ? '<span class="legend-item"><b class="dagger">†</b> added beyond the overview talk</span>' : '') + '</span>' +
+    '<span class="cap-t">Schematic, redrawn, not to scale. Dashed lines: one ordinary event.</span></figcaption></figure>';
+  h += '<div id="det-acc" class="det-acc"></div>';
+  var d = '<p class="formula">R<sub>AC</sub> = R<sub>iso-S1</sub> × R<sub>iso-S2</sub> × Δt<sub>drift</sub></p>' +
     '<p>' + esc(TPC.pairing || 'An isolated S1 and an isolated S2 that happen to fall within one maximum drift time are paired by the event builder and pass as a single low-energy event.') + '</p>' +
     '<p>No per-source rate estimates are published; the numbers given are total isolated-pulse rates, time constants and cut efficiencies.</p>';
   var pr = (TPC.pairing_references || []);
-  if (pr.length) h += '<details><summary>Sources for these rates (' + pr.length + ')</summary><div class="dbody"><ul class="refs">' + pr.map(refHtml).join('') + '</ul></div></details>';
+  if (pr.length) d += '<h4>Sources for these rates</h4><ul class="refs">' + pr.map(refHtml).join('') + '</ul>';
   if (rt.found) {
     var u = safeUrl(rt.url) || safeUrl(rt.slides_url);
     var who = 'the overview by ' + esc((rt.speaker || '').replace(/^(\S)\S*\s+(?=\S)/, '$1. ') || 'the speaker') + (rt.event ? ' (' + esc(rt.event) + ')' : '');
     var rtb = (rt.other_talks_used || []).filter(function (t) { return /round/i.test(t.title || ''); })[0];
     var rtxt = 'the sketch from the ' + esc(rt.event || 'workshop') + ' round table on accidental coincidences';
-    h += '<p class="note">After ' + (u ? link(u, who) : who) + ' and ' + (rtb && safeUrl(rtb.url) ? link(rtb.url, rtxt) : rtxt) + '. Schematic, redrawn.' +
-      ' The source lists follow that talk (' + (SOURCES.length - nAdd) + ' of ' + SOURCES.length + '); the other ' + nAdd + ' are additions from the round-table minutes and papers, marked <b class="dagger">†</b>.</p>';
+    d += '<h4>Credits</h4><p>After ' + (u ? link(u, who) : who) + ' and ' + (rtb && safeUrl(rtb.url) ? link(rtb.url, rtxt) : rtxt) + '. Schematic, redrawn.' +
+      ' The source list follows that talk (' + (SOURCES.length - nAdd) + ' of ' + SOURCES.length + '); the other ' + nAdd + ' are additions from the round-table minutes and papers, marked <b class="dagger">†</b>.</p>';
     var ot = (rt.other_talks_used || []).filter(function (t) { return t && t.title && t !== rtb; });
-    if (ot.length) h += '<p class="note">Also used: ' + ot.map(function (t) {
+    if (ot.length) d += '<p class="note">Also used: ' + ot.map(function (t) {
       var tt = esc(t.title) + (t.speaker ? ' (' + esc(t.speaker) + ')' : '');
       return safeUrl(t.url) ? link(t.url, tt) : tt;
     }).join('; ') + '.</p>';
-  } else {
-    h += '<p class="note">The drawing is schematic.</p>';
   }
-  h += '</div>';
+  h += '<details class="psec"><summary><span>How accidental coincidences arise, and credits</span></summary><div class="pbody">' + d + '</div></details>';
   $('det-inner').innerHTML = h;
   detMode = null;
   setDetMode();
   window.addEventListener('resize', setDetMode);
   var inner = $('det-inner');
   inner.addEventListener('click', function (ev) {
-    var c = ev.target.closest('#det-tools .chip');
-    if (c) { state[c.dataset.d] = state[c.dataset.d] === c.dataset.v ? null : c.dataset.v; renderScene(); return; }
-    var th = ev.target.closest('[data-sort]');
-    if (th) {
-      if (state.dsort === th.dataset.sort || (!state.dsort && th.dataset.sort === 'signal')) state.dsortDir = -(state.dsortDir || 1); else { state.dsort = th.dataset.sort; state.dsortDir = 1; }
-      renderSrcTable(SOURCES.filter(srcVisible)); markSources();
-      var nbt = inner.querySelector('[data-sort="' + (state.dsort || 'signal') + '"]'); if (nbt) nbt.focus();
-      return;
-    }
-    var el = ev.target.closest('[data-src]');
-    if (el) { lastFocus = el.matches('button') ? el : null; selectSource(el.dataset.src); }
+    var seg = ev.target.closest('.seg');
+    if (seg) { state.dmed = seg.dataset.med || null; renderScene(); return; }
+    var dot = ev.target.closest('.adot, .arow');
+    if (dot) { lastFocus = dot.matches('button') ? dot : null; selectSource(dot.dataset.src, { cat: dot.dataset.cat || dot.dataset.incat }); return; }
+    var cb = ev.target.closest('.cblock, .catchip');
+    if (cb) { lastFocus = cb.matches('button') ? cb : null; selectCategory(cb.dataset.cat); }
   });
   inner.addEventListener('keydown', function (ev) {
-    var el = ev.target.closest && ev.target.closest('svg [data-src]');
-    if (el && (ev.key === 'Enter' || ev.key === ' ')) { ev.preventDefault(); lastFocus = null; selectSource(el.dataset.src); }
+    if (ev.key !== 'Enter' && ev.key !== ' ') return;
+    var el = ev.target.closest && ev.target.closest('svg .adot, svg .cblock');
+    if (!el) return;
+    ev.preventDefault(); lastFocus = null;
+    if (el.classList.contains('adot')) selectSource(el.dataset.src, { cat: el.dataset.cat }); else selectCategory(el.dataset.cat);
   });
-  inner.addEventListener('pointerover', function (ev) { var el = ev.target.closest('[data-src]'); if (el) hotSource(el.dataset.src); });
-  inner.addEventListener('pointerout', function (ev) { if (ev.target.closest('[data-src]')) hotSource(state.srcId); });
-  inner.addEventListener('focusin', function (ev) { var el = ev.target.closest('[data-src]'); if (el) hotSource(el.dataset.src); });
-  inner.addEventListener('focusout', function () { hotSource(state.srcId); });
+  var over = function (ev) {
+    var el = ev.target.closest('.adot, .cblock, .catchip');
+    if (!el) return;
+    hoverCat = el.dataset.cat; markScene();
+    if (el.classList.contains('adot')) showDetTip(el);
+  };
+  var out = function (ev) {
+    if (!ev.target.closest('.adot, .cblock, .catchip')) return;
+    hoverCat = null; $('det-tip').hidden = true; markScene();
+  };
+  inner.addEventListener('pointerover', over);
+  inner.addEventListener('pointerout', out);
+  inner.addEventListener('focusin', over);
+  inner.addEventListener('focusout', out);
+}
+function backLink() {
+  var c = state.catId && catById.get(state.catId);
+  return c ? '<button class="backlink" data-cat="' + esc(c.id) + '">← Back to ' + esc(c.name) + '</button>' : '';
+}
+function renderCategory(c) {
+  var mem = catMembers(c);
+  var h = panelHead(c.name, '<span class="pill">' + esc(SIG_LABEL[c.signal]) + '</span><span class="pill">' + mem.length + (mem.length === 1 ? ' source' : ' sources') + '</span>', 'cat-' + c.id);
+  h += '<div class="panel-body"><input class="linktxt" id="link-text" type="text" readonly hidden aria-label="Link to this group" value="' + esc(linkFor('cat-' + c.id)) + '">';
+  if (c.summary) h += '<p class="lead-p">' + esc(c.summary) + '</p>';
+  h += '<div class="crows">' + mem.map(function (s, i) {
+    return '<button class="crow" data-src="' + esc(s.id) + '" data-incat="' + esc(c.id) + '"><span class="c-i col-' + c.signal + '">' + (i + 1) + '</span>' +
+      '<span class="c-n">' + esc(s.name) + dagger(s) + '</span><span class="c-e" title="' + esc(s.evidence) + '">' + evMark(s.evidence) + '</span>' +
+      '<span class="c-m">' + esc(regLabel(s.region)) + (s.timescale ? ' · ' + esc(s.timescale) : '') + '</span></button>';
+  }).join('') + '</div>';
+  if (state.dmed) h += '<p class="pfoot">Showing ' + esc(MED_LABEL[state.dmed].toLowerCase()) + ' sources only.</p>';
+  return h + '</div>';
 }
 function renderSource(s) {
   var h = '', f = '';
-  var chips = '<span class="pill">' + srcGlyph(s, 18) + esc(SIG_LABEL[s.signal]) + '</span><span class="pill">' + esc(MED_LABEL[s.medium] || s.medium) + '</span>' +
-    '<span class="evchip ev-' + esc(s.evidence) + '" title="' + esc(EV_NOTE[s.evidence] || '') + '">' + esc(s.evidence) + '</span>' + impChip(s);
-  h += panelHead(s.name, chips) + '<div class="panel-body">';
+  var chips = '<span class="pill">' + esc(SIG_LABEL[s.signal]) + '</span><span class="pill">' + esc(MED_LABEL[s.medium] || s.medium) + '</span>' +
+    '<button class="evchip ev-' + esc(s.evidence) + '" data-act="evnote" aria-expanded="false" aria-controls="ev-note" title="' + esc(EV_NOTE[s.evidence] || '') + '">' + esc(s.evidence) + '</button>';
+  h += panelHead(s.name, chips, 'src-' + s.id) + '<div class="panel-body"><input class="linktxt" id="link-text" type="text" readonly hidden aria-label="Link to this entry" value="' + esc(linkFor('src-' + s.id)) + '">';
+  h += backLink();
+  h += '<p class="note" id="ev-note" hidden><b>' + esc(s.evidence) + '.</b> ' + esc(EV_NOTE[s.evidence] || '') + (s.evidence_note ? ' ' + esc(s.evidence_note) : '') + '</p>';
   var fact = function (k, v) { if (v) f += '<dt>' + k + '</dt><dd>' + v + '</dd>'; };
   var where = esc(regLabel(s.region));
   var ex = (s.extra_regions || []).map(regLabel);
   if (ex.length) where += '<span class="sub">also: ' + esc(ex.join('; ')) + '</span>';
-  if (!s.drawn) where += '<span class="sub noloc">This region is not drawn in the diagram.</span>';
   fact('Where', where);
-  fact('Signal', esc(SIG_LABEL[s.signal]));
-  fact('Medium', esc(MED_LABEL[s.medium] || s.medium));
   fact('Timescale', esc(s.timescale));
   fact('Correlated with', esc(s.correlated_with));
-  fact('Evidence', esc(s.evidence) + '<span class="sub">' + esc(EV_NOTE[s.evidence] || '') + '</span>' + (s.evidence_note ? '<span class="sub">' + esc(s.evidence_note) + '</span>' : ''));
-  if (s.importance) fact('Contribution', esc(s.importance) + (s.importance_note ? '<span class="sub">' + esc(s.importance_note) + '</span>' : ''));
   h += '<dl class="facts">' + f + '</dl>';
-  if (TPC.provisional) h += '<p class="provisional">Provisional entry derived from the mechanism tag only.</p>';
-  if (s.mechanism) h += '<section><h3>Mechanism</h3><p>' + esc(s.mechanism) + '</p>' + (s.chain ? '<p class="chain">' + esc(s.chain) + '</p>' : '') + '</section>';
-  else if (s.chain) h += '<section><h3>Chain</h3><p class="chain">' + esc(s.chain) + '</p></section>';
-  if (s.key_numbers && s.key_numbers.length) {
-    h += '<section><h3>Key numbers</h3><ul class="meas">' + s.key_numbers.map(function (k) {
-      var rl = refLink(s.references, k.ref);
-      return '<li><span class="res">' + esc(k.text) + '</span>' + (rl ? '<span class="mm">' + rl + '</span>' : '') + '</li>';
-    }).join('') + '</ul></section>';
-  }
-  if (s.mitigation) h += '<section><h3>Mitigation</h3><p>' + esc(s.mitigation) + '</p></section>';
-  if (s.tags && s.tags.length) {
-    h += '<section><h3>Mechanism tags</h3><div class="tagrow">' + s.tags.map(function (t) {
-      var tg = tagById.get(t) || { name: '', desc: '' };
-      return '<button class="tagbtn" data-tag="' + esc(t) + '" aria-expanded="false" title="' + esc(tg.name + (tg.desc ? ': ' + tg.desc : '')) + '"><b>' + esc(t) + '</b>' + esc(tg.name) + '</button>';
-    }).join('') + '</div><div class="tagexp" id="tagexp" hidden></div></section>';
-  }
+  if (s.mechanism) h += '<p>' + esc(s.mechanism) + '</p>';
+  if (s.chain) h += '<p class="chain">' + esc(s.chain) + '</p>';
+  var kn = s.key_numbers || [];
+  h += psec('Key numbers', kn.length, kn.length ? '<ul class="meas">' + kn.map(function (k) {
+    var rl = refLink(s.references, k.ref);
+    return '<li><span class="res">' + esc(k.text) + '</span>' + (rl ? '<span class="mm">' + rl + '</span>' : '') + '</li>';
+  }).join('') + '</ul>' : '');
+  h += psec('How experiments reduce it', null, s.mitigation ? '<p>' + esc(s.mitigation) + '</p>' : '');
   var su = (s.setups || []).map(function (id) { return byId.get(id); }).filter(Boolean);
-  h += '<section><h3>Setups studying this (' + su.length + ')</h3>';
-  if (su.length) h += '<div class="sitelist">' + su.map(rowHtml).join('') + '</div><div style="margin-top:8px"><button class="btn" id="src-onmap" data-onmap="' + esc(s.id) + '">Show these on the map</button></div>';
-  else h += '<p class="note">No setup on this map is recorded as studying it.</p>';
-  if (s.past_setups && s.past_setups.length) h += '<h3 style="margin-top:12px">Past experiments (not on the map)</h3><p>' + esc(s.past_setups.join('; ')) + '</p><p class="note">Their papers are in the references below.</p>';
-  h += '</section>';
-  h += refsSection(s.references);
-  if ((TPC.reference_talk || {}).found && s.in_reference_talk === false) h += '<p class="note"><b class="dagger">†</b> Not in the overview talk’s lists; added from the round-table minutes and papers.</p>';
-  h += copyRow('src-' + s.id) + '</div>';
-  return h;
+  var sb = su.length ? '<div class="sitelist">' + su.map(rowHtml).join('') + '</div><div style="margin-top:8px"><button class="btn" id="src-onmap" data-onmap="' + esc(s.id) + '">Show these on the map</button></div>' : '';
+  if (s.past_setups && s.past_setups.length) sb += '<h4>Past experiments (not on the map)</h4><p>' + esc(s.past_setups.join('; ')) + '</p>';
+  h += psec('Setups studying it', su.length, sb);
+  h += psec('References', (s.references || []).length, refsBody(s.references));
+  if (s.in_reference_talk === false && (TPC.reference_talk || {}).found) h += '<p class="pfoot"><b class="dagger">†</b> Added beyond the overview talk, from the round-table minutes and papers.</p>';
+  return h + '</div>';
 }
-function revealLabel() {
-  var w = $('det-scene'), l = document.querySelector('#det-svg .slab.sel');
-  if (!w || !l) return;
-  var a = w.getBoundingClientRect(), b = l.getBoundingClientRect();
-  if (b.right > a.right - 8) w.scrollLeft += b.right - a.right + 16;
-  else if (b.left < a.left + 8) w.scrollLeft -= a.left - b.left + 16;
+function selectCategory(id, opt) {
+  opt = opt || {};
+  var c = catById.get(id);
+  if (!c) return;
+  if (!opt.fromHash && !lastFocus) lastFocus = document.activeElement;
+  state.catId = id; state.srcId = null; state.selId = null; state.site = null;
+  if (state.view !== 'detector') setView2('detector');
+  showPanel(renderCategory(c));
+  pushHash();
+  markRows(); markScene();
+  if (!opt.fromHash) { var t = $('panel-title'); if (t) t.focus({ preventScroll: true }); }
 }
 function selectSource(id, opt) {
   opt = opt || {};
   var s = srcById.get(id);
   if (!s) return;
   if (!opt.fromHash && !lastFocus) lastFocus = document.activeElement;
+  var mine = catsOf(s);
+  if (opt.cat && catById.has(opt.cat)) state.catId = opt.cat;
+  else if (!state.catId || !mine.some(function (c) { return c.id === state.catId; })) state.catId = mine.length ? mine[0].id : null;
   state.srcId = id; state.selId = null; state.site = null;
   if (state.view !== 'detector') setView2('detector');
   showPanel(renderSource(s));
   pushHash();
-  markRows(); markSources(); revealLabel();
+  markRows(); markScene();
   if (!opt.fromHash) { var t = $('panel-title'); if (t) t.focus({ preventScroll: true }); }
 }
 function showOnMap(id) {
@@ -2130,18 +2227,20 @@ function showOnMap(id) {
 
 /* ================= legend, views, keys ================= */
 function buildLegend() {
-  var open = !narrow();
-  try { var v = localStorage.getItem('acmap-legend'); if (v === '0') open = false; if (v === '1') open = true; } catch (e) { /* storage unavailable */ }
+  var open = false;
+  try { open = localStorage.getItem('acmap-legend') === '1'; } catch (e) { open = false; }
   var item = function (svg, text) { return '<span class="legend-item">' + svg + esc(text) + '</span>'; };
   var cluster = '<svg width="20" height="20" viewBox="-10 -10 20 20" aria-hidden="true"><path class="c-xenon" d="M0,-9A9,9 0 1 1 -7.8,4.5L0,0Z"/><path class="c-argon" d="M-7.8,4.5A9,9 0 0 1 0,-9L0,0Z"/><text class="n" style="font:700 10px var(--font);fill:var(--ink);text-anchor:middle;dominant-baseline:central">3</text></svg>';
+  var targets = TARGETS.filter(function (t) { return t[0] !== 'both' || HAS_BOTH; });
   $('legend').innerHTML = '<div class="legend-head"><button id="legend-toggle" aria-expanded="' + open + '" aria-controls="legend-body">Legend <span class="car">' + (open ? 'hide' : 'show') + '</span></button></div>' +
     '<div class="legend-body" id="legend-body"' + (open ? '' : ' hidden') + '>' +
-    '<div class="legend-row"><span class="legend-k">Target (colour and inner mark)</span>' + TARGETS.map(function (t) { return item(glyph(t[0], 'lab', 14), t[1]); }).join('') + '</div>' +
-    '<div class="legend-row"><span class="legend-k">Type (shape)</span>' + item(glyph('xenon', 'lab', 14), 'R&D setup') + item(glyph('xenon', 'in-situ', 14), 'Experiment') + '</div>' +
-    '<div class="legend-row">' + item(cluster, 'Several setups at one site, split by target') + '</div>' +
-    '<div class="legend-row">' + item('<span class="swatch-land"></span>', 'Country of the hovered or selected site') + '</div></div>';
+    '<div class="legend-row"><span class="legend-k">Target</span>' + targets.map(function (t) { return item(glyph(t[0], 'lab', 14), t[1]); }).join('') + '</div>' +
+    '<div class="legend-row"><span class="legend-k">Type</span>' + item(glyph('xenon', 'lab', 14), 'R&D setup') + item(glyph('xenon', 'in-situ', 14), 'Experiment') + '</div>' +
+    '<div class="legend-row">' + item(cluster, 'Several setups at one site') + '</div></div>';
+  $('legend').classList.toggle('closed', !open);
   $('legend-toggle').addEventListener('click', function () {
     var b = $('legend-body'); b.hidden = !b.hidden;
+    $('legend').classList.toggle('closed', b.hidden);
     this.setAttribute('aria-expanded', String(!b.hidden));
     this.querySelector('.car').textContent = b.hidden ? 'show' : 'hide';
     try { localStorage.setItem('acmap-legend', b.hidden ? '0' : '1'); } catch (e) { /* storage unavailable */ }
@@ -2159,7 +2258,7 @@ function setView2(v) {
   bar.classList.toggle('plain', v === 'detector' || v === 'about');
   bar.classList.toggle('on-map', v === 'map');
   if (v === 'detector' || v === 'about') { $('filters').classList.remove('open'); $('filters-toggle').setAttribute('aria-expanded', 'false'); }
-  if ((state.site && v !== 'map') || (state.srcId && v !== 'detector') || (state.selId && v !== 'map' && v !== 'list')) hidePanel();
+  if ((state.site && v !== 'map') || ((state.srcId || state.catId) && v !== 'detector') || (state.selId && v !== 'map' && v !== 'list')) hidePanel();
   updateExtent();
   if (v === 'detector') setDetMode();
   if (v === 'map') { requestAnimationFrame(function () { resizeMap(); schedule(); var s = byId.get(state.selId); if (s) ensureVisible(s); }); }
@@ -2174,19 +2273,24 @@ document.querySelector('.tabs').addEventListener('keydown', function (ev) {
   else if (ev.key === 'End') n = VIEWS.length - 1;
   if (n == null) return;
   ev.preventDefault();
+  hidePanel();
   setView2(VIEWS[n]);
   $('tab-' + VIEWS[n]).focus();
 });
 document.addEventListener('keydown', function (ev) {
   if (ev.key !== 'Escape') return;
   if (!$('tip').hidden) hideTip();
-  if (closeMechMenu()) { $('f-mech-btn').focus(); return; }
-  if (!$('panel').hidden) { closePanel(); return; }
+  if (closeMore()) { $('f-more-btn').focus(); return; }
+  if (!$('panel').hidden) {
+    if (state.srcId && state.catId) { lastFocus = null; selectCategory(state.catId); return; }   /* source opened from a group: step back to the group */
+    closePanel(); return;
+  }
   if ($('filters').classList.contains('open')) { $('filters').classList.remove('open'); $('filters-toggle').setAttribute('aria-expanded', 'false'); $('filters-toggle').focus(); }
 });
 $('map-svg').addEventListener('click', hideTip);
 $('skip').addEventListener('click', function (ev) {
   ev.preventDefault();
+  hidePanel();
   setView2('map');
   try { $('map-svg').focus(); } catch (e) { /* ignore */ }
 });
